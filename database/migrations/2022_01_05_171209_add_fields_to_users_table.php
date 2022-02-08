@@ -19,8 +19,7 @@ class AddFieldsToUsersTable extends Migration
             $table->text('bio')->nullable();
         });
     }
-
-    /**
+/**
      * Reverse the migrations.
      *
      * @return void

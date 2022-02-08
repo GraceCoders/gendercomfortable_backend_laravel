@@ -37,7 +37,8 @@ class UsersController extends Controller
     {
         try {
             $arrayData = $request->all();
-            $this->validateRequest($request->all(), $this->validateSignUp($arrayData));
+            $this->validateRequest($request->all(),
+             $this->validateSignUp($arrayData));
             $arrayData['password'] = Hash::make($arrayData['password']);
             $arrayData['profile_pic'] = $this->uploadFile($arrayData['profile_pic'], config('foldertype.profile'));
             $user->fill($arrayData)->save();
@@ -104,7 +105,7 @@ class UsersController extends Controller
             $token = Password::getRepository()->create($user);
             // echo $token;
             $user->sendPasswordResetNotification($token);
-            //sent email link to user 
+            //sent email link to user
             // $userDetails = $this->loginUser($userDetails);
             // $this->sendSuccessResponse(trans("Messages.Success"), $user->toArray());
         } catch (Exception $ex) {
@@ -120,9 +121,10 @@ class UsersController extends Controller
      * @param  mixed $user
      * @return void
      */
-    public function userDetail($id, User $user)
+    public function userDetail( User $user)
     {
         try {
+            $id = Auth::id();
             $getResponse = User::getUserDetails($id);
             if (!$getResponse) {
                 throw new Exception(trans("Messages.InvalidUser"));
@@ -166,7 +168,7 @@ class UsersController extends Controller
         try {
             $this->validateRequest($request->all(), ['current_password' => 'required', 'new_password' => 'min:8|required_with:confirm_password|same:confirm_password', 'confirm_password' => 'required|min:8']);
             $userDetails = $user->where('id', Auth::user()->id)->first();
-            if (!Hash::check($request->old_password, $userDetails->password)) {
+            if (!Hash::check($request->old_password, $userDetails->password == false)) {
                 throw new Exception(trans("Messages.InvalidPassword"));
             }
             $user->where('id', Auth::user()->id)->update(['password' => Hash::make($request->new_password)]);

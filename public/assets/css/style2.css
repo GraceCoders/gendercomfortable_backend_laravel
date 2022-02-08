@@ -1,0 +1,1797 @@
+.top-bar {
+    color: #fff;
+}
+
+.top-bar p {
+    display: inline;
+    font-size: 14px;
+}
+
+.hero-sec {
+    background: url("../slicing_web/bg.svg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: relative;
+    background-size: 60%;
+}
+
+.header_border {
+    border-bottom: 2px solid #000000;
+    opacity: 0.1;
+}
+
+.purple {
+    background: #6a359f;
+}
+
+#second {
+    margin-top: 40px;
+}
+
+.buttons {
+    float: right;
+}
+
+@media(max-width: 374px) {
+    .buttons {
+        float: left;
+        top: 0%;
+    }
+}
+
+.button1 {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: #F58415;
+    color: white;
+}
+
+.button2 {
+    border-radius: 8px;
+    background-color: #6A359F;
+    color: white;
+    font-size: 16px;
+    padding: 10px 50px;
+    margin-left: 20px;
+}
+
+.line {
+    border: 1px solid #000000;
+    opacity: 0.1;
+}
+
+#img2 {
+    margin-left: 0px;
+}
+
+.hh {
+    border: 1px solid black;
+    border: none;
+    font-size: 18px;
+}
+
+.hh1 {
+    font-size: 50px;
+}
+
+@media(max-width: 525px) {
+    .hh1 {
+        font-size: 25px;
+    }
+}
+
+.regis_button {
+    background: #6A359F;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+}
+
+#regis_sec {
+    margin-top: 80px;
+    margin-bottom: 50px;       
+}
+
+#fourth_sec {
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+.para2 {
+    color: white;
+    margin-top: 0px;
+    margin-left: 350px;
+    font-size: 16px;
+}
+
+.pera {
+    font-size: 18px;
+}
+
+.heading {
+    font-size: 25px;
+}
+
+#heading1 {
+    padding-left: 30px;
+}
+
+#imgg12 {
+    margin-top: 30px;
+}
+
+@media(max-width: 374px) {
+    #heading1 {
+        padding-left: 0px;
+    }
+}
+
+#img22 {
+    margin-top: 60px;
+    margin-right: 100px;
+}
+
+@media(max-width: 374px) {
+    #img22 {
+        margin-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+#modal-dialog2 {
+    max-width: 700px !important;
+}
+
+@media (min-width: 576px) {
+    #modal-dialog2 {
+        max-width: 400px;
+        margin: 1.75rem auto;
+    }
+}
+
+.p3 {
+    color: white;
+}
+
+.footer-bar {
+    color: #fff;
+    margin-top: 0px;
+}
+
+.footer-bar p {
+    display: inline;
+    font-size: 14px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.google_fonts {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* height:100px; */
+    margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.google_fonts img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+
+/* login page css  */
+
+.formdiv {
+    border: 1px solid black;
+    border: none;
+    background: #FFFFFF;
+    padding: 60px;
+    border-radius: 8px;
+}
+
+#checkout21 {
+    background: #F58415;
+    color: white
+}
+
+#gcimg {
+    text-align: center;
+}
+
+.learn {
+    font-size: 24px;
+}
+
+.loginh {
+    font-size: 16px;
+}
+
+@media(max-width: 320px) {
+    #gcimg {
+        margin-left: 0px;
+    }
+    .formdiv h1 {
+        margin-left: 20px;
+    }
+    .formdiv p {
+        margin-left: 20px;
+    }
+}
+
+.psw a {
+    color: #F58415;
+}
+
+.pswww {
+    color: black;
+}
+
+#forgotan {
+    color: #F58415;
+}
+
+#hideimg {
+    position: absolute;
+    right: 18px;
+    top: 30%;
+}
+
+.form-floating {
+    position: relative;
+}
+
+#forgot a {
+    float: right;
+    color: #F58415;
+    margin-bottom: 20px;
+}
+
+.d-grid {
+    margin: 30px;
+}
+
+.round_div {
+    width: 96px;
+    height: 96px;
+    background: #F6F7FA;
+    border: 1px dashed rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+
+.round_div2 p {
+    color: rgb(180, 168, 168)
+}
+
+.round_div img {
+    margin-top: 40px;
+}
+
+.signuph {
+    padding-top: 20px;
+}
+
+.bio_input {
+    margin-top: 40px;
+}
+
+#signup_img {
+    margin-top: 120px;
+}
+
+.round_div1 {
+    width: 350px;
+    height: 160px;
+    background: #F6F7FA;
+    border: 1px dashed rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.formdiv6{
+    background: #FFFFFF;
+    width:500px;
+    padding-top: 50px;
+    padding:60px;
+  
+}
+@media(max-width:525px){.formdiv6{
+    width:300px;}
+}
+.divsround {
+    padding: 60px;
+    background: #F6F7FA;
+    border: 1px dashed rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 15px;
+    text-align: center;
+}
+
+@media(max-width:374px) {
+    .round_div1 {
+        width: 220px;
+    }
+}
+
+.round_div1 img {
+    margin-top: 70px;
+}
+
+.account_type h1 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#account_image {
+    margin-left: 10px;
+    width: 170px;
+    height: 180px;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#account_row {
+    margin-left: 0px;
+}
+
+#account_image img {
+    margin-top: 40px;
+}
+
+@media(max-width:525px) {
+    #account_image {
+        margin-top: 20px;
+        margin-left: 60px;
+    }
+}
+
+@media(max-width:425px) {
+    .account_type {
+        margin-left: 0px;
+        width: 300px;
+    }
+}
+
+#exampleModal51 {
+    position: absolute !important;
+    top: 40% !important;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-open #exampleModal51 {
+    overflow-x: 50% !important;
+    overflow-y: auto;
+}
+
+#exampleModal52 {
+    position: absolute !important;
+    top: 40% !important;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-open #exampleModal52 {
+    overflow-x: 50% !important;
+    overflow-y: auto;
+}
+
+
+/* forgot css */
+
+.account_forgot {
+    background: #FFFFFF;
+    height: 600px;
+    width: 400px;
+    border: 1px solid black;
+}
+
+#submit {
+    width: 300px;
+}
+
+@media(max-width:375px) {
+    #submit {
+        width: 350px;
+    }
+}
+
+#input_submit {
+    width: 350px;
+}
+
+@media(max-width:375px) {
+    .account_forgot {
+        margin-left: 0px;
+        width: 350px;
+        height: 550px;
+        margin-top: 0px;
+    }
+}
+
+
+/* home admin_empty*/
+
+#radius_btn {
+    border-radius: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+    background: #6A359F;
+    color: white
+}
+
+.round_div3 {
+    width: 50px;
+    height: 50px;
+    background: #F6F7FA;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 50px;
+    margin-left: 30px;
+}
+
+.buttons1 {
+    float: right;
+    display: inline-flex;
+}
+
+@media(max-width:375px) {
+    buttons1 {
+        float: left;
+    }
+}
+
+#plus_image {
+    color: #FFFFFF;
+}
+
+.buttons1 img {
+    border-radius: 50px;
+}
+
+#dropdownMenuButton1 {
+    padding-top: 15px;
+}
+
+.home_course {
+    padding-top: 80px;
+}
+
+.home {
+    background-image: url("../slicing_web/bg_bottom.svg"), url("../slicing_web/bg_top.svg");
+    background-repeat: no-repeat;
+    background-position: right bottom, left top;
+    background-size: 45%;
+    position: relative;
+}
+.pagination {
+    display: flex;
+    /* padding-left: 45% !important; */
+    justify-content: center!important;
+    list-style: none;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-right: 10px !important;
+    
+}
+.page-item:first-child .page-link {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    margin-right: 7px !important;
+    border-radius: 5px;
+}
+.page-item:not(:first-child) .page-link {
+    margin-right: 7px !important;
+    border-radius: 5px;
+}
+
+
+
+/* upload course css */
+
+#inner_button {
+    position: absolute;
+    border-radius: 10px;
+    right: 5px;
+    top: 3%;
+    padding: 13px;
+    background-color: #F58415;
+    color: white;
+}
+
+#floatingPassword1 {}
+
+small h1 {
+    float: left;
+    color: black;
+}
+
+#lesssonName {
+    margin-top: 60px;
+}
+
+#lesssonName1 {
+    margin-top: 120px;
+}
+
+#lession_pera {
+    float: left;
+    font-size: 10px;
+    padding-bottom: 30px;
+}
+
+.divide_marks1 {}
+
+#vedio_image {
+    margin-left: 50px;
+    width: 170px;
+    height: 180px;
+    border-radius: 8px;
+}
+
+#vedio_image1 {
+    margin-left: 20px;
+    width: 170px;
+    height: 180px;
+    border-radius: 8px;
+}
+
+@media(max-width:375px) {
+    #vedio_image1 {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media(max-width:375px) {
+    #vedio_image {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+}
+
+
+/* create course */
+
+.formdiv2 {
+    border: 1px solid black;
+    border: none;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 60px;
+    padding-bottom: 30px;
+}
+
+#floatingInput {
+    background: #F6F7FA;
+    border: none;
+}
+
+#floatingPassword {
+    background: #F6F7FA;
+    border: none;
+}
+
+.heading_course {
+    font-size: 15px;
+}
+
+.upload_pera {
+    color: #F58415;
+}
+
+.formdiv2 h1 {
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.round_div1 {
+    width: 410px;
+    height: 200px;
+    background: #F6F7FA;
+    border: 1px dashed rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+}
+
+@media(max-width:344px) {
+    .round_div1 {
+        width: 170px;
+    }
+}
+
+.formdiv2 button {
+    background-color: #6A359F;
+    color: white
+}
+
+.course_input {
+    margin-top: 40px;
+}
+
+.divide_marks {
+    float: right;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.divide_marks1 {
+    float: right;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+#profilepic {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+}
+
+#profilepic1 {
+    border-radius: 50px;
+    width: 96px;
+    height: 96px;
+    position: relative;
+}
+
+#pluspic {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+
+#profilepics1 {
+    border-radius: 50px;
+    width: 96px;
+    height: 96px;
+    position: relative;
+}
+
+#pluspic1 {
+    position: absolute;
+    top: 10%;
+}
+
+#pluspics {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#pluspic1 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.plusesimg {
+    position: relative!important;
+}
+
+
+/* change password */
+
+#pass {
+    font-size: 15px;
+}
+
+
+/* create test css */
+
+.formdiv4 {
+    border: 1px solid black;
+    border: none;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding-bottom: 30px;
+}
+
+.form-group1 {
+    display: inline;
+}
+
+.margintop {
+    margin-top: 30px;
+}
+
+
+/* home admin */
+
+#min_ago {
+    color: gainsboro
+}
+
+#home-admin {
+    background-color: gray!important;
+}
+
+.nav-tabs .nav-link.active {
+    border-color: #6A359F!important;
+    border-width: 0 0 4px 0;
+    outline: none;
+    text-decoration: none;
+    color: #6A359F;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: none;
+}
+
+#home-tab {
+    color: #6a359f !important;
+}
+
+#profile-tab {
+    color: #6a359f !important;
+}
+
+#nav_btn {
+    position: relative;
+    padding-top: 30px;
+}
+
+.publish {
+    color: #6A359F;
+}
+
+#radius_btn1 {
+    border-radius: 100px;
+    padding-left: 10px;
+    padding-right: 30px;
+    margin-bottom: 30px;
+    background: #6A359F;
+    color: white;
+    left: 40%;
+}
+
+#radius_btn12 {
+    border-radius: 100px;
+    padding-left: 10px;
+    padding-right: 30px;
+    /* margin-bottom: 30px; */
+    background: #6A359F;
+    color: white;
+    position: absolute;
+    top: 15%;
+    right: 0%;
+}
+
+.second {
+    margin-top: 40px;
+}
+
+#second11 {
+    margin-top: 40px;
+    position: relative;
+}
+
+#second22 {
+    position: relative;
+    margin-top: 40px;
+}
+
+#second31 {
+    position: relative;
+    margin-top: 40px;
+}
+
+#second21 {
+    margin-top: 40px;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+#second23 {
+    position: relative;
+    margin-top: 40px;
+    padding-bottom: 70px;
+}
+
+#second33 {
+    position: relative;
+    margin-top: 40px;
+}
+
+.publish {
+    margin-top: 30x;
+}
+
+#course_cover {
+   border-radius: 50px;
+    position: relative;
+}
+
+#scroll {
+    background-color: white;
+}
+
+#scrolling {
+    background-color: white;
+    padding: 5px;
+    radius: 5px;
+}
+
+.small_buttons {
+    padding-bottom: 40px;
+    padding-top: 30px;
+}
+
+.image_cover {
+    position: absolute;
+    top: 73%;
+    color: white;
+    left: 8%;
+}
+
+.image_cover1 {
+    position: absolute;
+    top: 73%;
+    color: white;
+    left: 8%;
+}
+
+.image_cover2 {
+    position: absolute;
+    top: 73%;
+    color: white;
+    left: 8%;
+}
+
+.image_cover4 {
+    position: absolute;
+    top: 55%;
+    color: white;
+    left: 8%;
+}
+
+.image_cover5 {
+    position: absolute;
+    top: 55%;
+    color: white;
+    left: 8%;
+}
+
+.image_cover6 {
+    position: absolute;
+    top: 55%;
+    color: white;
+    left: 8%;
+}
+
+.donec {
+    color: #9D9FA0
+}
+
+#banner_img {
+    padding-bottom: 30px;
+}
+
+#donec1 {
+    font-size: 10px;
+}
+
+.pluss {
+    position: relative;
+}
+
+
+/* course stat */
+
+.comapany1 {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.square {
+    width: 300px;
+    height: 100px;
+    border: 1px solid black;
+    background-color: #F58415;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 5px;
+}
+
+.border_right {
+    padding: 5px;
+    border-right: 3px solid rgb(238, 234, 234);
+}
+
+.dreafts1 {
+    margin-left: 2px;
+    font-size: 18px;
+}
+
+.dreafts {
+    margin-left: 15px;
+}
+
+.passwordpopup {
+    margin-top: 20px;
+}
+
+.square1 {
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    border: none
+}
+
+@media(max-width:768px) {
+    .square {
+        height: 250px;
+        width: 170px;
+    }
+}
+
+@media(max-width:768px) {
+    .dreafts {
+        margin-left: 60px;
+    }
+}
+
+@media(max-width:768px) {
+    .dreafts1 {
+        margin-left: 50px;
+    }
+}
+
+@media(max-width:375px) {
+    .int {
+        margin-top: 20px;
+    }
+}
+
+.passwordpopup1 {
+    display: inline;
+}
+
+#second1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+/* create test */
+
+#upperlabel {
+    padding-bottom: 50px;
+}
+
+.form-label {
+    margin-bottom: 40px;
+}
+
+#buttonlarge {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 100px;
+}
+
+#backcolor {
+    background: #FFFFFF;
+}
+
+.backsp {
+    color: #6A359F;
+    margin-top: 5px;
+}
+
+.third-sec-upload {
+    background: url("../slicing_web/bg_bottom.svg"), url("../slicing_web/bg_top.svg");
+    background-repeat: no-repeat;
+    background-position: right bottom, left top;
+    position: relative;
+}
+
+
+/* courses css */
+
+#company-cover {
+    border-radius: 50px;
+    position: relative;
+    height: 220px;
+}
+
+#company-cover1 {
+    border-radius: 20px;
+    position: relative;
+    height: 80px;
+}
+
+#second_company {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+/* certification */
+
+.image_covers {
+    position: absolute;
+    top: 65%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp {
+    position: absolute;
+    top: 80%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp a {
+    color: white;
+}
+
+.image_covers1 {
+    position: absolute;
+    top: 65%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp1 {
+    position: absolute;
+    top: 80%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp1 a {
+    color: white;
+}
+
+.image_covers2 {
+    position: absolute;
+    top: 65%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp2 {
+    position: absolute;
+    top: 80%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp2 a {
+    color: white;
+}
+
+.image_covers3 {
+    position: absolute;
+    top: 50%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp3 {
+    position: absolute;
+    top: 60%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp3 a {
+    color: white;
+}
+
+.image_covers4 {
+    position: absolute;
+    top: 50%;
+    color: white;
+    left: 10%
+}
+
+.image_coversp4 {
+    position: absolute;
+    top: 60%;
+    color: white;
+    left: 10%;
+}
+
+.image_coversp4 a {
+    color: white;
+}
+
+#blue_download {
+    color: #F58415;
+}
+
+.image_covered {
+    position: absolute;
+    top: 165%;
+    color: white;
+    left: 10%;
+}
+
+.image_covered1 {
+    position: absolute;
+    top: 165%;
+    color: white;
+    left: 40%;
+}
+
+#heading41 {
+    position: absolute;
+    top: 75%;
+    color: white;
+    left: 5%;
+}
+
+#largeimg1 {
+    position: relative;
+    border-radius: 30px;
+}
+
+#largeimg {
+    position: relative;
+    margin-top: 100px;
+    border-radius: 30px;
+}
+
+#largeimages {
+    position: relative;
+    border-radius: 30px;
+    margin-top: 40px;
+}
+
+.pera41 {
+    position: absolute;
+    top: 85%;
+    color: #F58415;
+    left: 5%;
+}
+
+
+element.style {
+}
+.dropdown-menu.show {
+    display: block;
+}
+.dropdown-menu-end {
+    --bs-position: end;
+    right: 0;
+    left: auto;
+}
+
+#dropdown-menu2{
+    width: 230px !important;
+}
+
+
+/* cours details */
+
+.pera4 {
+    position: absolute;
+    top: 105%;
+    color: #F58415;
+    left: 10%;
+}
+
+#heading4 {
+    position: absolute;
+    top: 100%;
+    color: white;
+    left: 10%;
+}
+
+
+/* course  css */
+
+#vedioBlack {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 100px;
+}
+
+.large_heading {
+    margin-top: 30px;
+    position: absolute;
+}
+
+.heading_certification {
+    padding-top: 30px;
+}
+
+
+/* course complete */
+
+.btn-close {
+    background-color: white;
+}
+
+#btnclose {
+    color: black;
+}
+
+
+/* #success {
+    background-color: #6A359F;
+    
+} */
+
+#success_button {
+    background-color: #6A359F;
+    margin-top: 30px;
+    margin-top: 30px;
+}
+
+#successimg {
+    margin-top: 60px;
+}
+
+.back_pera {
+    color: #F58415;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.success_heading {
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+#download_certificate {
+    background-color: #6A359F;
+    color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 6px;
+}
+
+
+/* test css */
+
+#fluide_div {
+    padding: 100px;
+    background-color: #6A359F;
+    position: relative;
+}
+
+.testsheading {
+    margin-top: px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.testsheadings {
+    color: white;
+    float: right;
+}
+
+.absolute_div {
+    position: absolute;
+    padding: 70px;
+    border: 1px solid black;
+    background-color: #FFFFFF;
+    left: 35%;
+    border-radius: 25px;
+}
+
+#save {
+    background-color: #6A359F;
+    color: white;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#inputs {
+    margin-top: 100px;
+}
+
+#radio_check {
+    position: absolute;
+    top: 35%;
+    left: 10px;
+}
+
+#radio_inputs {
+    position: relative;
+}
+
+#radio_check1 {
+    position: absolute;
+    top: 35%;
+    left: 75%;
+}
+
+#radio_check2 {
+    position: absolute;
+    top: 26%;
+    left: 5%;
+}
+
+#radio_check3 {
+    position: absolute;
+    top: 24%;
+    left: 64%;
+}
+
+
+/* dropdown */
+
+.logout_popup a {
+    color: #6A359F
+}
+
+#dropdownleft[style] {
+    right: 50%;
+}
+
+element.style {
+    position: absolute;
+    margin: 0px;
+    transform: translate3d(-110px, 49px, 0px);
+}
+
+
+/* course details2 */
+
+.pera4 {
+    position: absolute;
+    top: 105%;
+    color: #F58415;
+    left: 10%;
+}
+
+#heading4 {
+    position: absolute;
+    top: 100%;
+    color: white;
+    left: 10%;
+}
+
+.formdiv5 {
+    border: 1px solid black;
+    border: none;
+    background: #FFFFFF;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+#checkout {
+    background-color: #6A359F;
+    color: white;
+    /* margin-bottom: 10px; */
+}
+
+.peraseats {
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.headingseat {
+    color: #F58415;
+}
+
+.details2heading {
+    position: absolute;
+    color: white;
+    top: 60%;
+    left: 5%;
+}
+@media(max-width:425px) {
+    .details2heading {
+        top: 40%;
+    }
+}
+
+#details2img {
+    position: relative;
+    border-radius: 20px;
+}
+
+.details2heading1 {
+    position: absolute;
+    color: white;
+    top: 80%;
+    left: 5%;
+    color: #F58415;
+}
+@media(max-width:425px) {
+    .details2heading1 {
+        top: 80%;
+    }
+}
+
+
+/* payment option */
+
+#second5 {
+    margin-bottom: 50px;
+}
+
+.margineb {
+    padding-bottom: 100px;
+}
+
+#second4 {
+    margin-bottom: 20px;
+}
+
+.gray {
+    color: gray;
+}
+
+.comapany12 {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 87px;
+}
+
+.payments {
+    padding-top: 40px;
+}
+
+
+/* checkout */
+
+#checkout_img {
+    height: 100px;
+    border-radius: 20px;
+}
+
+#check1 {
+    margin-bottom: 50px;
+}
+
+
+/* checkout2 */
+
+.formdiv61 {
+    background: #FFFFFF;
+    width: 500px;
+    padding-top: 50px;
+    padding: 60px;
+    margin: auto;
+}
+
+@media(max-width:425px) {
+    .formdiv61 {
+        width: 300px;
+    }
+}
+
+
+/* paymeny success */
+
+.formdivs {
+    border: 1px solid black;
+    border: none;
+    background: #FFFFFF;
+    width: 500px;
+    padding: 50px;
+    border-radius: 8px;
+}
+
+@media(max-width:375px) {
+    .formdivs {
+        width: 300px;
+    }
+}
+
+.margins {
+    margin-bottom: 30px;
+}
+
+.formdiv6 {
+    background: #FFFFFF;
+    /* width:500px; */
+    padding-top: 50px;
+    padding: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin:auto;
+}
+
+.payment_heading {
+    color: #F58415;
+}
+
+.perat {
+    font-size: 20px;
+}
+
+.perat1 {
+    color: #F58415;
+}
+
+.back_pera1 a {
+    color: #6A359F;
+}
+
+.centers {
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+#checkout2 {
+    background-color: #6A359F;
+    color: white;
+}
+
+
+/* edit profile2 */
+
+#profilepic2 {
+    width: 370px;
+    position: relative;
+}
+
+@media(max-width:447px) {
+    #profilepic2 {
+        width: 200px;
+    }
+}
+
+
+/* company details */
+
+#image_radius {
+    border-radius: 50px;
+}
+
+.formdiv51 {
+    border: 1px solid black;
+    border: none;
+    background: #FFFFFF;
+    padding: 18px;
+    border-radius: 8px;
+    width: 400px;
+    padding-bottom: 30px;
+    margin-bottom: 120px;
+}
+
+.formdiv511 {
+    border: 1px solid black;
+    border: none;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    width: 380px;
+    position: absolute;
+    top: 40px;
+    left: 7%;
+}
+
+.maps {
+    position: relative;
+}
+
+@media(max-width:375px) {
+    .formdiv51 {
+        width: 300px;
+    }
+}
+@media(max-width:375px) {
+    .formdiv511 {
+        width: 200px;
+    }
+}
+
+
+@media(max-width:375px) {
+    #heading4 {
+        position: absolute;
+        top: 150%;
+        color: white;
+        left: 10%;
+    }
+}
+
+#checkouts {
+    background-color: #6A359F;
+    color: white;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.modal-footers {
+    margin: auto;
+}
+
+
+/* purchase course state */
+
+#radiusimages1 {
+    border-radius: 50px;
+}
+
+element.style {
+    position: absolute;
+    /* inset: 0px auto auto 0px; */
+    transform: translate(-4px, 49px);
+}
+
+#popup_color {
+    color: #F58415;
+}
+
+.dropdownleft[style] {
+    left: auto!important;
+    right: 0%!important;
+}
+
+.spacing11{
+    padding-left: 20px;
+}
+.spacing111{
+    padding-left: 0px;
+}
+
+
+.circle-wrap {
+    margin: 50px auto;
+    width: 150px;
+    height: 150px;
+    background: #e6e2e7;
+    border-radius: 50%;
+}
+
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+    clip: rect(0px, 150px, 150px, 75px);
+}
+
+.circle-wrap .circle .mask .fill {
+    clip: rect(0px, 75px, 150px, 0px);
+    background-color: #F58415;
+}
+
+.circle-wrap .circle .mask.full,
+.circle-wrap .circle .fill {
+    animation: fill ease-in-out 3s;
+    transform: rotate(150deg);
+}
+
+@keyframes fill {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(126deg);
+    }
+}
+
+.circle-wrap .inside-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #fff;
+    line-height: 130px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: absolute;
+    z-index: 100;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+#digit_val {
+    color: #F58415;
+}
+
+.curiheading {
+    padding-bottom: 80px;
+}
+
+#donecs_pera {
+    padding-bottom: 70px;
+}
+
+#small_company {
+    width: 130px;
+    height: 100px;
+}
+
+#dropdownMenuButton11::after {
+    display: none !important;
+    margin-left: 0.255 em;
+    vertical-align: 0.255 em;
+    content: "";
+    border-top: 0.3 em solid;
+    border-right: 0.3 em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3 em solid transparent;
+}
+
+#dropdownMenuButton11 {
+    padding-top: 10px;
+}
+
+.notification {
+    width: 400px;
+}
+
+@media(max-width:525px) {
+    .notification {
+        width: 200px;
+    }
+}
+
+#dropdownMenuButton15{
+  
+    border:1px solid black;
+    padding:10px;
+  
+   
+}
+.buttonshome{
+    padding:20px;
+}
+#filter{
+    margin-left: 10px;
+    color:white;
+    background-color: #F58415;
+    border-radius: 8px;
+    padding:10px;
+    padding-left: 30px;
+    padding-right: 30px;
+   
+}
+@media(max-width:320px) {
+    
+    #filter{  padding-left: 10px;
+    padding-right: 10px
+    }
+}
+
+.two{
+    margin-top: 20px;
+}
+.oneheading{
+
+    color:#F58415
+    
+}
+#dropdown-menu1.show {
+    display: block;
+    width: 210px !important;
+}
+.colorsgray{
+   color:gray;
+}
+.borders{
+    border-left:2px solid #FFFFFF ;
+     
+
+    ;
+    border-right: 2px solid #FFFFFF;
+}
+
+
