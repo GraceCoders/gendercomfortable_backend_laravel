@@ -54,12 +54,12 @@
         <div class="container">
             <div class="row">
                 <div class=" col-lg-2 col-12" id="second">
-                    <a href="{{ url('/signup_admin') }}"> <img class="img-fluid"
+                    <a href="{{ route('admin.signup') }}"> <img class="img-fluid"
                             src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
                 <div class="col-lg-10 col-12" id="second">
                     <div class="buttons">
-                        <a href="{{ url('/signup_admin') }}"> <button type="button" class="button1 button1-lg"
+                        <a href="{{ url('/admin/signup') }}"> <button type="button" class="button1 button1-lg"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button></a>
                         <a href="{{ url('/login') }}"> <button type="button" class="button2 button2-lg"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button></a>
@@ -124,7 +124,7 @@
 
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout21">Login</button>
                         </form>
-                        <p class="psw">Dont have an account? <a href="{{ url('/signup_admin') }}">Sign
+                        <p class="psw">Dont have an account? <a href="{{ url('/admin/signup') }}">Sign
                                 up</a></p>
                     </div>
                 </div>

@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class UploadController extends Controller
 {
-    public function upload(){
-        return view('admin.upload_content');
+    public function upload($id){
+
+        return view('admin.upload_content',compact('id'));
     }
 }

@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class CreatetestController extends Controller
 {
-    public function createtest(){
-        return view('admin.create test');
+    public function createtest($id){
+        return view('admin.create_test',compact('id'));
     }
+public function addQuestion(Request $request){
+$data = $request->all();
+
+}
+
 }

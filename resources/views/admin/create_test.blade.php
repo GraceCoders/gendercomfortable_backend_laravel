@@ -9,7 +9,7 @@
             <div class="row">
 
                 <div class="  col-lg-2 col-12 " id="regis_sec">
-                    <span><p class="backsp"><a href="{{url('upload_content')}}"><img  class="img-fluid"  src="{{asset('assets/slicing_web/back.svg')}}"  alt="..."></a>  &nbsp;back</p></span>
+                    <span><p class="backsp"><a href="{{url('content')}}"><img  class="img-fluid"  src="{{asset('assets/slicing_web/back.svg')}}"  alt="..."></a>  &nbsp;back</p></span>
                 </div>
                 <div class="  col-lg-8 col-12 " id="regis_sec">
                     <div class="formdiv2">
@@ -191,7 +191,6 @@
 
                     </div>
                 </div>
-
                 <div class="  col-lg-2 col-12 " id=""></div>
 
             </div>

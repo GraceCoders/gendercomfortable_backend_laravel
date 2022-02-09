@@ -18,6 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->foreignId('user_id')->index()->nullable();
             $table->string('question')->nullable();
             $table->tinyInteger('right_answer')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

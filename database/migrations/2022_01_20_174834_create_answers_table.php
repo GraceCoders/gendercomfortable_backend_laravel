@@ -13,10 +13,13 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create('question_option', function (Blueprint $table) {
             $table->id();
             $table->foreignId('question_id')->index()->nullable();
-            $table->tinyInteger('answer')->nullable();
+            $table->string('option1')->nullable();
+            $table->string('option2')->nullable();
+            $table->string('option3')->nullable();
+            $table->string('option4')->nullable();
             $table->timestamps();
         });
     }
