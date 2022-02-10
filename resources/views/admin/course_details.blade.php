@@ -1,12 +1,15 @@
 @extends('admin.layouts.main')
 @section('main-container')
+@php
+$i =1;
+@endphp
 <!-- Third div start -->
     <section class="third_sec bg-light">
         <div class="container " id="largeimg1">
 
             <img class="img-fluid" id="largeimg" class="image" src="{{asset('assets/slicing_web/cousre_banner.png')}}" alt="...">
-            <h4 id="heading41">Lorem ipsum dolor sit amet, consectetur</h4>
-            <p class="pera41">$120/seat</p>
+            <h4 id="heading41">{{$data->name}}</h4>
+            <p class="pera41">${{$data->price_per_seat}}/seat</p>
         </div>
     </section>
     <nav class="third-sec bg-light">
@@ -26,16 +29,17 @@
                             <div class="container">
 
                                 <h5>Description</h5>
-                                <p class="donec">Donec et felis vehicula lorem ullamcorper sollicitudin sed non nulla. Pellentesque rutrum eget tellus at finibus. Mauris vel dignissim turpis. Nulla euismod laoreet tellus, et consectetur mauris laoreet id. Aenean eu laoreet
-                                    lacus. Sed sed iaculis ex. Fusce sed sollicitudin ipsum. Phasellus pulvinar tellus rhoncus ante vestibulum vehicula. Morbi viverra sit amet neque eu blandit. Donec quis mauris nisi. Pellentesque pellentesque magna in
-                                    bibendum ultrices.
+                                <p class="donec">{{$data->description}}
                                 </p>
                                 <h5>Certification</h5>
-                                <p>Lesson 1</p>
-                                <p class="donec"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/video.svg')}}" alt="...">Duis aute irure dolor in reprehenderit in voluptate</p>
-                                <p>Lesson 2</p>
-                                <p class="donec" id="donecs_pera"> <img class="img-fluid" class="image" src="{{asset('assets/slicing_web/pdf2.svg')}}" alt="..."> Duis aute irure dolor in reprehenderit in voluptate</p>
+                                @if($data['lessons'])
+                                @foreach ($data['lessons'] as $value )
 
+
+                                <p>Lesson {{$i++}}</p>
+                                <p class="donec"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/video.svg')}}" alt="...">{{$value->lession_name}}</p>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="tab-pane fade bg-light" id="profile" role="tabpanel" aria-labelledby="profile-tab">

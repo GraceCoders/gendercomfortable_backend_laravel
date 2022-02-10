@@ -20,13 +20,13 @@
                             </div>
                         </center>
                         <div class="form-floating ">
-                            <input type="text" required name="name" class="form-control" id="floatingInput"
+                            <input type="text"  maxlength="20" required name="name" class="form-control" id="floatingInput"
                                 placeholder="name@example.com">
                             <label for="floatingInput">Course name</label>
                         </div>
                         <small class="divide_marks" class="form-text">0/20</small>
                         <div class="form-floating">
-                            <input type="text" required name="description" class="form-control" id="floatingInput"
+                            <input type="text" required maxlength="200" minlength="20" name="description" class="form-control" id="floatingInput"
                                 placeholder="name@example.com">
                             <label for="floatingInput" class="course_input">Course description</label>
                         </div>

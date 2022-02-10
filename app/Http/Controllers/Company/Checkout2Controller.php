@@ -9,5 +9,7 @@ class Checkout2Controller extends Controller
 {
     public function Checkout2(){
         return view('company.checkout2');
+
     }
 }
+

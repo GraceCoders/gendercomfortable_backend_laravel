@@ -23,7 +23,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-
+@php
+$user = Auth::user();
+@endphp
 <body>
     <section class="purple top-bar">
         <div class="container">
@@ -32,11 +34,7 @@
                     <a href=""> <img class="image-fluid" src="{{ asset('assets/slicing_web/mail.svg') }}"
                             class="img-fluid" alt="..."></a>
                     </a>
-
-
-
-
-                    <p>support@gendercomfortable.com</p>
+             <p>support@gendercomfortable.com</p>
                     <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/fb.svg') }}"
                             class="img-fluid" alt="..."></a>
                     <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/insta.svg') }}"
@@ -64,7 +62,8 @@
                                     class="img-fluid" alt="...">
                             </button>
                         </div>
-                        <img class="image" src="{{ asset('assets/slicing_web/profile_pic.png') }}"
+
+                        <img class="image" src="{{ asset('storage/app/public/'.$user->profile_pic) }}"
                             class="img-fluid" id="profilepic" alt="...">
                         <div class="btn-group">
                             <button type="button" class="btn btn bg-light dropdown-toggle" id="dropdownMenuButton11"

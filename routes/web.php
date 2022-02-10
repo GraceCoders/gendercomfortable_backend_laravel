@@ -59,12 +59,12 @@ Route::get('/home',[AdminController::class, 'Admin'])->name('admin.home');
 Route::get('/admin',[EmptyController::class, 'AdminEmpty']);
 Route::get('/course/{id}',[UploadController::class, 'upload']);
 Route::post('/lession',[CreateCourseController::class, 'addlession'])->name('admin.add.lession');
-
+Route::get('/create/test/{id}',[CreatetestController::class, 'createtest'])->name('admin.create.test');
+Route::post('/add/question',[CreatetestController::class, 'addQuestion'])->name('admin.add.question');
 Route::get('/edit profile',[EditprofileController::class, 'edit']);
 Route::get('/create_course',[CreateCourseController::class, 'createcourse'])->name('admin.coures.view');
 Route::post('/create_course',[CreateCourseController::class, 'addCourse'])->name('admin.add.course');
-Route::get('/create/test/{id}',[CreatetestController::class, 'createtest'])->name('admin.create.test');
-Route::get('/course_details',[CourseDetailsController::class, 'coursedetail']);
+Route::get('/publish/course/{id}',[CourseDetailsController::class, 'coursedetail'])->name('admin.publish.course');
 Route::get('/change_password',[ChangePassController::class, 'changepass']);
 });
 });
@@ -75,7 +75,8 @@ Route::group(['middleware' => 'user'], function () {
 
 // Company routes
 Route::prefix('/company')->group(function () {
-Route::get('/signup_company',[ SignupcompanyController::class, 'Signupcompany']);
+Route::get('/signup_company',[ SignupcompanyController::class, 'Signupcompany'])->name('company.signup');
+Route::post('/company_register',[SignupcompanyController::class, 'register'])->name('company.register');
 Route::get('/company_home',[CompanyhomeController ::class, 'Companyhome']);
 Route::get('/checkout',[CheckoutController ::class, 'Checkout']);
 Route::get('/checkout2',[Checkout2Controller ::class, 'Checkout2']);
@@ -89,3 +90,20 @@ Route::get('/course_details2',[Coursedetails2Controller::class, 'Coursedetail2']
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
 Route::get('/add_card',[AddcardController::class, 'Addcard']);
 });
+
+//employee
+    Route::prefix('/company')->group(function () {
+    Route::get('/signup_employee',[ SignupcompanyController::class, 'Signupcompany'])->name('company.signup');
+    Route::get('/company_details',[CompanyhomeController ::class, 'Companyhome']);
+    Route::get('/company_courses',[CheckoutController ::class, 'Checkout']);
+    Route::get('/company_details',[Checkout2Controller ::class, 'Checkout2']);
+    Route::get('/complete course',[PaymentoptionController::class, 'Paymentoption']);
+    Route::get('/course_lession',[PaymentsuccessController::class, 'Paymentsucess']);
+    Route::get('/courses',[ PurchascourseController::class, 'Purchasecourse']);
+    Route::get('/courses2',[PurchageCoursestatController::class, 'Purchasestat']);
+    Route::get('/login',[Index2Controller::class, 'Index2']);
+    Route::get('/test_result',[EditProfile2Controller ::class, 'Editprofile2']);
+    Route::get('/test',[Coursedetails2Controller::class, 'Coursedetail2']);
+    Route::get('/certification',[Login2Controller::class, 'Logincompany']);
+    });
+

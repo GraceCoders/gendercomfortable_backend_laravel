@@ -47,10 +47,9 @@
         <div class="container ">
             <div class="row" id="second12">
                 @foreach ($course as $value)
-
                 <div class=" col-lg-4 col-12" id="second11">
-                    <a href="{{ url('course_details') }}"><img class="img-fluid" class="image"
-                            id="course_cover" src="{{ asset('assets/slicing_web/course_cover1.png') }}"
+                    <a href="{{ route('admin.publish.course',$value->id) }}"><img class="img-fluid" class="image"
+                            id="course_cover" src="{{ asset('storage/app/public/'.$value->thumbnail) }}"
                             class="img-fluid" alt="..."></a>
                     <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
                 </div>
@@ -59,5 +58,5 @@
             </div>
         </div>
     </section>
-
+    {{$course->links()}}
 @endsection

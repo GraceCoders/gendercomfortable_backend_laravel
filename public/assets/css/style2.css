@@ -89,7 +89,7 @@
 
 #regis_sec {
     margin-top: 80px;
-    margin-bottom: 50px;       
+    margin-bottom: 50px;
 }
 
 #fourth_sec {
@@ -296,7 +296,7 @@
     width:500px;
     padding-top: 50px;
     padding:60px;
-  
+
 }
 @media(max-width:525px){.formdiv6{
     width:300px;}
@@ -481,7 +481,7 @@
     align-items: center;
     padding-bottom: 20px;
     margin-right: 10px !important;
-    
+
 }
 .page-item:first-child .page-link {
     border-top-left-radius: 0.25rem;
@@ -1232,7 +1232,7 @@ element.style {
 
 /* #success {
     background-color: #6A359F;
-    
+
 } */
 
 #success_button {
@@ -1745,11 +1745,11 @@ element.style {
 }
 
 #dropdownMenuButton15{
-  
+
     border:1px solid black;
     padding:10px;
-  
-   
+
+
 }
 .buttonshome{
     padding:20px;
@@ -1762,10 +1762,10 @@ element.style {
     padding:10px;
     padding-left: 30px;
     padding-right: 30px;
-   
+
 }
 @media(max-width:320px) {
-    
+
     #filter{  padding-left: 10px;
     padding-right: 10px
     }
@@ -1777,7 +1777,7 @@ element.style {
 .oneheading{
 
     color:#F58415
-    
+
 }
 #dropdown-menu1.show {
     display: block;
@@ -1788,10 +1788,8 @@ element.style {
 }
 .borders{
     border-left:2px solid #FFFFFF ;
-     
+
 
     ;
     border-right: 2px solid #FFFFFF;
 }
-
-

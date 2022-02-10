@@ -1,6 +1,54 @@
-@extends('company.layouts.main')
-@section('main-container')
-{{-- <!-- second div start -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <section class="purple top-bar">
+        <div class="container">
+            <div class="clearfix">
+                <div class="float-end">
+                    <a href=""> <img class="image-fluid" src="{{ asset('assets/slicing_web/mail.svg') }}"
+                            class="img-fluid" alt="..."></a>
+                    </a>
+
+
+
+
+                    <p>support@gendercomfortable.com</p>
+                    <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/fb.svg') }}"
+                            class="img-fluid" alt="..."></a>
+                    <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/insta.svg') }}"
+                            class="img-fluid" alt="..."></a>
+                    <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/linkedin.svg') }}"
+                            class="img-fluid" alt="...">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- second div start -->
 <section class="bg-light">
     <div class="container">
         <div class="row ">
@@ -71,17 +119,17 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="edit_profile2.html">
+                                        <a class="dropdown-item" href="{{url('edit_profile2')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/edit.svg" alt')}}="..."> &nbsp;&nbsp;&nbsp;Edit Profile</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="payment_option.html">
+                                        <a class="dropdown-item" href="{{url('payment_option')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/payment.svg')}}" alt="..."> &nbsp; Payment Option</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="purchased_courses.html">
+                                        <a class="dropdown-item" href="{{url('purchased_courses')}}.html">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/purchased.svg')}}" alt="..."> &nbsp; Purchased Courses</p>
                                         </a>
                                     </li>
@@ -120,96 +168,4 @@
         </div>
 
 </section>
-<section class="bg-light header_border "></section> --}}
-
-
-
-    <!-- fourth div start -->
-    <section class="third-sec bg-light">
-        <div class="container ">
-            <center>
-                <h3 class="heading_certification">Available courses</h3>
-            </center>
-            <div class="row" id="second12">
-                <div class=" col-lg-4 col-12" id="second11">
-                    <a href="{{url('course_details2')}}"><img class="img-fluid" class="image" id="course_cover" src="{{asset('assets/slicing_web/course_cover1.png')}}" class="img-fluid" alt="..."></a>
-                    <p class="image_cover"> Lorem ipsum dolor sit amet, <br>consectetur</p>
-                </div>
-                <div class=" col-lg-4 col-12" id="second22"> <img class="img-fluid" class="image" id="course_cover" src="{{asset('assets/slicing_web/course_cover2.png')}}" class="img-fluid" alt="...">
-                    <p class="image_cover1"> Lorem ipsum dolor sit amet, <br>consectetur</p>
-                </div>
-                <div class=" col-lg-4 col-12" id="second31"> <img class="img-fluid" class="image" id="course_cover" src="{{asset('assets/slicing_web/course_cover1.png')}}" class="img-fluid" alt="...">
-                    <p class="image_cover2"> Lorem ipsum dolor sit amet, <br>consectetur</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- fourth div end -->
-    <!-- fifth div start -->
-
-    <section class="third-sec bg-light">
-        <div class="container ">
-
-            <div class="row  " id="">
-                <div class=" col-lg-4 col-12" id="second21">
-                    <img class="img-fluid" id="course_cover" src="{{asset('assets/slicing_web/course_cover1.png')}}" class="img-fluid" alt="...">
-                    <p class="image_cover4"> Lorem ipsum dolor sit amet, <br>consectetur</p>
-                </div>
-                <div class=" col-lg-4 col-12" id="second23"> <img class="img-fluid" class="image" id="course_cover" src="{{asset('assetsslicing_web/course_cover2.png')}}" class="img-fluid" alt="...">
-
-                    <p class="image_cover5"> Lorem ipsum dolor sit amet, <br>consectetur</p>
-                </div>
-                <div class=" col-lg-4 col-12" id="second33"> <img class="img-fluid" class="image" id="course_cover" src="{{asset('assets/slicing_web/course_cover1.png')}}" class="img-fluid" alt="...">
-
-
-                    <p class="image_cover6"> Lorem ipsum dolor sit amet, <br>consectetur</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- fifth div end -->
-
-     <!-- six section start -->
-
-    <section class="third-sec bg-light">
-        <div class="container text-center ">
-
-
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-
-                  <li class="page-item"><a class="page-link" href="#">...</a></li>
-                  <li class="page-item"><a class="page-link" href="#">9</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-        </div>
-
-    </section>
-
-    <!-- six div end -->
-
-    <section class="purple footer-bar">
-        <div class="container">
-            <div class="clearfix">
-                <div class="footer">
-                    <p>Copyright@2021 GenderComfortable All Right Reserved &nbsp; Term and Conditions| Privacy Policy</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-
-</html>
-@endsection
+<section class="bg-light header_border "></section>
