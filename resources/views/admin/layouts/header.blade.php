@@ -50,7 +50,7 @@ $user = Auth::user();
         <div class="container">
             <div class="row ">
                 <div class=" col-lg-2 col-12" id="second">
-                    <a href="{{ route('admin.signup') }}"> <img class="img-fluid"
+                    <a href="{{ route('admin.home') }}"> <img class="img-fluid"
                             src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
                 <div class="col-lg-10 col-12" id="second">
@@ -63,7 +63,7 @@ $user = Auth::user();
                             </button>
                         </div>
 
-                        <img class="image" src="{{ asset('storage/app/public/'.$user->profile_pic) }}"
+                        <img class="image-fluide" src="{{ asset('storage/app/public/'.$user->profile_pic) }}"
                             class="img-fluid" id="profilepic" alt="...">
                         <div class="btn-group">
                             <button type="button" class="btn btn bg-light dropdown-toggle" id="dropdownMenuButton11"
@@ -86,13 +86,15 @@ $user = Auth::user();
                                 </li>
                                 <div class="spacing111">
                                     <li>
-
-                                        <div class="square">
+                   <div class="square">
                                             <div class="row">
                                                 <div class="col-lg-4 col-12">
-
+@php
+    $user = Auth::id();
+    $publish = DB::table('courses')->where('user_id',$user)->count();
+@endphp
                                                     <center>
-                                                        <h1 class>01</h1>
+                                                        <h1 class>{{$publish}}</h1>
                                                     </center>
                                                     <h5 class="dreafts1">published</h5>
                                                 </div>
@@ -113,15 +115,17 @@ $user = Auth::user();
                                             </div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <p class="donec1"><img class="img-fluid" class="image"
+                                        <a class="dropdown-item" href="{{route('admin.home')}}">
+                                            <p class="donec1">
+
+                                                <img class="img-fluid" class="image"
                                                     src="{{ asset('assets/slicing_web/home.svg') }}" alt="...">
                                                 &nbsp; Home
                                             </p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('edit profile') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.edit.profile') }}">
                                             <p class="donec1"><img class="img-fluid" id="edit_img"
                                                     src="{{ asset('assets/slicing_web/edit.svg') }}"
                                                     alt="...">&nbsp;&nbsp;&nbsp;&nbsp;Edit Profile</p>
@@ -129,7 +133,7 @@ $user = Auth::user();
                                     </li>
 
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('change_password') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.change.password') }}">
                                             <p class="donec1"><img class="img-fluid" class="image"
                                                     src="{{ asset('assets/slicing_web/pass.svg') }}"
                                                     alt="...">&nbsp;&nbsp;&nbsp;&nbsp;Change Password</p>

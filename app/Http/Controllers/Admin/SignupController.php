@@ -19,6 +19,7 @@ class SignupController extends Controller
       $user->last_name =$request->last_name;
       $user->email =$request->email;
       $user->password =Hash::make($request->password);
+      $user->bio =$request->bio;
       $user->user_type = 1;
       if (!empty($request->profilepic)) {
         $file = upload_file($request->profilepic, 'profile');

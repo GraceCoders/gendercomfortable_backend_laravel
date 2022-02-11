@@ -82,7 +82,7 @@
     <section class="bg-light header_border "></section>
     <section class="one">
         <div class="container">
-            <center> <a class="oneheading" href="{{ url('/company.index2') }}">
+            <center> <a class="oneheading" href="{{ route('company.index2') }}">
                     <h4 class="oneheading mb-3">Employee/Business Login <a class="oneheading"
                             href="{{route('admin.signup')}}">/admin</h4>
                 </a></center>

@@ -1,7 +1,6 @@
 @extends('admin.layouts.main')
 @section('main-container')
-
-    <!-- second div end -->
+<!-- second div end -->
     <!-- third -->
     <section class="bg-light home">
         <div class="container text-center ">

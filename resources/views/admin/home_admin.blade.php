@@ -9,7 +9,7 @@
             <!-- <div class="row" > -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active bg-light" id="published" data-bs-toggle="tab" data-bs-target="#home"
+                    <button class="nav-link active bg-light"  id="profile-tab" data-bs-toggle="tab" data-bs-target="#home"
                         type="button" role="tab" aria-controls="home" aria-selected="true">
                         <h4>Published</h4>
                     </button>
@@ -20,9 +20,7 @@
                         <h4>Drafts</h4>
                     </button>
                 </li>
-
-
-            </ul>
+           </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
@@ -40,8 +38,7 @@
         </div>
 
     </section>
-
-    <!-- third div end -->
+     <!-- third div end -->
     <!-- fourth div start -->
     <section class="third-sec bg-light">
         <div class="container ">

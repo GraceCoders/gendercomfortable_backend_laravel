@@ -815,6 +815,8 @@ small h1 {
 #course_cover {
    border-radius: 50px;
     position: relative;
+    width:400px;
+    height:250px;
 }
 
 #scroll {

@@ -29,7 +29,17 @@ use App\Http\Controllers\Company\Coursedetails2Controller;
 use App\Http\Controllers\Company\Login2Controller;
 use App\Http\Controllers\Company\AddcardController;
 
-
+// Employee
+use App\Http\Controllers\Employee\SignupEmployeeController;
+use App\Http\Controllers\Employee\TestController;
+use App\Http\Controllers\Employee\Test_resultController;
+use App\Http\Controllers\Employee\course_lessionController;
+use App\Http\Controllers\Employee\Courses2Controller;
+use App\Http\Controllers\Employee\coursesController;
+use App\Http\Controllers\Employee\CompleteCourseController;
+use App\Http\Controllers\Employee\Company_CoursesController;
+use App\Http\Controllers\Employee\Company_detailsController;
+use App\Http\Controllers\Employee\CertificationController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -61,11 +71,15 @@ Route::get('/course/{id}',[UploadController::class, 'upload']);
 Route::post('/lession',[CreateCourseController::class, 'addlession'])->name('admin.add.lession');
 Route::get('/create/test/{id}',[CreatetestController::class, 'createtest'])->name('admin.create.test');
 Route::post('/add/question',[CreatetestController::class, 'addQuestion'])->name('admin.add.question');
-Route::get('/edit profile',[EditprofileController::class, 'edit']);
+Route::get('/edit/profile',[EditprofileController::class, 'edit'])->name('admin.edit.profile');
+Route::post('/update/profile',[EditprofileController::class, 'updateProfile'])->name('admin.update.profile');
+
 Route::get('/create_course',[CreateCourseController::class, 'createcourse'])->name('admin.coures.view');
 Route::post('/create_course',[CreateCourseController::class, 'addCourse'])->name('admin.add.course');
 Route::get('/publish/course/{id}',[CourseDetailsController::class, 'coursedetail'])->name('admin.publish.course');
-Route::get('/change_password',[ChangePassController::class, 'changepass']);
+Route::get('/change/password',[ChangePassController::class, 'changepass'])->name('admin.change.password');
+Route::post('/update/password',[ChangePassController::class, 'updatePassword'])->name('admin.update.password');
+
 });
 });
 Route::group(['middleware' => 'employee'], function () {
@@ -84,7 +98,7 @@ Route::get('/payment_option',[PaymentoptionController::class, 'Paymentoption']);
 Route::get('/payment_success',[PaymentsuccessController::class, 'Paymentsucess']);
 Route::get('/purchased_courses',[ PurchascourseController::class, 'Purchasecourse']);
 Route::get('/purchase_course stat',[PurchageCoursestatController::class, 'Purchasestat']);
-Route::get('/index2',[Index2Controller::class, 'Index2']);
+Route::get('/index2',[Index2Controller::class, 'Index2'])->name('company.index2');
 Route::get('/edit_profile2',[EditProfile2Controller ::class, 'Editprofile2']);
 Route::get('/course_details2',[Coursedetails2Controller::class, 'Coursedetail2']);
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
@@ -93,17 +107,17 @@ Route::get('/add_card',[AddcardController::class, 'Addcard']);
 
 //employee
     Route::prefix('/company')->group(function () {
-    Route::get('/signup_employee',[ SignupcompanyController::class, 'Signupcompany'])->name('company.signup');
-    Route::get('/company_details',[CompanyhomeController ::class, 'Companyhome']);
-    Route::get('/company_courses',[CheckoutController ::class, 'Checkout']);
-    Route::get('/company_details',[Checkout2Controller ::class, 'Checkout2']);
-    Route::get('/complete course',[PaymentoptionController::class, 'Paymentoption']);
-    Route::get('/course_lession',[PaymentsuccessController::class, 'Paymentsucess']);
-    Route::get('/courses',[ PurchascourseController::class, 'Purchasecourse']);
-    Route::get('/courses2',[PurchageCoursestatController::class, 'Purchasestat']);
+    Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('company.signup');
+    Route::get('/company_details',[Company_detailsController ::class, 'CompanyDetails']);
+    Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
+    Route::get('/complete course',[CompleteCourseController::class, 'Paymentoption']);
+    Route::get('/course_lession',[course_lessionController::class, 'Courselession']);
+    Route::get('/courses',[ CoursesController::class, 'Course']);
+    Route::get('/courses2',[Courses2Controller::class, 'Course2']);
     Route::get('/login',[Index2Controller::class, 'Index2']);
-    Route::get('/test_result',[EditProfile2Controller ::class, 'Editprofile2']);
-    Route::get('/test',[Coursedetails2Controller::class, 'Coursedetail2']);
-    Route::get('/certification',[Login2Controller::class, 'Logincompany']);
+    Route::get('/test_result',[Test_resultController ::class, 'Test_result']);
+    Route::get('/test',[TestController::class, 'Test']);
+    Route::get('/certification',[CertificationController::class, 'Certification']);
     });
 
+?>

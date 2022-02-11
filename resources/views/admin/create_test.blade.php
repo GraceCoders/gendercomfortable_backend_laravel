@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+{{-- @extends('admin.layouts.main')
 @section('main-container')
 
     <!-- Third div start -->
@@ -152,4 +152,4 @@
             </div>
         </div>
     </section>
-@endsection
+@endsection --}}

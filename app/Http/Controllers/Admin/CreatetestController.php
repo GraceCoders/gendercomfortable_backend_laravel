@@ -12,7 +12,7 @@ class CreatetestController extends Controller
 {
     public function createtest($id)
     {
-        return view('admin.create_test', compact('id'));
+        return view('admin.course_tests', compact('id'));
     }
     public function addQuestion(Request $request)
     {

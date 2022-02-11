@@ -54,11 +54,11 @@
                 </div>
                 <div class="col-lg-10 col-12" id="second">
                     <div class="buttons">
-                        <a href="{{ url('/signup_admin') }}"> <button type="button" class="button1 button1-lg"
+                        <a href="{{route('admin.signup')}}"> <button type="button" class="button1 button1-lg"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button></a>
-                        <a href="{{ url('/login') }}"> <button type="button" class="button2 button2-lg"
+                           <a href="{{ url('/login') }}"> <button type="button" class="button2 button2-lg"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button></a>
-                    </div>
+                            </div>
                 </div>
             </div>
         </div>

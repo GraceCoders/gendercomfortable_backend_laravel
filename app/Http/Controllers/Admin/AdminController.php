@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function Admin(){
-        $course = Course::paginate(20);
+        $course = Course::paginate(9);
         return view('admin.home_admin',compact('course'));
     }
 }
