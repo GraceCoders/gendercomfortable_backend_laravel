@@ -21,6 +21,7 @@ use App\Traits\ValidationTrait;
  * */
 
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
@@ -36,15 +37,34 @@ class UsersController extends Controller
     public function signUp(Request $request, User $user)
     {
         try {
-            $arrayData = $request->all();
-            $this->validateRequest($request->all(),
-             $this->validateSignUp($arrayData));
-            $arrayData['password'] = Hash::make($arrayData['password']);
-            $arrayData['profile_pic'] = $this->uploadFile($arrayData['profile_pic'], config('foldertype.profile'));
-            $user->fill($arrayData)->save();
-            $userDetail = $this->loginUser($user);
-            // $userDetail->sendEmailVerificationNotification();
-            $this->sendSuccessResponse(trans("Messages.SignupSuccessful"), $userDetail->toArray());
+            $data = $request->all();
+            $validator = Validator::make($data, [
+                'email'          => 'required|email|unique:users',
+                'device_type'          => 'required',
+                'device_token'          => 'required',
+                'password'               => 'required',
+                'user_type'              => 'required'
+            ]);
+            if ($validator->fails()) {
+                return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
+            } else {
+            $user = new User();
+            $user->name = $request->first_name . ' ' . $request->last_name;
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->bio = $request->bio;
+            $user->user_type = $request->user_type;
+            $user->device_token = $request->device_token;
+            $user->device_type = $request->device_type;
+            if (!empty($request->profilepic)) {
+                $file = upload_file($request->profilepic, 'profile');
+                $user->profilepic = $file;
+            }
+            $user->save();
+            $this->sendSuccessResponse(trans("Messages.SignupSuccessful"), $user->toArray());
+        }
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
         }
@@ -68,8 +88,8 @@ class UsersController extends Controller
     public function logIn(Request $request, User $user)
     {
         try {
-            $this->validateRequest($request->all(), ['email' => 'required', 'password' => 'required', 'user_type' => 'required']);
-            $userDetails = $user->where(['email' => $request->email, 'user_type' => $request->user_type])->first();
+            $this->validateRequest($request->all(), ['email' => 'required', 'password' => 'required', 'device_token' => 'required','device_type'=>'required']);
+            $userDetails = $user->where(['email' => $request->email])->first();
             if (!$userDetails) {
                 throw new Exception(trans("Messages.UserDoesNotExists"));
             }
@@ -121,7 +141,7 @@ class UsersController extends Controller
      * @param  mixed $user
      * @return void
      */
-    public function userDetail( User $user)
+    public function userDetail(User $user)
     {
         try {
             $id = Auth::id();
@@ -175,6 +195,18 @@ class UsersController extends Controller
             $this->sendSuccessResponse(trans("Messages.Success"));
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        $id = Auth::user()->id;
+        if (Auth::check()) {
+            User::where('id', $id)->update(['device_token' => NULL]);
+            Auth::user()->tokens()->delete();
+            return response()->json(['statusCode' => 200, 'message' => 'User logout successfully.'], 200);
+        } else {
+            return response()->json(['statusCode' => 400, 'message' => 'Already logout'], 400);
         }
     }
 }

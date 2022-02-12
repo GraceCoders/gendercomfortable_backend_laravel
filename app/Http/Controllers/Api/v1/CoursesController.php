@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Traits
@@ -23,6 +23,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Question;
 use App\Models\Answer;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class CoursesController extends Controller
 {
@@ -38,10 +39,18 @@ class CoursesController extends Controller
     public function createCourse(Request $request, Course $course)
     {
         try {
-            $this->validateRequest($request->all(), ['name' => 'required', 'description' => 'required', 'price_per_seat' => 'required', 'certificate' => 'required', 'thumbnail' => 'required']);
-            $arrayData = $request->all();
-            $arrayData['thumbnail'] = $this->uploadFile($arrayData['thumbnail'], config('foldertype.courses'));
-            $course->create($arrayData);
+            $id = Auth::id();
+            $course = new Course();
+            if (!empty($request->thumbnail)) {
+                $file = upload_file($request->thumbnail, 'course');
+                $course->thumbnail = $file;
+            }
+            $course->name = $request->name;
+            $course->description = $request->description;
+            $course->user_id = $id;
+            $course->price_per_seat = $request->price_per_seat;
+            $course->certificate  = $request->certificate;
+            $course->save();
             $this->sendSuccessResponse(trans("Messages.CreatedSuccessful"));
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
@@ -55,23 +64,27 @@ class CoursesController extends Controller
      * @param  Lesson $lesson
      * @return void
      */
-    public function createLessons(Request $request, Lesson $lesson)
+    public function createLessons(Request $request)
     {
-        try {
-            $this->validateRequest($request->all(), ['name' => 'required|array', 'media_type' => 'required|array', 'course_id' => 'required']);
-            $arrayData = $request->all();
-            DB::beginTransaction();
-            foreach ($arrayData['name'] as $key => $value) {
-                $image = $request->file('media');
-                $lesson->create(['course_id' => $arrayData['course_id'], 'name' => $value, 'media_type' => $arrayData['media_type'][$key], 'media' => $this->uploadFile($image[$key], config('foldertype.lessons'))]);
+        $id = Auth::id();
+        $count = count($request->lession_name);
+        for ($i = 0; $i < $count; $i++) {
+            if (!empty($request->media[$i])) {
+                $file = upload_file($request->media[$i], 'lession');
             }
-            DB::commit();
+            $data[] = array(
+                'course_id' => $request->course_id,
+                'lession_name' => $request->lession_name[$i],
+                'media' => $file
+            );
+        }
+        $course = FacadesDB::table('lessons')->insert($data);
+        if ($course) {
             $this->sendSuccessResponse(trans("Messages.CreatedSuccessful"));
-        } catch (Exception $ex) {
-            $this->sendErrorOutput($ex);
+        } else {
+            $this->sendSuccessResponse(trans("Messages.failed "));
         }
     }
-
     /**
      * getCourseDetail
      *
@@ -79,10 +92,22 @@ class CoursesController extends Controller
      * @param  Course $course
      * @return void
      */
-    public function getCourseDetail($id, Course $course)
+    public function getCourseDetail(Request $request)
     {
         try {
-            $courseDetail = $course->where('id', $id)->with('lessons')->first();
+            $id = $request->course_id;
+            $user_id = Auth::id();
+            $courseDetail = Course::with(['lessons', 'question'])->where('courses.user_id', $user_id)->where('courses.id', $id)->first();
+            $this->sendSuccessResponse(trans("Messages.Success"), $courseDetail->toArray());
+        } catch (Exception $ex) {
+            $this->sendErrorOutput($ex);
+        }
+    }
+    public function getCourse(Request $request)
+    {
+        try {
+            $id = Auth::id();
+            $courseDetail = Course::with(['lessons', 'question'])->where('courses.user_id', $id)->paginate(10);
             $this->sendSuccessResponse(trans("Messages.Success"), $courseDetail->toArray());
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
@@ -100,16 +125,24 @@ class CoursesController extends Controller
     public function questions(Request $request, Question $question, Answer $answer)
     {
         try {
-            $this->validateRequest($request->all(), ['question' => 'required|array', 'answers' => 'required|array', 'right_answer' => 'required']);
-            $arrayData = $request->all();
-            DB::beginTransaction();
-            foreach ($arrayData['question'] as $key => $value) {
-                $questionId = $question->create(['user_id' => Auth::user()->id, 'question' => $value['question'], 'right_answer' => $value['right_answer']])->id;
+            $id = Auth::id();
+            $count = count($request->question);
+            $course = Course::where('id', $request->course_id)->update(['status' => 1]);
+            for ($i = 0; $i < $count; $i++) {
+                $data[] = array(
+                    'user_id' =>   $id,
+                    'course_id' => $request->course_id,
+                    'question' => $request->question[$i],
+                    'option1' => $request->option1[$i],
+                    'option2' => $request->option2[$i],
+                    'option3' => $request->option3[$i],
+                    'option4' => $request->option4[$i],
+                    'right_answer' => $request->right_answer[$i],
+                    'status' => $request->draft
+
+                );
             }
-            foreach ($arrayData['answers'] as $key => $value) {
-                $answer->create(['question_id' => $questionId, 'answer' => $value]);
-            }
-            DB::commit();
+            $course = DB::table('questions')->insert($data);
             $this->sendSuccessResponse(trans("Messages.CreatedSuccessful"));
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);

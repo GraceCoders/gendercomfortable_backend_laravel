@@ -1795,3 +1795,17 @@ element.style {
     ;
     border-right: 2px solid #FFFFFF;
 }
+#popup_test{
+    background-color: #6A359F;
+    color:white;
+}
+input#thumbnail {
+    opacity: 0;
+}
+
+/* .uploadimg{
+    height:100px;
+    width:100px;
+} */
+
+

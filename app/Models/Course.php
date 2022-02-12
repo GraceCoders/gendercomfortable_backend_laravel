@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
@@ -31,5 +32,14 @@ class Course extends Model
     {
         return $this->hasMany(Question::class);
     }
+public function course(){
+    $id = Auth::id();
+    $course = Course::where('user_id',$id)->where('status',0)->count();
+    $draft = Course::where('user_id',$id)->where('status',1)->count();
+    $data['publish'] = $course;
+    $data['draft'] = $draft;
+    return $data;
+}
+
 
 }

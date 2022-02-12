@@ -9,13 +9,13 @@
             <!-- <div class="row" > -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active bg-light"  id="profile-tab" data-bs-toggle="tab" data-bs-target="#home"
+                    <button class="nav-link active bg-light"  id="published" data-bs-toggle="tab"
                         type="button" role="tab" aria-controls="home" aria-selected="true">
                         <h4>Published</h4>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link bg-light" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                    <button class="nav-link bg-light" id="draft" data-bs-toggle="tab"
                         type="button" role="tab" aria-controls="profile" aria-selected="false">
                         <h4>Drafts</h4>
                     </button>
@@ -42,7 +42,7 @@
     <!-- fourth div start -->
     <section class="third-sec bg-light">
         <div class="container ">
-            <div class="row" id="second12">
+            <div class="row publish" id="second12">
                 @foreach ($course as $value)
                 <div class=" col-lg-4 col-12" id="second11">
                     <a href="{{ route('admin.publish.course',$value->id) }}"><img class="img-fluid" class="image"
@@ -53,7 +53,35 @@
                 @endforeach
 
             </div>
+            <div class="row draft" id="second12">
+                @foreach ($draft as $value)
+                <div class=" col-lg-4 col-12" id="second11">
+                    <a href="{{ route('admin.publish.course',$value->id) }}"><img class="img-fluid" class="image"
+                            id="course_cover" src="{{ asset('storage/app/public/'.$value->thumbnail) }}"
+                            class="img-fluid" alt="..."></a>
+                    <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
+                </div>
+                @endforeach
+            </div>
         </div>
     </section>
     {{$course->links()}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".draft").hide();
+
+  $("#published").click(function(){
+    $(".publish").show();
+    $(".draft").hide();
+
+  });
+  $("#draft").click(function(){
+    $(".draft").show();
+    $(".publish").hide();
+
+  });
+});
+    </script>
 @endsection

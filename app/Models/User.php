@@ -28,6 +28,8 @@ class User extends Authenticatable
         'bio',
         'latitude',
         'longitude',
+        'device_type',
+        'device_token'
     ];
 
     /**

@@ -17,10 +17,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 @php
@@ -91,7 +94,9 @@ $user = Auth::user();
                                                 <div class="col-lg-4 col-12">
 @php
     $user = Auth::id();
-    $publish = DB::table('courses')->where('user_id',$user)->count();
+    $publish = DB::table('courses')->where('status',0)->where('user_id',$user)->count();
+    $draft = DB::table('courses')->where('status',1)->where('user_id',$user)->count();
+
 @endphp
                                                     <center>
                                                         <h1 class>{{$publish}}</h1>
@@ -101,7 +106,7 @@ $user = Auth::user();
                                                 <div class="col-lg-4 col-12  ">
                                                     <div class="borders">
                                                         <center>
-                                                            <h1 class="">01</h1>
+                                                            <h1 class="">{{$draft}}</h1>
                                                         </center>
                                                         <h5 class="dreafts"> Drafts</h5>
                                                     </div>

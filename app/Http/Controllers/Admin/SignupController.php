@@ -26,6 +26,6 @@ class SignupController extends Controller
         $user->profilepic = $file;
     }
       $user->save();
-      return redirect('/admin/login')->with('success', 'Admin Register Successfully!');
+      return redirect('/user/login')->with('success', 'Admin Register Successfully!');
     }
 }

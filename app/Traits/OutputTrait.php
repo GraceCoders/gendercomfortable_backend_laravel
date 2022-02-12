@@ -26,9 +26,8 @@ trait OutputTrait
         // $code = config("HttpCodes.success");
 
         $response = [
-            'valid' => true,
             'message' => $message,
-            'code' => $code,
+            'statusCode' => $code,
             'data' => $data
         ];
         return (new Response($response, $code))->header('Content-type', 'application/json')->send();
@@ -54,9 +53,8 @@ trait OutputTrait
             $data = $this->validations;
         }
         $response = [
-            'valid' => true,
             'message' => $message ?? $data[0],
-            'code' => $code,
+            'statusCode' => $code,
             'data' => $data ?? null
         ];
         return (new Response($response, $code))->header('Content-type', 'application/json')->send();

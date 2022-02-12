@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,7 @@ class CreatetestController extends Controller
     {
         $id = Auth::id();
         $count = count($request->question);
+        $course = Course::where('id',$request->course_id)->update(['status'=>1]);
         for ($i = 0; $i < $count; $i++) {
             $data[] = array(
                 'user_id'=>   $id,
@@ -27,7 +29,9 @@ class CreatetestController extends Controller
                 'option2' =>$request->option2[$i],
                 'option3' =>$request->option3[$i],
                 'option4' =>$request->option4[$i],
-                'right_answer' =>$request->right_answer[$i]
+                'right_answer' =>$request->right_answer[$i],
+                'status' =>$request->draft
+
             );
         }
         $course = DB::table('questions')->insert($data);

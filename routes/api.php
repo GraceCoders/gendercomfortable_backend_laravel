@@ -32,7 +32,8 @@ Route::prefix('/v1')->group(function () {
         Route::post('/changePassword', [UsersController::class, 'changePassword']);
         Route::post('/createCourse', [CoursesController::class, 'createCourse']);
         Route::post('/questions', [CoursesController::class, 'questions']);
-        Route::post('/getCourseDetail', [CoursesController::class, 'getCourseDetail']);
+        Route::get('/getCourseDetail', [CoursesController::class, 'getCourseDetail']);
+        Route::get('/getCourse', [CoursesController::class, 'getCourse']);
         Route::post('/createLessons', [CoursesController::class, 'createLessons']);
     });
 });

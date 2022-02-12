@@ -15,6 +15,9 @@ class AddProfilePicToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('profile_pic')->nullable();
+            $table->integer('device_type')->nullable();
+            $table->string('device_token')->nullable();
+
         });
     }
 
