@@ -49,13 +49,21 @@ class UsersController extends Controller
                 return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
             } else {
             $user = new User();
-            $user->name = $request->first_name . ' ' . $request->last_name;
+            if($request->first_name){
+               $name = $request->first_name . ' ' . $request->last_name;
+            }
+            else{
+                $name = $request->name;
+            }
+            $user->name =$name;
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->bio = $request->bio;
             $user->user_type = $request->user_type;
+            $user->username = $request->username;
+            $user->address = $request->address;
             $user->device_token = $request->device_token;
             $user->device_type = $request->device_type;
             if (!empty($request->profilepic)) {
@@ -167,7 +175,8 @@ class UsersController extends Controller
         try {
             $arrayData = $request->all();
             if ($request->hasFile('profile_pic')) {
-                $arrayData['profile_pic'] = $this->uploadFile($request->hasFile('profile_pic'), config('foldertype.profile'));
+                $file = upload_file($request->profilepic, 'profile');
+                $arrayData['profile_pic'] = $file;
             }
             $user->where('id', Auth::user()->id)->update($arrayData);
             $this->sendSuccessResponse(trans("Messages.UpdatedSuccessfully"));

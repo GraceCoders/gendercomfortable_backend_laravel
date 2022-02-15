@@ -37,7 +37,9 @@
             </div>
         </div>
     </section>
-<!-- second div start -->
+
+
+     <!-- second div start -->
      <section class="bg-lightn ">
         <div class="container">
             <div class="row">
@@ -58,7 +60,7 @@
                                         <div class="container text-center">
                                             <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                                             <h1>Select account type</h1>
-                    <div class="row" id="account_row " style="display:inline-flex">
+<div class="row  " id="account_row " style="display:inline-flex">
                                                     <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
                                                         <a href="signup_company.html"><img class="image" src="{{asset('assets/slicing_web/company.svg')}}" class="img-fluid" alt="..." /></a>
                                                         <p>company</p>
@@ -114,6 +116,7 @@
     </section>
     <section class="bg-light header_border "></section>
 
+
     <!-- second div end -->
     <!-- Third div start -->
     <section class="third-sec bg-light">
@@ -122,8 +125,7 @@
                 <div class="  col-lg-6 col-12  " id="regis_sec">
                     <div class="formdiv text-center">
                         <h1 class="signuph">Signup</h1>
-                        <form action="{{ route('company.register') }}" method="POST" enctype='multipart/form-data'>
-                            @csrf
+
                         <center>
                             <div class="divsround">
                                 <img class="img-fluid" src="{{asset('assets/slicing_web/add.svg')}}" alt="...">
@@ -132,35 +134,39 @@
                         </center>
                         <p class="learn">Learn how to feel comfortable around transgender people</p>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control"name="username" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Username</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating pt-30px ">
-                            <input type="password" class="form-control"  name="password" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label> <img class="img-fluid" id="hideimg" src="{{asset('assets/slicing_web/hide.svg')}}" alt="...">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label> <img class="img-fluid" id="hideimg" src="slicing_web/hide.svg" alt="...">
 
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <input type="email" class="form-control" id="floatingInput" name="company_name" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Company name</label>
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <input type="email" class="form-control" name="comapny_bio" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Company bio</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control"  name="address id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Address</label>
                         </div>
-                      <a href="{{url('/company_home')}}"> <button class="btn btn w-100 pb-3 pt-3 " type="button" id="checkout2">Signup</button></a>
-                      <p class="psw">Already have an account? <a href="{{ url('/login2') }}">Login</a></p>
+
+
+
+                        <a href="{{url('company/company_home')}}"> <button class="btn btn w-100 pb-3 pt-3 " type="button" id="checkout2">Signup</button></a>
+
+
+                        <p class="psw">Already have an account? <a href="{{url('login2')}}">Login</a></p>
                     </div>
                 </div>
-            </form>
 
                 <div class=" col-lg-6  col-12" id="regis_sec">
                     <img class="img-fluid" src="{{asset('assets/slicing_web/signup.svg')}}" id="signup_img" alt="...">
@@ -168,17 +174,15 @@
             </div>
         </div>
     </section>
-   <!-- fifth start -->
-   <section class="purple footer-bar">
-    <div class="container">
-        <div class="footer">
-            <p>Copyright@2021 GenderComfortable All Right Reserved &nbsp; Term and Conditions| Privacy Policy</p>
+
+    <!-- third div end -->
+    <section class="purple footer-bar">
+        <div class="container">
+            <div class="footer">
+                <p>Copyright@2021 GenderComfortable All Right Reserved &nbsp; Term and Conditions| Privacy Policy</p>
+            </div>
         </div>
-    </div>
-</section>
-<!-- fifth End -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </section>
 </body>
 
 </html>
-

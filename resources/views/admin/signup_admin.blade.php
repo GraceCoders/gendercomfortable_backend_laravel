@@ -83,12 +83,22 @@
                         <form action="{{ route('admin.register') }}" method="POST" enctype='multipart/form-data'>
                             @csrf
                             <center>
-                                <div class="round_div">
-                                    <img class="img-fluid" src="{{ asset('assets/slicing_web/add.svg') }}"
-                                        alt="...">
-                                    <input type="file" class="form-control" id="floatingInput" name="profile_pic"
-                                        required placeholder="name@example.com">
-                                </div>
+                                <div class="container ">
+
+                                    <label for="myfile" id="label_img2"><img class="img-fluid" src="" alt="..."id="roundimgs" >
+
+                                               <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
+                                               value="upload thumbnail">
+                                               <img class="img-fluid uploadimg" src="" ></span>
+                                             </label>
+                                 </div>
+                                {{-- <div class="container ">
+
+                                    <label for="myfile"><img class="img-fluid" src="slicing_web/add.svg" alt="..."id="roundimgs">
+                                  </label>
+                                               <input type="file" id="myfile" name="filename"
+                                               value="upload thumbnail">
+                                 </div> --}}
                             </center>
                             <p class="learn">Learn how to feel comfortable around transgender people</p>
                             <div class="form-floating mb-3">
@@ -133,5 +143,10 @@
         </div>
     </section>
 </body>
-
 </html>
+<script>
+    var loadFile = function(event) {
+        var image = document.getElementById('roundimgs');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>

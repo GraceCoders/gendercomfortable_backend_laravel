@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\CompanyController;
 use App\Http\Controllers\Api\v1\CoursesController;
 use App\Http\Controllers\Api\v1\UsersController;
 use Illuminate\Http\Request;
@@ -35,5 +36,8 @@ Route::prefix('/v1')->group(function () {
         Route::get('/getCourseDetail', [CoursesController::class, 'getCourseDetail']);
         Route::get('/getCourse', [CoursesController::class, 'getCourse']);
         Route::post('/createLessons', [CoursesController::class, 'createLessons']);
+        Route::post('/buyCourse', [CompanyController::class, 'buyCourse']);
+        Route::get('/getBuyCourse', [CompanyController::class, 'getBuyCourse']);
+
     });
 });

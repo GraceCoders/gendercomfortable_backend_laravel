@@ -7,17 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 use Illuminate\Support\Facades\DB;
-
-/**
- * Traits
- */
-
 use App\Traits\OutputTrait;
-
-/**
- * Models
- * */
-
 use App\Models\User;
 use App\Models\Course;
 use App\Models\Lesson;

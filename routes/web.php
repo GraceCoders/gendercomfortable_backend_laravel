@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\CreateCourseController;
 use App\Http\Controllers\admin\CreatetestController;
 use App\Http\Controllers\admin\CourseDetailsController;
 use App\Http\Controllers\admin\ChangePassController;
+use App\Http\Controllers\Api\v1\PayPalController;
 //comapny
 
 use App\Http\Controllers\Company\SignupcompanyController;
@@ -81,7 +82,15 @@ Route::get('/change/password',[ChangePassController::class, 'changepass'])->name
 Route::post('/update/password',[ChangePassController::class, 'updatePassword'])->name('admin.update.password');
 
 });
+
 });
+Route::get('/paypal', function () {
+    return view('admin/paypal');
+});
+
+Route::get('payment',[PayPalController::class,'payment'])->name('payment');
+Route::get('cancel', [PayPalController::class,'cancel'])->name('payment.cancel');
+Route::get('payment/success', [PayPalController::class,'success'])->name('payment.success');
 Route::group(['middleware' => 'employee'], function () {
 });
 Route::group(['middleware' => 'user'], function () {

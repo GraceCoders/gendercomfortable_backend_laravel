@@ -54,11 +54,11 @@
                         <h1>Select account type</h1>
                                                 <div class="row  " id="account_row " style="display:inline-flex">
                                                     <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
-                                                        <a href="{{url('signup_company')}}"><img class="image" src="{{asset('assets/slicing_web/company.svg')}}" class="img-fluid" alt="..." /></a>
+                                                        <a href="{{url('company/signup_company')}}"><img class="image" src="{{asset('assets/slicing_web/company.svg')}}" class="img-fluid" alt="..." /></a>
                                                         <p>company</p>
                                                     </div>
                                                     <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
-                                                        <a href="{{url('signup_employee')}}"><img class="image" src="{{asset('assets/slicing_web/employee.svg')}}" class="img-fluid" alt="..." /></a>
+                                                        <a href="{{url('Employee/signup_employee')}}"><img class="image" src="{{asset('assets/slicing_web/employee.svg')}}" class="img-fluid" alt="..." /></a>
                                                         <p>employee</p>
                                                     </div>
                                             </div>
@@ -128,7 +128,7 @@
 
                 </div>
                 <div class=" col-lg-6 col-12" id="regis_sec">
-                    <img class="img-fluid" src="{{asset('asset/slicing_web/hero_img.svg')}}" alt="...">
+                    <img class="img-fluid" src="{{asset('assets/slicing_web/hero_img.svg')}}" alt="...">
                 </div>
 
             </div>

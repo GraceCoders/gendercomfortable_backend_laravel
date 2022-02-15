@@ -14,19 +14,19 @@ class SignupcompanyController extends Controller
         return view('company.signup_company');
     }
     public function register(Request $request){
-        $company = new User();
-        $company->username =$request->username;
-        $company->email =$request->email;
-        $company->company_name=$request->company_name;
-        $company->company_bio=$request->company_bio;
-        $company->address=$request->address;
-        $company->password =Hash::make($request->password);
-        $company->user_type = 2;
+        $user= new User();
+        $user->username =$request->username;
+        $user->email =$request->email;
+        $user->company_name=$request->company_name;
+        $user->company_bio=$request->company_bio;
+        $user->address=$request->address;
+        $user->password =Hash::make($request->password);
+        $user->user_type = 2;
         if (!empty($request->profilepic)) {
           $file = upload_file($request->profilepic, 'profile');
-          $company->profilepic = $file;
+          $user->profilepic = $file;
       }
-        $company->save();
+        $user->save();
         return redirect('/company/login')->with('success', 'Company Register Successfully!');
       }
 }
