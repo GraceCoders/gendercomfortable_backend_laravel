@@ -6,21 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class CompanyCourse extends Model
+class PurchaseCourse extends Model
 {
     use  HasFactory;
-    protected $table = 'company_course';
+    protected $table = 'purchase_course';
     protected $fillable = [
         'user_id',
         'course_id',
         'no_of_seat',
         'status',
-        'payment'
+        'amount'
         ];
 
-        public function lessons()
+        public function course()
         {
-            return $this->hasMany(Lesson::class,'course_id','course_id');
+            return $this->belongsTo(Course::class,'course_id','id');
         }
         public function question()
         {

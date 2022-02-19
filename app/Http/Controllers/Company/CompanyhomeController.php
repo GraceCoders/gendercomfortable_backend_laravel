@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Course;
 
 class CompanyhomeController extends Controller
 {
     public function Companyhome(){
-        return view('company.company_home');
+
+        $data = Course::where('courses.status',0)->paginate(6);
+        return view('company.company_home',compact('data'));
     }
 }

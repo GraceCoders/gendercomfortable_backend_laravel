@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\CreatetestController;
 use App\Http\Controllers\admin\CourseDetailsController;
 use App\Http\Controllers\admin\ChangePassController;
 use App\Http\Controllers\Api\v1\PayPalController;
+use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 //comapny
 
 use App\Http\Controllers\Company\SignupcompanyController;
@@ -25,11 +26,12 @@ use App\Http\Controllers\Company\PaymentsuccessController;
 use App\Http\Controllers\Company\PurchascourseController;
 use App\Http\Controllers\Company\PurchageCoursestatController;
 use App\Http\Controllers\Company\Index2Controller;
-use App\Http\Controllers\Company\EditProfile2Controller;
 use App\Http\Controllers\Company\Coursedetails2Controller;
 use App\Http\Controllers\Company\Login2Controller;
 use App\Http\Controllers\Company\AddcardController;
-
+use App\Http\Controllers\Company\CompanyProfileController;
+use App\Http\Controllers\Company\PaymentController;
+use App\Http\Controllers\Company\PayPalPayPaymentmentController;
 // Employee
 use App\Http\Controllers\Employee\SignupEmployeeController;
 use App\Http\Controllers\Employee\TestController;
@@ -59,9 +61,13 @@ Route::get('/', function () {
 Route::get('/admin',[SignupController::class, 'signup'])->name('admin.signup');
 Route::post('/admin_register',[SignupController::class, 'register'])->name('admin.register');
 
+
+Route::post('all/login',[AuthLoginController::class, 'login'])->name('all.login');
+
 Route::get('user/login',[LoginController::class, 'Login'])->name('login');
 
 Auth::routes();
+
 Route::group(['middleware' => 'admin'], function () {
 
 Route::prefix('/admin')->group(function () {
@@ -91,31 +97,40 @@ Route::get('/paypal', function () {
 Route::get('payment',[PayPalController::class,'payment'])->name('payment');
 Route::get('cancel', [PayPalController::class,'cancel'])->name('payment.cancel');
 Route::get('payment/success', [PayPalController::class,'success'])->name('payment.success');
-Route::group(['middleware' => 'employee'], function () {
-});
-Route::group(['middleware' => 'user'], function () {
-});
+
 
 // Company routes
 Route::prefix('/company')->group(function () {
 Route::get('/signup_company',[ SignupcompanyController::class, 'Signupcompany'])->name('company.signup');
 Route::post('/company_register',[SignupcompanyController::class, 'register'])->name('company.register');
-Route::get('/company_home',[CompanyhomeController ::class, 'Companyhome']);
-Route::get('/checkout',[CheckoutController ::class, 'Checkout']);
+Route::group(['middleware' => 'company'], function () {
+
+Route::get('/home',[CompanyhomeController ::class, 'Companyhome'])->name('company.home');
+Route::get('/course/detail/{id}',[Coursedetails2Controller::class, 'Coursedetail2'])->name('course.detail');
+Route::get('/checkout/{id}',[CheckoutController ::class, 'Checkout'])->name('checkout');
 Route::get('/checkout2',[Checkout2Controller ::class, 'Checkout2']);
 Route::get('/payment_option',[PaymentoptionController::class, 'Paymentoption']);
-Route::get('/payment_success',[PaymentsuccessController::class, 'Paymentsucess']);
+Route::get('/payment/success',[PaymentsuccessController::class, 'Paymentsuccess'])->name('payment.success');
 Route::get('/purchased_courses',[ PurchascourseController::class, 'Purchasecourse']);
 Route::get('/purchase_course stat',[PurchageCoursestatController::class, 'Purchasestat']);
 Route::get('/index2',[Index2Controller::class, 'Index2'])->name('company.index2');
-Route::get('/edit_profile2',[EditProfile2Controller ::class, 'Editprofile2']);
-Route::get('/course_details2',[Coursedetails2Controller::class, 'Coursedetail2']);
+Route::get('/profile',[CompanyProfileController ::class, 'companyProfile']);
+Route::post('/purchased/courses',[ Coursedetails2Controller::class, 'course'])->name('company.purchased.courses');
+
+Route::post('/profile/{id}',[CompanyProfileController ::class, 'updateProfile'])->name('company.update.profile');
+Route::get('/password',[SignupcompanyController::class, 'changepass'])->name('company.change.password');
+Route::post('/password/update',[SignupcompanyController::class, 'updatePassword'])->name('company.update.password');
+
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
 Route::get('/add_card',[AddcardController::class, 'Addcard']);
+
+Route::post('/paypal', [PaymentController::class, 'payWithpaypal'])->name('paypal');
+Route::get('/status', [PaymentController::class, 'getPaymentStatus'])->name('status');});
 });
 
+
 //employee
-    Route::prefix('/company')->group(function () {
+    Route::prefix('/employee')->group(function () {
     Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('company.signup');
     Route::get('/company_details',[Company_detailsController ::class, 'CompanyDetails']);
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);

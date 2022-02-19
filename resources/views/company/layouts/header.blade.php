@@ -53,7 +53,7 @@
     <div class="container">
         <div class="row ">
             <div class=" col-lg-2 col-12" id="second">
-                <a href="{{url('index2.html')}}"> <img class="img-fluid" src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="..."></a>
+                <a href="{{route('company.home')}}"> <img class="img-fluid" src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="..."></a>
             </div>
             <div class="col-lg-10 col-12" id="second">
                 <div class="buttons1" style="display:inline-flex">
@@ -114,28 +114,28 @@
                                 </li>
                                 <div class="spacing">
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('slicing_web/home.svg')}}" alt="..."> &nbsp; Home</p>
+                                        <a class="dropdown-item" href="{{route('company.home')}}">
+                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/home.svg')}}" alt="..."> &nbsp; Home</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{url('edit_profile2')}}">
-                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/edit.svg" alt')}}="..."> &nbsp;&nbsp;&nbsp;Edit Profile</p>
+                                        <a class="dropdown-item" href="{{url('company/profile')}}">
+                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/edit.svg')}}"> &nbsp;&nbsp;&nbsp;Edit Profile</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{url('payment_option')}}">
+                                        <a class="dropdown-item" href="{{url('company/payment_option')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/payment.svg')}}" alt="..."> &nbsp; Payment Option</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{url('purchased_courses')}}.html">
+                                        <a class="dropdown-item" href="{{url('/company/purchased_courses')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/purchased.svg')}}" alt="..."> &nbsp; Purchased Courses</p>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a class="dropdown-item" href="change_password.html">
+                                        <a class="dropdown-item" href="{{route('company.change.password')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/pass.svg')}}" alt="..."> &nbsp;&nbsp;&nbsp;Change Password</p>
                                         </a>
                                     </li>

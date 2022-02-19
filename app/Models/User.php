@@ -29,7 +29,8 @@ class User extends Authenticatable
         'latitude',
         'longitude',
         'device_type',
-        'device_token'
+        'device_token',
+        'company_name'
     ];
 
     /**

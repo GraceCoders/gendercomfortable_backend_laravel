@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -42,14 +43,18 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $input = $request->all();
-        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            if (auth()->user()->user_type == 1) {
-                return redirect()->route('admin.home');
-            } elseif(auth()->user()->user_type == 0) {
-                return redirect()->route('employee.home');
+        if(User::where('email',$input['email'])->first()){
+            if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
+                if (auth()->user()->user_type == 1) {
+                    return redirect()->route('admin.home');
+                } else {
+                    return redirect()->route('company.home');
+                }
+            } else {
+                return redirect('login')->with('error', 'Password incorrect.');
             }
-        } else {
-            return redirect('login')->with('error', 'Please check your Email And Password Are Wrong.');
-        }
+        }else{
+                return redirect('login')->with('emailerror', 'Email dose not exist try another email.');
+            }
     }
 }

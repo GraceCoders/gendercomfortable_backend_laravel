@@ -3,67 +3,88 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Srmklive\PayPal\Facades\PayPal;
-use Srmklive\PayPal\Services\ExpressCheckout;
+use Illuminate\Support\Facades\Request;
+
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class PayPalController extends Controller
 {
-    private $provider;
-
-    public function __construct()
+    public function createTransaction()
     {
-        $this->provider = PayPal::setProvider('express_checkout');
+        return view('transaction');
     }
 
-    public function payment()
-    {
-        $data = [];
-        $data['items'] = [
-            [
-                'name' => 'ItSolutionStuff.com',
-                'price' => 100,
-                'desc'  => 'Description for ItSolutionStuff.com',
-                'qty' => 1
+
+    public function processTransaction(Request $request)
+    {  
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+
+        $response = $provider->createOrder([
+            "intent" => "CAPTURE",
+            "application_context" => [
+                "return_url" => route('successTransaction'),
+                "cancel_url" => route('cancelTransaction'),
+            ],
+            "purchase_units" => [
+                0 => [
+                    "amount" => [
+                        "currency_code" => "USD",
+                        "value" => "0.00"
+                    ]
+                ]
             ]
-        ];
-        $data['invoice_id'] = 1;
-        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
-        $data['return_url'] = route('payment.success');
-        $data['cancel_url'] = route('payment.cancel');
-        $data['total'] = 100;
+        ]);
 
+        if (isset($response['id']) && $response['id'] != null) {
 
-        $response = $provider->setExpressCheckout($data);
+            // redirect to approve href
+            foreach ($response['links'] as $links) {
+                if ($links['rel'] == 'approve') {
+                    return redirect()->away($links['href']);
+                }
+            }
 
-        $response = $provider->setExpressCheckout($data, true);
+            return redirect()
+                ->route('createTransaction')
+                ->with('error', 'Something went wrong.');
 
-        return redirect($response['paypal_link']);
-    }
-
-    /**
-     * Responds with a welcome message with instructions
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function cancel()
-    {
-        dd('Your payment is canceled.');
-    }
-
-    /**
-     * Responds with a welcome message with instructions
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function success(Request $request)
-    {
-        $response = $provider->getExpressCheckoutDetails($request->token);
-
-        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            dd('Your payment was successfully. You can create success page here.');
+        } else {
+            return redirect()
+                ->route('createTransaction')
+                ->with('error', $response['message'] ?? 'Something went wrong.');
         }
+    }
 
-        dd('Something is wrong.');
+    /**
+     * success transaction.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function successTransaction(Request $request)
+    {
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($request['token']);
+
+        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            return redirect()
+                ->route('createTransaction')
+                ->with('success', 'Transaction complete.');
+        } else {
+            return redirect()
+                ->route('createTransaction')
+                ->with('error', $response['message'] ?? 'Something went wrong.');
+        }
+    }
+
+
+    public function cancelTransaction(Request $request)
+    {
+        return redirect()
+            ->route('createTransaction')
+            ->with('error', $response['message'] ?? 'You have canceled the transaction.');
     }
 }

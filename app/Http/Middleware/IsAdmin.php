@@ -15,9 +15,9 @@ class IsAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard="admin")
     {
-        if (Auth::check() && Auth::user()->user_type == 1) {
+        if (Auth::check() && Auth::user()->user_type == 1 ) {
             return $next($request);
         } else {
             return redirect()->route('login');

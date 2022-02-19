@@ -49,18 +49,13 @@ class UsersController extends Controller
                 return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
             } else {
             $user = new User();
-            if($request->first_name){
-               $name = $request->first_name . ' ' . $request->last_name;
-            }
-            else{
-                $name = $request->name;
-            }
-            $user->name =$name;
+            $user->company_name =$request->company_name;
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->bio = $request->bio;
+            $user->user_type = 2;
             $user->user_type = $request->user_type;
             $user->username = $request->username;
             $user->address = $request->address;

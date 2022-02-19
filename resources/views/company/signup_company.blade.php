@@ -132,7 +132,7 @@
                         </center>
                         <p class="learn">Learn how to feel comfortable around transgender people</p>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control"name="username" id="floatingInput" placeholder="name@example.com">
+                            <input type="text" class="form-control"name="username" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Username</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -145,18 +145,18 @@
 
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <input type="email" class="form-control" id="floatingInput" name="company_name" placeholder="name@example.com">
+                            <input type="text" class="form-control" id="floatingInput" name="company_name" placeholder="name@example.com">
                             <label for="floatingInput">Company name</label>
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <input type="email" class="form-control" name="comapny_bio" id="floatingInput" placeholder="name@example.com">
+                            <input type="text" class="form-control" name="comapny_bio" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Company bio</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control"  name="address id="floatingInput" placeholder="name@example.com">
+                            <input type="text" class="form-control"  name="address id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Address</label>
                         </div>
-                      <a href="{{url('/company_home')}}"> <button class="btn btn w-100 pb-3 pt-3 " type="button" id="checkout2">Signup</button></a>
+                       <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Signup</button>
                       <p class="psw">Already have an account? <a href="{{ url('/login2') }}">Login</a></p>
                     </div>
                 </div>

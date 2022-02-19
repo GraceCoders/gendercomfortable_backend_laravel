@@ -13,13 +13,13 @@ class CreateCompanyCourseTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_course', function (Blueprint $table) {
+        Schema::create('purchase_course', function (Blueprint $table) {
             $table->id();
             $table->integer('course_id');
             $table->integer('user_id');
             $table->boolean('status')->default(true);
             $table->integer('no_of_seat');
-            $table->integer('payment')->default(1)->comment('1=>completed 0=>failed,2=>cancel');
+            $table->integer('amount');
             $table->timestamps();
         });
     }
