@@ -29,6 +29,7 @@ use App\Http\Controllers\Company\Index2Controller;
 use App\Http\Controllers\Company\Coursedetails2Controller;
 use App\Http\Controllers\Company\Login2Controller;
 use App\Http\Controllers\Company\AddcardController;
+use App\Http\Controllers\Company\AddMoneyController;
 use App\Http\Controllers\Company\CompanyProfileController;
 use App\Http\Controllers\Company\PaymentController;
 use App\Http\Controllers\Company\PayPalPayPaymentmentController;
@@ -124,8 +125,12 @@ Route::post('/password/update',[SignupcompanyController::class, 'updatePassword'
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
 Route::get('/add_card',[AddcardController::class, 'Addcard']);
 
-Route::post('/paypal', [PaymentController::class, 'payWithpaypal'])->name('paypal');
-Route::get('/status', [PaymentController::class, 'getPaymentStatus'])->name('status');});
+Route::post('handle-payment',  [PaymentController::class,'handlePayment'])->name('make.payment');
+Route::get('cancel-payment',  [PaymentController::class,'paymentCancel'])->name('cancel.payment');
+Route::get('payment-success',  [PaymentController::class,'paymentSuccess'])->name('success.payment');
+
+
+});
 });
 
 
