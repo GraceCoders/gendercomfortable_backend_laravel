@@ -13,7 +13,7 @@ return [
     'sandbox' => [
         'username'    => env('PAYPAL_SANDBOX_API_USERNAME', ''),
         'password'    => env('PAYPAL_SANDBOX_API_PASSWORD', ''),
-        'secret'      => env('PAYPAL_SANDBOX_API_SECRET', ''),
+        'secret'      => env('PAYPAL_SECRET', ''),
         'certificate' => env('PAYPAL_SANDBOX_API_CERTIFICATE', ''),
         'app_id'      => 'APP-80W284485P519543T',
     ],

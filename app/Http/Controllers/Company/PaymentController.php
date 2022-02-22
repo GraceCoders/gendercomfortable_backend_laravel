@@ -15,18 +15,17 @@ class PaymentController extends Controller
         $product['items'] = [
             [
                 'name' => 'Nike Joyride 2',
-                'price' => 1,
+                'price' => 11,
                 'desc'  => 'Running shoes for Men',
                 'qty' => 2
             ]
         ];
   
-        $product['invoice_id'] = 1213213;
+        $product['invoice_id'] = 22;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment');
         $product['cancel_url'] = route('cancel.payment');
         $product['total'] = 2;
-  
         $paypalModule = new ExpressCheckout;
         $res = $paypalModule->setExpressCheckout($product);
         $res = $paypalModule->setExpressCheckout($product, true);
@@ -43,9 +42,11 @@ class PaymentController extends Controller
         $paypalModule = new ExpressCheckout;
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-          return redirect('/payment/success');
+          return redirect('/company/payment/success');
         }
   
         dd('Error occured!');
     }
 }
+// sb-ztfnq13829928@personal.example.com
+// L-(1g.(8

@@ -12,7 +12,6 @@ use App\Http\Controllers\admin\CreateCourseController;
 use App\Http\Controllers\admin\CreatetestController;
 use App\Http\Controllers\admin\CourseDetailsController;
 use App\Http\Controllers\admin\ChangePassController;
-use App\Http\Controllers\Api\v1\PayPalController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 //comapny
 
@@ -29,10 +28,9 @@ use App\Http\Controllers\Company\Index2Controller;
 use App\Http\Controllers\Company\Coursedetails2Controller;
 use App\Http\Controllers\Company\Login2Controller;
 use App\Http\Controllers\Company\AddcardController;
-use App\Http\Controllers\Company\AddMoneyController;
 use App\Http\Controllers\Company\CompanyProfileController;
 use App\Http\Controllers\Company\PaymentController;
-use App\Http\Controllers\Company\PayPalPayPaymentmentController;
+use App\Http\Controllers\Company\PayPalController;
 // Employee
 use App\Http\Controllers\Employee\SignupEmployeeController;
 use App\Http\Controllers\Employee\TestController;
@@ -95,9 +93,7 @@ Route::get('/paypal', function () {
     return view('admin/paypal');
 });
 
-Route::get('payment',[PayPalController::class,'payment'])->name('payment');
-Route::get('cancel', [PayPalController::class,'cancel'])->name('payment.cancel');
-Route::get('payment/success', [PayPalController::class,'success'])->name('payment.success');
+
 
 
 // Company routes
@@ -129,7 +125,6 @@ Route::post('handle-payment',  [PaymentController::class,'handlePayment'])->name
 Route::get('cancel-payment',  [PaymentController::class,'paymentCancel'])->name('cancel.payment');
 Route::get('payment-success',  [PaymentController::class,'paymentSuccess'])->name('success.payment');
 
-
 });
 });
 
@@ -150,3 +145,4 @@ Route::get('payment-success',  [PaymentController::class,'paymentSuccess'])->nam
     });
 
 ?>
+
