@@ -13,23 +13,24 @@ class PaymentController extends Controller
     {
         $product = [];
         $product['items'] = [
-            [
-                'name' => 'Nike Joyride 2',
-                'price' => 11,
-                'desc'  => 'Running shoes for Men',
-                'qty' => 2
-            ]
+        [
+        'name' => 'Nike Joyride 2',
+        'price' => 112,
+        'desc'  => 'Running shoes for Men',
+        'qty' => 2,
+        'currency'=>'USD'
+        ]
         ];
-  
-        $product['invoice_id'] = 22;
+        $product['invoice_id'] = 1;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment');
         $product['cancel_url'] = route('cancel.payment');
-        $product['total'] = 2;
+        $product['total'] = 224; 
         $paypalModule = new ExpressCheckout;
         $res = $paypalModule->setExpressCheckout($product);
         $res = $paypalModule->setExpressCheckout($product, true);
-        return redirect($res['paypal_link']);
+         return redirect($res['paypal_link']);
+
     }
    
     public function paymentCancel()
@@ -41,6 +42,7 @@ class PaymentController extends Controller
     {
         $paypalModule = new ExpressCheckout;
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
+        dd($response);
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
           return redirect('/company/payment/success');
         }

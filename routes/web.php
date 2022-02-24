@@ -121,6 +121,10 @@ Route::post('/password/update',[SignupcompanyController::class, 'updatePassword'
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
 Route::get('/add_card',[AddcardController::class, 'Addcard']);
 
+Route::post('/order/create',[\App\Http\Controllers\Front\PaypalPaymentController::class,'create']);
+    Route::post('/order/capture/',[\App\Http\Controllers\Front\PaypalPaymentController::class,'capture']);
+
+
 Route::post('handle-payment',  [PaymentController::class,'handlePayment'])->name('make.payment');
 Route::get('cancel-payment',  [PaymentController::class,'paymentCancel'])->name('cancel.payment');
 Route::get('payment-success',  [PaymentController::class,'paymentSuccess'])->name('success.payment');
