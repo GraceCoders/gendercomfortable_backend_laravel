@@ -9,7 +9,7 @@ class CompanyhomeController extends Controller
 {
     public function Companyhome(){
 
-        $data = Course::where('courses.status',0)->paginate(6);
+        $data = Course::where('status',1)->paginate(6);
         return view('company.company_home',compact('data'));
     }
 }
