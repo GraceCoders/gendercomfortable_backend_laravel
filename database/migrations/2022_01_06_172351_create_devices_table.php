@@ -16,9 +16,9 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->index()->nullable();
-            $table->string('device_id', 1024);
-            $table->enum('device_type', ['android', 'ios']);
-            $table->string('notification_token', 2048);
+            $table->string('device_id', 1024)->nullable();;
+            $table->enum('device_type', ['android', 'ios'])->nullable();;
+            $table->string('notification_token', 2048)->nullable();;
             $table->dateTime('logged_in_at')->nullable();
             $table->timestamps();
         });

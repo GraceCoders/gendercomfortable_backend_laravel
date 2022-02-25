@@ -55,7 +55,6 @@ class UsersController extends Controller
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->bio = $request->bio;
-            $user->user_type = 2;
             $user->user_type = $request->user_type;
             $user->username = $request->username;
             $user->address = $request->address;

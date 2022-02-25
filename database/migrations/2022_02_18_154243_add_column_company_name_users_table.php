@@ -14,7 +14,7 @@ class AddColumnCompanyNameUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('company_name');
+            $table->string('company_name')->nullable();
         });
     }
 
