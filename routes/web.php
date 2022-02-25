@@ -1,17 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\IndexController;
-use App\Http\Controllers\admin\SignupController;
-use App\Http\Controllers\admin\LoginController;
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\EmptyController;
-use App\Http\Controllers\admin\UploadController;
-use App\Http\Controllers\admin\EditprofileController;
-use App\Http\Controllers\admin\CreateCourseController;
-use App\Http\Controllers\admin\CreatetestController;
-use App\Http\Controllers\admin\CourseDetailsController;
-use App\Http\Controllers\admin\ChangePassController;
+use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\SignupController;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EmptyController;
+use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\Admin\EditprofileController;
+use App\Http\Controllers\Admin\CreateCourseController;
+use App\Http\Controllers\Admin\CreatetestController;
+use App\Http\Controllers\Admin\CourseDetailsController;
+use App\Http\Controllers\Admin\ChangePassController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 //comapny
 
@@ -120,9 +120,6 @@ Route::post('/password/update',[SignupcompanyController::class, 'updatePassword'
 
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
 Route::get('/add_card',[AddcardController::class, 'Addcard']);
-
-Route::post('/order/create',[\App\Http\Controllers\Front\PaypalPaymentController::class,'create']);
-    Route::post('/order/capture/',[\App\Http\Controllers\Front\PaypalPaymentController::class,'capture']);
 
 
 Route::post('handle-payment',  [PaymentController::class,'handlePayment'])->name('make.payment');
