@@ -28,6 +28,7 @@ use App\Http\Controllers\Company\Index2Controller;
 use App\Http\Controllers\Company\Coursedetails2Controller;
 use App\Http\Controllers\Company\Login2Controller;
 use App\Http\Controllers\Company\AddcardController;
+use App\Http\Controllers\Company\BraintreeController;
 use App\Http\Controllers\Company\CompanyProfileController;
 use App\Http\Controllers\Company\PaymentController;
 use App\Http\Controllers\Company\PayPalController;
@@ -107,7 +108,7 @@ Route::get('/course/detail/{id}',[Coursedetails2Controller::class, 'Coursedetail
 Route::get('/checkout/{id}',[CheckoutController ::class, 'Checkout'])->name('checkout');
 Route::get('/checkout2',[Checkout2Controller ::class, 'Checkout2']);
 Route::get('/payment_option',[PaymentoptionController::class, 'Paymentoption']);
-Route::get('/payment/success',[PaymentsuccessController::class, 'Paymentsuccess'])->name('payment.success');
+Route::get('/payment/success/{id}',[PaymentsuccessController::class, 'Paymentsuccess'])->name('payment.success');
 Route::get('/purchased_courses',[ PurchascourseController::class, 'Purchasecourse']);
 Route::get('/purchase_course stat',[PurchageCoursestatController::class, 'Purchasestat']);
 Route::get('/index2',[Index2Controller::class, 'Index2'])->name('company.index2');
@@ -120,12 +121,13 @@ Route::post('/password/update',[SignupcompanyController::class, 'updatePassword'
 
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
 Route::get('/add_card',[AddcardController::class, 'Addcard']);
+Route::any('/payment', [BraintreeController::class, 'token'])->name('token');
 
 
-Route::post('handle-payment',  [PaymentController::class,'handlePayment'])->name('make.payment');
-Route::get('cancel-payment',  [PaymentController::class,'paymentCancel'])->name('cancel.payment');
-Route::get('payment-success',  [PaymentController::class,'paymentSuccess'])->name('success.payment');
-
+Route::get('create-transaction/{id}', [PayPalController::class, 'createTransaction'])->name('createTransaction');
+Route::get('process-transaction/{id}', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+Route::get('success-transaction/{id}', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 });
 });
 

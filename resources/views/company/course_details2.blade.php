@@ -69,65 +69,7 @@ $i =1;
                     @endif
                 </div>
             </div>
-            {{-- <div class="tab-pane fade bg-light" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="container">
-                    <section class="third-sec bg-light">
-                        <div class="container ">
-                            <h5 class="purchase">Purchased By</h5>
-                            <div class="row  ">
-                                <div class=" col-lg-4 col-12">
-                                    <div class="comapany1">
-                                        <h3>Company 1</h3>
-                                        <p>Seats purchased: 12</p>
-                                        <p>Unique course access key:<br>
-                                            <span id="digit_val"> 83719-58015-23641-84332-09281 </span></p>
-                                    </div>
-                                </div>
-                                <div class=" col-lg-4 col-12">
-                                    <div class="comapany1">
-                                        <h3>Company 2</h3>
-                                        <p>Seats purchased: 12</p>
-                                        <p>Unique course access key:<br><span id="digit_val"> 83719-58015-23641-84332-09281 </span></p>
-                                    </div>
-                                </div>
-                                <div class=" col-lg-4 col-12">
-                                    <div class="comapany1">
-                                        <h3>Company 3</h3>
-                                        <p>Seats purchased: 12</p>
-                                        <p>Unique course access key:<br><span id="digit_val"> 83719-58015-23641-84332-09281 </span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-              <section class="third-sec bg-light">
-                        <div class="container ">
-
-                            <div class="row  ">
-                                <div class=" col-lg-4 col-12" id="second1">
-                                    <div class="comapany1">
-                                        <h3>Company 4</h3>
-                                        <p>Seats purchased: 12</p>
-                                        <p>Unique course access key:<br><span id="digit_val"> 83719-58015-23641-84332-09281 </span></p>
-                                    </div>
-                                </div>
-
-
-                                <div class=" col-lg-4 col-12" id="second1">
-                                    <div class="comapany1">
-                                        <h3>Company 5</h3>
-                                        <p>Seats purchased: 12</p>
-                                        <p>Unique course access key:<br><span id="digit_val"> 83719-58015-23641-84332-09281 </span></p>
-                                    </div>
-                                </div>
-                                <div class=" col-lg-4 col-12" id="second1">
-
-                                </div>
-                            </div>
-                    </section>
-                    </div>
-                </div>
-            </div> --}}
+           
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
             <!-- fifth section end -->

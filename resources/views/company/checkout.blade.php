@@ -1,5 +1,6 @@
 @extends('company.layouts.main')
 @section('main-container')
+<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
     <section class="bg-light">
         <div class="container  ">
             <div class="centers ">
@@ -7,10 +8,9 @@
                     <center>
                         <h1 class="signuph">Order</h1>
                     </center>
-                    <form method="POST" action="{{ route('make.payment') }}">
-                        @csrf
-                        <input type="hidden" value={{ $data->amount }} name="amount">
-                        <input type="hidden" value={{ $data->course_id }} name="course_id">
+                
+                        <input type="hidden" value="{{ $data->amount }}" name="amount">
+                        <input type="hidden" value="{{ $data->course_id }}" name="course_id">
                         <h5>Order details</h5>
                         <div class="row">
                             <div class="  col-lg-4 col-12 " id="ckeck1"><img class="img-fluid" class="image"
@@ -22,8 +22,8 @@
                             </div>
                         </div>
                         <div class="line"></div>
-                        <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Checkout</button>
-                    </form>
+                    <a href="{{ route('processTransaction',Crypt::encrypt($data->id)) }}"  >  <button class="btn btn w-100 pb-3 pt-3 " type="button" id="checkout2">Checkout</button>
+                    </a>        
                 </div>
             </div>
         </div>

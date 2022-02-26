@@ -5,11 +5,20 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '17087f1a2daedf62d0db7de052e7bebd38dcfbae',
+        'reference' => '5b0e453318c7782d1efeeb90c2afacd623020b09',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
+        'braintree/braintree_php' => array(
+            'pretty_version' => '6.7.0',
+            'version' => '6.7.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../braintree/braintree_php',
+            'aliases' => array(),
+            'reference' => '3406aa331c3eb5ac38aecb135389897dd50f35a1',
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.9.3',
             'version' => '0.9.3.0',
@@ -436,7 +445,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '17087f1a2daedf62d0db7de052e7bebd38dcfbae',
+            'reference' => '5b0e453318c7782d1efeeb90c2afacd623020b09',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1038,12 +1047,12 @@
             'dev_requirement' => true,
         ),
         'srmklive/paypal' => array(
-            'pretty_version' => '1.9.0',
-            'version' => '1.9.0.0',
+            'pretty_version' => '3.0.13',
+            'version' => '3.0.13.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../srmklive/paypal',
             'aliases' => array(),
-            'reference' => '779bc87eb4cd62982e4f2f57fb667fe47c78e259',
+            'reference' => '064208e94c9997e42668230c1019d7ff85f77794',
             'dev_requirement' => false,
         ),
         'swiftmailer/swiftmailer' => array(
