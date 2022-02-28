@@ -26,6 +26,7 @@ return array(
     'App\\Http\\Controllers\\Company\\Coursedetails2Controller' => $baseDir . '/app/Http/Controllers/Company/Coursedetails2Controller.php',
     'App\\Http\\Controllers\\Company\\Index2Controller' => $baseDir . '/app/Http/Controllers/Company/Index2Controller.php',
     'App\\Http\\Controllers\\Company\\Login2Controller' => $baseDir . '/app/Http/Controllers/Company/Login2Controller.php',
+    'App\\Http\\Controllers\\Company\\PayPalController' => $baseDir . '/app/Http/Controllers/Company/PayPalController.php',
     'App\\Http\\Controllers\\Company\\PaymentoptionController' => $baseDir . '/app/Http/Controllers/Company/PaymentoptionController.php',
     'App\\Http\\Controllers\\Company\\PaymentsuccessController' => $baseDir . '/app/Http/Controllers/Company/PaymentsuccessController.php',
     'App\\Http\\Controllers\\Company\\PurchageCoursestatController' => $baseDir . '/app/Http/Controllers/Company/PurchageCoursestatController.php',

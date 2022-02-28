@@ -166,9 +166,6 @@ $user = Auth::user();
                                     <div class="modal-footers text-center ">
 
                                         <p class="logout_popup">
-
-
-
                                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                                 Logout

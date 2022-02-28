@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
     <!-- Bootstrap CSS -->
@@ -20,9 +21,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
+<style>
+    .alert {
+        position: relative;
+        padding: 11px 20px 12px 20px;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        display: flex;
+    }
+
+</style>
 
 <body>
     <section class="purple top-bar">
@@ -96,29 +108,29 @@
                             <div class="form-floating mb-3">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-@if (Session::get('emailerror'))
-<small class="alert alert-danger alert-block" role="alert">
-    <strong>{{ Session::get('emailerror') }}</strong>
-</small>
-@endif
-                     <label for="floatingInput">Email address</label>
+                                @if (Session::get('emailerror'))
+                                    <small class="alert alert-danger alert-block" role="alert">
+                                        <strong>{{ Session::get('emailerror') }}</strong>
+                                    </small>
+                                @endif
+                                <label for="floatingInput">Email address</label>
                             </div>
                             <div class="form-floating ">
-                                <input id="password" type="password"
+                                <input id="id_password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
                                     required autocomplete="current-password">
 
+                                <label for="floatingPassword">Password</label> 
+                                <i class="far fa-eye togglePassword" id="hideimg"  style="margin-left: -30px; cursor: pointer;"></i>
+
                                     @if ($message = Session::get('error'))
                                     <small class="alert alert-danger alert-block" role="alert">
-    <strong>{{ $messae }}</strong>
-</small>
-@endif
- <label for="floatingPassword">Password</label> <img class="img-fluid"
-                                    id="hideimg" src="{{ asset('assets/slicing_web/hide.svg') }}" alt="...">
+                                        <strong>{{ $message }}</strong>
+                                    </small>
+                                @endif
                                 <small id="forgot" class="form-text" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"><a href="#">Forgot password</a></small>
                             </div>
-
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout21">Login</button>
                         </form>
                         <p class="psw">Dont have an account? <a href="{{ url('/admin') }}">Sign
@@ -160,8 +172,18 @@
 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
 <script>
+    setTimeout(function() {
+        $('.alert-block').remove();
+    }, 5000);
 
-setTimeout(function() {
-    $('.alert-block').remove();
-}, 5000);
+    const togglePassword = document.querySelector('.togglePassword');
+    const password = document.querySelector('#id_password');
+
+    togglePassword.addEventListener('click', function(e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
 </script>

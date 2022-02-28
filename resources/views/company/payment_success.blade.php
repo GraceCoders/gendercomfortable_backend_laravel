@@ -17,7 +17,7 @@
                                 <h4 class=" success_heading">Payment successful
                                 </h4>
                                 <p class="perat">Congratulations! your order is successfully placed. You have purchased {{$data->no_of_seat}} seats and your unique course access key is
-                                    <p class="perat1">83719-58015-23641-84332-09281</p>
+                                    <p class="perat1">{{$data->purchase_key}}</p>
 
                                     <h5 class="back_pera1"><a href="{{route('company.home')}}">Go back to home</a></h5>
                 </div>

@@ -77,10 +77,16 @@ class PayPalController extends Controller
      */
     public function successTransaction(Request $request,$id)
     {
+        $ids = Crypt::decrypt($id);
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request['token']);
+        $save = PurchaseCourse::where('id',$ids)->first();
+        $save->status =$response['status'];
+        $save->transaction_id =$response['id'];
+        $save->purchase_key = random_int(10000000, 99999999);
+        $save->save();
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             return redirect()

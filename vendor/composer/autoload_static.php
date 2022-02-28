@@ -585,6 +585,7 @@ class ComposerStaticInit0e26ce5e8c29c8e41ba22c33071cd8e4
         'App\\Http\\Controllers\\Company\\Coursedetails2Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Company/Coursedetails2Controller.php',
         'App\\Http\\Controllers\\Company\\Index2Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Company/Index2Controller.php',
         'App\\Http\\Controllers\\Company\\Login2Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Company/Login2Controller.php',
+        'App\\Http\\Controllers\\Company\\PayPalController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company/PayPalController.php',
         'App\\Http\\Controllers\\Company\\PaymentoptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company/PaymentoptionController.php',
         'App\\Http\\Controllers\\Company\\PaymentsuccessController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company/PaymentsuccessController.php',
         'App\\Http\\Controllers\\Company\\PurchageCoursestatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company/PurchageCoursestatController.php',

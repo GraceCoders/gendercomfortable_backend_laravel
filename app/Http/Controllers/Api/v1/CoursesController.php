@@ -13,6 +13,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Question;
 use App\Models\Answer;
+use App\Models\PurchaseCourse;
 use Illuminate\Support\Facades\DB as FacadesDB;
 
 class CoursesController extends Controller
@@ -137,5 +138,11 @@ class CoursesController extends Controller
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
         }
+    }
+
+    public function getPurchaseCourse(){
+     $id = Auth::id();
+     $course = PurchaseCourse::with(['course','lession','question'])->where('id',$id)->paginate(10);
+     $this->sendSuccessResponse(trans("Messages.Success"), $course->toArray());
     }
 }

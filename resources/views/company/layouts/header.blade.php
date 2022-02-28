@@ -155,7 +155,16 @@
                                 <li>
                                     <div class="modal-footers text-center ">
 
-                                        <p class="logout_popup"><a href="#">Logout</a></p>
+                                        <p class="logout_popup">
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                                Logout
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </a>
+                                        </p>
                                     </div>
                                 </li>
                             </ul>

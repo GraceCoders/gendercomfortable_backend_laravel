@@ -168,9 +168,9 @@ class UsersController extends Controller
     {
         try {
             $arrayData = $request->all();
-            if ($request->hasFile('profile_pic')) {
+            if ($request->hasFile('profilepic')) {
                 $file = upload_file($request->profilepic, 'profile');
-                $arrayData['profile_pic'] = $file;
+                $arrayData['profilepic'] = $file;
             }
             $user->where('id', Auth::user()->id)->update($arrayData);
             $this->sendSuccessResponse(trans("Messages.UpdatedSuccessfully"));

@@ -15,15 +15,19 @@ class PurchaseCourse extends Model
         'course_id',
         'no_of_seat',
         'status',
-        'amount'
+        'amount','transaction_id','purchase_key'
         ];
 
         public function course()
         {
             return $this->belongsTo(Course::class,'course_id','id');
         }
+        public function lessons()
+        {
+            return $this->hasMany(Lesson::class);
+        }
         public function question()
         {
-            return $this->hasMany(Question::class,'course_id','course_id');
+            return $this->hasMany(Question::class);
         }
 }

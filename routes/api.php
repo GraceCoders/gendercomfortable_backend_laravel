@@ -38,6 +38,8 @@ Route::prefix('/v1')->group(function () {
         Route::post('/createLessons', [CoursesController::class, 'createLessons']);
         Route::post('/buyCourse', [CompanyController::class, 'buyCourse']);
         Route::get('/getBuyCourse', [CompanyController::class, 'getBuyCourse']);
+        Route::get('/getPurchaseCourse', [CoursesController::class, 'getPurchaseCourse']);
+
 
     });
 });

@@ -54,11 +54,11 @@
                 </div>
                 <div class="col-lg-10 col-12" id="second">
                     <div class="buttons">
-                        <a href="{{route('admin.signup')}}"> <button type="button" class="button1 button1-lg"
+                        <a href="{{ route('admin.signup') }}"> <button type="button" class="button1 button1-lg"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button></a>
-                           <a href="{{ url('/login') }}"> <button type="button" class="button2 button2-lg"
+                        <a href="{{ url('/login') }}"> <button type="button" class="button2 button2-lg"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button></a>
-                            </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,13 +85,14 @@
                             <center>
                                 <div class="container ">
 
-                                    <label for="myfile" id="label_img2"><img class="img-fluid" src="" alt="..."id="roundimgs" >
+                                    <label for="myfile" id="label_img2"><img class="img-fluid" src="" alt="..."
+                                            id="roundimgs">
 
-                                               <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
-                                               value="upload thumbnail">
-                                               <img class="img-fluid uploadimg" src="" ></span>
-                                             </label>
-                                 </div>
+                                        <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
+                                            value="upload thumbnail">
+                                        <img class="img-fluid uploadimg" src=""></span>
+                                    </label>
+                                </div>
                                 {{-- <div class="container ">
 
                                     <label for="myfile"><img class="img-fluid" src="slicing_web/add.svg" alt="..."id="roundimgs">
@@ -129,7 +130,8 @@
                                 <label for="floatingInput" class="bio_input">bio</label>
                             </div>
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Signup</button>
-                            <p class="psw">Already have an account? <a href="{{ url('/login') }}">Login</a>
+                            <p class="psw">Already have an account? <a
+                                    href="{{ url('/login') }}">Login</a>
                             </p>
                     </div>
                 </div>
@@ -143,10 +145,11 @@
         </div>
     </section>
 </body>
+
 </html>
 <script>
     var loadFile = function(event) {
         var image = document.getElementById('roundimgs');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
-    </script>
+</script>
