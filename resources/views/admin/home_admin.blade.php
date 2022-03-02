@@ -46,7 +46,7 @@
                 @foreach ($course as $value)
                 <div class=" col-lg-4 col-12" id="second11">
                     <a href="{{ route('admin.publish.course',$value->id) }}"><img class="img-fluid" class="image"
-                            id="course_cover" src="{{ asset('storage/app/public/'.$value->thumbnail) }}"
+                            id="course_cover" src="{{asset('storage/'.$value->thumbnail)}}"
                             class="img-fluid" alt="..."></a>
                     <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
                 </div>
@@ -57,7 +57,7 @@
                 @foreach ($draft as $value)
                 <div class=" col-lg-4 col-12" id="second11">
                     <a href="{{ route('admin.publish.course',$value->id) }}"><img class="img-fluid" class="image"
-                            id="course_cover" src="{{ asset('storage/app/public/'.$value->thumbnail) }}"
+                            id="course_cover" src="{{asset('storage/'.$value->thumbnail)}}"
                             class="img-fluid" alt="..."></a>
                     <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
                 </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
     </section>
-    {{$course->links()}}
+    {{$course->links('pagination::bootstrap-4')}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>

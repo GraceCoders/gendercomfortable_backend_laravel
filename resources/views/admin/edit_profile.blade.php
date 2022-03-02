@@ -13,6 +13,7 @@
                         <div class="formdiv6 text-center ">
                             <h1 class="signuph">Edit Profile</h1>
                             <div class="plusesimg">
+                                <input type="file" name="profilepic" id="">
                                 <img class="image" src="{{ asset('storage/app/public/' . $user->profile_pic) }}"
                                     class="img-fluid" id="profilepics1" alt="...">
                                 <img class="img-fluid" id="pluspics"

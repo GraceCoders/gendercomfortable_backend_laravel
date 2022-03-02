@@ -46,7 +46,7 @@ class LoginController extends Controller
         if(User::where('email',$input['email'])->first()){
             if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
                 if (auth()->user()->user_type == 1) {
-                    return redirect()->route('admin.home');
+                    return redirect()->route('admin.index');
                 } else {
                     return redirect()->route('company.home');
                 }

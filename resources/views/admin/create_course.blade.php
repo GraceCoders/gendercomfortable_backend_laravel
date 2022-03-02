@@ -13,11 +13,10 @@
                             <h1 class="">Create course</h1>
                             <center>
                                 <div class="container">
-                                    <label for="myfile" id="upload_label"><img class="fa fa-upload" src="" alt="..."
-                                            id="imgss">
-                                        <span> <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
+                                    <label for="myfile" id="upload_label">
+                                        <img class="fa fa-upload" src=""id="imgss">
+                                       <input type="file" id="myfile" name="thumbnail" onchange="loadFile(event)"
                                                 value="upload thumbnail">
-                                            <img class="img-fluid uploadimg" src=""></span>
                                     </label>
                                 </div>
                             </center>

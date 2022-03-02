@@ -8,7 +8,7 @@
                     <span>
                         <p class="backsp"><img class="img-fluid"
                                 src="{{ asset('assets/slicing_web/back.svg') }}" alt="..." data-bs-toggle="modal"
-                                data-bs-target="#exampleModal52"> &nbsp;back</p>
+                                data-bs-target="#exampleModal52"> Back</p>
                     </span>
                 </div>
                 <div class="  col-lg-8 col-12 " id="regis_sec">
@@ -130,7 +130,7 @@
                                 add
                                 more</small>
                             <center><button type=" submit" class="btn btn-primary btn-lg  "
-                                    id="buttonlarge">Publish</button>
+                                value="0" name="draft"  id="buttonlarge">Publish</button>
                                 <button type=" submit"  value="1" name="draft" class="btn btn-primary btn-lg  " id="buttonlarge">Draft</button>
                             </center>
                         </form>

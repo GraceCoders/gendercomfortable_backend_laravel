@@ -12,6 +12,7 @@ class PurchascourseController extends Controller
     public function PurchaseCourse(){
         $id = Auth::id();
         $data = PurchaseCourse::with(['course','question'])->where('user_id',$id)->paginate(9);
+  
         return view('company.purchased_courses',compact('data'));
     }
 }

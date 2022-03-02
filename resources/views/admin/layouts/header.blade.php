@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gender Comfortable</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
@@ -23,12 +23,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 @php
 $user = Auth::user();
 @endphp
+
 <body>
     <section class="purple top-bar">
         <div class="container">
@@ -37,7 +38,7 @@ $user = Auth::user();
                     <a href=""> <img class="image-fluid" src="{{ asset('assets/slicing_web/mail.svg') }}"
                             class="img-fluid" alt="..."></a>
                     </a>
-             <p>support@gendercomfortable.com</p>
+                    <p>support@gendercomfortable.com</p>
                     <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/fb.svg') }}"
                             class="img-fluid" alt="..."></a>
                     <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/insta.svg') }}"
@@ -66,7 +67,7 @@ $user = Auth::user();
                             </button>
                         </div>
 
-                        <img class="image-fluide" src="{{ asset('storage/app/public/'.$user->profile_pic) }}"
+                        <img class="image-fluide" src="{{ asset('storage/' . $user->profile_pic) }}"
                             class="img-fluid" id="profilepic" alt="...">
                         <div class="btn-group">
                             <button type="button" class="btn btn bg-light dropdown-toggle" id="dropdownMenuButton11"
@@ -89,38 +90,49 @@ $user = Auth::user();
                                 </li>
                                 <div class="spacing111">
                                     <li>
-                   <div class="square">
+                                        <div class="square">
                                             <div class="row">
                                                 <div class="col-lg-4 col-12">
-@php
-    $user = Auth::id();
-    $publish = DB::table('courses')->where('status',0)->where('user_id',$user)->count();
-    $draft = DB::table('courses')->where('status',1)->where('user_id',$user)->count();
-
-@endphp
+                                                    @php
+                                                        $user = Auth::id();
+                                                        $publish = DB::table('courses')
+                                                            ->where('status', 0)
+                                                            ->where('user_id', $user)
+                                                            ->count();
+                                                        $draft = DB::table('courses')
+                                                            ->where('status', 1)
+                                                            ->where('user_id', $user)
+                                                            ->count();
+                                                        // $sold = DB::table('courses')
+                                                        //     ->join('purchase_course', 'course.id', '=', 'purchase_course.course_id')
+                                                        //     ->where('courses.status', 1)
+                                                        //     ->where('courses.user_id', $user)
+                                                        //     ->count();
+                                                        
+                                                    @endphp
                                                     <center>
-                                                        <h1 class>{{$publish}}</h1>
+                                                        <h1 class>{{ $publish }}</h1>
                                                     </center>
                                                     <h5 class="dreafts1">published</h5>
                                                 </div>
                                                 <div class="col-lg-4 col-12  ">
                                                     <div class="borders">
                                                         <center>
-                                                            <h1 class="">{{$draft}}</h1>
+                                                            <h1 class="">{{ $draft }}</h1>
                                                         </center>
                                                         <h5 class="dreafts"> Drafts</h5>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 col-12 ">
                                                     <center>
-                                                        <h1>01</h1>
+                                                        <h1>10</h1>
                                                     </center>
                                                     <h5 class="dreafts">sold</h5>
                                                 </div>
                                             </div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{route('admin.home')}}">
+                                        <a class="dropdown-item" href="{{ route('admin.home') }}">
                                             <p class="donec1">
 
                                                 <img class="img-fluid" class="image"
@@ -158,13 +170,11 @@ $user = Auth::user();
                                                 &nbsp;&nbsp;Privacy Policy</p>
                                         </a>
                                     </li>
-
                                 </div>
                                 <hr class="line">
                                 </hr>
                                 <li>
                                     <div class="modal-footers text-center ">
-
                                         <p class="logout_popup">
                                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

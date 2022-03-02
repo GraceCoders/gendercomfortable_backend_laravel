@@ -10,7 +10,7 @@
                         </center>
                     <h5>Order details</h5>
                         <div class="row">
-                            <div class="  col-lg-4 col-12 " id="ckeck1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/cousre_banner.png')}}" id="checkout_img" alt="..."></div>
+                            <div class="  col-lg-4 col-12 " id="ckeck1"><img class="img-fluid" class="image" src="{{asset('storage/'.$data->thumbnail)}}" id="checkout_img" alt="..."></div>
                             <div class="  col-lg-8 col-12 " id="check1">
                                 <h5>Duis aute irure dolor in reprehenderit X 20 (seats)</h5>
                                 <h6 class="">$120/seat</h6>

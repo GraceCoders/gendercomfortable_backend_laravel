@@ -28,6 +28,6 @@ class PurchaseCourse extends Model
         }
         public function question()
         {
-            return $this->hasMany(Question::class);
+            return $this->hasMany(Question::class,'course_id','course_id');
         }
 }

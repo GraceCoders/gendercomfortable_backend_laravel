@@ -14,7 +14,7 @@
                         <h5>Order details</h5>
                         <div class="row">
                             <div class="  col-lg-4 col-12 " id="ckeck1"><img class="img-fluid" class="image"
-                                    src="{{ asset('assets/slicing_web/cousre_banner.png') }}" id="checkout_img" alt="...">
+                                    src="{{asset('storage/'.$data->thumbnail)}}" id="checkout_img" alt="...">
                             </div>
                             <div class="  col-lg-8 col-12 " id="check1">
                                 <h5>{{ $data['course']->name }}</h5>

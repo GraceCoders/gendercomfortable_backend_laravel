@@ -9,7 +9,7 @@ $i =1;
         <div class="container">
             <div class="row">
                 <div class=" col-lg-8 col-12" id="largeimages">
-                    <img class="img-fluid" class="image" src="{{asset('assets/slicing_web/cousre_banner.png')}}" id="details2img" alt="...">
+                    <img class="img-fluid" class="image" src="{{asset('storage/'.$data->thumbnail)}}" id="details2img" alt="...">
                     <h3 class="details2heading">{{$data->name}}</h3>
                     <h4 class="details2heading1">${{$data->price_per_seat}}/seat</h4>
                 </div>

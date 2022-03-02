@@ -29,7 +29,7 @@ class SignupcompanyController extends Controller
           $user->profilepic = $file;
       }
         $user->save();
-        return redirect('/company/login')->with('success', 'Company Register Successfully!');
+        return redirect('/login')->with('success', 'Company Register Successfully!');
       }
 
       public function changepass()

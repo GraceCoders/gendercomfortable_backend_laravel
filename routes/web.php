@@ -134,7 +134,7 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
 
 //employee
     Route::prefix('/employee')->group(function () {
-    Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('company.signup');
+    Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('employee.signup');
     Route::get('/company_details',[Company_detailsController ::class, 'CompanyDetails']);
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
     Route::get('/complete course',[CompleteCourseController::class, 'Paymentoption']);

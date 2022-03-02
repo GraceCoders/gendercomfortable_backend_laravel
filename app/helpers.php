@@ -46,8 +46,8 @@ if (! function_exists('getErrorAsString')) {
 
         function upload_file($file, $folder)
           {
-              return Storage::disk('public')->put($folder, $file);
-          }
+          return  Storage::disk('public')->put($folder, $file);
+        }
       }
       if (! function_exists('guard')) {
         function guard()

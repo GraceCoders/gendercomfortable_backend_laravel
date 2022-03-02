@@ -25,7 +25,7 @@ class EditprofileController extends Controller
         $user->bio = $request->bio;
         if ($request->profilepic) {
             $file = upload_file($request->profilepic, 'profile');
-            $user->profilepic = $file;
+            $user->profile_pic = $file;
         }
         $user->save();
         return redirect('/admin/edit/profile')->with('success', 'Profile update Successfully');

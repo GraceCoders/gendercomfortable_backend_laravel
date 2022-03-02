@@ -7,7 +7,7 @@ $i =1;
     <section class="third_sec bg-light">
         <div class="container " id="largeimg1">
 
-            <img class="img-fluid" id="largeimg" class="image" src="{{asset('assets/slicing_web/cousre_banner.png')}}" alt="...">
+            <img class="img-fluid" id="largeimg" class="image" src="{{asset('storage/'.$data->thumbnail)}}" alt="...">
             <h4 id="heading41">{{$data->name}}</h4>
             <p class="pera41">${{$data->price_per_seat}}/seat</p>
         </div>
