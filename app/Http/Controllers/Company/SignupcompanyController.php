@@ -24,8 +24,8 @@ class SignupcompanyController extends Controller
         $user->address=$request->address;
         $user->password =Hash::make($request->password);
         $user->user_type = 2;
-        if (!empty($request->profilepic)) {
-          $file = upload_file($request->profilepic, 'profile');
+        if (!empty($request->filename)) {
+          $file = upload_file($request->filename, 'profile');
           $user->profilepic = $file;
       }
         $user->save();

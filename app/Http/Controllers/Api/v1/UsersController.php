@@ -60,6 +60,8 @@ class UsersController extends Controller
             $user->address = $request->address;
             $user->device_token = $request->device_token;
             $user->device_type = $request->device_type;
+            $user->license_key=$request->license_key;
+            $user->training_voucher=$request->training_voucher;            
             if (!empty($request->profilepic)) {
                 $file = upload_file($request->profilepic, 'profile');
                 $user->profilepic = $file;

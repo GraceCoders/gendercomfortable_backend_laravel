@@ -112,31 +112,32 @@
                 <div class=" col-lg-6 col-12 " id="regis_sec">
                     <div class="formdiv text-center">
                         <h1 class="signuph">Signup</h1>
-
                         <center>
-                            <div class="round_div">
-                                <label for="myfile" id="label_img2"><img class="img-fluid" src="" alt="..."
-                                        id="roundimgs">
+                            <form action="{{ route('employee.register') }}" method="POST" enctype='multipart/form-data'>
+                              @csrf
+                                <div class="round_div">
+                                    <label for="myfile" id="label_img2"><img class="img-fluid" src="" alt="..."
+                                            id="roundimgs">
 
-                                    <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
-                                        value="upload thumbnail">
-                                    <img class="img-fluid uploadimg" src=""></span>
-                                </label>
-                            </div>
+                                        <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
+                                            value="upload thumbnail">
+                                        <img class="img-fluid uploadimg" src=""></span>
+                                    </label>
+                                </div>
                         </center>
                         <p class="learn">Learn how to feel comfortable around transgender people</p>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"
+                            <input type="text" name="first_name" class="form-control" id="floatingInput"
                                 placeholder="name@example.com">
                             <label for="floatingInput">Firstname</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"
+                            <input type="text" name="last_name" class="form-control" id="floatingInput"
                                 placeholder="name@example.com">
                             <label for="floatingInput">Lastname</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"
+                            <input type="email" name="email" class="form-control" id="floatingInput"
                                 placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
@@ -148,11 +149,9 @@
                             <label for="floatingPassword">Password</label>
                             <i class="far fa-eye togglePassword" id="hideimg"
                                 style="margin-left: -30px; cursor: pointer;"></i>
-
-
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <input type="email" class="form-control" id="floatingInput"
+                            <input type="text" class="form-control" name="training_voucher" id="floatingInput"
                                 placeholder="name@example.com">
                             <label for="floatingInput">Training voucher code</label>
                         </div>
@@ -171,32 +170,28 @@
                                                 it to your account here to access the training.</p>
                                         </div>
                                         <div class="form-floating mb-3 ">
-                                            <input type="email " class="form-control " id="floatingInput "
+                                            <input type="text" name="license_key" class="form-control " id="floatingInput "
                                                 placeholder="name@example.com ">
                                             <label for="floatingInput ">License key</label>
                                         </div>
-                                        <a href="courses.html"><button class="btn btn w-100 pb-3 pt-3 " type="button "
-                                                id="checkout2">Submit</button></a>
+                                       <button class="btn btn w-100 pb-3 pt-3 " type="submit "
+                                                id="checkout2">Submit</button>
                                         <p class="back_pera ">Skip</p>
                                     </div>
                                 </div>
-
-                            </div>
+                             </div>
+                            </form>
                         </div>
-
                         <p class="psw ">Already have an account? <a href="{{ 'login' }} ">Login</a></p>
                     </div>
                 </div>
-
                 <div class=" col-lg-6 col-12 " id="regis_sec ">
                     <img class="img-fluid " src="{{ asset('assets/slicing_web/signup.svg') }} " id="signup_img "
                         alt="... ">
                 </div>
             </div>
         </div>
-
         </section>
-
         <!-- third div end -->
         <section class="purple footer-bar ">
             <div class="container ">
@@ -210,7 +205,6 @@
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous ">
         </script>
 </body>
-
 </html>
 
 <script>

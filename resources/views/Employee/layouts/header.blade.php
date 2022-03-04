@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Gender Comfortable</title>
 
-    <link rel="stylesheet" href="{{assets('assets/css/style2.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style2.css')}}">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
@@ -38,7 +38,7 @@
     <div class="container">
     <div class="row ">
             <div class=" col-lg-2 col-12" id="second">
-                <a href="{{url('company.index2')}}"> <img class="img-fluid" src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="..."></a>
+                <a href="{{route('employee.home')}}"> <img class="img-fluid" src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="..."></a>
             </div>
             <div class="col-lg-10 col-12" id="second">
                 <div class="buttons1" style="display:inline-flex">
@@ -67,13 +67,15 @@
                                 </li>
                                 <div class="spacing">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{route('employee.home')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/home.svg')}}" alt="..."> &nbsp; Home</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('asset/slicing_web/edit.svg')}}" alt="..."> &nbsp;&nbsp;&nbsp;Edit Profile</p>
+                                        <a class="dropdown-item" href="{{ route('employee.edit.profile') }}">
+                                            <p class="donec1"><img class="img-fluid" id="edit_img"
+                                                    src="{{ asset('assets/slicing_web/edit.svg') }}"
+                                                    alt="...">&nbsp;&nbsp;&nbsp;&nbsp;Edit Profile</p>
                                         </a>
                                     </li>
                                     <li>
@@ -106,8 +108,16 @@
                                 <hr class="line"></hr>
                                 <li>
                                     <div class="modal-footers text-center ">
-
-                                        <p class="logout_popup"><a href="#">Logout</a></p>
+                                        <p class="logout_popup">
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                                Logout
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </a>
+                                        </p>
                                     </div>
                                 </li>
                             </ul>

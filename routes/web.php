@@ -43,6 +43,7 @@ use App\Http\Controllers\Employee\CompleteCourseController;
 use App\Http\Controllers\Employee\Company_CoursesController;
 use App\Http\Controllers\Employee\Company_detailsController;
 use App\Http\Controllers\Employee\CertificationController;
+use App\Http\Controllers\Employee\EditProfileController as EmployeeEditProfileController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -135,7 +136,11 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
 //employee
     Route::prefix('/employee')->group(function () {
     Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('employee.signup');
-    Route::get('/company_details',[Company_detailsController ::class, 'CompanyDetails']);
+    Route::post('/employee/register',[SignupEmployeeController::class, 'register'])->name('employee.register');
+    Route::group(['middleware' => 'employee'], function () {
+    Route::get('/company/details',[Company_detailsController ::class, 'CompanyDetails'])->name('employee.home');
+    Route::get('/edit/profile',[EmployeeEditProfileController::class, 'editprofile'])->name('employee.edit.profile');
+
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
     Route::get('/complete course',[CompleteCourseController::class, 'Paymentoption']);
     Route::get('/course_lession',[course_lessionController::class, 'Courselession']);
@@ -146,6 +151,6 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/test',[TestController::class, 'Test']);
     Route::get('/certification',[CertificationController::class, 'Certification']);
     });
-
+});
 ?>
 
