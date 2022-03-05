@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Gender Comfortable</title>
+    <title>Gender Comfortable</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
@@ -23,8 +23,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+@php
+$data = DB::table('category')
+    ->where('status', 1)
+    ->get();
+@endphp
 
-<body>
+<body onload="InitMap();">
     <section class="purple top-bar">
         <div class="container">
             <div class="clearfix">
@@ -32,10 +37,6 @@
                     <a href=""> <img class="image-fluid" src="{{ asset('assets/slicing_web/mail.svg') }}"
                             class="img-fluid" alt="..."></a>
                     </a>
-
-
-
-
                     <p>support@gendercomfortable.com</p>
                     <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/fb.svg') }}"
                             class="img-fluid" alt="..."></a>
@@ -54,42 +55,48 @@
         <div class="container">
             <div class="row">
                 <div class=" col-lg-2 col-12" id="second">
-                    <a href="{{route('admin.signup')}}"> <img class="img-fluid"
+                    <a href="{{ route('admin.signup') }}"> <img class="img-fluid"
                             src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
                 <div class="col-lg-10 col-12" id="second">
                     <div class="buttons">
-                        <button type="button" class="button1 button1-lg"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button>
+                        <button type="button" class="button1 button1-lg" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal51">Get Started</button>
                         <a href="{{ url('/user/login') }}"> <button type="button" class="button2 button2-lg"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button></a>
                     </div>
                 </div>
 
-                <div class="modal fade" id="exampleModal51" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal51" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog " id="modal-dialog2">
                         <div class="modal-content">
 
                             <div class="modal-body">
 
                                 <div class="container text-center">
-                                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                     <h1>Select account type</h1>
 
-                                   
-                                        
-                                        <div class="row  " id="account_row " style="display:inline-flex">
-                                            <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
-                                                <a href="{{route('company.signup')}}"><img class="image" src="{{asset('assets/slicing_web/company.svg')}}" class="img-fluid" alt="..." /></a>
-                                                <p>company</p>
-                                            </div>
-                                            <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
-                                                <a href="{{route('employee.signup')}}"><img class="image" src="{{asset('assets/slicing_web/employee.svg')}}" class="img-fluid" alt="..." /></a>
-                                                <p>employee</p>
-                                            </div>
+
+
+                                    <div class="row  " id="account_row " style="display:inline-flex">
+                                        <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
+                                            <a href="{{ route('company.signup') }}"><img class="image"
+                                                    src="{{ asset('assets/slicing_web/company.svg') }}"
+                                                    class="img-fluid" alt="..." /></a>
+                                            <p>company</p>
+                                        </div>
+                                        <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
+                                            <a href="{{ route('employee.signup') }}"><img class="image"
+                                                    src="{{ asset('assets/slicing_web/employee.svg') }}"
+                                                    class="img-fluid" alt="..." /></a>
+                                            <p>employee</p>
+                                        </div>
                                     </div>
                                 </div>
-                   </div>
+                            </div>
                         </div>
 
                     </div>
@@ -113,7 +120,7 @@
         <div class="container">
             <center> <a class="oneheading" href="{{ route('company.index2') }}">
                     <h4 class="oneheading mb-3">Employee/Business Login <a class="oneheading"
-                            href="{{route('admin.signup')}}">/admin</h4>
+                            href="{{ route('admin.signup') }}">/admin</h4>
                 </a></center>
         </div>
     </section>
@@ -132,11 +139,10 @@
                             Business Type/Category
                         </button>
                         <ul class="dropdown-menu" id="dropdown-menu1" aria-labelledby="dropdownMenuButton15">
-                            <li><a class="dropdown-item" href="#">Retail</a></li>
-                            <li><a class="dropdown-item" href="#">Shoes </a></li>
-                            <li><a class="dropdown-item" href="#">Clothing</a></li>
-                            <li><a class="dropdown-item" href="#">Entertainment</a></li>
-                            <li><a class="dropdown-item" href="#">Lingerie</a></li>
+                            @foreach ($data as $value)
+                                <li><a class="dropdown-item"><input type="hidden"
+                                            value="{{ $value->id }}">{{ $value->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                     <button type="button" class="button button-lg" id="filter">Filter</button>
@@ -145,10 +151,7 @@
         </div>
     </section>
     <section class=" container maps">
-
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d27442.509736962715!2d76.67859789146954!3d30.709579825276915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smohali%2074%20sector%20phase%208b!5e0!3m2!1sen!2sin!4v1641465167922!5m2!1sen!2sin"
-            width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div id="map" style="height: 650px; width: 100%;">
     </section>
     <section class="">
         <div class="container">
@@ -156,7 +159,7 @@
         <section>
             <div class="container">
                 <center>
-                    <h6 class="colorsgray">There are 9 gender confortable in the current search area is there is a
+                    <h6 class="colorsgray">There are {{count($user)}} gender confortable in the current search area is there is a
                         business you like to see on this map ? click here for information you can send them for becoming
                         certified</h6>
                 </center>
@@ -166,3 +169,48 @@
 </body>
 
 </html>
+
+<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxrWlbuESbKOX8ZEtiflupNNcVjesb5sA"></script>
+<script type="text/javascript">
+    var result = <?php echo $user; ?>;
+   var locate = [];
+    for (let i = 0; i < result.length; i++) {
+        if (result[i].latitude) {
+            var final = [];
+         final.push(result[i].address, result[i].latitude, result[i].longitude);
+        }
+      locate.push(final)  
+    }
+    var locations = locate;
+    function InitMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: new google.maps.LatLng(result[0].latitude, result[0].longitude),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+        
+        for (i = 0; i < result.length; i++) {
+            
+         var image ="http://127.0.0.1:8000/storage/"+result[i].profile_pic;
+         console.log(image);
+            var contentString = '<div id="content"><div id="siteNotice"></div><p><center><h1 id="firstHeading" class="firstHeading">'+result[i].company_name+'</h1></center></p><p><center><h3></h3></center></p><div id="bodyContent"><img src='+image+' heigth=100px; width=100px;></div></div>';
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    }
+</script>

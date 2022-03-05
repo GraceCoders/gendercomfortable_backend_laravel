@@ -4,8 +4,8 @@
     <section class="bg-light">
         <div class="container" id="largeimg1">
             <div> <img class="img-fluid" class="image" id="largeimg"
-                    src="{{ asset('assets/slicing_web/company_cover.png') }}" class="img-fluid" alt="...">
-                <h4 id="heading41">Company name</h4>
+                    src="{{asset('storage/'.$user->profile_pic)}}" class="img-fluid" alt="...">
+                <h4 id="heading41">{{$user->company_name}}</h4>
             </div>
         </div>
     </section>
@@ -33,17 +33,14 @@
     <section class="third-sec bg-light">
         <div class="container ">
             <div class="row  ">
-                <div class=" col-lg-4 col-12" id="second21">
-                    <a href="{{ url('course_lession') }}"> <img class="img-fluid" id="course_cover"
-                            src="{{ asset('assets/slicing_web/course_cover1.png') }}" class="img-fluid" alt="..."></a>
-                    <p class="image_cover4"> Lorem ipsum dolor sit amet, consectetur</p>
-                </div>
-                <div class=" col-lg-4 col-12" id="second23"> <img class="img-fluid" class="image"
-                        id="course_cover" src="{{ asset('assets/slicing_web/course_cover2.png') }}" class="img-fluid"
-                        alt="...">
-                    <p class="image_cover"> Lorem ipsum dolor sit amet, consectetur</p>
-                    <p class="image_cover5"> Lorem ipsum dolor sit amet, consectetur</p>
-                </div>
+                    @foreach($data as $value)
+                    <div class=" col-lg-4 col-12" id="second21">
+                    <a href="{{ route('employee.course.lession',$value->course_id) }}">
+                        <img class="img-fluid" id="course_cover"
+                            src="{{asset('storage/'.$value['course']->thumbnail)}}" class="img-fluid" alt="..."></a>
+                    <p class="image_cover4">{{$value['course']->description}}</p>
+                    </div>
+                    @endforeach
                 <div class=" col-lg-4 col-12 margines" id="second"> </div>
             </div>
         </div>

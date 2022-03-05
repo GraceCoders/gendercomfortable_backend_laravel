@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -25,8 +25,15 @@
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_KEY') }}&libraries=places&callback=initAutocomplete"
+    type="text/javascript"></script>
 
 </head>
+@php
+$data = DB::table('category')
+    ->where('status', 1)
+    ->get();
+@endphp
 
 <body>
     <section class="purple top-bar">
@@ -70,20 +77,25 @@
                                     <div class="modal-body">
 
                                         <div class="container text-center">
-                                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                             <h1>Select account type</h1>
-        
-                                           
-                                                
-                                                <div class="row  " id="account_row " style="display:inline-flex">
-                                                    <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
-                                                        <a href="{{route('company.signup')}}"><img class="image" src="{{asset('assets/slicing_web/company.svg')}}" class="img-fluid" alt="..." /></a>
-                                                        <p>company</p>
-                                                    </div>
-                                                    <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
-                                                        <a href="{{route('employee.signup')}}"><img class="image" src="{{asset('assets/slicing_web/employee.svg')}}" class="img-fluid" alt="..." /></a>
-                                                        <p>employee</p>
-                                                    </div>
+
+
+
+                                            <div class="row  " id="account_row " style="display:inline-flex">
+                                                <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
+                                                    <a href="{{ route('company.signup') }}"><img class="image"
+                                                            src="{{ asset('assets/slicing_web/company.svg') }}"
+                                                            class="img-fluid" alt="..." /></a>
+                                                    <p>company</p>
+                                                </div>
+                                                <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
+                                                    <a href="{{ route('employee.signup') }}"><img class="image"
+                                                            src="{{ asset('assets/slicing_web/employee.svg') }}"
+                                                            class="img-fluid" alt="..." /></a>
+                                                    <p>employee</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +103,7 @@
 
                             </div>
                         </div>
-                        <a href={{route('login')}}> <button type="button" class="button2 button2-lg">login</button>
+                        <a href={{ route('login') }}> <button type="button" class="button2 button2-lg">login</button>
                         </a>
                         <!-- Modal -->
 
@@ -134,12 +146,13 @@
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <div class="form-floating pt-30px ">
-                               
+
                                 <input id="id_password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password"
-                                required autocomplete="current-password">
-                                <label for="floatingPassword">Password</label> 
-                                <i class="far fa-eye togglePassword" id="hideimg"  style="margin-left: -30px; cursor: pointer;"></i>
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="current-password">
+                                <label for="floatingPassword">Password</label>
+                                <i class="far fa-eye togglePassword" id="hideimg"
+                                    style="margin-left: -30px; cursor: pointer;"></i>
 
 
                             </div>
@@ -154,13 +167,25 @@
                                 <label for="floatingInput">Company bio</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="address id=" floatingInput"
+                                <input type="text" class="form-control" name="address" id="address"
                                     placeholder="name@example.com">
+                                    <input type="hidden" id="lat" name="lat" />
+                                    <input type="hidden" id="long" name="long" /> 
                                 <label for="floatingInput">Address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select name="category_id" required class="form-control">
+                                    <option value="0">select category</option>
+                                    @foreach ($data as $value)
+                                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                    @endforeach
+                                    <label for="floatingInput">Category</label>
+                                </select>
                             </div>
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Signup</button>
                             <p class="psw">Already have an account? <a
-                                    href="{{ url('/login2') }}">Login</a></p>
+                                    href="{{ url('/login2') }}">Login</a>
+                            </p>
                     </div>
                 </div>
                 </form>
@@ -196,7 +221,6 @@
 
     const togglePassword = document.querySelector('.togglePassword');
     const password = document.querySelector('#id_password');
-
     togglePassword.addEventListener('click', function(e) {
         // toggle the type attribute
         const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -204,4 +228,18 @@
         // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
     });
+
+    function initialize() {
+        var input = document.getElementById('address');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            document.getElementById('address').value = place.name;
+            document.getElementById('lat').value = place.geometry.location.lat();
+            document.getElementById('long').value = place.geometry.location.lng();
+
+
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
 </script>

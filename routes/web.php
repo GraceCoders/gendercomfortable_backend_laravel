@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\CreateCourseController;
 use App\Http\Controllers\Admin\CreatetestController;
 use App\Http\Controllers\Admin\CourseDetailsController;
 use App\Http\Controllers\Admin\ChangePassController;
+use App\Http\Controllers\Api\v1\CoursesController as V1CoursesController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 //comapny
 
@@ -38,12 +39,13 @@ use App\Http\Controllers\Employee\TestController;
 use App\Http\Controllers\Employee\Test_resultController;
 use App\Http\Controllers\Employee\course_lessionController;
 use App\Http\Controllers\Employee\Courses2Controller;
-use App\Http\Controllers\Employee\coursesController;
+use App\Http\Controllers\Employee\CoursesController;
 use App\Http\Controllers\Employee\CompleteCourseController;
 use App\Http\Controllers\Employee\Company_CoursesController;
 use App\Http\Controllers\Employee\Company_detailsController;
 use App\Http\Controllers\Employee\CertificationController;
 use App\Http\Controllers\Employee\EditProfileController as EmployeeEditProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -57,7 +59,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::get('/', function () {
-    return view('admin/index');
+    $user = User::where('latitude','!=',null)->get();
+    return view('admin/index',compact('user'));
 });
 Route::get('/admin',[SignupController::class, 'signup'])->name('admin.signup');
 Route::post('/admin_register',[SignupController::class, 'register'])->name('admin.register');
@@ -138,13 +141,17 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('employee.signup');
     Route::post('/employee/register',[SignupEmployeeController::class, 'register'])->name('employee.register');
     Route::group(['middleware' => 'employee'], function () {
-    Route::get('/company/details',[Company_detailsController ::class, 'CompanyDetails'])->name('employee.home');
+    Route::get('/courses',[CoursesController::class, 'Courses'])->name('employee.home');
+    Route::get('/courses',[CoursesController::class, 'Courses'])->name('employee.home');
+
+    Route::get('/company/details/{id}',[Company_detailsController ::class, 'CompanyDetails'])->name('employee.coursedetails');
     Route::get('/edit/profile',[EmployeeEditProfileController::class, 'editprofile'])->name('employee.edit.profile');
+
+
 
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
     Route::get('/complete course',[CompleteCourseController::class, 'Paymentoption']);
-    Route::get('/course_lession',[course_lessionController::class, 'Courselession']);
-    Route::get('/courses',[ CoursesController::class, 'Course']);
+    Route::get('/course/lession/{id}',[course_lessionController::class, 'Courselession'])->name('employee.course.lession');
     Route::get('/courses2',[Courses2Controller::class, 'Course2']);
     Route::get('/login',[Index2Controller::class, 'Index2']);
     Route::get('/test_result',[Test_resultController ::class, 'Test_result']);

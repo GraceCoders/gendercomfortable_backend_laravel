@@ -10,7 +10,7 @@
                     <div class=" col-lg-4 col-12" id="second11">
                         <a href="{{ route('course.detail', Crypt::encrypt($value->id)) }}"><img class="img-fluid"
                                 class="image" id="course_cover"
-                                src="{{ asset('assets/slicing_web/course_cover1.png') }}" class="img-fluid"
+                                src="{{asset('storage/'.$value->thumbnail)}}" class="img-fluid"
                                 alt="..."></a>
                         <p class="image_cover">{{ $value->name }} <br>{{ $value->description }}</p>
                     </div>

@@ -1,12 +1,12 @@
 @extends('employee.layouts.main')
 @section('main-container')
-    <!-- third  -->
-
+@php
+$i =1;
+@endphp
     <section class="bg-light">
         <div class="container" id="largeimg1">
             <h3 class="large_heading">Lorem ipsum dolor sit amet, consectetur</h3>
-            <div> <img class="img-fluid" class="image" id="largeimg" src="{{asset('assets/slicing_web/cousre_banner.png')}}" class="img-fluid" alt="...">
-                <img class="img-fluid" class="image" id="vedioBlack" src="{{asset('assets/slicing_web/play.svg')}}" alt="...">
+            <div> <img class="img-fluid" class="image" id="largeimg" src="{{asset('storage/'.$data->thumbnail)}}" class="img-fluid" alt="...">
             </div>
 
         </div>
@@ -26,20 +26,24 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active  bg-light" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="container">
-                <p>Lesson 1</p>
-                <p class="donec"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/video.svg')}}" alt="...">Duis aute irure dolor in reprehenderit in voluptate</p>
-                <p>Lesson 2</p>
-                <p class="donec" id="donecs_pera"> <img class="img-fluid" class="image" src="{{asset('assets/slicing_web/pdf2.svg')}}" alt="..."> Duis aute irure dolor in reprehenderit in voluptate</p>
+                @if ($data['lessons'])
+                    @foreach ($data['lessons'] as $value)
+                        <p>Lesson {{ $i++ }}</p>
+                        <p class="donec">
+                        <img class="img-fluid" class="image"
+                        
+                      src="{{ asset('assets/slicing_web/video.svg') }}" alt="...">{{ $value->lession_name }}</p>
+                    @endforeach
+                @endif
             </div>
         </div>
         <div class="tab-pane fade bg-light" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="container">
                 <h5>Description</h5>
-                <p class="donec">Donec et felis vehicula lorem ullamcorper sollicitudin sed non nulla. Pellentesque rutrum eget tellus at finibus. Mauris vel dignissim turpis. Nulla euismod laoreet tellus, et consectetur mauris laoreet id. Aenean eu laoreet lacus. Sed
-                    sed iaculis ex. Fusce sed sollicitudin ipsum. Phasellus pulvinar tellus rhoncus ante vestibulum vehicula. Morbi viverra sit amet neque eu blandit. Donec quis mauris nisi. Pellentesque pellentesque magna in bibendum ultrices.
+                <p class="donec">{{$data->description}}
                 </p>
                 <h5>Certification</h5>
-                <p class="donec">Reprehenderit in voluptate</p>
+                <p class="donec">{{$data->certificate}}</p>
                 <h5 class="curiheading">Curriculum</h5>
             </div>
         </div>

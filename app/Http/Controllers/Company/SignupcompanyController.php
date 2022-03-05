@@ -22,6 +22,9 @@ class SignupcompanyController extends Controller
         $user->company_name=$request->company_name;
         $user->bio=$request->company_bio;
         $user->address=$request->address;
+        $user->category_id=$request->category_id;
+        $user->latitude =$request->lat;
+        $user->longitude =$request->long;
         $user->password =Hash::make($request->password);
         $user->user_type = 2;
         if (!empty($request->filename)) {
