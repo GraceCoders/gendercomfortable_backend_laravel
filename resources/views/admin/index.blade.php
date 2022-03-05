@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+    div#content {
+        height: 79px;
+        width: 138px;
+        background-color: lightskyblue;
+        border-radius: 22px;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -197,7 +204,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxrWlbuESbKOX8ZEtiflupNNc
         for (i = 0; i < result.length; i++) {
             
          var image ="http://127.0.0.1:8000/storage/"+result[i].profile_pic;
-         console.log(image);
             var contentString = '<div id="content"><div id="siteNotice"></div><p><center><h1 id="firstHeading" class="firstHeading">'+result[i].company_name+'</h1></center></p><p><center><h3></h3></center></p><div id="bodyContent"><img src='+image+' heigth=100px; width=100px;></div></div>';
 
             marker = new google.maps.Marker({
