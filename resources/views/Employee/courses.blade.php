@@ -15,9 +15,9 @@
                 <div class=" col-lg-4 col-12" id="second">
 
                     <div class="buttons">
-                        <a href="{{ url('courses2') }}">
+                        <a href="{{ url('/employee/license') }}">
                             <button type="button" class="btn btn btn-lg  " id="radius_btn1"> <img class="img-fluid"
-                                    id="plus_image" src="slicing_web/plus_white.svg" alt="...">&nbsp;&nbsp;Add license
+                                    id="plus_image" src="{{asset('assets/slicing_web/plus_white.svg')}}" alt="...">&nbsp;&nbsp;Add license
                                 key</button></a>
                     </div>
                 </div>
@@ -30,6 +30,11 @@
 
     <!-- fourth section start -->
     <section class="third-sec bg-light">
+    @if (Session::get('success'))
+   <small class="alert alert-success form-control alert-block" role="alert">
+   <strong>{{ Session::get('success') }}</strong>
+  </small>
+  @endif
         <div class="container ">
 
             <div class="row  ">
@@ -44,3 +49,12 @@
             </div>
         </div>
     @endsection
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    setTimeout(function() {
+        $(".alert-block").hide('blind', {}, 500)
+    }, 5000);
+})
+</script>

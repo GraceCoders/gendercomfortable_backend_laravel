@@ -13,6 +13,6 @@ class LicenseKey extends Model
     protected $fillable = [
         'user_id',
         'license_key',
-        'status',
+        'ststus',
         ];
     }

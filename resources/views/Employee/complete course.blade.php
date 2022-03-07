@@ -46,8 +46,6 @@
                         <a href="company_home.html">
                             <p class="back_peras">Back to home</p>
                         </a>
-
-
                     </div>
                 </div>
 

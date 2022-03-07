@@ -152,7 +152,11 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
     Route::get('/complete course',[CompleteCourseController::class, 'Paymentoption']);
     Route::get('/course/lession/{id}',[course_lessionController::class, 'Courselession'])->name('employee.course.lession');
-    Route::get('/courses2',[Courses2Controller::class, 'Course2']);
+    Route::get('/license',[Courses2Controller::class, 'Courses2']);
+    Route::post('/add/license',[Courses2Controller::class, 'addlicense'])->name('add.license');
+
+
+
     Route::get('/login',[Index2Controller::class, 'Index2']);
     Route::get('/test_result',[Test_resultController ::class, 'Test_result']);
     Route::get('/test',[TestController::class, 'Test']);
