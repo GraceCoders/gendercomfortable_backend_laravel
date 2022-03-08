@@ -45,6 +45,7 @@ use App\Http\Controllers\Employee\Company_CoursesController;
 use App\Http\Controllers\Employee\Company_detailsController;
 use App\Http\Controllers\Employee\CertificationController;
 use App\Http\Controllers\Employee\EditProfileController as EmployeeEditProfileController;
+use App\Http\Controllers\Employee\SaveAnswerController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -154,12 +155,12 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/course/lession/{id}',[course_lessionController::class, 'Courselession'])->name('employee.course.lession');
     Route::get('/license',[Courses2Controller::class, 'Courses2']);
     Route::post('/add/license',[Courses2Controller::class, 'addlicense'])->name('add.license');
-
+    Route::post('/save/answer',[SaveAnswerController::class, 'saveAnswer'])->name('save.answer');
 
 
     Route::get('/login',[Index2Controller::class, 'Index2']);
     Route::get('/test_result',[Test_resultController ::class, 'Test_result']);
-    Route::get('/test',[TestController::class, 'Test']);
+    Route::get('/test/{id}',[TestController::class, 'Test'])->name('employee.test');
     Route::get('/certification',[CertificationController::class, 'Certification']);
     });
 });

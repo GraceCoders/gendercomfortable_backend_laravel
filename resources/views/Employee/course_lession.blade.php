@@ -41,7 +41,7 @@ $i =1;
                                     <img class="img-fluid mb-3" id="successimg" src="{{asset('assets/slicing_web/success.svg')}}" alt="...">
                                     <h4 class=" success_heading">Congratulations! Your course is complete. Take test to earn certification.
                                     </h4>
-                                    <a href="{{url('/employee/test')}}"> <button class="btn btn w-100 pb-3 pt-3 " id="checkout2" type="button">Submit</button></a>
+                                    <a href="{{route('employee.test',$data->id)}}"> <button class="btn btn w-100 pb-3 pt-3 " id="checkout2" type="button">Submit</button></a>
                                     <a href="{{url('/employee/courses')}}">
                                         <p class="back_peras">Back to home</p>
                                     </a>

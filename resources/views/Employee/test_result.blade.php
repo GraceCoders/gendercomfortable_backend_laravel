@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="inside-circle">
-                            80%
+                            50%
                         </div>
 
                     </div>
@@ -27,7 +27,7 @@
                 </h4>
                 <p>You have earned a certification for this course. </p>
                 <button type="button" class="btn btn btn-lg  " id="download_certificate">Download certificate</button>
-                        <p class="back_pera"><a href="{{url('company_home')}}" class="back_pera">Back to home</a></p>
+                        <p class="back_pera"><a href="{{url('employee/home')}}" class="back_pera">Back to home</a></p>
                      </div>
                 </div>
 </section>
