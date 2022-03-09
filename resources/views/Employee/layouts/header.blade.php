@@ -79,7 +79,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{url('courses')}}">
+                                        <a class="dropdown-item" href="{{url('employee/courses')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/purchased.svg')}}" alt="..."> &nbsp;Courses</p>
                                         </a>
                                     </li>

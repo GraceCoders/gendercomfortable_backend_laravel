@@ -19,7 +19,7 @@
 
                                 <div>
                                     <div class="add_more" id="add_more">
-                                        <div class="lession2">
+                                    <div class="lession2">
                                             <small class="uploads" class="form-text">
                                                 <h1 class="lession">Lesson1</h1>
                                             </small>

@@ -13,11 +13,10 @@
                         </div>
 
                         <div class="mask half">
-                            <div class="fill"></div>
-                        </div>
-
+                            <div class="fill" ></div>
+                        </div> 
                         <div class="inside-circle">
-                            50%
+                            {{round($percentage)}}%
                         </div>
 
                     </div>

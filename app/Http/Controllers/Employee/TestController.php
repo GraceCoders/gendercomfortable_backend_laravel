@@ -20,8 +20,8 @@ class TestController extends Controller
             return view('Employee.test',compact('data','count','answercount'));
         }else{
             $final = SaveAnswer::where('user_id',$user_id)->where('course_id',$id)->where('status',2)->count();
-            $percentage = $count /$final *100;
-            return view('Employee.test_result',compact('data','count','answercount'));
+            $percentage = $final /$count *100;
+            return view('Employee.test_result',compact('percentage'));
         }
         
     }

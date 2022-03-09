@@ -51,7 +51,7 @@
                     <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
                 </div>
                 @endforeach
-
+                {{$course->links('pagination::bootstrap-4')}}
             </div>
             <div class="row draft" id="second12">
                 @foreach ($draft as $value)
@@ -62,10 +62,11 @@
                     <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
                 </div>
                 @endforeach
+                {{$draft->links('pagination::bootstrap-4')}}
             </div>
         </div>
     </section>
-    {{$course->links('pagination::bootstrap-4')}}
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
@@ -80,7 +81,6 @@
   $("#draft").click(function(){
     $(".draft").show();
     $(".publish").hide();
-
   });
 });
     </script>

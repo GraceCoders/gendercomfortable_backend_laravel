@@ -124,13 +124,7 @@
                                         <img class="img-fluid uploadimg" src=""></span>
                                     </label>
                                 </div>
-                                {{-- <div class="container ">
-
-                                    <label for="myfile"><img class="img-fluid" src="slicing_web/add.svg" alt="..."id="roundimgs">
-                                  </label>
-                                               <input type="file" id="myfile" name="filename"
-                                               value="upload thumbnail">
-                                 </div> --}}
+                                
                             </center>
                             <p class="learn">Learn how to feel comfortable around transgender people</p>
                             <div class="form-floating mb-3">

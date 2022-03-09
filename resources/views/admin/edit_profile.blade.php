@@ -12,12 +12,17 @@
                     <div class="centers">
                         <div class="formdiv6 text-center ">
                             <h1 class="signuph">Edit Profile</h1>
-                            <div class="plusesimg">
-                                <input type="file" name="profilepic" id="">
-                                <img class="image" src="{{ asset('storage/app/public/' . $user->profile_pic) }}"
-                                    class="img-fluid" id="profilepics1" alt="...">
-                                <img class="img-fluid" id="pluspics"
-                                    src="{{ asset('assets/slicing_web/plus_white.svg') }}" alt="...">
+                            
+                            <div class="container ">
+
+                                    <label for="myfile" id="label_img2">
+                                        <img class="img-fluid" src="{{ asset('storage/' . $user->profile_pic) }}"
+                                            id="roundimgs">
+
+                                        <input type="file" id="myfile" name="profilepic" onchange="loadFile(event)"
+                                            value="upload thumbnail">
+                                        <img class="img-fluid uploadimg" src=""></span>
+                                    </label>
                             </div>
                             <p class="learn">Profile Pic</p>
                             <div class="form-floating mb-3">
@@ -50,3 +55,9 @@
             </div>
     </section>
 @endsection
+<script>
+    var loadFile = function(event) {
+        var image = document.getElementById('roundimgs');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>
