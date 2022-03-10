@@ -16,7 +16,6 @@ class EditprofileController extends Controller
     }
     public function updateProfile(Request $request)
     {
-
         $data = $request->all();
         $user = User::where('id', Auth::id())->first();
         $user->first_name = $request->first_name;

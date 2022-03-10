@@ -31,7 +31,7 @@ class ChangePassController extends Controller
         } else {
             try {
                 if ((Hash::check(request('old_password'), Auth::user()->password)) == false) {
-                    return redirect('/admin/change/password')->with('success', 'Check your old password');
+                    return redirect('/admin/change/password')->with('success', 'Check your Current password');
                 } else if ((Hash::check(request('new_password'), Auth::user()->password)) == true) {
                     return redirect('/admin/change/password')->with('success', 'Please enter a password which is not similar then current password');
                 } else {

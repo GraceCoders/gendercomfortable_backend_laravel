@@ -119,7 +119,7 @@ $data = DB::table('category')
         </div>
 
         </div>
-
+ 
         <!-- <hr class="line "></hr> -->
     </section>
     <section class="bg-light header_border "></section>

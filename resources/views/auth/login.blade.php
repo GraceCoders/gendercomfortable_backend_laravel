@@ -152,7 +152,7 @@
                             </div>
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout21">Login</button>
                         </form>
-                        <p class="psw">Dont have an account? <a href="{{ url('/admin') }}">Sign
+                        <p class="psw">Dont have an account? <a href="{{ url('/company/signup_company') }}">Sign
                                 up</a></p>
                     </div>
                 </div>

@@ -19,7 +19,9 @@ class CreatetestController extends Controller
     {
         $id = Auth::id();
         $count = count($request->question);
-        $course = Course::where('id',$request->course_id)->update(['status'=>1]);
+        if(empty($request->draft)){
+            $course = Course::where('id',$request->course_id)->update(['status'=>0]);
+        }
         for ($i = 0; $i < $count; $i++) {
             $data[] = array(
                 'user_id'=>   $id,

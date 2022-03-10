@@ -86,7 +86,7 @@ Route::post('/add/question',[CreatetestController::class, 'addQuestion'])->name(
 Route::get('/edit/profile',[EditprofileController::class, 'edit'])->name('admin.edit.profile');
 Route::post('/update/profile',[EditprofileController::class, 'updateProfile'])->name('admin.update.profile');
 
-Route::get('/create_course',[CreateCourseController::class, 'createcourse'])->name('admin.coures.view');
+Route::get('/create/course',[CreateCourseController::class, 'createcourse'])->name('admin.coures.view');
 Route::post('/create_course',[CreateCourseController::class, 'addCourse'])->name('admin.add.course');
 Route::get('/publish/course/{id}',[CourseDetailsController::class, 'coursedetail'])->name('admin.publish.course');
 Route::get('/change/password',[ChangePassController::class, 'changepass'])->name('admin.change.password');

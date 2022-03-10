@@ -16,11 +16,12 @@ class SignupcompanyController extends Controller
         return view('company.signup_company');
     }
     public function register(Request $request){
+        // dd($request);
         $user= new User();
         $user->username =$request->username;
         $user->email =$request->email;
         $user->company_name=$request->company_name;
-        $user->bio=$request->company_bio;
+        $user->bio=$request->bio;
         $user->address=$request->address;
         $user->category_id=$request->category_id;
         $user->latitude =$request->lat;

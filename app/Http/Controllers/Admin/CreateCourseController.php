@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Lesson;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -39,12 +40,14 @@ class CreateCourseController extends Controller
         for ($i = 0; $i < $count; $i++) {
             if (!empty($request->media[$i])) {
                 $file = upload_file($request->media[$i], 'lession');
-
             }
             $data[] = array(
                 'course_id' => $request->course_id,
                 'lession_name' => $request->lession_name[$i],
-                'media' =>$file
+                'media' =>$file,
+                'media_type'=>$request->media[$i]->getClientMimeType(),
+                'created_at'=>Carbon::now(),
+                'update_at'=>Carbon::now()
             );
         }
         $course = DB::table('lessons')->insert($data);

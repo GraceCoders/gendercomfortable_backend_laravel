@@ -16,11 +16,7 @@
                             </div>
                             <p class="learn">Profile Pic</p>
                             <div class="form-floating mb-3">
-                                <input type="text" name='first_name' class="form-control" id="floatingInput"  value="{{$profile->first_name}}">
-                                <label for="floatingInput">Firstname</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" name="last_name" class="form-control" id="floatingInput"  value="{{$profile->last_name}}">
+                                <input type="text" name="username" class="form-control" id="floatingInput"  value="{{$profile->username}}">
                                 <label for="floatingInput">Lastname</label>
                             </div>
                             <div class="form-floating mb-3">

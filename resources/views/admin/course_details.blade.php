@@ -39,13 +39,20 @@
                 <p class="donec">{{ $data->description }}
                 </p>
                 <h5>Certification</h5>
+                <p class="donec">{{ $data->certificate }}
+                </p>
+                <h5>Curriculum</h5>
                 @if ($data['lessons'])
                     @foreach ($data['lessons'] as $value)
                         <p>Lesson {{ $i++ }}</p>
-                        <p class="donec"><img class="img-fluid" class="image"
-                                src="{{ asset('assets/slicing_web/video.svg') }}" alt="...">{{ $value->lession_name }}</p>
+                        <p class="donec">
+                            <a href="{{ asset('storage/' . $value->media) }}" target="_blank">
+                            <img class="img-fluid" class="image"
+                                src="{{ asset('assets/slicing_web/video.svg') }}" alt="..."></a>
+                                {{ $value->lession_name }}</p>
                     @endforeach
                 @endif
+               
             </div>
         </div>
         <div class="tab-pane fade bg-light" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -54,6 +61,7 @@
                     <div class="container ">
                         <h5 class="purchase">Purchased By</h5>
                         <div class="row  ">
+                            @if(count($purchaseCourse) != 0);
                             @foreach($purchaseCourse as $value)
                                 <div class=" col-lg-4 col-12">
                                     <div class="comapany1">
@@ -64,6 +72,13 @@
                                     </div>
                                 </div>
                             @endforeach
+                            @else
+                            <div class=" col-lg-4 col-12">
+                                    <div class="comapany1">
+                                        <span></span>No One Purchased Your Courses
+                                    </div>
+                            </div>
+                            @endif
                        
 
                         </div>

@@ -141,7 +141,7 @@ $data = DB::table('category')
                                 <label for="floatingInput">Username</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" name="email"
+                                <input type="email" class="form-control" required id="floatingInput" name="email"
                                     placeholder="name@example.com">
                                 <label for="floatingInput">Email address</label>
                             </div>
@@ -157,25 +157,25 @@ $data = DB::table('category')
 
                             </div>
                             <div class="form-floating mb-3 mt-3">
-                                <input type="text" class="form-control" id="floatingInput" name="company_name"
+                                <input type="text" class="form-control" required id="floatingInput" name="company_name"
                                     placeholder="name@example.com">
                                 <label for="floatingInput">Company name</label>
                             </div>
                             <div class="form-floating mb-3 mt-3">
-                                <input type="text" class="form-control" name="comapny_bio" id="floatingInput"
+                                <input type="text" class="form-control" name="bio" id="floatingInput"
                                     placeholder="name@example.com">
                                 <label for="floatingInput">Company bio</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="address" id="address"
                                     placeholder="name@example.com">
-                                    <input type="hidden" id="lat" name="lat" />
-                                    <input type="hidden" id="long" name="long" /> 
+                                    <input type="hidden" required id="lat" name="lat" />
+                                    <input type="hidden" required id="long" name="long" /> 
                                 <label for="floatingInput">Address</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <select name="category_id" required class="form-control">
-                                    <option value="0">select category</option>
+                                    <option >select category</option>
                                     @foreach ($data as $value)
                                         <option value="{{ $value->id }}">{{ $value->name }}</option>
                                     @endforeach
@@ -184,7 +184,7 @@ $data = DB::table('category')
                             </div>
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Signup</button>
                             <p class="psw">Already have an account? <a
-                                    href="{{ url('/login2') }}">Login</a>
+                                    href="{{ url('/login') }}">Login</a>
                             </p>
                     </div>
                 </div>

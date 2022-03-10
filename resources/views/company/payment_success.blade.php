@@ -11,7 +11,7 @@
                         <div class="centers">
                             <div class="formdiv6 text-center">
 
-                                <img class="img-fluid mb-3" id="" src="{{asset('asset/slicing_web/success.svg')}}" alt="...">
+                                <img class="img-fluid mb-3" id="" src="{{asset('assets/slicing_web/success.svg')}}" alt="...">
                                 <h1 class="payment_heading">${{$data->amount}}</h1>
 
                                 <h4 class=" success_heading">Payment successful

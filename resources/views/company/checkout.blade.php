@@ -13,8 +13,8 @@
                         <input type="hidden" value="{{ $data->course_id }}" name="course_id">
                         <h5>Order details</h5>
                         <div class="row">
-                            <div class="  col-lg-4 col-12 " id="ckeck1"><img class="img-fluid" class="image"
-                                    src="{{asset('storage/'.$data->thumbnail)}}" id="checkout_img" alt="...">
+                            <div class="  col-lg-4 col-12 " id="ckeck1">
+                <img class="img-fluid" class="image" src="{{asset('storage/'.$data['course']->thumbnail)}}" id="checkout_img" >
                             </div>
                             <div class="  col-lg-8 col-12 " id="check1">
                                 <h5>{{ $data['course']->name }}</h5>
