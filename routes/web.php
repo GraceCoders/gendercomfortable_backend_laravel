@@ -59,10 +59,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    $user = User::where('latitude','!=',null)->get();
-    return view('admin/index',compact('user'));
-});
+Route::get('/',[AdminController::class, 'index']);
+Route::post('/location',[AdminController::class, 'getuser'])->name('location.index');
+
 Route::get('/admin',[SignupController::class, 'signup'])->name('admin.signup');
 Route::post('/admin_register',[SignupController::class, 'register'])->name('admin.register');
 

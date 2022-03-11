@@ -53,7 +53,7 @@
         <div class="container">
             <div class="row">
                 <div class=" col-lg-2 col-12" id="second">
-                    <a href="{{ url('index2') }}"> <img class="img-fluid"
+                    <a href="{{ url('/') }}"> <img class="img-fluid"
                             src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
                 <div class="col-lg-10 col-12" id="second">
