@@ -5,8 +5,7 @@
 <!-- Third div start -->
 <section class="third-sec bg-light">
     <div class="container " id="nav_btn">
-
-        <!-- <div class="row" > -->
+       <!-- <div class="row" > -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active bg-light" id="published" data-bs-toggle="tab" type="button" role="tab" aria-controls="home" aria-selected="true">

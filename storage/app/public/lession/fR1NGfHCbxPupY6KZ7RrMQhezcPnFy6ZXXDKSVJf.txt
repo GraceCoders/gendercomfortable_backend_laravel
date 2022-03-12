@@ -1,0 +1,1152 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Feb 04, 2022 at 07:21 AM
+-- Server version: 5.7.36
+-- PHP Version: 7.3.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `philly12_smirk`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cards`
+--
+
+CREATE TABLE `cards` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `card_image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cards`
+--
+
+INSERT INTO `cards` (`id`, `card_image`, `created_at`, `updated_at`) VALUES
+(29, 'https://smirkapp.us/storage/card_images/U2ubyUmE7N29HVwJqAoJpC3GKdHxp84Tk06EXkBy.jpg', '2021-12-31 01:59:13', '2021-12-31 01:59:13'),
+(30, 'https://smirkapp.us/storage/card_images/sJhF10MWI6UqxURHev2BROwxsj6rnFFKTIvEu3yw.jpg', '2021-12-31 01:59:25', '2021-12-31 01:59:25'),
+(28, 'https://smirkapp.us/storage/card_images/cYxsaH6lU4T66vVxddQA72KhdfsGWxQrRUEL7zpx.jpg', '2021-12-31 01:58:58', '2021-12-31 01:58:58'),
+(27, 'https://smirkapp.us/storage/card_images/VTJuOIrVuS7KO7MO4P55W7OgRZiq8NzO8YMOJssz.jpg', '2021-12-31 01:58:41', '2021-12-31 01:58:41'),
+(26, 'https://smirkapp.us/storage/card_images/Qp3J2HUSXMgHQsonVA5c4xBodaWoGjoY5Wz3CLen.jpg', '2021-12-31 01:58:27', '2021-12-31 01:58:27'),
+(25, 'https://smirkapp.us/storage/card_images/CEJqEzIY2C7pvox6yzwiB6I9wT5J8uH7iwHVK1tB.jpg', '2021-12-31 01:58:19', '2021-12-31 01:58:19'),
+(24, 'https://smirkapp.us/storage/card_images/49KTrS8ClNnvLm8fAFTnutspetMTrVuATMx51dyQ.jpg', '2021-12-31 01:58:05', '2021-12-31 01:58:05'),
+(23, 'https://smirkapp.us/storage/card_images/wTl6lWNav7AayMvi5G9lepchk6z4AuHrNFqjDEtB.jpg', '2021-12-31 01:57:55', '2021-12-31 01:57:55'),
+(22, 'https://smirkapp.us/storage/card_images/Gq06jDqN2pKLjNFq72KXVTe49lNgVAshtFJeX4bU.jpg', '2021-12-31 01:57:47', '2021-12-31 01:57:47'),
+(20, 'https://smirkapp.us/storage/card_images/10pCleeffQccYXQ54EmEr0cfSRwB8e8DUzsLhNUj.jpg', '2021-12-31 01:56:28', '2021-12-31 01:56:28'),
+(21, 'https://smirkapp.us/storage/card_images/jDg2BthI8a5fYpwkDGEnJxnzCOiGXTcesrg2ppNC.jpg', '2021-12-31 01:57:40', '2021-12-31 01:57:40'),
+(31, 'https://smirkapp.us/storage/card_images/7yJqrNw81LnCH2E5EofinYbTr6qQYPp3vIMOz1Pj.jpg', '2022-01-20 05:39:05', '2022-01-20 05:39:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `card_actions`
+--
+
+CREATE TABLE `card_actions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `card_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `card_action` tinyint(4) DEFAULT NULL COMMENT '0->dislike,1->like',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `card_actions`
+--
+
+INSERT INTO `card_actions` (`id`, `card_id`, `user_id`, `card_action`, `created_at`, `updated_at`) VALUES
+(124, 24, 33, 1, '2022-01-07 00:24:43', '2022-01-07 00:24:43'),
+(123, 29, 35, 1, '2022-01-04 20:45:25', '2022-01-04 20:45:25'),
+(122, 22, 35, 1, '2022-01-04 20:45:24', '2022-01-04 20:45:24'),
+(121, 30, 35, 1, '2022-01-04 20:45:24', '2022-01-04 20:45:24'),
+(120, 26, 35, 1, '2022-01-04 20:45:23', '2022-01-04 20:45:23'),
+(119, 25, 35, 1, '2022-01-04 20:45:23', '2022-01-04 20:45:23'),
+(118, 20, 35, 1, '2022-01-04 20:45:22', '2022-01-04 20:45:22'),
+(117, 28, 35, 1, '2022-01-04 20:45:22', '2022-01-04 20:45:22'),
+(116, 24, 35, 1, '2022-01-04 20:45:22', '2022-01-04 20:45:22'),
+(115, 23, 35, 1, '2022-01-04 20:45:21', '2022-01-04 20:45:21'),
+(114, 27, 35, 1, '2022-01-04 20:45:21', '2022-01-04 20:45:21'),
+(113, 29, 35, 0, '2022-01-04 19:42:34', '2022-01-04 19:42:34'),
+(112, 27, 35, 1, '2022-01-04 19:42:34', '2022-01-04 19:42:34'),
+(111, 26, 35, 1, '2022-01-04 18:03:22', '2022-01-04 18:03:22'),
+(110, 29, 35, 1, '2022-01-04 18:03:21', '2022-01-04 18:03:21'),
+(109, 25, 35, 0, '2022-01-04 18:02:49', '2022-01-04 18:02:49'),
+(108, 20, 35, 1, '2022-01-04 18:02:48', '2022-01-04 18:02:48'),
+(107, 22, 35, 0, '2022-01-04 18:02:31', '2022-01-04 18:02:31'),
+(106, 24, 35, 1, '2022-01-04 18:02:30', '2022-01-04 18:02:30'),
+(105, 28, 35, 1, '2022-01-04 17:47:12', '2022-01-04 17:47:12'),
+(104, 22, 35, 0, '2022-01-04 17:47:09', '2022-01-04 17:47:09'),
+(103, 23, 35, 1, '2022-01-04 17:06:45', '2022-01-04 17:06:45'),
+(102, 23, 32, 0, '2022-01-04 16:33:13', '2022-01-04 16:33:13'),
+(101, 25, 32, 1, '2022-01-04 16:33:13', '2022-01-04 16:33:13'),
+(100, 28, 32, 0, '2022-01-04 16:33:13', '2022-01-04 16:33:13'),
+(99, 29, 32, 1, '2022-01-04 16:33:11', '2022-01-04 16:33:11'),
+(98, 30, 32, 0, '2022-01-04 16:33:11', '2022-01-04 16:33:11'),
+(97, 20, 32, 1, '2022-01-04 16:33:10', '2022-01-04 16:33:10'),
+(96, 26, 32, 0, '2022-01-04 16:33:10', '2022-01-04 16:33:10'),
+(95, 24, 32, 0, '2022-01-04 16:33:09', '2022-01-04 16:33:09'),
+(94, 22, 32, 1, '2022-01-04 16:33:09', '2022-01-04 16:33:09'),
+(93, 27, 32, 1, '2022-01-04 16:33:09', '2022-01-04 16:33:09'),
+(92, 20, 32, 1, '2022-01-04 16:28:03', '2022-01-04 16:28:03'),
+(91, 28, 32, 0, '2022-01-04 16:28:02', '2022-01-04 16:28:02'),
+(90, 22, 32, 1, '2022-01-04 16:28:02', '2022-01-04 16:28:02'),
+(89, 25, 32, 0, '2022-01-04 16:28:01', '2022-01-04 16:28:01'),
+(88, 23, 32, 1, '2022-01-04 16:28:00', '2022-01-04 16:28:00'),
+(87, 29, 32, 0, '2022-01-04 16:28:00', '2022-01-04 16:28:00'),
+(86, 30, 32, 1, '2022-01-04 16:27:58', '2022-01-04 16:27:58'),
+(85, 26, 32, 0, '2022-01-04 16:27:57', '2022-01-04 16:27:57'),
+(84, 24, 32, 1, '2022-01-04 16:27:53', '2022-01-04 16:27:53'),
+(83, 23, 32, 1, '2022-01-04 16:27:16', '2022-01-04 16:27:16'),
+(82, 33, 33, 1, '2022-01-01 18:25:28', '2022-01-01 18:25:28'),
+(81, 25, 33, 1, '2022-01-01 18:24:42', '2022-01-01 18:24:42'),
+(80, 30, 33, 1, '2022-01-01 00:46:41', '2022-01-01 00:46:41'),
+(79, 27, 33, 1, '2022-01-01 00:46:38', '2022-01-01 00:46:38'),
+(78, 29, 33, 1, '2022-01-01 00:46:34', '2022-01-01 00:46:34'),
+(77, 23, 33, 1, '2022-01-01 00:46:30', '2022-01-01 00:46:30'),
+(76, 25, 33, 1, '2022-01-01 00:46:29', '2022-01-01 00:46:29'),
+(75, 24, 33, 1, '2022-01-01 00:46:27', '2022-01-01 00:46:27'),
+(74, 22, 33, 1, '2022-01-01 00:46:25', '2022-01-01 00:46:25'),
+(73, 28, 33, 1, '2022-01-01 00:46:24', '2022-01-01 00:46:24'),
+(72, 26, 33, 1, '2022-01-01 00:46:22', '2022-01-01 00:46:22'),
+(71, 20, 33, 1, '2022-01-01 00:46:21', '2022-01-01 00:46:21'),
+(70, 30, 33, 1, '2022-01-01 00:40:26', '2022-01-01 00:40:26'),
+(69, 30, 33, 1, '2022-01-01 00:40:26', '2022-01-01 00:40:26'),
+(68, 30, 33, 0, '2022-01-01 00:40:18', '2022-01-01 00:40:18'),
+(67, 25, 33, 0, '2022-01-01 00:40:18', '2022-01-01 00:40:18'),
+(66, 29, 32, 1, '2021-12-31 02:18:35', '2021-12-31 02:18:35'),
+(65, 29, 32, 1, '2021-12-31 02:16:09', '2021-12-31 02:16:09'),
+(64, 29, 32, 1, '2021-12-31 02:13:01', '2021-12-31 02:13:01'),
+(63, 29, 32, 1, '2021-12-31 02:12:42', '2021-12-31 02:12:42'),
+(125, 24, 33, 1, '2022-01-07 00:24:43', '2022-01-07 00:24:43'),
+(126, 27, 33, 1, '2022-01-07 00:24:45', '2022-01-07 00:24:45'),
+(127, 27, 33, 1, '2022-01-07 00:24:46', '2022-01-07 00:24:46'),
+(128, 28, 33, 1, '2022-01-07 00:24:51', '2022-01-07 00:24:51'),
+(129, 28, 33, 1, '2022-01-07 00:24:51', '2022-01-07 00:24:51'),
+(130, 25, 33, 1, '2022-01-07 00:24:52', '2022-01-07 00:24:52'),
+(131, 25, 33, 1, '2022-01-07 00:24:52', '2022-01-07 00:24:52'),
+(132, 20, 33, 1, '2022-01-07 00:24:54', '2022-01-07 00:24:54'),
+(133, 20, 33, 1, '2022-01-07 00:24:54', '2022-01-07 00:24:54'),
+(134, 30, 33, 1, '2022-01-07 00:24:56', '2022-01-07 00:24:56'),
+(135, 30, 33, 1, '2022-01-07 00:24:57', '2022-01-07 00:24:57'),
+(136, 23, 33, 1, '2022-01-07 00:24:58', '2022-01-07 00:24:58'),
+(137, 23, 33, 1, '2022-01-07 00:24:58', '2022-01-07 00:24:58'),
+(138, 29, 33, 1, '2022-01-07 00:25:00', '2022-01-07 00:25:00'),
+(139, 29, 33, 1, '2022-01-07 00:25:00', '2022-01-07 00:25:00'),
+(140, 26, 33, 1, '2022-01-07 00:25:02', '2022-01-07 00:25:02'),
+(141, 26, 33, 1, '2022-01-07 00:25:03', '2022-01-07 00:25:03'),
+(142, 22, 33, 1, '2022-01-07 00:25:05', '2022-01-07 00:25:05'),
+(143, 22, 33, 1, '2022-01-07 00:25:05', '2022-01-07 00:25:05'),
+(144, 24, 35, 1, '2022-01-10 23:03:23', '2022-01-10 23:03:23'),
+(145, 23, 35, 1, '2022-01-10 23:03:23', '2022-01-10 23:03:23'),
+(146, 25, 50, 0, '2022-01-11 01:42:36', '2022-01-11 01:42:36'),
+(147, 30, 37, 1, '2022-01-12 17:49:52', '2022-01-12 17:49:52'),
+(148, 22, 37, 1, '2022-01-12 17:49:53', '2022-01-12 17:49:53'),
+(149, 29, 37, 1, '2022-01-12 17:49:54', '2022-01-12 17:49:54'),
+(150, 27, 37, 1, '2022-01-12 17:49:54', '2022-01-12 17:49:54'),
+(151, 28, 37, 1, '2022-01-12 17:49:56', '2022-01-12 17:49:56'),
+(152, 23, 37, 1, '2022-01-12 17:49:57', '2022-01-12 17:49:57'),
+(153, 20, 37, 1, '2022-01-12 17:49:59', '2022-01-12 17:49:59'),
+(154, 26, 37, 0, '2022-01-12 17:50:00', '2022-01-12 17:50:00'),
+(155, 24, 37, 1, '2022-01-12 17:50:01', '2022-01-12 17:50:01'),
+(156, 25, 37, 1, '2022-01-12 17:50:03', '2022-01-12 17:50:03'),
+(157, 24, 50, 0, '2022-01-15 01:30:39', '2022-01-15 01:30:39'),
+(158, 27, 50, 1, '2022-01-15 01:30:39', '2022-01-15 01:30:39'),
+(159, 23, 50, 1, '2022-01-15 01:30:39', '2022-01-15 01:30:39'),
+(160, 26, 50, 0, '2022-01-15 01:30:40', '2022-01-15 01:30:40'),
+(161, 28, 50, 1, '2022-01-15 01:30:41', '2022-01-15 01:30:41'),
+(162, 20, 50, 1, '2022-01-15 01:30:42', '2022-01-15 01:30:42'),
+(163, 22, 50, 0, '2022-01-15 01:30:43', '2022-01-15 01:30:43'),
+(164, 29, 50, 0, '2022-01-15 01:30:43', '2022-01-15 01:30:43'),
+(165, 25, 50, 1, '2022-01-15 01:30:43', '2022-01-15 01:30:43'),
+(166, 30, 50, 0, '2022-01-15 01:30:45', '2022-01-15 01:30:45'),
+(167, 22, 50, 1, '2022-01-15 01:31:12', '2022-01-15 01:31:12'),
+(168, 20, 50, 0, '2022-01-15 01:31:13', '2022-01-15 01:31:13'),
+(169, 30, 50, 1, '2022-01-15 01:31:15', '2022-01-15 01:31:15'),
+(170, 24, 50, 0, '2022-01-15 01:31:16', '2022-01-15 01:31:16'),
+(171, 26, 50, 1, '2022-01-15 01:31:17', '2022-01-15 01:31:17'),
+(172, 23, 50, 0, '2022-01-15 01:31:17', '2022-01-15 01:31:17'),
+(173, 28, 50, 1, '2022-01-15 01:31:19', '2022-01-15 01:31:19'),
+(174, 25, 50, 1, '2022-01-15 01:31:20', '2022-01-15 01:31:20'),
+(175, 29, 50, 0, '2022-01-15 01:31:20', '2022-01-15 01:31:20'),
+(176, 27, 50, 0, '2022-01-15 01:31:21', '2022-01-15 01:31:21'),
+(177, 13, 35, 1, '2022-01-15 23:09:28', '2022-01-15 23:09:28'),
+(178, 28, 35, 1, '2022-01-15 23:11:53', '2022-01-15 23:11:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `devices`
+--
+
+CREATE TABLE `devices` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `device_id` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `device_type` enum('android','ios') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notification_token` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logged_in_at` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `devices`
+--
+
+INSERT INTO `devices` (`id`, `user_id`, `device_id`, `device_type`, `notification_token`, `logged_in_at`, `created_at`, `updated_at`) VALUES
+(1, 2, '12345678', '', 'hdkshf', '2021-12-20 18:03:00', '2021-12-21 02:03:00', '2021-12-21 02:03:00'),
+(2, 3, '12345678', '', 'hdkshf', '2021-12-22 15:53:16', '2021-12-22 23:53:16', '2021-12-22 23:53:16'),
+(3, 3, '694FD944-36C8-4A53-B9D8-208A70951E65', '', 'asxzsdd', '2021-12-25 15:21:25', '2021-12-25 23:21:25', '2021-12-25 23:21:25'),
+(4, 8, '694FD944-36C8-4A53-B9D8-208A70951E65', 'android', 'dsd', '2021-12-25 15:22:22', '2021-12-25 23:22:22', '2021-12-25 23:22:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ethnicities`
+--
+
+CREATE TABLE `ethnicities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ethnicities`
+--
+
+INSERT INTO `ethnicities` (`id`, `title`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'American Indian', 1, NULL, NULL),
+(2, 'East Indian', 1, NULL, NULL),
+(3, 'Black/African Descent', 1, NULL, NULL),
+(4, 'Hispanic/Latino', 1, NULL, NULL),
+(5, 'Hispanic/Latino', 1, NULL, NULL),
+(6, 'Middle Eastern', 1, NULL, NULL),
+(7, 'Pacific Islander', 1, NULL, NULL),
+(8, 'South Asian', 1, NULL, NULL),
+(9, 'White/Caucasian', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `laughs`
+--
+
+CREATE TABLE `laughs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `laughs`
+--
+
+INSERT INTO `laughs` (`id`, `title`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Just Friends', 1, NULL, NULL),
+(2, 'Romantic Interest', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `matchings`
+--
+
+CREATE TABLE `matchings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `matchings`
+--
+
+INSERT INTO `matchings` (`id`, `title`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Male', 1, NULL, NULL),
+(2, 'Female', 1, NULL, NULL),
+(3, 'Non Binary', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2016_06_01_000001_create_oauth_auth_codes_table', 1),
+(4, '2016_06_01_000002_create_oauth_access_tokens_table', 1),
+(5, '2016_06_01_000003_create_oauth_refresh_tokens_table', 1),
+(6, '2016_06_01_000004_create_oauth_clients_table', 1),
+(7, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1),
+(8, '2019_08_19_000000_create_failed_jobs_table', 1),
+(9, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(10, '2021_12_09_173857_create_laughs_table', 1),
+(11, '2021_12_09_174013_create_matchings_table', 1),
+(12, '2021_12_09_174110_create_ethnicities_table', 1),
+(13, '2021_12_09_174136_create_preferences_table', 1),
+(14, '2021_12_09_183441_create_devices_table', 1),
+(15, '2021_12_11_073223_add_columns_to_users_table', 1),
+(16, '2021_12_17_152442_set_feilds_nullable_in_users_table', 1),
+(17, '2021_12_17_172131_create_user_ethnicities', 1),
+(18, '2021_12_17_172932_create_user_preferences', 1),
+(19, '2021_12_17_175427_create_shows_table', 1),
+(20, '2021_12_17_180443_create_user_shows', 1),
+(21, '2021_12_18_064157_add_age_fields_to_users_table', 1),
+(22, '2021_12_20_161813_create_cards_table', 1),
+(23, '2021_12_22_181023_create_card_actions_table', 2),
+(24, '2021_12_25_042856_create_profile_images_table', 2),
+(25, '2021_12_25_144246_set_fields_nullable_in_devices_table', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_access_tokens`
+--
+
+CREATE TABLE `oauth_access_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_auth_codes`
+--
+
+CREATE TABLE `oauth_auth_codes` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_clients`
+--
+
+CREATE TABLE `oauth_clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_personal_access_clients`
+--
+
+CREATE TABLE `oauth_personal_access_clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_refresh_tokens`
+--
+
+CREATE TABLE `oauth_refresh_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 2, 'SMIRK_AUTH_TOKEN', 'bab4d91be63c09654eb9d0961e24a255769114413df7dd7bd451cb527b4cc374', '[\"*\"]', '2021-12-21 02:08:08', '2021-12-21 02:03:00', '2021-12-21 02:08:08'),
+(2, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '7e39c5e1720e68ee7717a9f5cc65f081fdd12311996723112e24cc8c0f7f6819', '[\"*\"]', NULL, '2021-12-22 23:53:16', '2021-12-22 23:53:16'),
+(3, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '2c6feb63525170cf2959f7ae994da0aeab491976eac4de707e0b6c2eeafaf577', '[\"*\"]', NULL, '2021-12-22 23:53:39', '2021-12-22 23:53:39'),
+(4, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '443b3b997e6db79ac4e5ba8094fcfc76a07a40a00d998a562c32362d772ef077', '[\"*\"]', NULL, '2021-12-23 00:54:50', '2021-12-23 00:54:50'),
+(5, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', 'f282c792a5e777c6dcc89077f59478291258bd773a9ff6b7f03456e07b7ff951', '[\"*\"]', NULL, '2021-12-23 01:30:45', '2021-12-23 01:30:45'),
+(6, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '346a95ceeeb463966b0cdd2085568bbb1aadd6aeb7b75ad8fd04475e15725e73', '[\"*\"]', '2021-12-31 01:20:06', '2021-12-25 17:15:59', '2021-12-31 01:20:06'),
+(7, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', 'f78d89003dc00c1c31c3c76b397583a9a7857b02448acd6d8b08ea9044fa886a', '[\"*\"]', NULL, '2021-12-25 18:48:42', '2021-12-25 18:48:42'),
+(8, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '2543e735b65b0c2b7e85c6215d332fddf0738b2665fab0c8a00b230c6a2aaa65', '[\"*\"]', NULL, '2021-12-25 18:49:13', '2021-12-25 18:49:13'),
+(9, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '7346a52025e067b4c3ed7a17dcab669b00e7711e00df574d57f6ba461d622cab', '[\"*\"]', NULL, '2021-12-25 18:49:27', '2021-12-25 18:49:27'),
+(10, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', 'c9c79e3312f21efbe1b2c17f51cd226268172efa1d12392bffbc0088a1db3a1c', '[\"*\"]', NULL, '2021-12-25 19:24:40', '2021-12-25 19:24:40'),
+(11, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', 'b4a39f0302341a3b1e2bc4e25130d33fb7dbbf1aa9716b8f7ce5169c47451bd1', '[\"*\"]', NULL, '2021-12-25 19:25:54', '2021-12-25 19:25:54'),
+(12, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', 'cd6345b9cadde2ee260c186e8a97edf074233e4ca64286b2578f630f94c99aa8', '[\"*\"]', NULL, '2021-12-25 19:31:38', '2021-12-25 19:31:38'),
+(13, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '32a3959ad1b60b80c55e1f11bcb27d39197bd7b7a5f4500eaaf8c8e316e2d928', '[\"*\"]', NULL, '2021-12-25 19:35:13', '2021-12-25 19:35:13'),
+(14, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', 'b08e572d15b146ccf7b2dd090094c7ca8c4aa52342e99164a9564a3c34a7c73a', '[\"*\"]', NULL, '2021-12-25 19:36:22', '2021-12-25 19:36:22'),
+(15, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '7d0d4f39c3d03952e67bba0f9e2553ecaae8229cdf26cece05541704430b5d03', '[\"*\"]', NULL, '2021-12-25 19:37:36', '2021-12-25 19:37:36'),
+(16, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '67f21b768c6cb5589dadb28a2bf873d8c1fac4b0f294e7b2eb8b6cccb0d7f3c1', '[\"*\"]', NULL, '2021-12-25 19:37:48', '2021-12-25 19:37:48'),
+(17, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '510bc227809b8279a65a1aecc28519df9289f887cfdc539d10bf4c9da9aec0bf', '[\"*\"]', NULL, '2021-12-25 20:49:25', '2021-12-25 20:49:25'),
+(18, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '5da0afbd4b5f932b3bb949ac695803040c51056fdf314481d37eb9cdff2792d0', '[\"*\"]', NULL, '2021-12-25 22:34:38', '2021-12-25 22:34:38'),
+(19, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', 'a3dfc7df2e4d0ab0c56c3fd85a3f6125c92363357fafcdd0c41051083b0d80e7', '[\"*\"]', NULL, '2021-12-25 23:11:22', '2021-12-25 23:11:22'),
+(20, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '986666db3f6536a5c181b9491c518e1252bee9bffbec0f84f4478802b55e60a5', '[\"*\"]', NULL, '2021-12-25 23:21:25', '2021-12-25 23:21:25'),
+(21, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '189cb6d1e5d7a9cd8d1e3f5d0b8ac5706359be1968bdbf97cc5fa45a8e7a0246', '[\"*\"]', NULL, '2021-12-25 23:22:22', '2021-12-25 23:22:22'),
+(22, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '45221504c6ca5b2161ca37eb946500843fef8a8ac1581286c78a088b3ef86ffb', '[\"*\"]', NULL, '2021-12-25 23:22:45', '2021-12-25 23:22:45'),
+(23, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '7e121bf37839c63f1558eab40b6a92256a8ffff370efc9c2a35a18c0038fc5b3', '[\"*\"]', NULL, '2021-12-25 23:40:51', '2021-12-25 23:40:51'),
+(24, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '72a778438295f70d6900ae99ab39b8262128d1bb26c1b3f0b49339de46e75b31', '[\"*\"]', NULL, '2021-12-25 23:55:15', '2021-12-25 23:55:15'),
+(25, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', 'f75cc94e3ed6c3c48e6175e27e22eb13884ce9cfa9c26d959b2660a95a85b4ee', '[\"*\"]', NULL, '2021-12-26 01:51:10', '2021-12-26 01:51:10'),
+(26, 'App\\Models\\User', 8, 'SMIRK_AUTH_TOKEN', '1859f4fbfe532eaf8b89cde8fca5c5c534a20661b2dce2b2be228a4735a0a582', '[\"*\"]', NULL, '2021-12-26 01:52:14', '2021-12-26 01:52:14'),
+(27, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', 'f542deffb6973858b6822ca0d1318e007e722b43f3597c0180dce97527717c59', '[\"*\"]', NULL, '2021-12-26 13:29:14', '2021-12-26 13:29:14'),
+(28, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', 'd74ad990a78d77e362e902315ce5439f8fcaf2a5585c8114544c27a869d253f6', '[\"*\"]', NULL, '2021-12-26 13:56:48', '2021-12-26 13:56:48'),
+(29, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '8b331e63bd219e37e82996ecef9a7f816c2c170f14887cabad89ebe39b9f4aca', '[\"*\"]', NULL, '2021-12-26 14:26:08', '2021-12-26 14:26:08'),
+(30, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', '88ed127ee34d4375645169bb4fb77abc49db2be35c9b9b7aa303f08138dcb13c', '[\"*\"]', NULL, '2021-12-26 14:45:57', '2021-12-26 14:45:57'),
+(31, 'App\\Models\\User', 3, 'SMIRK_AUTH_TOKEN', 'cfe2f82f21af1d806b37e2b398880afb68a0a3e1a1ff8ae06bcd62fc52c32eea', '[\"*\"]', NULL, '2021-12-26 14:53:04', '2021-12-26 14:53:04'),
+(32, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', '2ec0dfb87dfbe35f5f5e21f23e6c0b2131ced3dd13f9c7c00d1daa77ddec3065', '[\"*\"]', NULL, '2021-12-26 21:43:35', '2021-12-26 21:43:35'),
+(33, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', '0011d5be29875589da2b47dc245dfcb514323a46c5dbd738276a5a4e5bf39278', '[\"*\"]', NULL, '2021-12-26 21:45:41', '2021-12-26 21:45:41'),
+(34, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', 'ecfa3bd24958527f53c8ce419f4f6c0301301fa1437f5d8ad6fae036af58df7e', '[\"*\"]', NULL, '2021-12-26 21:47:21', '2021-12-26 21:47:21'),
+(35, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', '809c0915163a4676de89babe58e67963fcb939ac8ac6805e455f03f43d3747aa', '[\"*\"]', NULL, '2021-12-26 21:53:17', '2021-12-26 21:53:17'),
+(36, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', '5c3dc3f1f326e024949c714151276b2bbe50526e1ae858735a38cee96c10a7e2', '[\"*\"]', NULL, '2021-12-26 21:54:34', '2021-12-26 21:54:34'),
+(37, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', 'b4403cf43d3b2bf0b6390a62dbe8718f05cfd18b149b702919ddcc9cf77f7365', '[\"*\"]', NULL, '2021-12-27 00:26:54', '2021-12-27 00:26:54'),
+(38, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', 'b058806aa85b174936976a4b4154641dc5906cc49ff0617b4a27679d7cbd01b5', '[\"*\"]', NULL, '2021-12-27 00:34:53', '2021-12-27 00:34:53'),
+(39, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', '01f35fd1bc4c00fc61cef6e5378753389c58fe3cbf9e0c2ba8f4e882abab878f', '[\"*\"]', NULL, '2021-12-27 00:38:50', '2021-12-27 00:38:50'),
+(40, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', 'ea929ce7aa2fffc48b1abfc4e72610ec61d8eb1790907490ce4186f52cebb787', '[\"*\"]', NULL, '2021-12-27 00:47:11', '2021-12-27 00:47:11'),
+(41, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', 'dd6307b17b13d1321b692e39487b66e6269ea1ffce983fdaee234ca768bab663', '[\"*\"]', NULL, '2021-12-27 00:48:28', '2021-12-27 00:48:28'),
+(42, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', 'cf8b0c61c8073dae597897e76b7ee585fa2cf4dbb96c0edda4845c5d1a58cb08', '[\"*\"]', NULL, '2021-12-27 00:49:57', '2021-12-27 00:49:57'),
+(43, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', '7a8819ce64d7b3a1eeda9c4c3185555fbc71bcb5d99fee56888e47c2249c2b60', '[\"*\"]', NULL, '2021-12-27 01:00:18', '2021-12-27 01:00:18'),
+(44, 'App\\Models\\User', 10, 'SMIRK_AUTH_TOKEN', '8f07e2f234cece25c8f0a5dd7a58f4a0433ce0003422b19fdea185eca1cb9b28', '[\"*\"]', NULL, '2021-12-27 01:01:32', '2021-12-27 01:01:32'),
+(45, 'App\\Models\\User', 19, 'SMIRK_AUTH_TOKEN', 'b5bf333dbcd7f17e5b2521f3ce5bc77b34d1a3bccdcac72c7aee70cc399125ea', '[\"*\"]', NULL, '2021-12-27 01:07:14', '2021-12-27 01:07:14'),
+(46, 'App\\Models\\User', 19, 'SMIRK_AUTH_TOKEN', '848ea74badc4d4d48cbdcd206363e633502c18bfe5590556e3a727ff6287c61c', '[\"*\"]', NULL, '2021-12-27 01:08:06', '2021-12-27 01:08:06'),
+(47, 'App\\Models\\User', 19, 'SMIRK_AUTH_TOKEN', '51590695ef753f4d72444e841eb102662319861f6ee1c73985c2ebdbf02ea7ac', '[\"*\"]', NULL, '2021-12-27 01:08:21', '2021-12-27 01:08:21'),
+(48, 'App\\Models\\User', 20, 'SMIRK_AUTH_TOKEN', '2b3d76e8dce1055c7a7314a72857e05c5845990ffc2dc5ef06f86e7278b75330', '[\"*\"]', NULL, '2021-12-27 01:11:55', '2021-12-27 01:11:55'),
+(49, 'App\\Models\\User', 19, 'SMIRK_AUTH_TOKEN', 'f26a11d7e707bd68dbf64fefb4bcf682adca77337a64e9635e51e481d3a73fbb', '[\"*\"]', NULL, '2021-12-27 01:26:22', '2021-12-27 01:26:22'),
+(50, 'App\\Models\\User', 19, 'SMIRK_AUTH_TOKEN', 'df33d16032967326ebbcdac9af55bd282450808c9d6dc2df59eb5f2150e1ecaf', '[\"*\"]', NULL, '2021-12-27 01:26:24', '2021-12-27 01:26:24'),
+(51, 'App\\Models\\User', 14, 'SMIRK_AUTH_TOKEN', '85ce1dfdcb71c4fb7e3b5e07bf36c25361d9dbc58f08834f36d63f7ca7610408', '[\"*\"]', NULL, '2021-12-27 01:27:21', '2021-12-27 01:27:21'),
+(52, 'App\\Models\\User', 19, 'SMIRK_AUTH_TOKEN', '1d994d67c6e328ef0160ed4f5ac8fb23c92ed0ee3198a0cdd6c58e831daac17a', '[\"*\"]', '2021-12-27 01:29:48', '2021-12-27 01:29:36', '2021-12-27 01:29:48'),
+(53, 'App\\Models\\User', 19, 'SMIRK_AUTH_TOKEN', '906dc1d78d45428d4daeb7c8cf4bf63aba5b97e04cd4f07ed9cc8057e22c274b', '[\"*\"]', '2021-12-27 01:30:35', '2021-12-27 01:30:34', '2021-12-27 01:30:35'),
+(54, 'App\\Models\\User', 14, 'SMIRK_AUTH_TOKEN', '87c51ee477f0fb0fd075d769ddaa9f73ea88ec6bde00a7818b566aea2170191b', '[\"*\"]', NULL, '2021-12-27 01:35:16', '2021-12-27 01:35:16'),
+(55, 'App\\Models\\User', 14, 'SMIRK_AUTH_TOKEN', '11e7718e9cdc4a11b9737e438fd2ea66604f5949217604e2771ad2bf82a8a091', '[\"*\"]', NULL, '2021-12-27 01:37:14', '2021-12-27 01:37:14'),
+(56, 'App\\Models\\User', 14, 'SMIRK_AUTH_TOKEN', 'e433463fa4c6fb81114453ad04d5777d4126182c7320c1a58b0ba8da4a0218ac', '[\"*\"]', NULL, '2021-12-27 01:48:26', '2021-12-27 01:48:26'),
+(57, 'App\\Models\\User', 14, 'SMIRK_AUTH_TOKEN', 'ba5bfc7e3d32916683dcee951f6f245b18948dfadbd7b7a61a904a4c42a11fa3', '[\"*\"]', NULL, '2021-12-27 01:50:43', '2021-12-27 01:50:43'),
+(58, 'App\\Models\\User', 21, 'SMIRK_AUTH_TOKEN', '2d226547a262054f7d38c3017187ce42728171902ce7f602fcd335900fc1a36d', '[\"*\"]', '2021-12-28 00:25:34', '2021-12-28 00:25:33', '2021-12-28 00:25:34'),
+(59, 'App\\Models\\User', 21, 'SMIRK_AUTH_TOKEN', '3d3b18f2fb18dbf4be93ef37de6e74dd4ce406636015dbc6671a57b17f1efd20', '[\"*\"]', NULL, '2021-12-28 00:30:38', '2021-12-28 00:30:38'),
+(60, 'App\\Models\\User', 21, 'SMIRK_AUTH_TOKEN', '2faf1bd7ab2642822c887bb87ba03a98fbf64b328c8ba5f16f29c50050f1e03d', '[\"*\"]', '2021-12-28 00:35:04', '2021-12-28 00:32:48', '2021-12-28 00:35:04'),
+(61, 'App\\Models\\User', 21, 'SMIRK_AUTH_TOKEN', '13aeceb07b2c1e69d0a4168f36477ec1047d47d03f813ffc2379b765b5cbbd2f', '[\"*\"]', '2021-12-28 00:55:55', '2021-12-28 00:35:12', '2021-12-28 00:55:55'),
+(62, 'App\\Models\\User', 21, 'SMIRK_AUTH_TOKEN', '6c5ff199ba351f9ef98bed3360c260577966c798af484a8c67543ab6336b6f85', '[\"*\"]', '2021-12-28 23:53:39', '2021-12-28 00:41:08', '2021-12-28 23:53:39'),
+(63, 'App\\Models\\User', 21, 'SMIRK_AUTH_TOKEN', 'cbeff979e7841defefc39154cfb03e670c5c86cd6dcb41a3216eba91b655a63d', '[\"*\"]', '2021-12-29 00:20:46', '2021-12-29 00:19:01', '2021-12-29 00:20:46'),
+(64, 'App\\Models\\User', 21, 'SMIRK_AUTH_TOKEN', 'fe1ebacb297f50695fc012284d09141454002a69835b8ad7520ff0dcc8c00c45', '[\"*\"]', '2021-12-31 01:20:18', '2021-12-29 00:27:16', '2021-12-31 01:20:18'),
+(65, 'App\\Models\\User', 23, 'SMIRK_AUTH_TOKEN', '0e4d2dad9bb6d0a7a2e4ab3cf101b48edd23f2c6521fe1635ac1bb39a740d913', '[\"*\"]', NULL, '2021-12-30 23:54:48', '2021-12-30 23:54:48'),
+(66, 'App\\Models\\User', 26, 'SMIRK_AUTH_TOKEN', '1e48860a334156834bc88122f36e2882c1d9f98d8bc3d06a4fb5b548c9e65e05', '[\"*\"]', '2021-12-31 01:53:12', '2021-12-31 01:31:25', '2021-12-31 01:53:12'),
+(67, 'App\\Models\\User', 27, 'SMIRK_AUTH_TOKEN', '049150d25f88f628c5cc7fb33ad7fc03e603492c06a0add21496ce90693b47b1', '[\"*\"]', '2021-12-31 01:46:54', '2021-12-31 01:46:04', '2021-12-31 01:46:54'),
+(68, 'App\\Models\\User', 32, 'SMIRK_AUTH_TOKEN', '0202333962410a63fbe9e61e73d614d53922828d2524622f3885d9c564af353b', '[\"*\"]', '2022-01-04 16:33:13', '2021-12-31 02:07:31', '2022-01-04 16:33:13'),
+(69, 'App\\Models\\User', 33, 'SMIRK_AUTH_TOKEN', 'e8a45c132dff356750787b01e2c25aa53459c90879776b9b906e1c170a29c59b', '[\"*\"]', '2022-01-07 01:19:07', '2021-12-31 23:43:36', '2022-01-07 01:19:07'),
+(70, 'App\\Models\\User', 32, 'SMIRK_AUTH_TOKEN', 'd0f170ee8e716ce0ca4a719d907e2ff543015db7e7bd5a1eda2a268c6cbc3d9d', '[\"*\"]', NULL, '2022-01-03 18:20:29', '2022-01-03 18:20:29'),
+(71, 'App\\Models\\User', 32, 'SMIRK_AUTH_TOKEN', '90a5f5e90c0108e5eb98a9442a0622f03140bf2b68581ea316e4b47837f530c0', '[\"*\"]', NULL, '2022-01-04 12:32:29', '2022-01-04 12:32:29'),
+(72, 'App\\Models\\User', 32, 'SMIRK_AUTH_TOKEN', 'bdd471b850bf2c80ce8b2a7a8659e66b6943be496e419cf3e8e4c90b7baa610a', '[\"*\"]', '2022-01-04 16:01:29', '2022-01-04 12:34:15', '2022-01-04 16:01:29'),
+(73, 'App\\Models\\User', 34, 'SMIRK_AUTH_TOKEN', '7f620041780e364c2379e84189706db84184993befef9a1125a0471ed576cada', '[\"*\"]', '2022-01-04 16:04:35', '2022-01-04 16:04:34', '2022-01-04 16:04:35'),
+(74, 'App\\Models\\User', 34, 'SMIRK_AUTH_TOKEN', '6abecd1a46b01a627eccef57dd8611a772d81175555e50fc373dcf17366c0436', '[\"*\"]', '2022-01-04 16:44:17', '2022-01-04 16:16:38', '2022-01-04 16:44:17'),
+(75, 'App\\Models\\User', 35, 'SMIRK_AUTH_TOKEN', '11023000aa0a7908130179709e5e1c18217b7e852d8fa93d0be9cf2aaa799a89', '[\"*\"]', NULL, '2022-01-04 16:46:05', '2022-01-04 16:46:05'),
+(76, 'App\\Models\\User', 35, 'SMIRK_AUTH_TOKEN', 'e9685c74ae0428285a62d4d834fb7705d47ed05cd8a87559c8d73933390d094e', '[\"*\"]', NULL, '2022-01-04 16:50:27', '2022-01-04 16:50:27'),
+(77, 'App\\Models\\User', 35, 'SMIRK_AUTH_TOKEN', '5c8faf87255a862a23cb0e2854a836bd817123f3194cbd0eec3ad7ed6d1dc460', '[\"*\"]', NULL, '2022-01-04 16:52:11', '2022-01-04 16:52:11'),
+(78, 'App\\Models\\User', 35, 'SMIRK_AUTH_TOKEN', '685a0e2d966d9d464f2ce229e189b82b8b7925a253cae965183085e641845270', '[\"*\"]', '2022-01-15 23:11:53', '2022-01-04 16:54:21', '2022-01-15 23:11:53'),
+(79, 'App\\Models\\User', 36, 'SMIRK_AUTH_TOKEN', 'e072f934cd03a22277f47941f5f2d4a47a2299af98340a8eb375bd283f2a6327', '[\"*\"]', '2022-01-19 23:21:39', '2022-01-07 01:19:38', '2022-01-19 23:21:39'),
+(80, 'App\\Models\\User', 34, 'SMIRK_AUTH_TOKEN', 'f60dc44350ac9da695380d9b6462963fcd38ae2772953677e0cc9c0e6dc64297', '[\"*\"]', '2022-01-11 00:01:38', '2022-01-10 23:06:01', '2022-01-11 00:01:38'),
+(81, 'App\\Models\\User', 41, 'SMIRK_AUTH_TOKEN', 'd01d358bd7f5db51605f8a1cb533e6e17e5c20b60b70b2daece41dc41477aa32', '[\"*\"]', '2022-01-11 01:13:41', '2022-01-11 00:08:46', '2022-01-11 01:13:41'),
+(82, 'App\\Models\\User', 41, 'SMIRK_AUTH_TOKEN', '8f9ac73846f134ea601862dd65fb4de806587f7b7c1c2f893148e15f544d4853', '[\"*\"]', NULL, '2022-01-11 01:10:50', '2022-01-11 01:10:50'),
+(83, 'App\\Models\\User', 41, 'SMIRK_AUTH_TOKEN', '84e832a1db2ddeb6613f67579889414f2b949d20b470af152976f917229fb9d5', '[\"*\"]', NULL, '2022-01-11 01:12:48', '2022-01-11 01:12:48'),
+(84, 'App\\Models\\User', 46, 'SMIRK_AUTH_TOKEN', '1596101e09f2bfd0836f70c569a971b8d7c16f72bc6887885d9fae0fd2279c4b', '[\"*\"]', NULL, '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(85, 'App\\Models\\User', 47, 'SMIRK_AUTH_TOKEN', '668d29541a77da3f007b26984258d7153ebfc49c9e9fb3929ee1b0bc5ba8f426', '[\"*\"]', NULL, '2022-01-11 01:31:58', '2022-01-11 01:31:58'),
+(86, 'App\\Models\\User', 48, 'SMIRK_AUTH_TOKEN', '29a897d6f5bbe7ec7d7e52dc8c82b584de69b488310feeef9cbd81b27975b351', '[\"*\"]', NULL, '2022-01-11 01:41:08', '2022-01-11 01:41:08'),
+(87, 'App\\Models\\User', 50, 'SMIRK_AUTH_TOKEN', 'f00e583a76fc651828ebc17196fd9a0ba331523fe8f12fdb5927e4d2ea45e68c', '[\"*\"]', '2022-01-15 01:38:09', '2022-01-11 01:42:31', '2022-01-15 01:38:09'),
+(88, 'App\\Models\\User', 37, 'SMIRK_AUTH_TOKEN', 'afa571493d4e18ae5e52b61d1eb48108a82a48ec1f92909cea0943c957901405', '[\"*\"]', '2022-01-12 17:50:03', '2022-01-12 17:46:29', '2022-01-12 17:50:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `preferences`
+--
+
+CREATE TABLE `preferences` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `preferences`
+--
+
+INSERT INTO `preferences` (`id`, `title`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'American Indian', 1, NULL, NULL),
+(2, 'East Indian', 1, NULL, NULL),
+(3, 'Black/African Descent', 1, NULL, NULL),
+(4, 'Hispanic/Latino', 1, NULL, NULL),
+(5, 'Hispanic/Latino', 1, NULL, NULL),
+(6, 'Middle Eastern', 1, NULL, NULL),
+(7, 'Pacific Islander', 1, NULL, NULL),
+(8, 'South Asian', 1, NULL, NULL),
+(9, 'White/Caucasian', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile_images`
+--
+
+CREATE TABLE `profile_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `profile_images`
+--
+
+INSERT INTO `profile_images` (`id`, `user_id`, `profile_pic`, `created_at`, `updated_at`) VALUES
+(42, 28, 'https://smirkapp.us/storage/profile_photos/08AGJYgdQnJRElX01x47oWlrkq0KKSAtrcVK3Rcn.jpg', '2021-12-31 01:40:08', '2021-12-31 01:40:08'),
+(45, 31, 'https://smirkapp.us/storage/profile_photos/B2F0fZ8U2OnwXa3xmdqNn5mvgHFJKyURYxGxZunK.jpg', '2021-12-31 02:06:04', '2021-12-31 02:06:04'),
+(44, 30, 'https://smirkapp.us/storage/profile_photos/TFWTDRadc7dsckaGxk94yEISTEEjTwEQuW4lkCGv.jpg', '2021-12-31 01:40:25', '2021-12-31 01:40:25'),
+(43, 29, 'https://smirkapp.us/storage/profile_photos/HZNcsTv3NtLVA0mivAl3bAn9qxqtt0dxiLF0liyH.jpg', '2021-12-31 01:40:16', '2021-12-31 01:40:16'),
+(41, 27, 'https://smirkapp.us/storage/profile_photos/WX6YjcBlBaoSM0ZBBVLDb1HW4hxaLsbL0J3s5F8A.jpg', '2021-12-31 01:40:00', '2021-12-31 01:40:00'),
+(40, 26, 'https://smirkapp.us/storage/profile_photos/sP2HuQPGn523JJ1QuSU2oOGuHjfRx2rtn8UO0Ofy.png', '2021-12-31 01:30:53', '2021-12-31 01:30:53'),
+(39, 26, 'https://smirkapp.us/storage/profile_photos/sZNS1PmAV5pa4hVFj91zH8ntRoyKGmKZgHqSG672.png', '2021-12-31 01:30:53', '2021-12-31 01:30:53'),
+(38, 26, 'https://smirkapp.us/storage/profile_photos/aw0cBoecLDEvwKcz2yaqVCiMte79BOdchiT0Lbnc.png', '2021-12-31 01:30:53', '2021-12-31 01:30:53'),
+(46, 32, 'https://smirkapp.us/storage/profile_photos/6jS6v4aYKUD2sBKdWOpN3V2DH5htXmYhMXl52ffe.jpg', '2021-12-31 02:06:28', '2021-12-31 02:06:28'),
+(77, 35, 'https://smirkapp.us/storage/profile_photos/IeMk6OC4Y44HEVLcLEvb9qlk7apfBKW2uofrn7qV.jpg', '2022-01-04 16:14:06', '2022-01-04 16:14:06'),
+(76, 35, 'https://smirkapp.us/storage/profile_photos/nGkp4VfiaSv0hLFZ4uvuVsAUPm51RkJ2xGsjVfj5.jpg', '2022-01-04 16:14:06', '2022-01-04 16:14:06'),
+(75, 34, 'https://smirkapp.us/storage/profile_photos/MALnu7waUuLxRiBk4lCy0WIl5k0yfHbWMOdytMht.jpg', '2022-01-04 15:11:39', '2022-01-04 15:11:39'),
+(74, 33, 'https://smirkapp.us/storage/profile_photos/lZL6r78dNgNW8ffUslp0ZESDyWLBGLVEVazKNz6y.png', '2022-01-01 00:29:22', '2022-01-01 00:29:22'),
+(73, 33, 'https://smirkapp.us/storage/profile_photos/nHK5C64OT64ERZgJJt82mwc565xSZOlW0LUy73eO.png', '2022-01-01 00:29:22', '2022-01-01 00:29:22'),
+(72, 33, 'https://smirkapp.us/storage/profile_photos/Wc2d0rkKIE6S6lzvNNhfVqH57mGqqdBDPhy5lALn.png', '2022-01-01 00:29:22', '2022-01-01 00:29:22'),
+(95, 36, 'https://smirkapp.us/storage/profile_photos/X6ZtcCDi8pxh5r0IdYdUpVjO4CfK8W3t4QzvyRrw.png', '2022-01-19 20:01:45', '2022-01-19 20:01:45'),
+(81, 37, 'https://smirkapp.us/storage/profile_photos/sUV8EgPDGYumT9JyW0JUXS8ndlFfEWllbVTk6ynk.jpg', '2022-01-10 22:19:29', '2022-01-10 22:19:29'),
+(82, 37, 'https://smirkapp.us/storage/profile_photos/A7jCoVsOU3R2bbs2r2GJLWbz5xyjFKz7MItSSeop.jpg', '2022-01-10 22:19:29', '2022-01-10 22:19:29'),
+(83, 39, 'https://smirkapp.us/storage/profile_photos/y4lHivlW9YMUXrUPUAGNm3FSr79wE1OrycPL53FV.png', '2022-01-10 23:12:39', '2022-01-10 23:12:39'),
+(84, 41, 'https://smirkapp.us/storage/profile_photos/azKF5cpFAOMwuKRB2134dJDYgTsCCErbVIUkaHVe.jpg', '2022-01-11 00:07:40', '2022-01-11 00:07:40'),
+(85, 41, 'https://smirkapp.us/storage/profile_photos/FUuzUQS4YRAXqaOfGTdvacgz6bFzh8Qw4fjklzbV.jpg', '2022-01-11 00:07:40', '2022-01-11 00:07:40'),
+(86, 42, 'https://smirkapp.us/storage/profile_photos/S78qKkzP0zxjiZhj6fv6x3zFDJWzck0qHjUokLqk.png', '2022-01-11 01:11:33', '2022-01-11 01:11:33'),
+(87, 43, 'https://smirkapp.us/storage/profile_photos/e9rjl82ICR2JrODWyi5XqG02VwDGKgFSb9l8gGiA.jpg', '2022-01-11 01:21:49', '2022-01-11 01:21:49'),
+(88, 44, 'https://smirkapp.us/storage/profile_photos/7braqcVRz7XUqRTbsatuW7ukVwRtFqXMP6cNWLgm.jpg', '2022-01-11 01:26:57', '2022-01-11 01:26:57'),
+(89, 45, 'https://smirkapp.us/storage/profile_photos/uN1GjrBx3hPna3tJJQismWz5EwU7dphWVkclqmkX.jpg', '2022-01-11 01:28:42', '2022-01-11 01:28:42'),
+(90, 46, 'https://smirkapp.us/storage/profile_photos/bgwPZIffWanKeIAtI2khWTvjC12kCaOL1TCysAaA.jpg', '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(91, 47, 'https://smirkapp.us/storage/profile_photos/wPg4rpf1bOgzvNmkpWakjRVEUNKxXCEPJwhlius1.png', '2022-01-11 01:31:58', '2022-01-11 01:31:58'),
+(92, 49, 'https://smirkapp.us/storage/profile_photos/PH8KTXyWhyKrVOA4Okkqx73LC8MzzIMgf03ReLKU.jpg', '2022-01-11 01:39:40', '2022-01-11 01:39:40'),
+(93, 50, 'https://smirkapp.us/storage/profile_photos/vW0ADOFVk59na8aSe0hV01cD5D8xbX3p0rtWcch5.jpg', '2022-01-11 01:42:31', '2022-01-11 01:42:31'),
+(94, 50, 'https://smirkapp.us/storage/profile_photos/se90WvnlgU850KuVC0gPFCDPRB8lcHoOrmTZ8RP4.jpg', '2022-01-11 01:42:31', '2022-01-11 01:42:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shows`
+--
+
+CREATE TABLE `shows` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `show_icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shows`
+--
+
+INSERT INTO `shows` (`id`, `title`, `show_icon`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'demo show', NULL, 1, '2021-12-21 02:00:30', '2021-12-21 02:00:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `mobile` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `otp` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `full_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_of_birth` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_verified` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about` text COLLATE utf8mb4_unicode_ci,
+  `latitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `longitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `laugh_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `matching_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `show_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `age_range` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `max_distance` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ethnicity_preference` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` tinyint(4) DEFAULT NULL COMMENT '0->male/1->female',
+  `user_type` tinyint(4) DEFAULT NULL COMMENT '0>user,1->admin',
+  `age_preference_from` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `age_preference_to` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `mobile`, `otp`, `full_name`, `date_of_birth`, `profile_photo`, `is_verified`, `about`, `latitude`, `longitude`, `laugh_id`, `matching_id`, `show_id`, `age_range`, `max_distance`, `ethnicity_preference`, `gender`, `user_type`, `age_preference_from`, `age_preference_to`) VALUES
+(1, 'Admin', 'smirkapp@smirkapp.us', '2021-12-20 08:00:00', '$2y$10$KrSDyIALcCN.bgrgQhOaOOolnvcts45kRjdJMO.9b9Cjo8Mrebmfq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(44, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:26:57', '2022-01-11 01:26:57', '+91814643702189756', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '12.13234', '54.132554', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(45, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:28:42', '2022-01-11 01:28:42', '+91814643702189756', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '12.13234', '54.132554', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(43, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:21:49', '2022-01-11 01:21:49', '+918146437021897', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '12.13234', '54.132554', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(42, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:11:33', '2022-01-11 01:11:33', '+918146437023', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '39.44441', '76.35433', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(41, NULL, NULL, NULL, NULL, NULL, '2022-01-11 00:07:40', '2022-01-11 01:12:34', '+919915971952768', '8136', 'demo userdd', 'Thu, 27 Jan 2022', NULL, NULL, 'hhggghh', '30.7465519', '76.6722437', '2', '2', NULL, NULL, '50', NULL, 2, NULL, '0.0', '100.0'),
+(40, NULL, NULL, NULL, NULL, NULL, '2022-01-11 00:04:50', '2022-01-11 01:10:16', '+919915971952879', '7137', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(39, NULL, NULL, NULL, NULL, NULL, '2022-01-10 23:12:39', '2022-01-10 23:12:39', '+918146437023', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '39.44441', '76.35433', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(38, NULL, NULL, NULL, NULL, NULL, '2022-01-10 23:12:13', '2022-01-10 23:12:13', '+918146437023', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(37, NULL, NULL, NULL, NULL, NULL, '2022-01-10 22:19:29', '2022-01-12 17:47:44', '+917307087831', '7472', 'nishant', 'Mon, 10 Jan 2022', NULL, NULL, 'bsbss', '30.7111989', '76.689898', '1', '1', NULL, NULL, '100', NULL, 1, NULL, '14.0', '39.0'),
+(36, NULL, NULL, NULL, NULL, NULL, '2022-01-07 01:18:16', '2022-01-19 20:01:45', '+919915333053', '1401', 'peter', '01/12/2001', 'profile_photos/osxQhrlex1ItN1MxS1BCIH17DLlfaBpwzQgdiegD.jpg', NULL, 'test', '0.0', '0.0', '2', '2', NULL, NULL, '50', NULL, 0, NULL, '18.0', '33.04'),
+(35, NULL, NULL, NULL, NULL, NULL, '2022-01-04 16:14:06', '2022-01-07 00:11:11', '+9179860330867897', '8948', 'demo userdd', '12/12/2021', 'profile_photos/ZlM9lw99YpSY48epk2X9rXEdlpYFofinSgPq3Eq9.jpg', NULL, 'testing', NULL, NULL, '1', '1', NULL, NULL, '25', NULL, 1, NULL, '16', '24'),
+(33, NULL, NULL, NULL, NULL, NULL, '2021-12-31 23:43:04', '2022-01-07 01:16:34', '+918360247657', '7438', 'kevin peter', '12/31/1999', 'profile_photos/fE4HMOqWiUgQHG55BSz6aDePck8ErAbQrsInPUdB.jpg', NULL, 'test', '0.0', '0.0', '2', '1', NULL, NULL, '50', NULL, 0, NULL, '18.0', '30.525714285714287'),
+(34, NULL, NULL, NULL, NULL, NULL, '2022-01-04 15:11:38', '2022-01-10 23:06:33', '+9199159719521312', '8463', 'demo user', '12/12/2021', NULL, NULL, 'testing', '38.865577', '76.977899', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(32, NULL, NULL, NULL, NULL, NULL, '2021-12-31 02:06:28', '2022-01-10 23:05:50', '+919915971952131223', '8463', 'demo user', '12/12/2021', NULL, NULL, 'testing', '38.865577', '76.977899', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(31, NULL, NULL, NULL, NULL, NULL, '2021-12-31 02:06:04', '2021-12-31 02:06:04', '+91991597195687608', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '38.865577', '76.977899', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(46, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:30:04', '2022-01-11 01:30:04', '+91814643702189756', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '12.13234', '54.132554', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(47, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:31:58', '2022-01-11 01:31:58', '+918146437022', NULL, 'demo user', '12/12/2021', NULL, NULL, 'testing', '39.44441', '76.35433', '1', '1', NULL, NULL, '25', NULL, 0, NULL, '16', '24'),
+(48, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:37:55', '2022-01-11 01:40:25', '+917986033086', '2307', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(49, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:39:40', '2022-01-11 01:40:25', '+917986033086', '2307', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(50, NULL, NULL, NULL, NULL, NULL, '2022-01-11 01:42:31', '2022-01-15 01:37:05', '+917986033086', NULL, 'ccghh', 'Thu, 06 Jan 2022', 'profile_photos/dennxcrHntktrTbb0gPaDi5ftQn5AZfVYL0QGmVC.png', NULL, 'bbbn', '30.7466413', '76.6722288', '2', '2', NULL, NULL, '100', NULL, 2, NULL, '0.0', '100.0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_ethnicities`
+--
+
+CREATE TABLE `user_ethnicities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ethnicity_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_ethnicities`
+--
+
+INSERT INTO `user_ethnicities` (`id`, `ethnicity_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(52, 1, 38, '2022-01-10 23:12:13', '2022-01-10 23:12:13'),
+(80, 5, 37, '2022-01-12 17:47:44', '2022-01-12 17:47:44'),
+(49, 4, 36, '2022-01-07 01:18:16', '2022-01-07 01:18:16'),
+(48, 3, 36, '2022-01-07 01:18:16', '2022-01-07 01:18:16'),
+(47, 2, 36, '2022-01-07 01:18:16', '2022-01-07 01:18:16'),
+(46, 2, 35, '2022-01-04 19:12:56', '2022-01-04 19:12:56'),
+(45, 1, 35, '2022-01-04 19:12:56', '2022-01-04 19:12:56'),
+(41, 2, 34, '2022-01-04 15:11:38', '2022-01-04 15:11:38'),
+(40, 1, 34, '2022-01-04 15:11:38', '2022-01-04 15:11:38'),
+(39, 2, 33, '2021-12-31 23:43:04', '2021-12-31 23:43:04'),
+(38, 1, 33, '2021-12-31 23:43:04', '2021-12-31 23:43:04'),
+(37, 2, 32, '2021-12-31 02:06:28', '2021-12-31 02:06:28'),
+(36, 1, 32, '2021-12-31 02:06:28', '2021-12-31 02:06:28'),
+(35, 2, 31, '2021-12-31 02:06:04', '2021-12-31 02:06:04'),
+(34, 1, 31, '2021-12-31 02:06:04', '2021-12-31 02:06:04'),
+(53, 2, 38, '2022-01-10 23:12:13', '2022-01-10 23:12:13'),
+(54, 1, 39, '2022-01-10 23:12:39', '2022-01-10 23:12:39'),
+(55, 2, 39, '2022-01-10 23:12:39', '2022-01-10 23:12:39'),
+(56, 3, 40, '2022-01-11 00:04:50', '2022-01-11 00:04:50'),
+(57, 5, 40, '2022-01-11 00:04:50', '2022-01-11 00:04:50'),
+(58, 3, 41, '2022-01-11 00:07:40', '2022-01-11 00:07:40'),
+(59, 5, 41, '2022-01-11 00:07:40', '2022-01-11 00:07:40'),
+(60, 1, 42, '2022-01-11 01:11:33', '2022-01-11 01:11:33'),
+(61, 2, 42, '2022-01-11 01:11:33', '2022-01-11 01:11:33'),
+(62, 1, 43, '2022-01-11 01:21:49', '2022-01-11 01:21:49'),
+(63, 2, 43, '2022-01-11 01:21:49', '2022-01-11 01:21:49'),
+(64, 1, 44, '2022-01-11 01:26:57', '2022-01-11 01:26:57'),
+(65, 2, 44, '2022-01-11 01:26:57', '2022-01-11 01:26:57'),
+(66, 1, 45, '2022-01-11 01:28:42', '2022-01-11 01:28:42'),
+(67, 2, 45, '2022-01-11 01:28:42', '2022-01-11 01:28:42'),
+(68, 1, 46, '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(69, 2, 46, '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(70, 1, 47, '2022-01-11 01:31:58', '2022-01-11 01:31:58'),
+(71, 2, 47, '2022-01-11 01:31:58', '2022-01-11 01:31:58'),
+(72, 4, 48, '2022-01-11 01:37:55', '2022-01-11 01:37:55'),
+(73, 4, 49, '2022-01-11 01:39:40', '2022-01-11 01:39:40'),
+(79, 8, 50, '2022-01-12 01:51:03', '2022-01-12 01:51:03'),
+(78, 4, 50, '2022-01-12 01:51:03', '2022-01-12 01:51:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_preferences`
+--
+
+CREATE TABLE `user_preferences` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `preference_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_preferences`
+--
+
+INSERT INTO `user_preferences` (`id`, `preference_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(109, 2, 38, '2022-01-10 23:12:13', '2022-01-10 23:12:13'),
+(108, 1, 38, '2022-01-10 23:12:13', '2022-01-10 23:12:13'),
+(107, 8, 37, '2022-01-10 22:19:29', '2022-01-10 22:19:29'),
+(106, 4, 37, '2022-01-10 22:19:29', '2022-01-10 22:19:29'),
+(105, 3, 37, '2022-01-10 22:19:29', '2022-01-10 22:19:29'),
+(135, 3, 36, '2022-01-12 23:50:33', '2022-01-12 23:50:33'),
+(134, 2, 36, '2022-01-12 23:50:33', '2022-01-12 23:50:33'),
+(99, 6, 33, '2022-01-07 01:16:34', '2022-01-07 01:16:34'),
+(79, 2, 35, '2022-01-04 19:12:56', '2022-01-04 19:12:56'),
+(78, 1, 35, '2022-01-04 19:12:56', '2022-01-04 19:12:56'),
+(74, 2, 34, '2022-01-04 15:11:38', '2022-01-04 15:11:38'),
+(73, 1, 34, '2022-01-04 15:11:38', '2022-01-04 15:11:38'),
+(98, 4, 33, '2022-01-07 01:16:34', '2022-01-07 01:16:34'),
+(97, 3, 33, '2022-01-07 01:16:34', '2022-01-07 01:16:34'),
+(96, 1, 33, '2022-01-07 01:16:34', '2022-01-07 01:16:34'),
+(60, 2, 32, '2021-12-31 02:06:28', '2021-12-31 02:06:28'),
+(59, 1, 32, '2021-12-31 02:06:28', '2021-12-31 02:06:28'),
+(58, 2, 31, '2021-12-31 02:06:04', '2021-12-31 02:06:04'),
+(57, 1, 31, '2021-12-31 02:06:04', '2021-12-31 02:06:04'),
+(110, 1, 39, '2022-01-10 23:12:39', '2022-01-10 23:12:39'),
+(111, 2, 39, '2022-01-10 23:12:39', '2022-01-10 23:12:39'),
+(112, 3, 40, '2022-01-11 00:04:50', '2022-01-11 00:04:50'),
+(113, 4, 40, '2022-01-11 00:04:50', '2022-01-11 00:04:50'),
+(114, 3, 41, '2022-01-11 00:07:40', '2022-01-11 00:07:40'),
+(115, 4, 41, '2022-01-11 00:07:40', '2022-01-11 00:07:40'),
+(116, 1, 42, '2022-01-11 01:11:33', '2022-01-11 01:11:33'),
+(117, 2, 42, '2022-01-11 01:11:33', '2022-01-11 01:11:33'),
+(118, 1, 43, '2022-01-11 01:21:49', '2022-01-11 01:21:49'),
+(119, 2, 43, '2022-01-11 01:21:49', '2022-01-11 01:21:49'),
+(120, 1, 44, '2022-01-11 01:26:57', '2022-01-11 01:26:57'),
+(121, 2, 44, '2022-01-11 01:26:57', '2022-01-11 01:26:57'),
+(122, 1, 45, '2022-01-11 01:28:42', '2022-01-11 01:28:42'),
+(123, 2, 45, '2022-01-11 01:28:42', '2022-01-11 01:28:42'),
+(124, 1, 46, '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(125, 2, 46, '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(126, 1, 47, '2022-01-11 01:31:58', '2022-01-11 01:31:58'),
+(127, 2, 47, '2022-01-11 01:31:58', '2022-01-11 01:31:58'),
+(128, 4, 48, '2022-01-11 01:37:55', '2022-01-11 01:37:55'),
+(129, 3, 49, '2022-01-11 01:39:40', '2022-01-11 01:39:40'),
+(130, 4, 49, '2022-01-11 01:39:40', '2022-01-11 01:39:40'),
+(131, 3, 50, '2022-01-11 01:42:31', '2022-01-11 01:42:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_shows`
+--
+
+CREATE TABLE `user_shows` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `show_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_shows`
+--
+
+INSERT INTO `user_shows` (`id`, `show_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(41, 2, 39, '2022-01-10 23:12:39', '2022-01-10 23:12:39'),
+(40, 2, 38, '2022-01-10 23:12:13', '2022-01-10 23:12:13'),
+(39, 1, 37, '2022-01-10 22:19:29', '2022-01-10 22:19:29'),
+(61, 1, 36, '2022-01-12 23:50:13', '2022-01-12 23:50:13'),
+(37, 1, 35, '2022-01-04 19:29:24', '2022-01-04 19:29:24'),
+(31, 2, 34, '2022-01-04 15:11:38', '2022-01-04 15:11:38'),
+(30, 1, 33, '2022-01-01 00:44:29', '2022-01-01 00:44:29'),
+(28, 2, 32, '2021-12-31 02:06:28', '2021-12-31 02:06:28'),
+(27, 2, 31, '2021-12-31 02:06:04', '2021-12-31 02:06:04'),
+(42, 1, 40, '2022-01-11 00:04:50', '2022-01-11 00:04:50'),
+(43, 1, 41, '2022-01-11 00:07:40', '2022-01-11 00:07:40'),
+(44, 2, 42, '2022-01-11 01:11:33', '2022-01-11 01:11:33'),
+(45, 2, 43, '2022-01-11 01:21:49', '2022-01-11 01:21:49'),
+(46, 2, 43, '2022-01-11 01:21:49', '2022-01-11 01:21:49'),
+(47, 2, 44, '2022-01-11 01:26:57', '2022-01-11 01:26:57'),
+(48, 2, 44, '2022-01-11 01:26:57', '2022-01-11 01:26:57'),
+(49, 2, 45, '2022-01-11 01:28:42', '2022-01-11 01:28:42'),
+(50, 2, 45, '2022-01-11 01:28:42', '2022-01-11 01:28:42'),
+(51, 2, 46, '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(52, 2, 46, '2022-01-11 01:30:04', '2022-01-11 01:30:04'),
+(53, 2, 47, '2022-01-11 01:31:58', '2022-01-11 01:31:58'),
+(54, 1, 48, '2022-01-11 01:37:55', '2022-01-11 01:37:55'),
+(55, 1, 49, '2022-01-11 01:39:40', '2022-01-11 01:39:40'),
+(60, 1, 50, '2022-01-12 01:08:47', '2022-01-12 01:08:47');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cards`
+--
+ALTER TABLE `cards`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `card_actions`
+--
+ALTER TABLE `card_actions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `card_actions_card_id_foreign` (`card_id`),
+  ADD KEY `card_actions_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `devices`
+--
+ALTER TABLE `devices`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `devices_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `ethnicities`
+--
+ALTER TABLE `ethnicities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `laughs`
+--
+ALTER TABLE `laughs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `matchings`
+--
+ALTER TABLE `matchings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oauth_access_tokens`
+--
+ALTER TABLE `oauth_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_access_tokens_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_auth_codes`
+--
+ALTER TABLE `oauth_auth_codes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_auth_codes_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_clients_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oauth_refresh_tokens`
+--
+ALTER TABLE `oauth_refresh_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `preferences`
+--
+ALTER TABLE `preferences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `profile_images`
+--
+ALTER TABLE `profile_images`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_images_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `shows`
+--
+ALTER TABLE `shows`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indexes for table `user_ethnicities`
+--
+ALTER TABLE `user_ethnicities`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_ethnicities_ethnicity_id_foreign` (`ethnicity_id`),
+  ADD KEY `user_ethnicities_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `user_preferences`
+--
+ALTER TABLE `user_preferences`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_preferences_preference_id_foreign` (`preference_id`),
+  ADD KEY `user_preferences_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `user_shows`
+--
+ALTER TABLE `user_shows`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_shows_show_id_foreign` (`show_id`),
+  ADD KEY `user_shows_user_id_foreign` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cards`
+--
+ALTER TABLE `cards`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `card_actions`
+--
+ALTER TABLE `card_actions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
+
+--
+-- AUTO_INCREMENT for table `devices`
+--
+ALTER TABLE `devices`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ethnicities`
+--
+ALTER TABLE `ethnicities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `laughs`
+--
+ALTER TABLE `laughs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `matchings`
+--
+ALTER TABLE `matchings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+
+--
+-- AUTO_INCREMENT for table `preferences`
+--
+ALTER TABLE `preferences`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `profile_images`
+--
+ALTER TABLE `profile_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+
+--
+-- AUTO_INCREMENT for table `shows`
+--
+ALTER TABLE `shows`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `user_ethnicities`
+--
+ALTER TABLE `user_ethnicities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT for table `user_preferences`
+--
+ALTER TABLE `user_preferences`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+
+--
+-- AUTO_INCREMENT for table `user_shows`
+--
+ALTER TABLE `user_shows`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

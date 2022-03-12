@@ -21,8 +21,8 @@ class CreateCourseController extends Controller
     {
         $id = Auth::id();
         $course = new Course();
-        if (!empty($request->thumbnail)) {
-            $file = upload_file($request->thumbnail, 'course');
+        if (!empty($request->filename)) {
+            $file = upload_file($request->filename, 'course');
             $course->thumbnail = $file;
         }
         $course->name = $request->name;

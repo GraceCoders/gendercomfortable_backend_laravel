@@ -752,6 +752,7 @@ small h1 {
 
 .publish {
     color: #6A359F;
+    padding-bottom: 30px;
 }
 
 #radius_btn1 {
@@ -840,9 +841,10 @@ small h1 {
 
 .image_cover {
     position: absolute;
-    top: 73%;
+    top: 40%;
     color: white;
-    left: 8%;
+    left: 5%;
+    font-size: 15px;
 }
 
 .image_cover1 {
@@ -1151,12 +1153,15 @@ small h1 {
 #largeimg1 {
     position: relative;
     border-radius: 30px;
+
 }
 
 #largeimg {
     position: relative;
     margin-top: 100px;
     border-radius: 30px;
+    height:500px;
+    width:1500px;
 }
 
 #largeimages {
@@ -1798,7 +1803,7 @@ element.style {
 .borders {
     border-left: 2px solid #FFFFFF;
     ;
-    border-right: 2px solid #FFFFFF;
+
 }
 
 #popup_test {
@@ -1809,79 +1814,69 @@ element.style {
 input#thumbnail {
     opacity: 0;
 }
-
-#myfile {
-    display: none;
+.formdiv6{
+    margin: auto;
 }
+#myfile{
+    display:none;
 
-#upload_label {
-    margin-bottom: 20px;
-    width: 350px;
-    height: 200px;
-    background: #F6F7FA;
+
+
+  }
+ #upload_label{
+       /* padding:100px;
+         padding-top: 90px;
+      padding-bottom:90px ; */
+      margin-bottom: 20px;
+      width:350px;
+      height:200px;
+
+      background: #F6F7FA;
     border: 1px dashed rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     border-radius: 15px;
-}
 
-#label_img2 {
-    width: 100px;
-    height: 100px;
+  }
+  #label_img2{
+      width:100px;
+      height:100px;
     margin-bottom: 20px;
-    background: #F6F7FA;
+      background: #F6F7FA;
     border: 1px dotted rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     border-radius: 50px;
     margin: auto!important;
-}
 
-#roundimgs {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    ;
-}
+  }
+  #roundimgs{
+      width:100px;
+      height:100px;
+      border-radius: 50px;;
+  }
 
-#fa-upload::before {
-    content: "";
-    display: flex;
-    justify-content: center;
-}
 
-@media(max-width:525px) {
-    #upload_label {
-        width: 160px;
-        height: 200px;
-    }
-}
+  #fa-upload::before {
+      content: "";
+      display: flex;
+      justify-content: center;
+  }
 
-#imgss {
-    width: 350px;
-    height: 200px;
+  @media(max-width:525px) {
+   #upload_label {
+       width:160px;
+       height:200px;
+
+}
+}
+#imgss{
+    width:350px;
+    height:200px;
     border-radius: 20px;
 }
-
 @media(max-width:525px) {
-    #imgss {
-        width: 160px;
-        height: 200px;
-        border-radius: 20px;
-    }
+#imgss{
+    width:160px;
+    height:200px;
+    border-radius: 20px;
 }
-
-#profilepic {
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 50px;
-    height: 75px;
-    width: 75px;
-}
-
-#roundimgs {
-    width: 100px;
-    height: 102px;
-    border-radius: 50px;
-    margin: -3px -3px -3px -2px;
 }

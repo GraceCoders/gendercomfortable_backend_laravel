@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="form-floating  ">
                                             <input type="file" name="media[]" required class="form-control" id="floatingPassword" >
-                                           
+
                                             <button type="button" class="btn btn" id="inner_button" data-bs-toggle="modal" data-bs-target="#exampleModal52">Select</button>
                                             <small id="lession_pera" class="form-text">
                                                 <p>*You need to upload atleast two lesson for publishing this course</p>
