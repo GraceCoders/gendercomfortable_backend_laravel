@@ -60,6 +60,8 @@ class UsersController extends Controller
             $user->address = $request->address;
             $user->device_token = $request->device_token;
             $user->device_type = $request->device_type;
+            $user->latitude = $request->latitude;
+            $user->longitude = $request->longitude;
             $user->license_key=$request->license_key;
             $user->training_voucher=$request->training_voucher;            
             if (!empty($request->filename)) {
@@ -74,12 +76,39 @@ class UsersController extends Controller
         }
     }
 
-    public function loginUser(User $user): User
+    public function loginUser(Request $request)
     {
-        $request = request();
-        $userDetails = User::getUserDetails($user->id);
-        $userDetails->token = $user->createToken(env("AUTH_TOKEN_NAME"))->plainTextToken;
-        return $userDetails;
+        $input = json_decode($request->getContent(), true);
+        $validator = Validator::make($input, [
+            'email'          => 'required',
+            'password'            => 'required',
+            'device_type'          => 'required',
+            'device_token'          => 'required'
+        ]);
+        if ($validator->fails())
+            return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
+        try {
+            $data = json_decode($request->getContent(), true);
+            $verify = User::where('email', $request->email)->first();
+            $credentials = [
+                'email'    => $data['email'],
+                'password' => $data['password']
+            ];
+            if (auth()->attempt($credentials)) {
+                $user = User::where('email', $request->email)->first();
+                $user->device_type              = $request->device_type;
+                $user->device_token              = $request->device_token;
+                $user->save();
+                $token = $user->createToken('MyApp')->accessToken;
+                $user->token = $token;
+                return response()->json(['statusCode' => 200, 'message' => 'User Login successfully', 'data' => $user], 200);
+            } else {
+                return response()->json(['statusCode' => 400, 'message' => 'Please Check your Email And Password!'], 400);
+            }
+            return response()->json(['statusCode' => 400, 'message' => 'User not found'], 400);
+        } catch (Exception $exception) {
+            return response()->json(['statusCode' => 400, 'message' => $exception->getMessage()], 400);
+        }
     }
 
     /**

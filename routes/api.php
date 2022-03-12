@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\CompanyController;
 use App\Http\Controllers\Api\v1\CoursesController;
+use App\Http\Controllers\Api\v1\PasswordController;
 use App\Http\Controllers\Api\v1\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('/v1')->group(function () {
 
+    Route::post('/forgot/password', [PasswordController::class, 'send_email']);
     Route::post('/signup', [UsersController::class, 'signUp']);
-    Route::post('/login', [UsersController::class, 'logIn']);
+    Route::post('/company/login', [UsersController::class, 'loginUser']);
     Route::post('/forgotPassword', [UsersController::class, 'forgotPassword']);
 
     Route::middleware('auth:sanctum')->group(function () {
