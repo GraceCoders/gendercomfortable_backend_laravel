@@ -15,20 +15,20 @@ class CompanyProfileController extends Controller
     }
     public function updateProfile(Request $request)
     {
-
         $data = $request->all();
         $user = User::where('id', Auth::id())->first();
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->email = $request->email;
-        $user->bio = $request->company_bio;
-        $user->company_name = $request->company_bio;
-        $user->address = $request->address;
+        $user->username =isset($request->username) && !empty($request->username) ? $request->username : $user->username;
+        $user->email =isset($request->email) && !empty($request->email) ? $request->email : $user->email;
+        $user->bio =isset($request->company_bio) && !empty($request->company_bio) ? $request->company_bio : $user->company_bio;
+        $user->company_name =isset($request->company_name) && !empty($request->company_name) ? $request->company_name : $user->company_name;
+        $user->address =isset($request->address) && !empty($request->address) ? $request->address : $user->address;
+        $user->latitude =isset($request->lat) && !empty($request->lat) ? $request->lat : $user->lat;
+        $user->longitude =isset($request->long) && !empty($request->long) ? $request->long : $user->long;
         if ($request->profilepic) {
             $file = upload_file($request->profilepic, 'profile');
             $user->profilepic = $file;
         }
         $user->save();
-        return redirect('/company/profile')->with('success', 'Profile update Successfully');
+        return redirect('/company/profile')->with('success', 'Profile updated Successfully');
     }
 }

@@ -17,7 +17,8 @@ class CategorySeeder extends Seeder
         $jsonData = '[
             {"name":"Retail"},
             {"name":"Shoes"},
-            {"name":"Clothing"}, {"name":"Entertainment"}
+            {"name":"Clothing"}, 
+            {"name":"Entertainment"}
         ]';
 
         DB::table('category')->insert(json_decode($jsonData, true));

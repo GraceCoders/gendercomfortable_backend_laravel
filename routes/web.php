@@ -29,7 +29,6 @@ use App\Http\Controllers\Company\Index2Controller;
 use App\Http\Controllers\Company\Coursedetails2Controller;
 use App\Http\Controllers\Company\Login2Controller;
 use App\Http\Controllers\Company\AddcardController;
-use App\Http\Controllers\Company\BraintreeController;
 use App\Http\Controllers\Company\CompanyProfileController;
 use App\Http\Controllers\Company\PaymentController;
 use App\Http\Controllers\Company\PayPalController;
@@ -125,7 +124,6 @@ Route::post('/password/update',[SignupcompanyController::class, 'updatePassword'
 
 Route::get('/login2',[Login2Controller::class, 'Logincompany']);
 Route::get('/add_card',[AddcardController::class, 'Addcard']);
-Route::any('/payment', [BraintreeController::class, 'token'])->name('token');
 
 
 Route::get('create-transaction/{id}', [PayPalController::class, 'createTransaction'])->name('createTransaction');
