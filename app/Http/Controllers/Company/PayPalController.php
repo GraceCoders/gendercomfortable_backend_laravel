@@ -15,8 +15,9 @@ class PayPalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createTransaction($id)
+    public function createTransaction($ids)
     {
+        $id = Crypt::decrypt($ids);
         $data =PurchaseCourse::with('course')->where('id',$id)->first();
         return view('company.checkout',compact('data'));
     }

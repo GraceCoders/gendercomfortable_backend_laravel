@@ -128,11 +128,13 @@ $data = DB::table('category')
                         <form action="{{ route('company.register') }}" method="POST" enctype='multipart/form-data'>
                             @csrf
                             <center>
-                                <div class="divsround">
-                                    <img class="img-fluid" src="{{ asset('assets/slicing_web/add.svg') }}"
-                                        alt="...">
-                                    <p>Cover image</p>
-                                </div>
+                            <div class="container">
+                                <label for="myfile" id="upload_label"><img class="fa fa-upload" src="" alt="..." id="imgss">
+
+                                    <span> <input type="file" accept="image/*" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
+                                        <img class="img-fluid uploadimg" src=""></span>
+                                </label>
+                            </div>
                             </center>
                             <p class="learn">Learn how to feel comfortable around transgender people</p>
                             <div class="form-floating mb-3">
@@ -212,12 +214,12 @@ $data = DB::table('category')
 </body>
 
 </html>
-
 <script>
     var loadFile = function(event) {
-        var image = document.getElementById('roundimgs');
+        var image = document.getElementById('imgss');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
+
 
     const togglePassword = document.querySelector('.togglePassword');
     const password = document.querySelector('#id_password');

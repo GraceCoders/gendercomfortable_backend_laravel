@@ -24,9 +24,9 @@ class CompanyProfileController extends Controller
         $user->address =isset($request->address) && !empty($request->address) ? $request->address : $user->address;
         $user->latitude =isset($request->lat) && !empty($request->lat) ? $request->lat : $user->lat;
         $user->longitude =isset($request->long) && !empty($request->long) ? $request->long : $user->long;
-        if ($request->profilepic) {
-            $file = upload_file($request->profilepic, 'profile');
-            $user->profilepic = $file;
+        if ($request->filename) {
+            $file = upload_file($request->filename, 'profile');
+            $user->profile_pic = $file;
         }
         $user->save();
         return redirect('/company/profile')->with('success', 'Profile updated Successfully');

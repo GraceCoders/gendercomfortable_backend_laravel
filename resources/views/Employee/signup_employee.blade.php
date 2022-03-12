@@ -119,7 +119,7 @@
                                     <label for="myfile" id="label_img2"><img class="img-fluid" src="" alt="..."
                                             id="roundimgs">
 
-                                        <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
+                                        <input type="file" id="myfile" accept="image/*" name="filename" onchange="loadFile(event)"
                                             value="upload thumbnail">
                                         <img class="img-fluid uploadimg" src=""></span>
                                     </label>

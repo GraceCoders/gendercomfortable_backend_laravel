@@ -641,6 +641,8 @@ small h1 {
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 50px;
+    height: 80px;
+    width: 80px;
 }
 
 #profilepic1 {
@@ -1153,15 +1155,14 @@ small h1 {
 #largeimg1 {
     position: relative;
     border-radius: 30px;
-
 }
 
 #largeimg {
     position: relative;
     margin-top: 100px;
     border-radius: 30px;
-    height:500px;
-    width:1500px;
+    height: 500px;
+    width: 1500px;
 }
 
 #largeimages {
@@ -1418,6 +1419,8 @@ element.style {
 #details2img {
     position: relative;
     border-radius: 20px;
+    height: 300px;
+    width: 831px;
 }
 
 .details2heading1 {
@@ -1803,7 +1806,6 @@ element.style {
 .borders {
     border-left: 2px solid #FFFFFF;
     ;
-
 }
 
 #popup_test {
@@ -1814,69 +1816,74 @@ element.style {
 input#thumbnail {
     opacity: 0;
 }
-.formdiv6{
+
+.formdiv6 {
     margin: auto;
 }
-#myfile{
-    display:none;
 
+#myfile {
+    display: none;
+}
 
-
-  }
- #upload_label{
-       /* padding:100px;
+#upload_label {
+    /* padding:100px;
          padding-top: 90px;
       padding-bottom:90px ; */
-      margin-bottom: 20px;
-      width:350px;
-      height:200px;
-
-      background: #F6F7FA;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 200px;
+    background: #F6F7FA;
     border: 1px dashed rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     border-radius: 15px;
+}
 
-  }
-  #label_img2{
-      width:100px;
-      height:100px;
+#label_img2 {
+    width: 100px;
+    height: 100px;
     margin-bottom: 20px;
-      background: #F6F7FA;
+    background: #F6F7FA;
     border: 1px dotted rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     border-radius: 50px;
     margin: auto!important;
-
-  }
-  #roundimgs{
-      width:100px;
-      height:100px;
-      border-radius: 50px;;
-  }
-
-
-  #fa-upload::before {
-      content: "";
-      display: flex;
-      justify-content: center;
-  }
-
-  @media(max-width:525px) {
-   #upload_label {
-       width:160px;
-       height:200px;
-
 }
+
+#roundimgs {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: -4px;
+    ;
 }
-#imgss{
-    width:350px;
-    height:200px;
-    border-radius: 20px;
+
+#fa-upload::before {
+    content: "";
+    display: flex;
+    justify-content: center;
 }
+
 @media(max-width:525px) {
-#imgss{
-    width:160px;
-    height:200px;
+    #upload_label {
+        width: 160px;
+        height: 200px;
+    }
+}
+
+#imgss {
+    width: 350px;
+    height: 200px;
     border-radius: 20px;
 }
+
+@media(max-width:525px) {
+    #imgss {
+        width: 160px;
+        height: 200px;
+        border-radius: 20px;
+    }
+}
+
+div#second12 {
+    padding-bottom: 30px;
 }

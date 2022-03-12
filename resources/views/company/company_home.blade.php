@@ -1,5 +1,6 @@
 @extends('company.layouts.main')
 @section('main-container')
+
     <section class="third-sec bg-light">
         <div class="container ">
             <center>

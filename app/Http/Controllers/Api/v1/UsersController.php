@@ -62,9 +62,9 @@ class UsersController extends Controller
             $user->device_type = $request->device_type;
             $user->license_key=$request->license_key;
             $user->training_voucher=$request->training_voucher;            
-            if (!empty($request->profilepic)) {
-                $file = upload_file($request->profilepic, 'profile');
-                $user->profilepic = $file;
+            if (!empty($request->filename)) {
+                $file = upload_file($request->filename, 'profile');
+                $user->profile_pic = $file;
             }
             $user->save();
             $this->sendSuccessResponse(trans("Messages.SignupSuccessful"), $user->toArray());
@@ -172,7 +172,7 @@ class UsersController extends Controller
             $arrayData = $request->all();
             if ($request->hasFile('profilepic')) {
                 $file = upload_file($request->profilepic, 'profile');
-                $arrayData['profilepic'] = $file;
+                $arrayData['profile_pic'] = $file;
             }
             $user->where('id', Auth::user()->id)->update($arrayData);
             $this->sendSuccessResponse(trans("Messages.UpdatedSuccessfully"));

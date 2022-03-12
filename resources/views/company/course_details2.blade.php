@@ -64,7 +64,9 @@ $i =1;
                    @if($data['lessons'])
                     @foreach ($data['lessons'] as $value )
                     <p>Lesson {{$i++}}</p>
-                    <p class="donec"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/video.svg')}}" alt="...">{{$value->lession_name}}</p>
+                    <p class="donec">
+                    <a href="{{ asset('storage/' . $value->media) }}" target="_blank">
+                <img class="img-fluid" class="image" src="{{asset('assets/slicing_web/video.svg')}}" alt="..."></a>{{$value->lession_name}}</p>
                     @endforeach
                     @endif
                 </div>
@@ -73,16 +75,6 @@ $i =1;
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
             <!-- fifth section end -->
-            <section class="purple footer-bar">
-                <div class="container">
-                    <div class="clearfix">
-                        <div class="footer">
-                            <p>Copyright@2021 GenderComfortable All Right Reserved &nbsp; Term and Conditions| Privacy Policy</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+            </body>
 </html>
 @endsection

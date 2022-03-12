@@ -16,9 +16,11 @@
                     <form method="POST" action="{{ route('company.update.profile',$profile->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="plusesimg">
-                            <img class="image-fluid" src="{{asset('assets/slicing_web/company_cover.png')}}" id="profilepic2" alt="...">
-                            <img class="img-fluid" id="pluspic1" src="{{asset('assets/slicing_web/plus_white.svg')}}" alt="...">
-                        </div>
+                                <label for="myfile" id="upload_label"><img class="fa fa-upload" src="{{ asset('storage/' . $profile->profile_pic) }}" alt="..." id="imgss">
+                                    <span> <input type="file" accept="image/*" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
+                                        <img class="img-fluid uploadimg" src=""></span>
+                                </label>
+                        </div>                        
                         <p class="learn">Profile Pic</p>
                         <div class="form-floating mb-3">
                             <input type="text" name="username" class="form-control" id="floatingInput" value="{{$profile->username}}">
@@ -50,9 +52,12 @@
     <center>
         </div>
 </section>
-@endsection
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_KEY') }}&libraries=places&callback=initAutocomplete" type="text/javascript"></script>
 <script>
+    var loadFile = function(event) {
+        var image = document.getElementById('imgss');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
     setTimeout(function() {
         $('.alert-block').remove();
     }, 10000);
@@ -69,3 +74,4 @@
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+@endsection

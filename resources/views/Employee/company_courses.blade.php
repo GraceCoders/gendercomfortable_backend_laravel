@@ -32,7 +32,7 @@
     <!-- fourth div start -->
     <section class="third-sec bg-light">
         <div class="container ">
-            <div class="row  ">
+            <div class="row id="second12" ">
                     @foreach($data as $value)
                     <div class=" col-lg-4 col-12" id="second21">
                     <a href="{{ route('employee.course.lession',$value->course_id) }}">

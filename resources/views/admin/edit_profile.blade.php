@@ -20,7 +20,7 @@ $user = Auth::user();
                         <div class="container ">
                             <label for="myfile" id="label_img2">
                                 <img class="img-fluid" src="{{ asset('storage/' . $user->profile_pic) }}" id="roundimgs">
-                                <input type="file" id="myfile" name="profilepic" onchange="loadFile(event)" value="upload thumbnail">
+                                <input type="file" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
                                 <img class="img-fluid uploadimg" src=""></span>
                             </label>
                         </div>

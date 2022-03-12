@@ -23,7 +23,7 @@ class SignupController extends Controller
       $user->user_type = 1;
       if (!empty($request->filename)) {
         $file = upload_file($request->filename, 'profile');
-        $user->profilepic = $file;
+        $user->profile_pic = $file;
     }
       $user->save();
       return redirect('/user/login')->with('success', 'Admin Register Successfully!');

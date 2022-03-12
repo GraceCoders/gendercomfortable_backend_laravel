@@ -37,7 +37,7 @@
   @endif
         <div class="container ">
 
-            <div class="row  ">
+            <div class="row " id="second12">
               @foreach($data as $value)
                 <div class=" col-lg-4 col-12" id="second11">
                     <img class="img-fluid" class="image" id="course_cover"

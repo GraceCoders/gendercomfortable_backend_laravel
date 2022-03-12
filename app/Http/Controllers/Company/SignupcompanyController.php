@@ -30,7 +30,7 @@ class SignupcompanyController extends Controller
         $user->user_type = 2;
         if (!empty($request->filename)) {
           $file = upload_file($request->filename, 'profile');
-          $user->profilepic = $file;
+          $user->profile_pic = $file;
       }
         $user->save();
         return redirect('/login')->with('success', 'Company Register Successfully!');

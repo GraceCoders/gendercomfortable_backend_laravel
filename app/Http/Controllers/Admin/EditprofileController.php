@@ -22,8 +22,8 @@ class EditprofileController extends Controller
         $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->bio = $request->bio;
-        if ($request->profilepic) {
-            $file = upload_file($request->profilepic, 'profile');
+        if ($request->filename) {
+            $file = upload_file($request->filename, 'profile');
             $user->profile_pic = $file;
         }
         $user->save();

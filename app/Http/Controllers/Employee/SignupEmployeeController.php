@@ -26,7 +26,7 @@ class SignupEmployeeController extends Controller
     $user->user_type = 0;
     if (!empty($request->filename)) {
       $file = upload_file($request->filename, 'profile');
-      $user->profilepic = $file;
+      $user->profile_pic = $file;
     }
     $user->save();
     $license = new LicenseKey();
