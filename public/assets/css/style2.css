@@ -1854,7 +1854,7 @@ input#thumbnail {
     height: 100px;
     border-radius: 50px;
     margin: -4px;
-    ;
+
 }
 
 #fa-upload::before {
@@ -1886,4 +1886,8 @@ input#thumbnail {
 
 div#second12 {
     padding-bottom: 30px;
+}
+.form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+    padding-top: 5px !important;
+    padding-bottom: 0.625rem;
 }
