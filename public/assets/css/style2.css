@@ -1586,12 +1586,12 @@ element.style {
     border: 1px solid black;
     border: none;
     background: #FFFFFF;
-    padding: 20px;
+    padding: 0px;
     border-radius: 8px;
-    width: 380px;
-    position: absolute;
-    top: 40px;
-    left: 7%;
+    width: 340px;
+    position: relative;
+    top: 0px;
+    left: 0px;
 }
 
 .maps {
