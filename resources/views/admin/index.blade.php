@@ -94,7 +94,7 @@ $data = DB::table('category')
 
         <!-- <hr class="line "></hr> -->
     </section>
-   
+
 
 
     <section class="bg-light header_border "></section>
@@ -180,9 +180,9 @@ $data = DB::table('category')
                 var infowindow = new google.maps.InfoWindow();
                 var marker, i;
                 for (i = 0; i < result.length; i++) {
-                   
-                    var image = "http://127.0.0.1:8000/storage/" + result[i].profile_pic;
-                    var contentString = '<div class="formdiv511 "><h6 class="donec1"><img class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/certified.svg" alt="..."> &nbsp;Certified</h6></a><div class="row"><div class="col-lg-6 col-9"> <img class="img-fluid" class="image" id="company-cover1" src="'+image+'" style="width:150px; height:80px" class="img-fluid" alt="..."></div><div class="col-lg-6 col-9"><h5>'+ result[i].company_name+'</h5><span><p class="donec1"><img  class="img-fluid"class="image"src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="..."> &nbsp;<img class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image"src="http://127.0.0.1:8000/assets/slicing_web/star_inactive.svg"  alt="..."> </p></span></div></div></div>';
+
+                    var image = "http://74.208.82.197/gendercomfortable/public/storage/" + result[i].profile_pic;
+                    var contentString = '<div class="formdiv511 "><h6 class="donec1"><img class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/certified.svg" alt="..."> &nbsp;Certified</h6></a><div class="row"><div class="col-lg-6 col-9"> <img class="img-fluid" class="image" id="company-cover1" src="'+image+'" style="width:150px; height:80px" class="img-fluid" alt="..."></div><div class="col-lg-6 col-9"><h5>'+ result[i].company_name+'</h5><span><p class="donec1"><img  class="img-fluid"class="image"src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="..."> &nbsp;<img class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image"src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_inactive.svg"  alt="..."> </p></span></div></div></div>';
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                         map: map
@@ -226,7 +226,7 @@ $data = DB::table('category')
     }
  $( document ).ready(function() {
     var result = <?php echo $user; ?>;
-            
+
             var locate = [];
             for (let i = 0; i < result.length; i++) {
                 if (result[i].latitude) {
@@ -244,8 +244,8 @@ $data = DB::table('category')
             var infowindow = new google.maps.InfoWindow();
             var marker, i;
             for (i = 0; i < result.length; i++) {
-                var image = "http://127.0.0.1:8000/storage/" + result[i].profile_pic;
-                var contentString = '<div class="formdiv511 "><h6 class="donec1"><img class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/certified.svg" alt="..."> &nbsp;Certified</h6></a><div class="row"><div class="col-lg-6 col-9"> <img class="img-fluid" class="image" id="company-cover1" src="'+image+'" style="width:150px; height:80px" class="img-fluid" alt="..."></div><div class="col-lg-6 col-9"><h5>'+ result[i].company_name+'</h5><span><p class="donec1"><img  class="img-fluid"class="image"src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="..."> &nbsp;<img class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img class="img-fluid" class="image" src="http://127.0.0.1:8000/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image"src="http://127.0.0.1:8000/assets/slicing_web/star_inactive.svg"  alt="..."> </p></span></div></div></div>';
+                var image = "http://74.208.82.197/gendercomfortable/public/storage/" + result[i].profile_pic;
+                var contentString = '<div class="formdiv511 "><h6 class="donec1"><img class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/certified.svg" alt="..."> &nbsp;Certified</h6></a><div class="row"><div class="col-lg-6 col-9"> <img class="img-fluid" class="image" id="company-cover1" src="'+image+'" style="width:150px; height:80px" class="img-fluid" alt="..."></div><div class="col-lg-6 col-9"><h5>'+ result[i].company_name+'</h5><span><p class="donec1"><img  class="img-fluid"class="image"src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="..."> &nbsp;<img class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img class="img-fluid" class="image" src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_sm.svg"  alt="...">  &nbsp;<img  class="img-fluid" class="image"src="http://74.208.82.197/gendercomfortable/public/assets/slicing_web/star_inactive.svg"  alt="..."> </p></span></div></div></div>';
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                     map: map

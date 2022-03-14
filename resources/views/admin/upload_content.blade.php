@@ -60,6 +60,7 @@
                                             <label for="floatingInput" id="lesssonName1">Lesson name</label>
 
                                         </div>
+
                                         <div class="form-floating  ">
                                             <input type="file" name="media[]" required class="form-control" id="floatingPassword" placeholder="Password">
                                             <label for="floatingPassword" id="floatingPassword1">choose file</label>
