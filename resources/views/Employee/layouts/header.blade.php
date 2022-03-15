@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Gender Comfortable</title>
+      <title>Gender Comfortable</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/slicing_web/logo.svg') }}">
+
 
     <link rel="stylesheet" href="{{asset('assets/css/style2.css')}}">
     <!-- Bootstrap CSS -->
@@ -17,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
+@php
+$user = Auth::user();
+@endphp
 <body>
     <section class="purple top-bar">
         <div class="container">
@@ -48,7 +53,8 @@
                         </button>
 
                         </div>
-                 <img class="image" src="{{asset('assets/slicing_web/profile_pic.png')}}" class="img-fluid" id="profilepic" alt="...">
+                 <img class="image-fluide" src="{{ asset('storage/' . $user->profile_pic) }}"
+                            class="img-fluid" id="profilepic" alt="...">
                         <div class="btn-group">
                             <button type="button" class="btn btn bg-light dropdown-toggle"  id="dropdownMenuButton11" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <img class="image" src="{{asset('assets/slicing_web/dropdown.svg')}}" class="img-fluid" alt="...">
@@ -57,7 +63,7 @@
                                 <li class="dropdown_position">
                                     <div class="modal-heads">
                                         <div class="spacing11">
-                                            <h5 class="modal-title" id="exampleModalLabel">Hello, Samuel!</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Hello, {{$user->fisrt_name.' '.$user->last_name}}!</h5>
                                             <a href="#" id="popup_color">
                                                 <p>Activate account</p>
                                             </a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\company;
 use App\Models\User;
+use App\Models\UserCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -16,14 +17,12 @@ class SignupcompanyController extends Controller
         return view('company.signup_company');
     }
     public function register(Request $request){
-        // dd($request);
         $user= new User();
         $user->username =$request->username;
         $user->email =$request->email;
         $user->company_name=$request->company_name;
         $user->bio=$request->bio;
         $user->address=$request->address;
-        $user->category_id=$request->category_id;
         $user->latitude =$request->lat;
         $user->longitude =$request->long;
         $user->password =Hash::make($request->password);
@@ -33,6 +32,13 @@ class SignupcompanyController extends Controller
           $user->profile_pic = $file;
       }
         $user->save();
+        foreach($request->category_id as $value){
+            $data = new UserCategory();
+            $data->user_id = $user->id;
+            $data->category_id = $value;
+            $data->status = 1;
+            $data->save();
+        }
         return redirect('/login')->with('success', 'Company Register Successfully!');
       }
 

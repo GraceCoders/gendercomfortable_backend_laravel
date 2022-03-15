@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gender Comfortable</title>
+     <title>Gender Comfortable</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/slicing_web/logo.svg') }}">
+
 
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
 
@@ -79,7 +81,7 @@ $user = Auth::user();
                                 <li class="dropdown_position">
                                     <div class="modal-heads">
                                         <div class="spacing11">
-                                            <h5 class="modal-title" id="exampleModalLabel">Hello, Samuel!</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Hello,{{Auth::user()->name}}!</h5>
                                             <a href="#" id="popup_color">
                                                 <p>Activate account</p>
                                             </a>

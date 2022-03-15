@@ -17,7 +17,7 @@ class AdminController extends Controller
         return view('admin.home_admin',compact('course','draft'));
     }
     public function getuser(Request $request){
-        $user = User::where('latitude','!=',null)->where('category_id',$request->id)->get();
+        $user = User::where('latitude','!=',null)->whereIn('category_id',$request->id)->get();
         return json_encode($user);
     }
     public function index(){
