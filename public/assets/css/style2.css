@@ -1854,7 +1854,6 @@ input#thumbnail {
     height: 100px;
     border-radius: 50px;
     margin: -4px;
-
 }
 
 #fa-upload::before {
@@ -1887,23 +1886,9 @@ input#thumbnail {
 div#second12 {
     padding-bottom: 30px;
 }
-.form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+
+.form-floating>.form-control:focus,
+.form-floating>.form-control:not(:placeholder-shown) {
     padding-top: 5px !important;
     padding-bottom: 0.625rem;
 }
-.custom-file-button input[type=file] {
-    margin-left: -2px !important;
-  }
-  
-
-  
-.custom-file-button input[type=file]::file-selector-button {
-  margin-left: 260px;
-  background-color: #F58415;
-  padding:10px;
-  border-radius: 15px;
- padding-top: 15px;
- padding-bottom: 15px;
-  
-  }
-  
