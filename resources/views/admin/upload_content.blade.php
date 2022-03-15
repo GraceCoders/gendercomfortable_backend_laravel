@@ -61,6 +61,16 @@
 
                                         </div>
 
+
+                                        <div class="form-floating  ">
+                                            <div class="input-group custom-file-button">
+                                            <input type="file" class="form-control custom-file" id="floatingPassword" placeholder="Password">
+
+                            </div>
+                        </div>
+
+
+
                                         <div class="form-floating  ">
                                             <input type="file" name="media[]" required class="form-control" id="floatingPassword" placeholder="Password">
                                             <label for="floatingPassword" id="floatingPassword1">choose file</label>
