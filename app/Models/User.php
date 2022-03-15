@@ -31,7 +31,9 @@ class User extends Authenticatable
         'device_type',
         'device_token',
         'company_name',
-        'category_id'
+        'category_id',
+        'training_voucher',
+        'license_key'
     ];
 
     /**

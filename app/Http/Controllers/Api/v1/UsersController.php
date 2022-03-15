@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\LicenseKey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -62,13 +63,19 @@ class UsersController extends Controller
             $user->device_type = $request->device_type;
             $user->latitude = $request->latitude;
             $user->longitude = $request->longitude;
-            $user->license_key=$request->license_key;
             $user->training_voucher=$request->training_voucher;            
             if (!empty($request->filename)) {
                 $file = upload_file($request->filename, 'profile');
                 $user->profile_pic = $file;
             }
             $user->save();
+            if($request->license_key){
+            $license = new LicenseKey();
+            $license->user_id = $user->id;
+            $license->ststus = 1;
+            $license->license_key  = $request->license_key;
+            $license->save();
+            }
             $this->sendSuccessResponse(trans("Messages.SignupSuccessful"), $user->toArray());
         }
         } catch (Exception $ex) {

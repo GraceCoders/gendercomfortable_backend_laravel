@@ -21,6 +21,6 @@ class CategorySeeder extends Seeder
             {"name":"Entertainment"}
         ]';
 
-        DB::table('category')->insert(json_decode($jsonData, true));
+        DB::table('categories')->insert(json_decode($jsonData, true));
     }
 }

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
      <title>Gender Comfortable</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/slicing_web/logo.svg') }}">
 
@@ -148,6 +150,13 @@ $user = Auth::user();
                                             <p class="donec1"><img class="img-fluid" id="edit_img"
                                                     src="{{ asset('assets/slicing_web/edit.svg') }}"
                                                     alt="...">&nbsp;&nbsp;&nbsp;&nbsp;Edit Profile</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.category.list') }}">
+                                            <p class="donec1"><img class="img-fluid" id="edit_img"
+                                                    src="{{ asset('assets/slicing_web/edit.svg') }}"
+                                                    alt="...">&nbsp;&nbsp;&nbsp;&nbsp;Add Category</p>
                                         </a>
                                     </li>
 

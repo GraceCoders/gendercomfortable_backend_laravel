@@ -89,6 +89,11 @@ Route::post('/create_course',[CreateCourseController::class, 'addCourse'])->name
 Route::get('/publish/course/{id}',[CourseDetailsController::class, 'coursedetail'])->name('admin.publish.course');
 Route::get('/change/password',[ChangePassController::class, 'changepass'])->name('admin.change.password');
 Route::post('/update/password',[ChangePassController::class, 'updatePassword'])->name('admin.update.password');
+Route::get('/category/list',[AdminController::class, 'category'])->name('admin.category.list');
+Route::post('/category/add',[AdminController::class, 'addCategory'])->name('admin.category.add');
+Route::post('/category/delete',[AdminController::class, 'deleteCategory'])->name('admin.category.delete');
+Route::post('/category/edit',[AdminController::class, 'editCategory'])->name('admin.category.edit');
+Route::post('/category/update',[AdminController::class, 'updateCategory'])->name('admin.category.update');
 
 });
 

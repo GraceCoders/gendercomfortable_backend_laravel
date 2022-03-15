@@ -29,7 +29,7 @@
 
 </head>
 @php
-$data = DB::table('category')
+$data = DB::table('categories')
 ->where('status', 1)
 ->get();
 @endphp
