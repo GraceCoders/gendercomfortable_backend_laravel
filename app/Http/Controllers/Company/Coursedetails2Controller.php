@@ -33,4 +33,9 @@ class Coursedetails2Controller extends Controller
             return redirect('/course/detail/' . Crypt::encrypt($request->course_id))->with('error', 'Some Thing Went wrong');
         }
     }
+    public function PurchaseCoures(Request $request,$id){
+
+        $data = Course::with('purchase_course')->where('purchase_course.id',$id)->first();
+        return view('company.purchase_course_stat',compact('data'));
+    }
 }

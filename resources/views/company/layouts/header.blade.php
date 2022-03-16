@@ -109,9 +109,7 @@ $user = Auth::user();
                                     <div class="modal-heads">
                                         <div class="spacing11">
                                             <h5 class="modal-title" id="exampleModalLabel">Hello {{$user->username}}!</h5>
-                                            <a href="#" id="popup_color">
-                                                <p>Activate account</p>
-                                            </a>
+                                           
                                         </div>
                                         <hr class="line"></hr>
                                     </div>
@@ -127,11 +125,11 @@ $user = Auth::user();
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/edit.svg')}}"> &nbsp;&nbsp;&nbsp;Edit Profile</p>
                                         </a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a class="dropdown-item" href="{{url('company/payment_option')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/payment.svg')}}" alt="..."> &nbsp; Payment Option</p>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <a class="dropdown-item" href="{{url('/company/purchased_courses')}}">
                                             <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/purchased.svg')}}" alt="..."> &nbsp; Purchased Courses</p>

@@ -40,6 +40,8 @@ public function course(){
     $data['draft'] = $draft;
     return $data;
 }
-
+public function purchase_course(){
+    return $this->hasMany(PurchaseCourse::class);
+}
 
 }

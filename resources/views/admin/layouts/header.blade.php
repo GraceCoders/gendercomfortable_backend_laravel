@@ -84,9 +84,7 @@ $user = Auth::user();
                                     <div class="modal-heads">
                                         <div class="spacing11">
                                             <h5 class="modal-title" id="exampleModalLabel">Hello,{{Auth::user()->name}}!</h5>
-                                            <a href="#" id="popup_color">
-                                                <p>Activate account</p>
-                                            </a>
+                                           
                                         </div>
                                         <hr class="line">
                                         </hr>

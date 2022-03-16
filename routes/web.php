@@ -113,6 +113,8 @@ Route::group(['middleware' => 'company'], function () {
 
 Route::get('/home',[CompanyhomeController ::class, 'Companyhome'])->name('company.home');
 Route::get('/course/detail/{id}',[Coursedetails2Controller::class, 'Coursedetail2'])->name('course.detail');
+Route::get('/course/purchase/{id}',[Coursedetails2Controller::class, 'PurchaseCoures'])->name('purchase.course');
+
 Route::get('/checkout/{id}',[CheckoutController ::class, 'Checkout'])->name('checkout');
 Route::get('/checkout2',[Checkout2Controller ::class, 'Checkout2']);
 Route::get('/payment_option',[PaymentoptionController::class, 'Paymentoption']);
