@@ -149,24 +149,22 @@ $data = DB::table('categories')
                                 <input type="text" class="form-control" name="bio" id="floatingInput" placeholder="name@example.com">
                                 <label for="floatingInput">Company bio</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="address" id="address" placeholder="name@example.com">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-light formsc" name="address" id="address" placeholder="name@example.com">
                                 <input type="hidden" required id="lat" name="lat" />
                                 <input type="hidden" required id="long" name="long" />
                                 <label for="floatingInput">Address</label>
                             </div>
-                            <div class="form-floating mb-3">
-
-
-                                <select class="selectpicker form-control"multiple="multiple" name="category_id[]" data-live-search="true">
-                                    <option>Select category</option>
+                            <div class="form-floating mb-3 ">
+                            <select class="selectpicker form-control option1 "  multiple="multiple" name="category_id[]" data-live-search="true">
+                                    <option class="options1">Select category</option>
                                     @foreach ($data as $value)
                                     <option value="{{ $value->id }}">{{ $value->name }}</option>
                                     @endforeach
                                 </select>
-                                <label for="floatingInput">Category</label>
+                                {{-- <label for="floatingInput">Category</label> --}}
                             </div>
-                            <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Signup</button>
+                            <button class="btn btn w-100 pb-3 pt-3 btnsss " type="submit" id="checkout2">Signup</button>
                             <p class="psw">Already have an account? <a href="{{ url('/login') }}">Login</a>
                             </p>
                     </div>

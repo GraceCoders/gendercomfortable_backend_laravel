@@ -36,11 +36,7 @@ $user = Auth::user();
                     <a href=""> <img class="image-fluid" src="{{ asset('assets/slicing_web/mail.svg') }}"
                             class="img-fluid" alt="..."></a>
                     </a>
-
-
-
-
-                    <p>support@gendercomfortable.com</p>
+       <p>support@gendercomfortable.com</p>
                     <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/fb.svg') }}"
                             class="img-fluid" alt="..."></a>
                     <a href=""><img class="image-fluid" src="{{ asset('assets/slicing_web/insta.svg') }}"
@@ -109,7 +105,7 @@ $user = Auth::user();
                                     <div class="modal-heads">
                                         <div class="spacing11">
                                             <h5 class="modal-title" id="exampleModalLabel">Hello {{$user->username}}!</h5>
-                                           
+
                                         </div>
                                         <hr class="line"></hr>
                                     </div>
