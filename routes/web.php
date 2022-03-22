@@ -94,6 +94,13 @@ Route::post('/category/add',[AdminController::class, 'addCategory'])->name('admi
 Route::post('/category/delete',[AdminController::class, 'deleteCategory'])->name('admin.category.delete');
 Route::post('/category/edit',[AdminController::class, 'editCategory'])->name('admin.category.edit');
 Route::post('/category/update',[AdminController::class, 'updateCategory'])->name('admin.category.update');
+Route::get('/edit/course/{id}',[CourseDetailsController::class, 'edit'])->name('admin.course.edit');
+Route::post('/update/course/{id}',[CourseDetailsController::class, 'update'])->name('admin.course.update');
+Route::get('/course/lesson/edit/{id}',[CourseDetailsController::class, 'lessonEdit'])->name('admin.lesson.edit');
+Route::post('/course/lesson/update',[CourseDetailsController::class, 'lessonUpdate'])->name('admin.lesson.update');
+Route::get('/course/question/edit/{id}',[CourseDetailsController::class, 'questionEdit'])->name('admin.question.edit');
+Route::post('/course/question/update',[CourseDetailsController::class, 'questionUpdate'])->name('admin.question.update');
+Route::get('/delete/course/{id}',[CourseDetailsController::class, 'deleteCourse'])->name('admin.course.delete');
 
 });
 
