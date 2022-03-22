@@ -69,12 +69,15 @@ class UsersController extends Controller
                 $user->profile_pic = $file;
             }
             $user->save();
+            $user['token'] =  $user->createToken('MyApp')->plainTextToken; 
+
             if($request->license_key){
             $license = new LicenseKey();
             $license->user_id = $user->id;
             $license->ststus = 1;
             $license->license_key  = $request->license_key;
             $license->save();
+
             }
             $this->sendSuccessResponse(trans("Messages.SignupSuccessful"), $user->toArray());
         }
@@ -106,8 +109,7 @@ class UsersController extends Controller
                 $user->device_type              = $request->device_type;
                 $user->device_token              = $request->device_token;
                 $user->save();
-                $token = $user->createToken('MyApp')->accessToken;
-                $user->token = $token;
+                $user['token'] =  $user->createToken('MyApp')->plainTextToken; 
                 return response()->json(['statusCode' => 200, 'message' => 'User Login successfully', 'data' => $user], 200);
             } else {
                 return response()->json(['statusCode' => 400, 'message' => 'Please Check your Email And Password!'], 400);
