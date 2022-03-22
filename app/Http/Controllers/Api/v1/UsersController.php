@@ -77,7 +77,6 @@ class UsersController extends Controller
             $license->ststus = 1;
             $license->license_key  = $request->license_key;
             $license->save();
-
             }
             $this->sendSuccessResponse(trans("Messages.SignupSuccessful"), $user->toArray());
         }
