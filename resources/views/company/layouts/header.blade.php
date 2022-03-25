@@ -95,8 +95,12 @@ $user = Auth::user();
                         </div>
 
 
+                        @if( $user->profile_pic)
                         <img class="image-fluide" src="{{ asset('storage/' . $user->profile_pic) }}"
-                            class="img-fluid" id="profilepic" alt="...">                        <div class="btn-group">
+                            class="img-fluid" id="profilepic" alt="...">      
+                                                    @else
+                              <img class="img-fluid" src="{{ asset('assets/slicing_web/profile.png') }}" class="img-fluid" id="profilepic" alt="..." id="roundimgs">
+                              @endif                       <div class="btn-group">
                             <button type="button" class="btn btn bg-light dropdown-toggle"  id="dropdownMenuButton11" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <img class="image" src="{{asset('assets/slicing_web/dropdown.svg')}}" class="img-fluid" alt="...">
                             </button>

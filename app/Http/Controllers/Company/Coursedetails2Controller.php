@@ -35,7 +35,9 @@ class Coursedetails2Controller extends Controller
     }
     public function PurchaseCoures(Request $request,$id){
 
-        $data = Course::with('purchase_course')->where('purchase_course.id',$id)->first();
-        return view('company.purchase_course_stat',compact('data'));
+        $sum = PurchaseCourse::where('course_id' ,$id)->sum('no_of_seat');
+
+        $data = Course::with('purchase_course')->where('id',$id)->first();
+        return view('company.purchase_course_stat',compact('data','sum'));
     }
 }

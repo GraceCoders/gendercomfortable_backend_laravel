@@ -17,6 +17,11 @@ class SignupcompanyController extends Controller
         return view('company.signup_company');
     }
     public function register(Request $request){
+        $use = User::where('email', $request->email)->first();
+
+        if ($use) {
+            return redirect('/employee/signup_employee')->with('message', 'Email Already Exist');
+          } else {
         $user= new User();
         $user->username =$request->username;
         $user->email =$request->email;
@@ -40,6 +45,7 @@ class SignupcompanyController extends Controller
             $data->save();
         }
         return redirect('/login')->with('success', 'Company Register Successfully!');
+    }
       }
 
       public function changepass()

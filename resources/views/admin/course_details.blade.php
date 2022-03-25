@@ -31,7 +31,8 @@ $i = 1;
                     </button></a>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link bg-light" id="profile-tab" type="button" role="tab" data-toggle="modal" data-target="#exampleModal52">
+                <button class="nav-link bg-light" id="profile-tab" type="button" role="tab"
+                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <h4>Delete</h4>
                 </button>
             </li>
@@ -94,27 +95,20 @@ $i = 1;
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModal52" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog " id="modal-dialog2">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="container text-center">
-                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <h4>Select account type</h4>
-                    <div class="row  " id="account_row " style="display:inline-flex">
-                        <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
-                            <img class="image" src="slicing_web/pdf.svg" class="img-fluid" alt="..." />
-                            <p>Pdf</p>
-                        </div>
-                        <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
-                            <img class="image" src="slicing_web/vid.svg" class="img-fluid" alt="..." /></a>
-                            <p>video</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are You sure you want Delete the course?
+      </div>
+      <div class="modal-footer">
+        <a href="{{route('admin.course.delete',$data->id)}}"><button type="button" class="btn btn-primary" >Confirm</button></a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </div>
 </div>
 @endsection

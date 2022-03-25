@@ -107,6 +107,11 @@ $data = DB::table('categories')
     <!-- second div end -->
     <!-- Third div start -->
     <section class="third-sec bg-light">
+    @if(session()->has('message'))
+    <div class="alert alert-danger">
+        {{ session()->get('message') }}
+    </div>
+@endif
         <div class="container">
             <div class="row">
                 <div class="  col-lg-6 col-12  " id="regis_sec">
@@ -117,9 +122,9 @@ $data = DB::table('categories')
                             <center>
                                 <div class="container">
                                     <label for="myfile" id="upload_label">
-                                        <img class="fa fa-upload" src="" alt="..." id="imgss">
-
-                                        <span> <input type="file" accept="image/*" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
+                                        <img class="fa fa-upload" src="{{ asset('assets/slicing_web/photo.jpg') }}" alt="..." id="imgss">
+                                        <span> <input type="file" accept="image/*" id="myfile"
+                                         name="filename" onchange="loadFile(event)" value="upload thumbnail">
                                             <img class="img-fluid uploadimg" src=""></span>
                                     </label>
                                 </div>
@@ -223,4 +228,8 @@ $data = DB::table('categories')
         });
     }
     google.maps.event.addDomListener(window, 'load', initialize);
+    
+    $(document).ready(function(){
+    $(".alert").delay(5000).slideUp(300);
+});
 </script>

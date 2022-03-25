@@ -19,7 +19,11 @@ $user = Auth::user();
                         <h1 class="signuph">Edit Profile</h1>
                         <div class="container ">
                             <label for="myfile" id="label_img2">
+                                @if( $user->profile_pic)
                                 <img class="img-fluid" src="{{ asset('storage/' . $user->profile_pic) }}" id="roundimgs">
+                              @else
+                              <img class="img-fluid" src="{{ asset('assets/slicing_web/profile.png') }}" id="roundimgs">
+                              @endif
                                 <input type="file" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
                                 <img class="img-fluid uploadimg" src=""></span>
                             </label>

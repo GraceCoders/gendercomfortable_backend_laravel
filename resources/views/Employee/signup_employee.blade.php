@@ -108,6 +108,11 @@
     </section>
     <section class="bg-light header_border "></section>
     <!-- Third div start -->
+    @if(session()->has('message'))
+    <div class="alert alert-danger">
+        {{ session()->get('message') }}
+    </div>
+@endif
     <div class="third-sec bg-light">
         <div class="container">
             <div class="row">
@@ -118,7 +123,7 @@
                             <form action="{{ route('employee.register') }}" method="POST" enctype='multipart/form-data'>
                               @csrf
                                 <div class="round_div">
-                                    <label for="myfile" id="label_img2"><img class="img-fluid" src="" alt="..."
+                                    <label for="myfile" id="label_img2"><img class="img-fluid" src="{{ asset('assets/slicing_web/profile.png') }}" alt="..."
                                             id="roundimgs">
 
                                         <input type="file" id="myfile" accept="image/*" name="filename" onchange="loadFile(event)"
@@ -143,6 +148,7 @@
                                 placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
+
                         <div class="form-floating pt-30px">
 
                             <input id="id_password" type="password"
@@ -178,7 +184,8 @@
                                         </div>
                                        <button class="btn btn w-100 pb-3 pt-3 " type="submit "
                                                 id="checkout2">Submit</button>
-                                        <p class="back_pera ">Skip</p>
+                                        <a><p class="back_pera " data-bs-dismiss="modal"
+                                                aria-label="Close">Skip</p></a>
                                     </div>
                                 </div>
                              </div>
@@ -223,4 +230,8 @@
         // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
     });
+
+    $(document).ready(function(){
+    $(".alert").delay(5000).slideUp(300);
+});
 </script>
