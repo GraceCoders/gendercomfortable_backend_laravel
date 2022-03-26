@@ -92,18 +92,18 @@ $user = Auth::user();
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{url('certification')}}">
-                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/certification.svg')}}" alt="..."> &nbsp;&nbsp;Certifications</p>
+                                        <a class="dropdown-item" href="{{url('employee/certification')}}">
+                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/certification.svg')}}" alt="..."> &nbsp;Certifications</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{url('change_password')}}">
-                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/card.svg')}}" alt="..."> &nbsp;&nbsp;Change Password</p>
+                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/card.svg')}}" alt="..."> &nbsp;Change Password</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#">
-                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/terms.svg')}}" alt="..."> &nbsp;&nbsp;Terms&conditions</p>
+                                            <p class="donec1"><img class="img-fluid" class="image" src="{{asset('assets/slicing_web/terms.svg')}}" alt="..."> &nbsp;Terms&conditions</p>
                                         </a>
                                     </li>
                                     <li>
