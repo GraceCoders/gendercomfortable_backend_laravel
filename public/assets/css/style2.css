@@ -1637,7 +1637,9 @@ element.style {
 /* purchase course state */
 
 #radiusimages1 {
-    border-radius: 50px;
+    border-radius: 50%;
+    height: 49%;
+    width: 100%;
 }
 
 element.style {

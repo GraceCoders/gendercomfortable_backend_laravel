@@ -15,4 +15,8 @@ class LicenseKey extends Model
         'license_key',
         'ststus',
         ];
+        public function user()
+        {
+            return $this->hasOne(User::class,'id','user_id');
+        }
     }

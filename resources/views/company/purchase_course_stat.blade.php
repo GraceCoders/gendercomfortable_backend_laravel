@@ -61,7 +61,7 @@
                         <h6>Your company’s Unique Course Access Key (Give this to employees)</h6>
                         <div class="row">
                             <div class="col-lg-6 col-12">
-                                <p class="headingseat">{{$data->purchase_key}} </p>
+                                <p class="headingseat">{{$data['purchase_course']->purchase_key}} </p>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <p><a href="#">Send instructional email</a></p>
@@ -90,55 +90,39 @@
             </div>
         </div>
         <section class="third-sec bg-light">
-    <div class="container ">
-        <div class="margineb">
-            <h5 class="secondr">Redeemed by (3)</h5>
-            <div class="row  ">
-                <div class=" col-lg-4 col-12" id="second4">
-                    <div class="comapany1">
-                        <h3>Lisa Hyden <span class="headingseat"> (Certified)</span>
-                        </h3>
-                        <div class="row">
-                            <div class="col-lg-2 col-12">
-                                <img class="img-fluid" id="radiusimages1" src="{{asset('assets/slicing_web/profile_pic.png')}}" alt="...">
-                            </div>
-                            <div class="col-lg-10 col-12 ">
-                                <p> <strong>Redeemed on</strong>:12 April .2021</p>
-                                <p><strong>Total Score:</strong>60%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-lg-4 col-12" id="second4">
-                    <div class="comapany1">
-                        <h3>Lisa Hyden <span class="headingseat"> (Certified)</span></h3>
-                        <div class="row">
-                            <div class="col-lg-2 col-12">
-                                <img class="img-fluid" id="radiusimages1" src="{{asset('assets/slicing_web/profile_pic.png')}}" alt="...">
-                            </div>
-                            <div class="col-lg-10 col-12 ">
-                                <p> <strong>Redeemed on</strong>:12 April .2021</p>
-                                <p><strong>Total Score:</strong>80%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-lg-4 col-12" id="second4">
-                    <div class="comapany1">
-                        <h3>Lisa Hyden <span class="headingseat"> (Certified)</span></h3>
-
-                        <div class="row">
-                            <div class="col-lg-2 col-12">
-                                <img class="img-fluid" id="radiusimages1" src="{{asset('assets/slicing_web/profile_pic.png')}}" alt="...">
-                            </div>
-                            <div class="col-lg-10 col-12 ">
-                                <p> <strong>Redeemed on</strong>:12 April .2021</p>
-                                <p><strong>Total Score:</strong>Yet to be taken</p>
+            <div class="container ">
+                <div class="margineb">
+                    <h5 class="secondr">Redeemed by ({{count($employee)}})</h5>
+                    <div class="row  ">
+                        @foreach($employee as $value)
+                        @php 
+                        $course = DB::table('purchase_course')->where('purchase_key',$value->license_key)->first();
+                        $count = DB::table('questions')->where('course_id',$course->course_id)->count();
+                        $final = DB::table('save_answer')->where('user_id',$value['user']->id)->where('course_id',$course->course_id)->where('status',2)->count();
+                        $percentage = $final /$count *100;
+                        @endphp
+                        <div class=" col-lg-4 col-12" id="second4">
+                            <div class="comapany1">
+                                <h3>{{$value['user']->first_name. ' ' .$value['user']->last_name }} <span class="headingseat"> (Certified)</span>
+                                </h3>
+                                <div class="row">
+                                    <div class="col-lg-2 col-12">
+                                        @if(!empty($value['user']->profile_pic))
+                                        <img class="img-fluid" id="radiusimages1" src="{{asset('storage/'.$value['user']->profile_pic)}}" alt="...">
+                                        @else
+                                        <img class="img-fluid" id="radiusimages1" src="{{ asset('assets/slicing_web/profile.png') }}" alt="...">
+                                        @endif
+                                    </div>
+                                    <div class="col-lg-10 col-12 ">
+                                        <p> <strong>Redeemed on</strong>:12 April .2021</p>
+                                        <p><strong>Total Score:</strong>{{$percentage}}%</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-</section>
+                        @endforeach
+                   
+        </section>
     </div>
     <div class="tab-pane fade show active  bg-light" id="profile" role="tabpanel" aria-labelledby="home-tab">
     </div>

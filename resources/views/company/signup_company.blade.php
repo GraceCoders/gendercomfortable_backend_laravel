@@ -203,15 +203,11 @@ $data = DB::table('categories')
         var image = document.getElementById('imgss');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
-
-
     const togglePassword = document.querySelector('.togglePassword');
     const password = document.querySelector('#id_password');
     togglePassword.addEventListener('click', function(e) {
-        // toggle the type attribute
         const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
         password.setAttribute('type', type);
-        // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
     });
 
@@ -223,12 +219,10 @@ $data = DB::table('categories')
             document.getElementById('address').value = place.name;
             document.getElementById('lat').value = place.geometry.location.lat();
             document.getElementById('long').value = place.geometry.location.lng();
-
-
         });
     }
     google.maps.event.addDomListener(window, 'load', initialize);
-    
+
     $(document).ready(function(){
     $(".alert").delay(5000).slideUp(300);
 });

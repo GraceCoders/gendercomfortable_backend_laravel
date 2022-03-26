@@ -86,7 +86,9 @@ class PayPalController extends Controller
         $save = PurchaseCourse::where('id',$ids)->first();
         $save->status =$response['status'];
         $save->transaction_id =$response['id'];
+        if($save->purchase_key){
         $save->purchase_key = random_int(10000000, 99999999);
+        }
         $save->save();
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {

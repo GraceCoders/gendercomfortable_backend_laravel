@@ -41,7 +41,7 @@ public function course(){
     return $data;
 }
 public function purchase_course(){
-    return $this->hasMany(PurchaseCourse::class);
+    return $this->hasOne(PurchaseCourse::class);
 }
 
 }
