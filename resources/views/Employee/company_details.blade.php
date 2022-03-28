@@ -18,34 +18,46 @@
                 <h3>Reviews & Ratings</h3>
             </div>
             <div class=" col-lg-6 col-12 float-end" id="second"><span>
-                    <p class="donec1 float-end"><img class="img-fluid " src="{{asset('assets/slicing_web/star_sm.svg')}}" alt="..."> &nbsp;4.0 (6)</p>
+                    <p class="donec1 float-end"><img class="img-fluid " src="{{asset('assets/slicing_web/star_sm.svg')}}" alt="..."> &nbsp;{{$avg}} ({{count($rating)}})</p>
                 </span></div>
         </div>
         <div class="line"></div>
         <div class="row  ">
             <div class=" col-lg-6 col-12" id="second">
-                <span>
+                @foreach($rating as $value)
+                <div class="rating">
                     <p class="donec1 ">
-                        <img class="img-fluid" id="image_radius" src="{{asset('assets/slicing_web/profile_pic.png')}}" alt="..."> &nbsp;Lisa Hyden
+                        @if($value['user']->profile_pic)
+                        <img class="img-fluid" id="image_radius" src="{{asset('storage/'.$value['user']->profile_pic)}}" alt="..."> &nbsp;{{$value['user']->first_name.' '.$value['user->last_name']}}
                     </p>
-                </span>
-                <span>
-                    <p class="donec1 ">
-                        <img class="img-fluid" class="image" src="{{asset('assets/slicing_web/star_sm.svg')}}" alt="..."> &nbsp;
-                        <img class="img-fluid" class="image" src="slicing_web/star_sm.svg" alt="..."> &nbsp;<img class="img-fluid" class="image" src="slicing_web/star_sm.svg" alt="..."> &nbsp;<img class="img-fluid" class="image" src="slicing_web/star_inactive.svg" alt="..."> &nbsp;
-                        <img class="img-fluid" class="image" src="slicing_web/star_inactive.svg" alt="...">
-                    </p>
-                </span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <span>
-                    <p class="donec1 "><img class="img-fluid" id="image_radius" src="{{asset('assets/slicing_web/profile_pic.png')}}" alt="..."> &nbsp;John Doe</p>
+                    @else
+                    <img class="img-fluid" id="image_radius" src="{{ asset('assets/slicing_web/profile.png') }}" height="50xp" width="50px" alt="..."> &nbsp;{{$value['user']->first_name.' '.$value['user->last_name']}}</p>
+                    @endif
                     <span>
-                        <p class="donec1 ">
-                            <img class="img-fluid" class="image" src="{{asset('assets/slicing_web/star_sm.svg')}}" alt="..."> &nbsp;
-                            <img class="img-fluid" class="image" src="slicing_web/star_sm.svg" alt="..."> &nbsp;<img class="img-fluid" class="image" src="slicing_web/star_sm.svg" alt="..."> &nbsp;<img class="img-fluid" class="image" src="slicing_web/star_inactive.svg" alt="..."> &nbsp;<img class="img-fluid" class="image" src="slicing_web/star_inactive.svg" alt="...">
+                        <p class="donec1 rating">
+                        <div class="form-group required">
+                            <div class="col-sm-12">
+                                <div class="rate ">
+
+                                    <input type="radio" {{ ($value->star) == '5' ? 'checked' : '' }}  />
+                                    <label for="" title="text">5 stars</label>
+                                    <input type="radio" {{ ($value->star) == '4' ? 'checked' : '' }}  />
+                                    <label for="" title="text">4 stars</label>
+                                    <input type="radio" {{ ($value->star) == '3' ? 'checked' : '' }}  />
+                                    <label for="" title="text">3 stars</label>
+                                    <input type="radio" {{ ($value->star) == '2' ? 'checked' : '' }}  />
+                                    <label for="" title="text">2 stars</label>
+                                    <input type="radio" {{ ($value->star) == '1' ? 'checked' : '' }} />
+                                    <label for="" title="text">1 star</label>
+                                </div>
+                            </div>
+                        </div>
                         </p>
+                        <br>
                     </span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="rating">{{$value->feed_back}}.</p>
+                </div>
+                @endforeach
             </div>
             <div class=" col-lg-6 col-12" id="second">
                 <div class="formdiv51 float-end">
@@ -75,7 +87,7 @@
                             </div>
                             <br>
                             <div class="form-floating ">
-                            <input type="hidden" name="company_id" value="{{$user->id}}">
+                                <input type="hidden" name="company_id" value="{{$user->id}}">
                                 <input type="text" name="feed_back" class="form-control feed_back " id="floatingInput" placeholder="name@example.com">
                                 <label for="floatingInput" class="padding-star">Share your Feedback</label>
                             </div>

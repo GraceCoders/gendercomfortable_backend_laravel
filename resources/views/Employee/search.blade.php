@@ -64,34 +64,6 @@ $data = DB::table('categories')
                 <div class=" col-lg-2 col-12" id="second">
                     <a href="{{ route('admin.signup') }}"> <img class="img-fluid" src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
-                <div class="col-lg-10 col-12" id="second">
-                    <div class="buttons">
-                        <button type="button" class="button1 button1-lg" data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button>
-                        <a href="{{ url('/user/login') }}"> <button type="button" class="button2 button2-lg" data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button></a>
-                    </div>
-                </div>
-                <div class="modal fade" id="exampleModal51" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog " id="modal-dialog2">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="container text-center">
-                                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    <h1>Select account type</h1>
-                                    <div class="row  " id="account_row " style="display:inline-flex">
-                                        <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
-                                            <a href="{{ route('company.signup') }}"><img class="image" src="{{ asset('assets/slicing_web/company.svg') }}" class="img-fluid" alt="..." /></a>
-                                            <p>company</p>
-                                        </div>
-                                        <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
-                                            <a href="{{ route('employee.signup') }}"><img class="image" src="{{ asset('assets/slicing_web/employee.svg') }}" class="img-fluid" alt="..." /></a>
-                                            <p>employee</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -102,11 +74,7 @@ $data = DB::table('categories')
 
     <section class="bg-light header_border "></section>
     <section class="one">
-        <div class="container">
-            <center> <a class="oneheading" href="{{ route('company.index2') }}">
-                    <h4 class="oneheading mb-3">Employee/Business Login <a class="oneheading" href="{{ route('admin.signup') }}">/admin</h4>
-                </a></center>
-        </div>
+
     </section>
     <section class="two">
         <div class="container text-center">
@@ -118,15 +86,9 @@ $data = DB::table('categories')
             <center>
                 <div class="buttonshome" style="display:inline-flex">
                     <div class="dropdown " id="dropdowns1">
-                        {{-- <select class="selectpicker form-control  bg-light dropdown-toggle" multiple="multiple" name="category_id[]" data-live-search="true">
-                            <option value="0"> Business Type/Category</option>
-                            <option value="0"> Business Type/Category</option>
-                            <option value="0"> Business Type/Category</option>
-                  @foreach ($data as $value)
-                            <option id="cat_id" value="{{ $value->id }}">{{ $value->name }}</option>
-                            @endforeach
-                        </select> --}}
-                        <select class="selectpicker form-control btn-border bg-light  "  multiple="multiple" name="category_id[]" data-live-search="true">
+               
+                 
+                        <select class="selectpicker form-control btn-border bg-light  "  multiple="multiple" name="category_id[]" id="dropdownMenuButton15" data-live-search="true">
                             <option value="0"> Business Type/Category</option>
 
                             @foreach ($data as $value)

@@ -22,8 +22,9 @@ class Company_detailsController extends Controller
     public function rating($id){
         $user = User::where('id',$id)->first();
         $rating = AddRating::with('user')->where('company_id',$id)->get();
+        $avg = AddRating::where('company_id',$id)->avg('star');
 
-        return view('Employee.company_details',compact('user','rating'));
+        return view('Employee.company_details',compact('user','rating','avg'));
     }
     public function addRating(Request $request){
         $id = Auth::id();
