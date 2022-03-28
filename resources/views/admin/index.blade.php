@@ -124,9 +124,9 @@ $data = DB::table('categories')
                             <option value="0"> Business Type/Category</option>
                   @foreach ($data as $value)
                             <option id="cat_id" value="{{ $value->id }}">{{ $value->name }}</option>
-                            @endforeach
+                        @endforeach
                         </select> --}}
-                        <select class="selectpicker form-control btn-border bg-light  "  multiple="multiple" name="category_id[]" data-live-search="true">
+                        <select class="selectpicker form-control btn-border bg-light  " multiple="multiple" name="category_id[]" data-live-search="true">
                             <option value="0"> Business Type/Category</option>
 
                             @foreach ($data as $value)
@@ -158,9 +158,9 @@ $data = DB::table('categories')
 
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxrWlbuESbKOX8ZEtiflupNNcVjesb5sA"></script>
@@ -213,31 +213,7 @@ $data = DB::table('categories')
         });
     });
 
-    function InitMap() {
-        navigator.geolocation.getCurrentPosition(showPosition)
-    }
 
-    function showPosition(position) {
-        var x = position.coords.latitude;
-        var y = position.coords.longitude;
-        if (x, y) {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: new google.maps.LatLng(x, y),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(x, y),
-                map: map
-            });
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    infowindow.setContent(contentString);
-                    infowindow.open(map, marker);
-                }
-            })(marker));
-        } else {}
-    }
     $(document).ready(function() {
         var result = <?php echo $user; ?>;
 
@@ -272,5 +248,33 @@ $data = DB::table('categories')
             })(marker, i));
         }
     });
-</script>
+    function InitMap() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
 
+        function showPosition(position) {
+            var x = position.coords.latitude;
+            var y = position.coords.longitude;
+        if (x, y) {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: new google.maps.LatLng(x, y),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(x, y),
+                map: map
+            });
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, marker);
+                }
+            })(marker));
+        } else {}
+    }
+}
+</script>
