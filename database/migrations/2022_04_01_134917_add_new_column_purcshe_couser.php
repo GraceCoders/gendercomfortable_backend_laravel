@@ -13,7 +13,7 @@ class AddNewColumnPurcsheCouser extends Migration
      */
     public function up()
     {
-        Schema::create('purchase_course', function (Blueprint $table) {
+        Schema::table('purchase_course', function (Blueprint $table) {
             $table->string('status')->nullable();
         });
     }
