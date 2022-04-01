@@ -33,7 +33,7 @@ class AdminController extends Controller
             $data = Category::where('status',1)->select('id','name','created_at')->get();
             return Datatables::of($data)->addIndexColumn()
             ->editColumn('created_at', function ($row) {
-                return $row->created_at->format('Y-m-d'); // human readable format
+                // return $row->created_at->format('Y-m-d'); // human readable format
               })
               ->addColumn('action', function ($row) {
                 $actionBtn = '<div  data-id=' . $row->id . '  class="edit-modal btn btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
