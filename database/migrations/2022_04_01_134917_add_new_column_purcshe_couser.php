@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeColumnPurchasesCourseYabel extends Migration
+class AddNewColumnPurcsheCouser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class ChangeColumnPurchasesCourseYabel extends Migration
      */
     public function up()
     {
-        Schema::table('purchase_course', function($table) {
-            $table->dropColumn('status');
+        Schema::create('purchase_course', function (Blueprint $table) {
+            $table->string('status')->nullable();
         });
     }
 
@@ -25,8 +25,6 @@ class ChangeColumnPurchasesCourseYabel extends Migration
      */
     public function down()
     {
-        Schema::table('purchase_course', function($table) {
-            $table->dropColumn('status');
-        });
+        //
     }
 }
