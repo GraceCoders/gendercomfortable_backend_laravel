@@ -86,11 +86,11 @@ $data = DB::table('categories')
                                         </div>
                                         <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
                                             <a href="{{ route('company.signup') }}"><img class="image" src="{{ asset('assets/slicing_web/company.svg') }}" class="img-fluid" alt="..." /></a>
-                                            <p>company</p>
+                                            <p>Company</p>
                                         </div>
                                         <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
                                             <a href="{{ route('employee.signup') }}"><img class="image" src="{{ asset('assets/slicing_web/employee.svg') }}" class="img-fluid" alt="..." /></a>
-                                            <p>employee</p>
+                                            <p>Employee</p>
                                         </div>
                                     </div>
                                 </div>

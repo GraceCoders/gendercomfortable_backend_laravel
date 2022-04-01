@@ -2016,3 +2016,28 @@ div#second12 {
 p.rating {
     margin-top: 22px;
 }
+.bootstrap-select>.dropdown-toggle {
+    position: relative;
+    width: 510px !important;
+    /* padding-left: 200px !important;
+    padding-right: 200px !important; */
+    text-align: right;
+    white-space: nowrap;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+/* @media(min-width:750px) {
+    .bootstrap-select>.dropdown-toggle {
+        width:300px !important;
+    } */
+}

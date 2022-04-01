@@ -111,7 +111,7 @@ $data = DB::table('categories')
                                 <input type="text" class="form-control" name="bio" id="floatingInput" placeholder="name@example.com">
                                 <label for="floatingInput">Company bio</label>
                             </div>
-                            <div class="form-floating">
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control bg-light formsc" name="address" id="address" placeholder="name@example.com">
                                 <input type="hidden" required id="lat" name="lat" />
                                 <input type="hidden" required id="long" name="long" />
