@@ -25,7 +25,10 @@
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
            integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
            crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                                                        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                                                        crossorigin="anonymous">
+                            </script>
    </head>
 
    <body>
@@ -50,31 +53,14 @@
        </section>
        <!-- second div start -->
        <section class="bg-lightn ">
-           <div class="container">
-               <div class="row">
-                   <div class=" col-lg-2 col-12" id="second">
-                       <a href={{ url('admin/index') }}> <img class="img-fluid"
-                               src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
-                   </div>
-                   <div class="col-lg-10 col-12" id="second">
-                       <div class="buttons">
-                           <a href="{{route('admin.signup')}}"> <button type="button" class="button1 button1-lg"
-                                   data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button></a>
-                           <a href="{{ route('login') }}"> <button type="button" class="button2 button2-lg"
-                                   data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button></a>
-                               </div>
-                   </div>
-               </div>
-           </div>
-           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-           </script>
-           </div>
-           </div>
-           </div>
-           </div>
-           <!-- <hr class="line "></hr> -->
-       </section>
+        <div class="container">
+            <div class="row">
+                <div class=" col-lg-2 col-12" id="second">
+                    <a href="{{ url('/') }}"> <img class="img-fluid" src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
+                </div>
+                
+        <!-- <hr class="line "></hr> -->
+    </section>
        <section class="bg-light header_border "></section>
 
     <!-- second div end -->
@@ -115,10 +101,7 @@
                                 <small id="forgot" class="form-text" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"><a href="#">Forgot password</a></small>
                             </div>
-                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                                                        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-                                                        crossorigin="anonymous">
-                            </script>
+                     
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout21">Login</button>
                         </form>
                         <p class="psw">Dont have an account? <a href="{{route('admin.signup')}}">Sign

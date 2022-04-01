@@ -62,22 +62,28 @@ $data = DB::table('categories')
         <div class="container">
             <div class="row">
                 <div class=" col-lg-2 col-12" id="second">
-                    <a href="{{ route('admin.signup') }}"> <img class="img-fluid" src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
+                    <a href="{{ url('/') }}"> <img class="img-fluid" src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
                 <div class="col-lg-10 col-12" id="second">
                     <div class="buttons">
                         <button type="button" class="button1 button1-lg" data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button>
-                        <a href="{{ url('/user/login') }}"> <button type="button" class="button2 button2-lg" data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button></a>
+                        <button type="button" class="button2 button2-lg" data-bs-toggle="modal" data-bs-target="#exampleModal52">login</button>
                     </div>
                 </div>
                 <div class="modal fade" id="exampleModal51" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog " id="modal-dialog2">
                         <div class="modal-content">
+
                             <div class="modal-body">
+
                                 <div class="container text-center">
                                     <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                                     <h1>Select account type</h1>
                                     <div class="row  " id="account_row " style="display:inline-flex">
+                                    <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
+                                            <a href="{{ url('admin') }}"><img class="image" src="{{ asset('assets/slicing_web/admin.svg') }}" class="img-fluid" alt="..." /></a>
+                                            <p>Admin</p>
+                                        </div>
                                         <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
                                             <a href="{{ route('company.signup') }}"><img class="image" src="{{ asset('assets/slicing_web/company.svg') }}" class="img-fluid" alt="..." /></a>
                                             <p>company</p>
@@ -94,17 +100,42 @@ $data = DB::table('categories')
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="exampleModal52" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog " id="modal-dialog2">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="container text-center">
+                                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1>Select account type</h1>
+                                    <div class="row  " id="account_row " style="display:inline-flex">
 
+                                        <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
+                                            <a href="{{ url('login') }}"><img class="image" src="{{ asset('assets/slicing_web/admin.svg') }}" class="img-fluid" alt="..." /></a>
+                                            <p>Admin</p>
+                                        </div>
+                                        <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
+                                            <a href="{{ url('login') }}"><img class="image" src="{{ asset('assets/slicing_web/company.svg') }}" class="img-fluid" alt="..." /></a>
+                                            <p>Company</p>
+                                        </div>
+                                        <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
+                                            <a href="{{ url('login') }}"><img class="image" src="{{ asset('assets/slicing_web/employee.svg') }}" class="img-fluid" alt="..." /></a>
+                                            <p>Employee</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <!-- <hr class="line "></hr> -->
     </section>
-
 
 
     <section class="bg-light header_border "></section>
     <section class="one">
         <div class="container">
             <center> <a class="oneheading" href="{{ route('company.index2') }}">
-                    <h4 class="oneheading mb-3">Employee/Business Login <a class="oneheading" href="{{ route('admin.signup') }}">/admin</h4>
+                    <h4 class="oneheading mb-3"><a class="oneheading" href="{{ url('/login') }}">Employee</a>/<a class="oneheading" href="{{ url('/login') }}">Business Login</a> <a class="oneheading" href="{{ url('/login') }}">/admin</a></h4>
                 </a></center>
         </div>
     </section>
@@ -248,6 +279,7 @@ $data = DB::table('categories')
             })(marker, i));
         }
     });
+
     function InitMap() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -258,23 +290,24 @@ $data = DB::table('categories')
         function showPosition(position) {
             var x = position.coords.latitude;
             var y = position.coords.longitude;
-        if (x, y) {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: new google.maps.LatLng(x, y),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(x, y),
-                map: map
-            });
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    infowindow.setContent(contentString);
-                    infowindow.open(map, marker);
-                }
-            })(marker));
-        } else {}
+            console.log(x, y);
+            if (x, y) {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 13,
+                    center: new google.maps.LatLng(x, y),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(x, y),
+                    map: map
+                });
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(contentString);
+                        infowindow.open(map, marker);
+                    }
+                })(marker));
+            } else {}
+        }
     }
-}
 </script>

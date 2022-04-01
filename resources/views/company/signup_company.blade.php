@@ -57,49 +57,6 @@ $data = DB::table('categories')
                 <div class=" col-lg-2 col-12" id="second">
                     <a href="{{ url('/') }}"> <img class="img-fluid" src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
-                <div class="col-lg-10 col-12" id="second">
-                    <div class="buttons">
-                        <button type="button" class="button1 button1-lg" data-bs-toggle="modal" data-bs-target="#exampleModal51">Get Started</button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal51" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog " id="modal-dialog2">
-                                <div class="modal-content">
-
-                                    <div class="modal-body">
-
-                                        <div class="container text-center">
-                                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            <h1>Select account type</h1>
-
-
-
-                                            <div class="row  " id="account_row " style="display:inline-flex">
-                                                <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
-                                                    <a href="{{ route('company.signup') }}"><img class="image" src="{{ asset('assets/slicing_web/company.svg') }}" class="img-fluid" alt="..." /></a>
-                                                    <p>company</p>
-                                                </div>
-                                                <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
-                                                    <a href="{{ route('employee.signup') }}"><img class="image" src="{{ asset('assets/slicing_web/employee.svg') }}" class="img-fluid" alt="..." /></a>
-                                                    <p>employee</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <a href={{ route('login') }}> <button type="button" class="button2 button2-lg">login</button>
-                        </a>
-                        <!-- Modal -->
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
         <!-- <hr class="line "></hr> -->
     </section>
     <section class="bg-light header_border "></section>
@@ -162,7 +119,7 @@ $data = DB::table('categories')
                             </div>
                             <div class="form-floating mb-3 ">
                             <select class="selectpicker form-control option1 "  multiple="multiple" name="category_id[]" data-live-search="true">
-                                    <option class="options1">Select category</option>
+                                    <option class="options1"value="0">Select category</option>
                                     @foreach ($data as $value)
                                     <option value="{{ $value->id }}">{{ $value->name }}</option>
                                     @endforeach

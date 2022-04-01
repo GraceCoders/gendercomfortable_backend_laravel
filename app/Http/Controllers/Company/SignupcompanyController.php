@@ -37,13 +37,17 @@ class SignupcompanyController extends Controller
           $user->profile_pic = $file;
       }
         $user->save();
+        if($request->category_id){
         foreach($request->category_id as $value){
+            if($value != 0){
             $data = new UserCategory();
             $data->user_id = $user->id;
             $data->category_id = $value;
             $data->status = 1;
             $data->save();
+            }
         }
+    }
         return redirect('/login')->with('success', 'Company Register Successfully!');
     }
       }
