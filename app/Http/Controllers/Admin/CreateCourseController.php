@@ -47,7 +47,7 @@ class CreateCourseController extends Controller
                 'media' =>$file,
                 'media_type'=>$request->media[$i]->getClientMimeType(),
                 'created_at'=>Carbon::now(),
-                'update_at'=>Carbon::now()
+                'updated_at'=>Carbon::now()
             );
         }
         $course = DB::table('lessons')->insert($data);
