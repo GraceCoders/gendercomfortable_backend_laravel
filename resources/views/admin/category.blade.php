@@ -134,8 +134,8 @@
             name: 'name'
           },
           {
-            data: 'updated_at',
-            name: 'updated_at'
+            data: 'created_at',
+            name: 'created_at'
           },
           {
             data: 'action',

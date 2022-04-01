@@ -32,8 +32,13 @@ class AdminController extends Controller
         if ($request->ajax()) {
             $data = Category::where('status',1)->select('id','name','created_at')->get();
             return Datatables::of($data)->addIndexColumn()
-            ->editColumn('updated_at', function ($row) {
-                    return $row->updated_at->format('Y-m-d'); // human readable format
+            ->editColumn('created_at', function ($row) {
+                if($row->created_at){
+                    return $row->created_at->format('Y-m-d'); // human readable format
+
+                }else{
+                    return "2022-04-01";
+                }
               })
               ->addColumn('action', function ($row) {
                 $actionBtn = '<div  data-id=' . $row->id . '  class="edit-modal btn btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
