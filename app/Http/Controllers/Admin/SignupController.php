@@ -13,7 +13,6 @@ class SignupController extends Controller
         return view('admin.signup_admin');
     }
     public function register(Request $request){
-      dd($request);
       $user = new User();
       $user->name = $request->first_name.' ' . $request->last_name;
       $user->first_name =$request->first_name;
