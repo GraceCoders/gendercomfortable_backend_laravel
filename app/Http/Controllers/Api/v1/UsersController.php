@@ -258,7 +258,7 @@ class UsersController extends Controller
     public function getCategory(Request $request)
     {
         try {
-            $Category = Category::get();
+            $Category = Category::where('status',1)->get();
             $this->sendSuccessResponse(trans("Messages.Success"), $Category->toArray());
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
