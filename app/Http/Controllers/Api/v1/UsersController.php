@@ -87,7 +87,7 @@ class UsersController extends Controller
 
     public function loginUser(Request $request)
     {
-        $input = json_decode($request->getContent(), true);
+        $input = $request->all();
         $validator = Validator::make($input, [
             'email'          => 'required',
             'password'            => 'required',
@@ -97,11 +97,9 @@ class UsersController extends Controller
         if ($validator->fails())
             return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
         try {
-            $data = json_decode($request->getContent(), true);
-            $verify = User::where('email', $request->email)->first();
             $credentials = [
-                'email'    => $data['email'],
-                'password' => $data['password']
+                'email'    => $request->email,
+                'password' => $request->password
             ];
             if (auth()->attempt($credentials)) {
                 $user = User::where('email', $request->email)->first();
