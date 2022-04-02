@@ -141,7 +141,7 @@ class CoursesController extends Controller
 
     public function getPurchaseCourse(){
      $id = Auth::id();
-     $course = PurchaseCourse::with(['course','lession','question'])->where('id',$id)->paginate(10);
+     $course = PurchaseCourse::with(['course','lession','question'])->where('user_id',$id)->paginate(10);
      $this->sendSuccessResponse(trans("Messages.Success"), $course->toArray());
     }
 }

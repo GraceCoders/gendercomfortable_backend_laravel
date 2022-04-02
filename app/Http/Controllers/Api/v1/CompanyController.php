@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyCourse;
 use App\Models\Course;
+use App\Models\PurchaseCourse;
 use App\Models\User;
 use App\Traits\OutputTrait;
 use App\Traits\ValidationTrait;
@@ -42,6 +43,7 @@ class CompanyController extends Controller
     public function buyCourse(Request $request)
     {
         try {
+            $id = Auth::id();
             $data = $request->all();
             $validator = Validator::make($data, [
                 'course_id'          => 'required',
@@ -50,16 +52,25 @@ class CompanyController extends Controller
             if ($validator->fails()) {
                 return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
             } else {
-            $id = Auth::id();
-            $data = $request->all();
-            $company = new CompanyCourse();
-            $company->user_id = $id;
-            $company->course_id = $request->course_id;
-            $company->status = 1;
-            $company->no_of_seat = $request->no_of_seat;
-            $company->payment = 1;
-            $company->save();
-            $this->sendSuccessResponse(trans("Messages.Success"), $company->toArray());
+                $couse = Course::where('id',$request->course_id)->first();
+                $new = PurchaseCourse::where('course_id',$request->course_id)->where('user_id',$id)->first();
+                if($new){
+                $new->no_of_seat =$new->no_of_seat+ $request->no_of_seat;
+                $new->status = 1;
+                $new->amount =$new->amount+ $couse->price_per_seat * $request->no_of_seat;
+                $new->save();
+                $this->sendSuccessResponse(trans("Messages.Success"), $new->toArray());
+            }else{
+                $data = new  PurchaseCourse();
+                $data->course_id = $request->course_id;
+                $data->user_id = $id;
+                $data->no_of_seat = $request->no_of_seat;
+                $data->status = 1;
+                $data->purchase_key = random_int(10000000, 99999999);
+                $data->amount = $couse->price_per_seat * $request->no_of_seat;
+                $data->save();
+                $this->sendSuccessResponse(trans("Messages.Success"), $data->toArray());
+            }
             }
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
