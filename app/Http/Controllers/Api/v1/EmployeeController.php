@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\AddRating;
+use App\Models\Course;
 use App\Models\LicenseKey;
 use App\Models\PurchaseCourse;
 use App\Models\User;
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 class EmployeeController extends Controller
 {
     use OutputTrait;
-
     public function getGenderConfortable(Request $request)
     {
         try {
@@ -70,16 +70,22 @@ class EmployeeController extends Controller
             $this->sendSuccessResponse(trans("Messages.Success"), $data->toArray());
         }
     }
-    public function Company(Request $request){
-        $data = User::where('id',$request->company_id)->first();
-   
-        $rating = AddRating::join('users','rating.user_id','=','users.id')->select('rating.*','users.profile_pic','users.first_name','users.last_name')->where('company_id',$request->company_id)->get();
+    public function Company(Request $request)
+    {
+        $data = User::where('id', $request->company_id)->first();
+        $rating = AddRating::join('users', 'rating.user_id', '=', 'users.id')->select('rating.*', 'users.profile_pic', 'users.first_name', 'users.last_name')->where('company_id', $request->company_id)->get();
         $data->average = AddRating::where('company_id', $request->company_id)->avg('star');
         $data->totalRating = count($rating);
 
         $data->rating = $rating;
-        return response()->json(['statusCode' => 200, 'message' => "Get Detail successfully", 'data' => $data], 422);
-
-
+        return response()->json(['statusCode' => 200, 'message' => "Get Detail successfully", 'data' => $data], 200);
+    }
+    public function GetEmployeeCourse(Request $request)
+    {
+        $id = Auth::id();
+        $data = LicenseKey::where('user_id', 10)->pluck('license_key');
+        $purchase = PurchaseCourse::whereIn('purchase_key', $data)->pluck('course_id');
+        $course = Course::with(['lessons', 'question'])->whereIn('id', $purchase)->get();
+        return response()->json(['statusCode' => 200, 'message' => "Get Detail successfully", 'data' => $course], 200);
     }
 }

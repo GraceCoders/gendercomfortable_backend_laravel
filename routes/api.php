@@ -52,10 +52,12 @@ Route::prefix('/v1')->group(function () {
         Route::post('/addLicenseKey', [EmployeeController::class, 'addLicenseKey']);
         Route::post('/addRating', [EmployeeController::class, 'addRating']);
         Route::get('/company', [EmployeeController::class, 'Company']);
+        Route::get('/GetEmployeeCourse', [EmployeeController::class, 'GetEmployeeCourse']);
 
 
 
 
     });
 
+    
 });
