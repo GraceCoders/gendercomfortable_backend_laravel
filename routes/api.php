@@ -33,7 +33,7 @@ Route::prefix('/v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/userDetail', [UsersController::class, 'userDetail']);
         Route::post('/updateProfile', [UsersController::class, 'updateProfile']);
-        Route::post('/changePassword', [UsersController::class, 'changePassword']);
+        Route::post('/changePassword', [PasswordController::class, 'changePassword']);
         Route::post('/createCourse', [CoursesController::class, 'createCourse']);
         Route::post('/questions', [CoursesController::class, 'questions']);
         Route::get('/getCourseDetail', [CoursesController::class, 'getCourseDetail']);
