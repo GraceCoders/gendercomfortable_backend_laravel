@@ -42,6 +42,8 @@ Route::prefix('/v1')->group(function () {
         Route::post('/buyCourse', [CompanyController::class, 'buyCourse']);
         Route::get('/getBuyCourse', [CompanyController::class, 'getBuyCourse']);
         Route::get('/getPurchaseCourse', [CoursesController::class, 'getPurchaseCourse']);
+        Route::post('/logout', [UsersController::class, 'logout']);
+
 
 
     });

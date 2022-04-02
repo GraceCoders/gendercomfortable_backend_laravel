@@ -152,28 +152,18 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::group(['middleware' => 'employee'], function () {
     Route::get('/courses',[CoursesController::class, 'Courses'])->name('employee.home');
     Route::get('/courses',[CoursesController::class, 'Courses'])->name('employee.home');
-
     Route::get('/company/details/{id}',[Company_detailsController ::class, 'CompanyDetails'])->name('employee.coursedetails');
     Route::get('/edit/profile',[EmployeeEditProfileController::class, 'editprofile'])->name('employee.edit.profile');
-
     Route::get('/company/{id}',[Company_detailsController ::class, 'rating'])->name('employee.company');
-
     Route::post('/rating',[Company_detailsController ::class, 'addrating'])->name('employee.addrating');
-
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
     Route::get('/search',[Company_coursesController ::class, 'search']);
-
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
-
-
-
     Route::get('/complete course',[CompleteCourseController::class, 'Paymentoption']);
     Route::get('/course/lession/{id}',[course_lessionController::class, 'Courselession'])->name('employee.course.lession');
     Route::get('/license',[Courses2Controller::class, 'Courses2']);
     Route::post('/add/license',[Courses2Controller::class, 'addlicense'])->name('add.license');
     Route::post('/save/answer',[SaveAnswerController::class, 'saveAnswer'])->name('save.answer');
-
-
     Route::get('/login',[Index2Controller::class, 'Index2']);
     Route::get('/test_result',[Test_resultController ::class, 'Test_result']);
     Route::get('/test/{id}',[TestController::class, 'Test'])->name('employee.test');
