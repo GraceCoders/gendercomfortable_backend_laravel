@@ -7,7 +7,7 @@ use App\Models\LicenseKey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CoursesController extends Controller
+class EmployeeCoursesController extends Controller
 {
     public function Courses(){
         $data = LicenseKey::join('purchase_course','employee_license.license_key','=','purchase_course.purchase_key')->join('users','users.id','=','purchase_course.user_id')

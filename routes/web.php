@@ -36,7 +36,7 @@ use App\Http\Controllers\Employee\TestController;
 use App\Http\Controllers\Employee\Test_resultController;
 use App\Http\Controllers\Employee\course_lessionController;
 use App\Http\Controllers\Employee\Courses2Controller;
-use App\Http\Controllers\Employee\CoursesController;
+use App\Http\Controllers\Employee\EmployeeCoursesController;
 use App\Http\Controllers\Employee\CompleteCourseController;
 use App\Http\Controllers\Employee\Company_CoursesController;
 use App\Http\Controllers\Employee\Company_detailsController;
@@ -150,8 +150,7 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('employee.signup');
     Route::post('/employee/register',[SignupEmployeeController::class, 'register'])->name('employee.register');
     Route::group(['middleware' => 'employee'], function () {
-    Route::get('/courses',[CoursesController::class, 'Courses'])->name('employee.home');
-    Route::get('/courses',[CoursesController::class, 'Courses'])->name('employee.home');
+    Route::get('/courses',[EmployeeCoursesController::class, 'Courses'])->name('employee.home');
     Route::get('/company/details/{id}',[Company_detailsController ::class, 'CompanyDetails'])->name('employee.coursedetails');
     Route::get('/edit/profile',[EmployeeEditProfileController::class, 'editprofile'])->name('employee.edit.profile');
     Route::get('/company/{id}',[Company_detailsController ::class, 'rating'])->name('employee.company');
