@@ -97,7 +97,7 @@ class CoursesController extends Controller
     {
         try {
             $id = Auth::id();
-            $courseDetail = Course::with(['lessons', 'question'])->where('courses.user_id', $id)->paginate(10);
+            $courseDetail = Course::with(['lessons', 'question'])->paginate(10);
             $this->sendSuccessResponse(trans("Messages.Success"), $courseDetail->toArray());
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
