@@ -12,7 +12,6 @@ use App\Http\Controllers\Admin\CreateCourseController;
 use App\Http\Controllers\Admin\CreatetestController;
 use App\Http\Controllers\Admin\CourseDetailsController;
 use App\Http\Controllers\Admin\ChangePassController;
-use App\Http\Controllers\Api\v1\CoursesController as V1CoursesController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 //comapny
 
@@ -30,7 +29,6 @@ use App\Http\Controllers\Company\Coursedetails2Controller;
 use App\Http\Controllers\Company\Login2Controller;
 use App\Http\Controllers\Company\AddcardController;
 use App\Http\Controllers\Company\CompanyProfileController;
-use App\Http\Controllers\Company\PaymentController;
 use App\Http\Controllers\Company\PayPalController;
 // Employee
 use App\Http\Controllers\Employee\SignupEmployeeController;
@@ -45,7 +43,6 @@ use App\Http\Controllers\Employee\Company_detailsController;
 use App\Http\Controllers\Employee\CertificationController;
 use App\Http\Controllers\Employee\EditProfileController as EmployeeEditProfileController;
 use App\Http\Controllers\Employee\SaveAnswerController;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 /*

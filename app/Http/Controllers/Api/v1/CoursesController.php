@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use App\Traits\OutputTrait;
-use App\Models\User;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Question;
