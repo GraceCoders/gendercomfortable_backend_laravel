@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\CompanyController;
 use App\Http\Controllers\Api\v1\CoursesController;
+use App\Http\Controllers\Api\v1\EmployeeController;
 use App\Http\Controllers\Api\v1\PasswordController;
 use App\Http\Controllers\Api\v1\UsersController;
 use Illuminate\Http\Request;
@@ -29,6 +30,8 @@ Route::prefix('/v1')->group(function () {
     Route::post('/login', [UsersController::class, 'loginUser']);
     Route::post('/forgotPassword', [UsersController::class, 'forgotPassword']);
     Route::get('/getCategory', [UsersController::class, 'getCategory']);
+    Route::get('/getGenderConfortable', [EmployeeController::class, 'getGenderConfortable']);
+
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/userDetail', [UsersController::class, 'userDetail']);
@@ -42,6 +45,10 @@ Route::prefix('/v1')->group(function () {
         Route::get('/getBuyCourse', [CompanyController::class, 'getBuyCourse']);
         Route::get('/getPurchaseCourse', [CoursesController::class, 'getPurchaseCourse']);
         Route::post('/logout', [UsersController::class, 'logout']);
+
+
+        // Employee data 
+
 
 
 

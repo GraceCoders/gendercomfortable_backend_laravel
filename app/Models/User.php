@@ -59,4 +59,6 @@ class User extends Authenticatable
     {
         return self::where("id", $id)->first();
     }
+
+    
 }
