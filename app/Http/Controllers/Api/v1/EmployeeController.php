@@ -70,4 +70,16 @@ class EmployeeController extends Controller
             $this->sendSuccessResponse(trans("Messages.Success"), $data->toArray());
         }
     }
+    public function Company(Request $request){
+        $data = User::where('id',$request->company_id)->first();
+   
+        $rating = AddRating::join('users','rating.user_id','=','users.id')->select('rating.*','users.profile_pic','users.first_name','users.last_name')->where('company_id',$request->company_id)->get();
+        $data->average = AddRating::where('company_id', $request->company_id)->avg('star');
+        $data->totalRating = count($rating);
+
+        $data->rating = $rating;
+        return response()->json(['statusCode' => 200, 'message' => "Get Detail successfully", 'data' => $data], 422);
+
+
+    }
 }
