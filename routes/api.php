@@ -46,6 +46,7 @@ Route::prefix('/v1')->group(function () {
         Route::get('/getPurchaseCourse', [CoursesController::class, 'getPurchaseCourse']);
         Route::post('/logout', [UsersController::class, 'logout']);
         Route::post('/addLicenseKey', [EmployeeController::class, 'addLicenseKey']);
+        Route::post('/addRating', [EmployeeController::class, 'addRating']);
 
 
         // Employee data 
