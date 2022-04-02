@@ -189,7 +189,7 @@ class UsersController extends Controller
     {
         try {
             $id = Auth::id();
-            
+
             $getResponse = User::find($id);
             if (!$getResponse) {
                 throw new Exception(trans("Messages.InvalidUser"));
@@ -210,13 +210,15 @@ class UsersController extends Controller
     public function updateProfile(Request $request, User $user)
     {
         try {
+            $id = Auth::id();
             $arrayData = $request->all();
             if ($request->hasFile('profilepic')) {
                 $file = upload_file($request->profilepic, 'profile');
                 $arrayData['profile_pic'] = $file;
             }
-            $user->where('id', Auth::user()->id)->update($arrayData);
-            $this->sendSuccessResponse(trans("Messages.UpdatedSuccessfully"));
+            $user->where('id', $id)->update($arrayData);
+            $getResponse = User::find($id);
+            $this->sendSuccessResponse(trans("Messages.UpdatedSuccessfully"), $getResponse->toArray());
         } catch (Exception $exception) {
             $this->sendErrorOutput($exception);
         }
