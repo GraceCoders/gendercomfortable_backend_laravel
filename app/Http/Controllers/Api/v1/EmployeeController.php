@@ -49,4 +49,25 @@ class EmployeeController extends Controller
             $this->sendErrorOutput(trans("Messages.LicenseKey not found !"));
         }
     }
+    public function addRating(Request $request)
+    {
+        $id = Auth::id();
+        $rating = AddRating::where('company_id', $request->company_id)->where('user_id', $id)->first();
+        if ($rating) {
+            $rating->user_id = $id;
+            $rating->company_id = $request->company_id;
+            $rating->star = $request->rating;
+            $rating->feed_back = $request->feed_back;
+            $rating->save();
+            $this->sendSuccessResponse(trans("Messages.Success"), $rating->toArray());
+        } else {
+            $data = new AddRating();
+            $data->user_id = $id;
+            $data->company_id = $request->company_id;
+            $data->star = $request->rating;
+            $data->feed_back = $request->feed_back;
+            $data->save();
+            $this->sendSuccessResponse(trans("Messages.Success"), $data->toArray());
+        }
+    }
 }
