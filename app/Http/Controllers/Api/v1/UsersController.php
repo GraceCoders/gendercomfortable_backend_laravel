@@ -97,6 +97,8 @@ class UsersController extends Controller
         if ($validator->fails())
             return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
         try {
+            $verify = User::where('email', $request->email)->first();
+            if(!empty($verify)){
             $credentials = [
                 'email'    => $request->email,
                 'password' => $request->password
@@ -109,8 +111,9 @@ class UsersController extends Controller
                 $user['token'] =  $user->createToken('MyApp')->plainTextToken; 
                 return response()->json(['statusCode' => 200, 'message' => 'User Login successfully', 'data' => $user], 200);
             } else {
-                return response()->json(['statusCode' => 400, 'message' => 'Please Check your Email And Password!'], 400);
+                return response()->json(['statusCode' => 400, 'message' => 'Please Check your Password!'], 400);
             }
+        }
             return response()->json(['statusCode' => 400, 'message' => 'User not found'], 400);
         } catch (Exception $exception) {
             return response()->json(['statusCode' => 400, 'message' => $exception->getMessage()], 400);
