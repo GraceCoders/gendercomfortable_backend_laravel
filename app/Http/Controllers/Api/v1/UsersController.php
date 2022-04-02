@@ -189,7 +189,7 @@ class UsersController extends Controller
     {
         try {
             $id = Auth::id();
-            $getResponse = User::getUserDetails($id);
+            $getResponse = User::find($id);
             if (!$getResponse) {
                 throw new Exception(trans("Messages.InvalidUser"));
             }
