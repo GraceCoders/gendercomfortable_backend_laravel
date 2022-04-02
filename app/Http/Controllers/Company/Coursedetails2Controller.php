@@ -37,18 +37,15 @@ class Coursedetails2Controller extends Controller
         $data->user_id = $id;
         $data->no_of_seat = $request->no_of_seat;
         $data->status = 1;
-        $data->amount = $request->price_per_seat* $request->no_of_seat;
+        $data->purchase_key = random_int(10000000, 99999999);
+        $data->amount = $request->price_per_seat * $request->no_of_seat;
         $data->save();
         return redirect('/company/checkout/'.Crypt::encrypt($data->id))->with('success', 'Course CheckOut Successfully');
-
         }
-  
-            return redirect('/course/detail/' . Crypt::encrypt($request->course_id))->with('error', 'Some Thing Went wrong');
+        return redirect('/course/detail/' . Crypt::encrypt($request->course_id))->with('error', 'Some Thing Went wrong');
     }
     public function PurchaseCoures(Request $request,$id){
-
         $sum = PurchaseCourse::where('course_id' ,$id)->sum('no_of_seat');
-
         $data = Course::with('purchase_course')->where('id',$id)->first();
         $employee = LicenseKey::with('user')->where('license_key',$data['purchase_course']->purchase_key)->get();
         return view('company.purchase_course_stat',compact('data','sum','employee'));

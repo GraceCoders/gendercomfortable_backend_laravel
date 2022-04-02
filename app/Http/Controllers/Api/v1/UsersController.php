@@ -50,24 +50,25 @@ class UsersController extends Controller
                 return response()->json(['statusCode' => 422, 'message' => getErrorAsString($validator->errors()), 'data' => null], 422);
             } else {
             $user = new User();
-            $user->company_name =$request->company_name;
-            $user->first_name = $request->first_name;
-            $user->last_name = $request->last_name;
+            if (!empty($request->profile_pic)) {
+                $file = upload_file($request->profile_pic, 'profile');
+                $user->profile_pic = $file;
+            }
+            $user->username = $request->username;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
+            $user->company_name =$request->company_name;
             $user->bio = $request->bio;
-            $user->user_type = $request->user_type;
-            $user->username = $request->username;
             $user->address = $request->address;
+            $user->user_type = $request->user_type;
             $user->device_token = $request->device_token;
             $user->device_type = $request->device_type;
             $user->latitude = $request->latitude;
             $user->longitude = $request->longitude;
+
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
             $user->training_voucher=$request->training_voucher;            
-            if (!empty($request->filename)) {
-                $file = upload_file($request->filename, 'profile');
-                $user->profile_pic = $file;
-            }
             $user->save();
             $user['token'] =  $user->createToken('MyApp')->plainTextToken; 
 
