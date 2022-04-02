@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\LicenseKey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -65,6 +66,7 @@ class UsersController extends Controller
             $user->device_type = $request->device_type;
             $user->latitude = $request->latitude;
             $user->longitude = $request->longitude;
+            $user->category_id = $request->category_id;
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             // $user->training_voucher=$request->training_voucher;            
@@ -250,6 +252,16 @@ class UsersController extends Controller
             return response()->json(['statusCode' => 200, 'message' => 'User logout successfully.'], 200);
         } else {
             return response()->json(['statusCode' => 400, 'message' => 'Already logout'], 400);
+        }
+    }
+
+    public function getCategory(Request $request)
+    {
+        try {
+            $Category = Category::get();
+            $this->sendSuccessResponse(trans("Messages.Success"), $Category->toArray());
+        } catch (Exception $ex) {
+            $this->sendErrorOutput($ex);
         }
     }
 }

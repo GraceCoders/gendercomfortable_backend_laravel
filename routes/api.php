@@ -28,6 +28,7 @@ Route::prefix('/v1')->group(function () {
     Route::post('/signup', [UsersController::class, 'signUp']);
     Route::post('/login', [UsersController::class, 'loginUser']);
     Route::post('/forgotPassword', [UsersController::class, 'forgotPassword']);
+    Route::post('/getCategory', [UsersController::class, 'getCategory']);
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/userDetail', [UsersController::class, 'userDetail']);
