@@ -45,16 +45,15 @@ Route::prefix('/v1')->group(function () {
         Route::get('/getBuyCourse', [CompanyController::class, 'getBuyCourse']);
         Route::get('/getPurchaseCourse', [CoursesController::class, 'getPurchaseCourse']);
         Route::post('/logout', [UsersController::class, 'logout']);
-        
-
+    
 
         // Employee data 
         Route::post('/addLicenseKey', [EmployeeController::class, 'addLicenseKey']);
         Route::post('/addRating', [EmployeeController::class, 'addRating']);
         Route::get('/company', [EmployeeController::class, 'Company']);
+        Route::get('/submitAnswer', [EmployeeController::class, 'submitAnswer']);
         Route::get('/GetEmployeeCourse', [EmployeeController::class, 'GetEmployeeCourse']);
-
-
+        Route::get('/result', [EmployeeController::class, 'result']);
 
 
     });
