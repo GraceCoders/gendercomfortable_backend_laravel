@@ -65,18 +65,17 @@ class UsersController extends Controller
             $user->device_type = $request->device_type;
             $user->latitude = $request->latitude;
             $user->longitude = $request->longitude;
-
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
-            $user->training_voucher=$request->training_voucher;            
+            // $user->training_voucher=$request->training_voucher;            
             $user->save();
             $user['token'] =  $user->createToken('MyApp')->plainTextToken; 
 
-            if($request->license_key){
+            if($request->training_voucher){
             $license = new LicenseKey();
             $license->user_id = $user->id;
             $license->ststus = 1;
-            $license->license_key  = $request->license_key;
+            $license->license_key  = $request->training_voucher;
             $license->save();
             }
             $this->sendSuccessResponse(trans("Messages.SignupSuccessful"), $user->toArray());
