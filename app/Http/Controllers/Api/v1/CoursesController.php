@@ -12,6 +12,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Question;
 use App\Models\Answer;
+use App\Models\LicenseKey;
 use App\Models\PurchaseCourse;
 use Illuminate\Support\Facades\DB as FacadesDB;
 
@@ -88,6 +89,8 @@ class CoursesController extends Controller
             $id = $request->course_id;
             $user_id = Auth::id();
             $courseDetail = Course::with(['lessons', 'question'])->where('courses.id', $id)->first();
+            $data = Course::with('purchase_course')->where('id',$id)->first();
+            $courseDetail['employee'] = LicenseKey::with('user')->where('license_key',$data['purchase_course']->purchase_key)->get();
             $this->sendSuccessResponse(trans("Messages.Success"), $courseDetail->toArray());
         } catch (Exception $ex) {
             $this->sendErrorOutput($ex);
