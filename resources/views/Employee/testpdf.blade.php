@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title From OnlineWebTutorBlog</title>
+    <title> Complete Course</title>
 </head>
 <body>
     <div style="text-align: center;">
-<img src="{{ asset('assets/slicing_web/logo.jpg') }}" style="width: 200px; height: 200px">
+<img src="https://demo.gendercomfortable.com/assets/slicing_web/logo.jpg" style="width: 200px; height: 200px">
 </div>
-    <h1>Title: {{ $title }}</h1>
-    <h3>Author: {{ $date }}</h3>
-    <p>ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidata.</p>
+    <h3>Course Name: {{ $course }}</h3>
+    <h3>User Name : {{$name}}</h3>
+    <p>Congratulation you complete this {{$course}} course With {{$percentage}}% marks</p>
+    <p>Date:{{$date}}</p>
+    <p>Thanku </p>
+<p> GenderComfortable</p>
 </body>
 </html>

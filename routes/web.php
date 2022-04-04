@@ -168,8 +168,8 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/test_result',[Test_resultController ::class, 'Test_result']);
     Route::get('/test/{id}',[TestController::class, 'Test'])->name('employee.test');
     Route::get('/certification',[CertificationController::class, 'Certification']);
+    Route::get('create/pdf/{id}', [PDFController::class, 'index'])->name('create.pdf');
     });
 });
-Route::get('create/pdf', [PDFController::class, 'index'])
 ?>
 

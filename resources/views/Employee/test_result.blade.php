@@ -25,7 +25,7 @@
                 <h4 class=" success_heading">congratulations
                 </h4>
                 <p>You have earned a certification for this course. </p>
-                <button type="button" class="btn btn btn-lg  " id="download_certificate">Download certificate</button>
+                <a href="{{route('create.pdf',$id)}}"><button type="button" class="btn btn btn-lg" id="download_certificate">Download certificate</button></a>
                         <p class="back_pera"><a href="{{url('employee/home')}}" class="back_pera">Back to home</a></p>
                      </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Question;
 use App\Models\SaveAnswer;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class TestController extends Controller
         }else{
             $final = SaveAnswer::where('user_id',$user_id)->where('course_id',$id)->where('status',2)->count();
             $percentage = $final /$count *100;
-            return view('Employee.test_result',compact('percentage'));
+            return view('Employee.test_result',compact('percentage','id'));
         }
         
     }
