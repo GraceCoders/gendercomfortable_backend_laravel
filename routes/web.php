@@ -42,6 +42,7 @@ use App\Http\Controllers\Employee\Company_CoursesController;
 use App\Http\Controllers\Employee\Company_detailsController;
 use App\Http\Controllers\Employee\CertificationController;
 use App\Http\Controllers\Employee\EditProfileController as EmployeeEditProfileController;
+use App\Http\Controllers\employee\PDFController;
 use App\Http\Controllers\Employee\SaveAnswerController;
 use Illuminate\Support\Facades\Auth;
 
@@ -169,5 +170,6 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/certification',[CertificationController::class, 'Certification']);
     });
 });
+Route::get('create/pdf', [PDFController::class, 'index'])
 ?>
 

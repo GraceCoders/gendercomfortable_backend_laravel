@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
 
     ],
@@ -233,7 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class
 
     ],
 
