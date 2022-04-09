@@ -66,7 +66,11 @@ class UsersController extends Controller
             $user->device_type = $request->device_type;
             $user->latitude = $request->latitude;
             $user->longitude = $request->longitude;
-            $user->category_id = $request->category_id;
+            if($request->category_id){
+                $user->category_id = $request->category_id;
+            }else{
+                $user->category_id = 0;
+            }
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             // $user->training_voucher=$request->training_voucher;            
