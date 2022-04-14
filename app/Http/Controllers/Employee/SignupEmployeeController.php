@@ -19,7 +19,7 @@ class SignupEmployeeController extends Controller
   {
     $use = User::where('email', $request->email)->first();
     if ($use) {
-      return redirect('/employee/signup_employee')->with('message', 'Email Already Exist');
+      return redirect('/employee/signup_employee')->with('error', 'Email Already Exist');
     } else {
       $user = new User();
       $user->first_name = $request->first_name;

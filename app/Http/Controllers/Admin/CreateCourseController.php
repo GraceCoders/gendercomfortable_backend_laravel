@@ -35,6 +35,7 @@ class CreateCourseController extends Controller
     }
     public function addlession(Request $request)
     {
+        dd($request);
         $id = Auth::id();
         $count = count($request->lession_name);
         for ($i = 0; $i < $count; $i++) {

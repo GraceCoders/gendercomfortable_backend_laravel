@@ -14,7 +14,7 @@
                         <h1 class="">Create course</h1>
                         <center>
                             <div class="container">
-                                <label for="myfile" id="upload_label"><img class="fa fa-upload" src="" alt="..." id="imgss">
+                                <label for="myfile" id="upload_label"><img class="fa fa-upload" src="{{ asset('assets/slicing_web/uploadfile.png') }}" height="5px" width="5px" alt="..." id="imgss">
 
                                     <span> <input type="file" accept="image/*" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
                                         <img class="img-fluid uploadimg" src=""></span>
@@ -22,17 +22,17 @@
                             </div>
                         </center>
                         <div class="form-floating ">
-                            <input type="text" maxlength="20" required name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="text" minlength="64" required name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Course name</label>
                         </div>
-                        <small class="divide_marks" class="form-text">0/20</small>
+                        <small class="divide_marks" class="form-text">64</small>
                         <div class="form-floating">
-                            <input type="text" required maxlength="200" minlength="64" name="description" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="text" required maxlength="200" minlength="0" name="description" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput" class="course_input">Course description</label>
                         </div>
                         <small class="divide_marks" class="form-text">0/200</small>
                         <div class="form-floating mb-3">
-                            <input type="text" required name="price_per_seat" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="number" required name="price_per_seat" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput" class="course_input">Price per seat</label>
                         </div>
                         <div class="form-floating mb-3 mt-3">

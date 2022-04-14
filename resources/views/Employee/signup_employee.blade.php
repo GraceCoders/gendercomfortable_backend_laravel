@@ -61,11 +61,7 @@
     </section>
     <section class="bg-light header_border "></section>
     <!-- Third div start -->
-    @if(session()->has('message'))
-    <div class="alert alert-danger">
-        {{ session()->get('message') }}
-    </div>
-@endif
+
     <div class="third-sec bg-light">
         <div class="container">
             <div class="row">
@@ -101,6 +97,11 @@
                                 placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
+                        @if (Session::get('message'))
+                        <small class="alert alert-danger form-control alert-block" role="alert">
+                            <strong>{{ Session::get('message') }}</strong>
+                        </small>
+                        @endif
 
                         <div class="form-floating pt-30px">
 

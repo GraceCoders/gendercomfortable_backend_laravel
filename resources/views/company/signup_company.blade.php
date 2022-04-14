@@ -64,11 +64,7 @@ $data = DB::table('categories')
     <!-- second div end -->
     <!-- Third div start -->
     <section class="third-sec bg-light">
-    @if(session()->has('message'))
-    <div class="alert alert-danger">
-        {{ session()->get('message') }}
-    </div>
-@endif
+
         <div class="container">
             <div class="row">
                 <div class="  col-lg-6 col-12  " id="regis_sec">
@@ -95,6 +91,11 @@ $data = DB::table('categories')
                                 <input type="email" class="form-control" required id="floatingInput" name="email" placeholder="name@example.com">
                                 <label for="floatingInput">Email address</label>
                             </div>
+                            @if (Session::get('message'))
+                            <small class="alert alert-danger form-control alert-block" role="alert">
+                                <strong>{{ Session::get('message') }}</strong>
+                            </small>
+                            @endif
                             <div class="form-floating pt-30px ">
 
                                 <input id="id_password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">

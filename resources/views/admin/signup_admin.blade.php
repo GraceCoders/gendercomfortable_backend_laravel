@@ -88,6 +88,11 @@
                                 <input type="email" class="form-control" name="email" id="floatingInput" required placeholder="name@example.com">
                                 <label for="floatingInput">Email address</label>
                             </div>
+                            @if (Session::get('error'))
+                            <small class="alert alert-danger form-control alert-block" role="alert">
+                                <strong>{{ Session::get('error') }}</strong>
+                            </small>
+                            @endif
                             <div class="form-floating pt-30px">
 
                                 <input id="id_password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -118,6 +123,9 @@
 
 </html>
 <script>
+       setTimeout(function() {
+        $('.alert-block').remove();
+    }, 10000);
     var loadFile = function(event) {
         var image = document.getElementById('roundimgs');
         image.src = URL.createObjectURL(event.target.files[0]);
