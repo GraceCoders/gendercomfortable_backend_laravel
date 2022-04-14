@@ -127,7 +127,7 @@ $data = DB::table('categories')
                                 {{-- <label for="floatingInput">Category</label> --}}
                             </div>
                             <button class="btn btn w-100 pb-3 pt-3 btnsss " type="submit" id="checkout2">Signup</button>
-                            <p class="psw">Already have an account? <a href="{{ url('/login') }}">Login</a>
+                            <p class="psw">Already have an account? <a href="{{ route('company.login') }}">Login</a>
                             </p>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ class SignupEmployeeController extends Controller
   {
     return view('Employee.signup_employee');
   }
-
+  
   public function register(Request $request)
   {
     $use = User::where('email', $request->email)->first();
@@ -43,4 +43,5 @@ class SignupEmployeeController extends Controller
       return redirect('/login')->with('success', 'Company Register Successfully!');
     }
   }
+ 
 }

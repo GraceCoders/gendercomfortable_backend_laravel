@@ -144,9 +144,8 @@
                              </div>
                             </form>
                         </div>
-                        <p class="psw ">Already have an account? <a href="{{ 'login' }} ">Login</a></p>
-                    </div>
-                </div>
+                        <p class="psw">Already have an account? <a href="{{ route('login.employee') }}">Login</a></p>
+                        </div>
                 <div class=" col-lg-6 col-12 " id="regis_sec ">
                     <img class="img-fluid " src="{{ asset('assets/slicing_web/signup.svg') }} " id="signup_img "
                         alt="... ">

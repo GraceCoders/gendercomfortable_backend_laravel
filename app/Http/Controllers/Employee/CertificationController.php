@@ -10,4 +10,8 @@ class CertificationController extends Controller
     public function Certification(){
         return view('Employee.certification');
     }
+    public function employeelogin()
+    {
+      return view('Employee.employee_login');
+    }
 }

@@ -112,6 +112,8 @@ Route::get('/paypal', function () {
 
 // Company routes
 Route::prefix('/company')->group(function () {
+    Route::get('/login',[ SignupcompanyController::class, 'login'])->name('company.login');
+
 Route::get('/signup_company',[ SignupcompanyController::class, 'Signupcompany'])->name('company.signup');
 Route::post('/company_register',[SignupcompanyController::class, 'register'])->name('company.register');
 Route::group(['middleware' => 'company'], function () {
@@ -148,6 +150,7 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
 
 //employee
     Route::prefix('/employee')->group(function () {
+    Route::get('/log',[ CertificationController::class, 'employeelogin'])->name('login.employee');
     Route::get('/signup_employee',[ SignupEmployeeController::class, 'SignupEmployee'])->name('employee.signup');
     Route::post('/employee/register',[SignupEmployeeController::class, 'register'])->name('employee.register');
     Route::group(['middleware' => 'employee'], function () {

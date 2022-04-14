@@ -16,6 +16,9 @@ class SignupcompanyController extends Controller
     public function Signupcompany(){
         return view('company.signup_company');
     }
+    public function login(){
+        return view('company.company_login');
+    }
     public function register(Request $request){
         $use = User::where('email', $request->email)->first();
 
