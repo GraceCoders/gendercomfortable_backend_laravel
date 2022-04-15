@@ -16,7 +16,9 @@
     }
 </style>
 
-
+@php 
+$i =1;
+@endphp
 <section class="bg-light home">
     <div class="container text-center ">
         <div class="row">
@@ -36,13 +38,12 @@
                                 <div class="add_more" id="add_more">
                                     <div class="lession2">
                                         <small class="uploads" class="form-text">
-                                            <h1 class="lession">Lesson1</h1>
+                                            <h1 class="lession">Lesson {{$i++}}</h1>
                                         </small>
                                         <input type="hidden" name="id[]" value="{{$value->id}}" required class="form-control" id="floatingInput" placeholder="name@example.com">
 
                                         <div class="form-floating mb-3 ">
                                             <input type="text" name="lession_name[]" value="{{$value->lession_name}}" required class="form-control" id="floatingInput" placeholder="name@example.com">
-                                            <label for="floatingInput" id="lesssonName1">Lesson name</label>
                                         </div>
                                         <div class="form-floating  ">
                                             <div class="input-group custom-file-button">

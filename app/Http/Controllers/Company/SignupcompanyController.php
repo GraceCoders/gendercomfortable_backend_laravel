@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\UserCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class SignupcompanyController extends Controller
@@ -23,8 +24,8 @@ class SignupcompanyController extends Controller
         $use = User::where('email', $request->email)->first();
 
         if ($use) {
-            return redirect('/employee/signup_employee')->with('message', 'Email Already Exist');
-          } else {
+            return Redirect::back()->with('message', 'Email Already Exists');
+        } else {
         $user= new User();
         $user->username =$request->username;
         $user->email =$request->email;
@@ -51,7 +52,7 @@ class SignupcompanyController extends Controller
             }
         }
     }
-        return redirect('/login')->with('success', 'Company Register Successfully!');
+        return redirect('/company/login')->with('success', 'Company Register Successfully!');
     }
       }
 
