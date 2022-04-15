@@ -130,8 +130,8 @@
                                 add
                                 more</small>
                             <center><button type=" submit" class="btn btn-primary btn-lg  "
-                                value="0" name="draft"  id="buttonlarge">Publish</button>
-                                <button type=" submit"  value="1" name="draft" class="btn btn-primary btn-lg  " id="buttonlarge">Draft</button>
+                                value="0" name="draft"  onclick="showPage()" id="buttonlarge">Publish</button>
+                                <button type=" submit" onclick="showPage()"  value="1" name="draft" class="btn btn-primary btn-lg  " id="buttonlarge">Draft</button>
                             </center>
                         </form>
                     </div>
@@ -148,7 +148,7 @@
                         <button type="button" class="btn-close float-end" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                         <h4>You want to save in draft</h4>
-                        <button type="submit" id="popup_test" onclick="showPage()" class="btn popup_test btn btn-lg">yes</button>
+                        <button type="submit" id="popup_test"  class="btn popup_test btn btn-lg">yes</button>
                         <button type="submit" id="popup_test" class="btn btn- btn-lg  ">No</button>
                     </div>
                 </div>
