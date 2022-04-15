@@ -18,13 +18,13 @@
 
 
 <section class="bg-light home">
+
     <div class="container text-center ">
         <div class="row">
             <div class="col-lg-2 col-12 "><span>
                     <p class="backsp pt-3"><a href="{{ url('admin/create/course') }}"><img class="img-fluid" src="{{ asset('assets/slicing_web/back.svg') }}"></p> </a>
                 </span>
             </div>
-            <div class="col-lg-10 col-12">
                 <div class="centers">
                     <form method="POST" action="{{ route('admin.add.lession') }}" enctype='multipart/form-data'>
                         @csrf
@@ -85,7 +85,7 @@
                                 <small class="divide_marks1 pt-3" class="form-text"> You need to upload atleast two
                                     lesson for
                                     publishing this course</small>
-                                <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Done</button>
+                                <button class="btn btn w-100 pb-3 pt-3 "   onclick="showPage()"  type="submit" id="checkout2">Done</button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal52" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog " id="modal-dialog2">
@@ -119,6 +119,8 @@
     </div>
 </section>
 @endsection
+
+
 <script>
     var count = 2;
 
@@ -128,4 +130,10 @@
             '<div class="lession2"><small class="uploads" class="form-text"><h1 class="lession">Lesson' + count +
             '</h1></small><div class="form-floating mb-3 "><input type="text" name="lession_name[]" required class="form-control" id="floatingInput"placeholder="name@example.com"><label or="floatingInput" id="lesssonName1">Lesson name</label></div> <div class="form-floating "><div class="input-group custom-file-button"><input type="file" name="media[]" class="form-control custom-file" id="floatingPassword" placeholder="Password"></div></div><div class="form-floating  "><div class="input-group custom-file-button"><small id="lession_pera" class="form-text"><p>*You need to upload atleast two lesson for publishing this course</p></small></div></div></div>';
     }
+    function showPage() {
+        HoldOn.open({
+                theme: 'sk-dot',
+                message: "<h4 style='color:#fff;'>Please Wait Processing.......</h4>"
+            });
+}
 </script>

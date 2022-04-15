@@ -5,7 +5,8 @@
 <!-- third -->
 <section class="bg-light home">
     <div class="container text-center ">
-
+        <div style="display:none;" id="myDiv" class="animate-bottom">
+          </div>
         <center>
             <div class="centers">
                 <div class="formdiv6 text-center ">
@@ -39,7 +40,7 @@
                             <input type="text" required name="certificate" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Certification name</label>
                         </div>
-                        <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Save & next</button>
+                        <button class="btn btn w-100 pb-3 pt-3 " onclick="showPage()" type="submit" id="checkout2">Save & next</button>
                 </div>
             </div>
     </div>
@@ -53,5 +54,12 @@
         var image = document.getElementById('imgss');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
+
+    function showPage() {
+        HoldOn.open({
+                theme: 'sk-dot',
+                message: "<h4 style='color:#fff;'>Please Wait Processing.......</h4>"
+            });
+}
 </script>
 @endsection

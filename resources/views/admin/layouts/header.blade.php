@@ -29,6 +29,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<link href="https://rayce.cloudclmsoftware.com/agre_live/assets/css/HoldOn.css" rel="stylesheet" />
+<script src="https://rayce.cloudclmsoftware.com/agre_live/assets/js/HoldOn.js"></script>
+
 </head>
 @php
 $user = Auth::user();
