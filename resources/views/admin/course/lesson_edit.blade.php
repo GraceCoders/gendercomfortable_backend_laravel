@@ -30,7 +30,7 @@
                         @csrf
                         <input type="hidden" name="course_id" value="{{ $id }}">
                         <div class="formdiv6  text-center " id="formdiv6">
-                            <h1 class="">Create course</h1>
+                            <h1 class="">Edit Lesson</h1>
                             <div>
                                 @foreach($data as $value )
                                 <div class="add_more" id="add_more">

@@ -65,6 +65,7 @@ class CourseDetailsController extends Controller
         return redirect('admin/course/question/edit/' .$request->course_id)->with('success', 'Course add successfully');
     }
     public function questionEdit($id){
+        
         $data = Question::where('course_id',$id)->get();
         return view('admin.course.question_edit',compact('data','id'));
     }

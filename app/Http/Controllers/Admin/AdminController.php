@@ -15,8 +15,8 @@ class AdminController extends Controller
 {
     public function Admin(){
         $id = Auth::id();
-        $course = Course::where('user_id',$id)->where('status',0)->paginate(9);
-        $draft = Course::where('user_id',$id)->where('status',1)->paginate(9);
+        $course = Course::where('status',0)->paginate(9);
+        $draft = Course::where('status',1)->paginate(9);
         return view('admin.home_admin',compact('course','draft'));
     }
     public function getuser(Request $request){

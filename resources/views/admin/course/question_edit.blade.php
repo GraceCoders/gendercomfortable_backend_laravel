@@ -15,7 +15,7 @@ $i=1;
             <div class="  col-lg-8 col-12 " id="regis_sec">
                 <div class="formdiv2">
                     <center>
-                        <h1 class="">Create course</h1>
+                        <h1 class="">Edit Question</h1>
                     </center>
                     <form method="POST" action="{{ route('admin.question.update') }}" id="savetodraft">
                         @csrf
@@ -72,7 +72,6 @@ $i=1;
                             add
                             more</small> -->
                         <center><button type=" submit" class="btn btn-primary btn-lg  " value="0" name="draft" id="buttonlarge">Publish</button>
-                            <button type=" submit" value="1" name="draft" class="btn btn-primary btn-lg  " id="buttonlarge">Draft</button>
                         </center>
                     </form>
                 </div>

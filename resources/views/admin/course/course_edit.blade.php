@@ -11,7 +11,7 @@
                 <div class="formdiv6 text-center ">
                     <form method="POST" action="{{route('admin.course.update',$data->id)}}" enctype='multipart/form-data'>
                         @csrf
-                        <h1 class="">Create course</h1>
+                        <h1 class="">Edit course</h1>
                         <center>
                             <div class="container">
                                 <label for="myfile" id="upload_label"><img class="fa fa-upload" src="{{asset('storage/'.$data->thumbnail)}}" alt="..." id="imgss">

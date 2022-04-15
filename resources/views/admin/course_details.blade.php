@@ -25,6 +25,7 @@ $i = 1;
                     <h4>Course Stats</h4>
                 </button>
             </li>
+            @if(Auth::id() == $data->user_id)
             <li class="nav-item" role="presentation">
                 <a href="{{route('admin.course.edit',$data->id)}}"> <button class="nav-link bg-light" id="profile-tab" type="button" role="tab">
                         <h4>Edit</h4>
@@ -36,6 +37,7 @@ $i = 1;
                     <h4>Delete</h4>
                 </button>
             </li>
+            @endif
         </ul>
     </div>
 </nav>
