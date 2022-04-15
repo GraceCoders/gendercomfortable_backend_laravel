@@ -64,7 +64,7 @@
                                 <small class="divide_marks1 pt-3" class="form-text"> You need to upload atleast two
                                     lesson for
                                     publishing this course</small> -->
-                                <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Done</button>
+                                <button class="btn btn w-100 pb-3 pt-3 " onclick="showPage()" type="submit" id="checkout2">Done</button>
                                 <!-- Modal -->
                             </div>
                         </div>
@@ -84,4 +84,10 @@
             '<div class="lession2"><small class="uploads" class="form-text"><h1 class="lession">Lesson' + count +
             '</h1></small><div class="form-floating mb-3 "><input type="text" name="lession_name[]" required class="form-control" id="floatingInput"placeholder="name@example.com"><label or="floatingInput" id="lesssonName1">Lesson name</label></div><div class="form-floating"><input type="file" name="media[]"  required class="form-control" id="floatingPassword"placeholder="Password"><label for="floatingPassword" id="floatingPassword1">choose file</label> <button type="button" class="btn btn" id="inner_button"data-bs-toggle="modal" data-bs-target="#exampleModal52">Select</button><small id="lession_pera" class="form-text"><p>*You need to upload atleast two lesson for publishing this course</p></small></div></div>';
     }
+    function showPage() {
+        HoldOn.open({
+                theme: 'sk-dot',
+                message: "<h4 style='color:#fff;'>Please Wait Processing.......</h4>"
+            });
+}
 </script>

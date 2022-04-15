@@ -71,7 +71,7 @@ $i=1;
                         <!-- <small class="divide_marks pt-3" class="form-text"> <img class="img-fluid " src="{{ asset('assets/slicing_web/add_more.svg') }}" onclick="addCode()" alt="...">
                             add
                             more</small> -->
-                        <center><button type=" submit" class="btn btn-primary btn-lg  " value="0" name="draft" id="buttonlarge">Publish</button>
+                        <center><button type=" submit" class="btn btn-primary btn-lg  " onclick="showPage()" value="0" name="draft" id="buttonlarge">Publish</button>
                         </center>
                     </form>
                 </div>
@@ -108,4 +108,10 @@ $i=1;
         document.getElementById("add_more").innerHTML +=
             '   <div class="col-md-6"><h3>Ques.' + count + '</h3><div class="form-floating mt-3">   <input type="text"  required name="question[]" class="form-control bg-light" id="floatingInputGrid"placeholder="name@example.com"><label for="floatingInputGrid">Question</label></div><strong><p>Correct Answer</p></strong><div class="form-floating mt-3"><Select name="right_answer[]" class="form-control" id="floatingInputGrid"placeholder="name@example.com"><option value=""></option><option value="1">Option1</option><option value="2">Option2</option><option value="3">Option3</option><option value="4">Option4</option></Select><label for="floatingInputGrid">Answer</label></div><strong><p>Wrong Answers</p></strong><div class="form-floating mt-3">   <input type="text"  required name="option1[]" class="form-control" id="floatingInputGrid"><label for="floatingInputGrid">Answer1</label></div><div class="form-floating mt-3">   <input type="text"  required name="option2[]" class="form-control" id="floatingInputGrid"><label for="floatingInputGrid">Answer2</label></div><div class="form-floating mt-3">   <input type="text"  required name="option3[]" class="form-control" id="floatingInputGrid"><label for="floatingInputGrid">Answer3</label></div><div class="form-floating mt-3">   <input type="text"  required name="option4[]" class="form-control" id="floatingInputGrid"><label for="floatingInputGrid">Answer4</label></div></div>'
     }
+    function showPage() {
+        HoldOn.open({
+                theme: 'sk-dot',
+                message: "<h4 style='color:#fff;'>Please Wait Processing.......</h4>"
+            });
+}
 </script>

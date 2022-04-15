@@ -21,7 +21,7 @@
                             </div>
                         </center>
                         <div class="form-floating ">
-                            <input type="text" maxlength="20" required name="name" class="form-control" id="floatingInput"value="{{$data->name}}">
+                            <input type="text" maxlength="64" required name="name" class="form-control" id="floatingInput"value="{{$data->name}}">
                             <label for="floatingInput">Course name</label>
                         </div>
                         <small class="divide_marks" class="form-text">0/20</small>
@@ -38,7 +38,7 @@
                             <input type="text" required name="certificate" class="form-control" id="floatingInput"value="{{$data->certificate}}">
                             <label for="floatingInput">Certification name</label>
                         </div>
-                        <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Save & next</button>
+                        <button class="btn btn w-100 pb-3 pt-3 " onclick="showPage()" type="submit" id="checkout2">Save & next</button>
                 </div>
             </div>
     </div>
@@ -52,5 +52,11 @@
         var image = document.getElementById('imgss');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
+    function showPage() {
+        HoldOn.open({
+                theme: 'sk-dot',
+                message: "<h4 style='color:#fff;'>Please Wait Processing.......</h4>"
+            });
+}
 </script>
 @endsection
