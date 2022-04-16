@@ -133,7 +133,7 @@ $user = Auth::user();
                                                 </div>
                                                 <div class="col-lg-4 col-12 ">
                                                     <center>
-                                                        <h1>{{$sold}}</h1>
+                                                        <h1>{{ $sold }}</h1>
                                                     </center>
                                                     <h5 class="dreafts">sold</h5>
                                                 </div>
