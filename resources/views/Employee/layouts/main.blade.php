@@ -1,3 +1,3 @@
-@include('employee.layouts.header')
+@include('Employee.layouts.header')
 @yield('main-container')
-@include('employee.layouts.footer')
+@include('Employee.layouts.footer')
