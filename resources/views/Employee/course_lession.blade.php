@@ -5,7 +5,7 @@
     @endphp
     <section class="bg-light">
         <div class="container" id="largeimg1">
-            <h3 class="large_heading">Lorem ipsum dolor sit amet, consectetur</h3>
+            <h3 class="large_heading">{{$data->name}}</h3>
             <div> <img class="img-fluid" class="image" id="largeimg"
                     src="{{ asset('storage/' . $data->thumbnail) }}" class="img-fluid" alt="...">
             </div>
