@@ -128,4 +128,8 @@ class EmployeeController extends Controller
             $data['percentage'] = $percentage;
             return response()->json(['statusCode' => 200, 'message' => "success", 'data' => $data], 200);
     }
+    public function data(){
+        $data = PurchaseCourse::get();
+        return response()->json(['statusCode' => 200, 'message' => "success", 'data' => $data], 200);
+    }
 }

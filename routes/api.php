@@ -58,5 +58,6 @@ Route::prefix('/v1')->group(function () {
 
     });
 
-    
+    Route::get('/data', [EmployeeController::class, 'data']);
+
 });
