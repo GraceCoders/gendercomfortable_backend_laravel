@@ -12,12 +12,14 @@
                     <div class="centers">
                         <div class="formdiv6 text-center ">
                             <h1 class="signuph">Edit Profile</h1>
-                            <div class="round_div">
-                                <label for="myfile" id="label_img2"><img class="img-fluid" src="{{asset('assets/slicing_web/profile_pic.png')}}" alt="..."
-                                        id="roundimgs">
-
-                                    <input type="file" id="myfile" name="filename" onchange="loadFile(event)"
-                                        value="upload thumbnail">
+                            <div class="container ">
+                                <label for="myfile" id="label_img2">
+                                    @if( $user->profile_pic)
+                                    <img class="img-fluid" src="{{ asset('storage/' . $user->profile_pic) }}" id="roundimgs">
+                                  @else
+                                  <img class="img-fluid" src="{{ asset('assets/slicing_web/profile.png') }}" id="roundimgs">
+                                  @endif
+                                    <input type="file" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
                                     <img class="img-fluid uploadimg" src=""></span>
                                 </label>
                             </div>
@@ -53,6 +55,9 @@
     </section>
 @endsection
 <script>
+      setTimeout(function() {
+        $('.alert-block').remove();
+    }, 5000);
     var loadFile = function(event) {
         var image = document.getElementById('roundimgs');
         image.src = URL.createObjectURL(event.target.files[0]);
