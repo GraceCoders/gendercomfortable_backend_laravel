@@ -10,6 +10,6 @@ class EditProfileController extends Controller
 {
     public function editprofile(){
         $user = Auth::user();
-        return view('employee.editprofile', compact('user'));
+        return view('Employee.editprofile', compact('user'));
     }
 }
