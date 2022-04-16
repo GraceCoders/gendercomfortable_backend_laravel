@@ -7,7 +7,7 @@
     <section class="bg-light home">
         <div class="container text-center ">
             @if (Session::get('success'))
-            <small class="alert alert-danger form-control alert-block" role="alert">
+            <small class="alert alert-success form-control alert-block" role="alert">
                 <strong>{{ Session::get('success') }}</strong>
             </small>
             @endif
