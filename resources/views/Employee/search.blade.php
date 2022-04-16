@@ -62,7 +62,7 @@ $data = DB::table('categories')
         <div class="container">
             <div class="row">
                 <div class=" col-lg-2 col-12" id="second">
-                    <a href="{{ route('admin.signup') }}"> <img class="img-fluid" src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
+                    <a href="{{ url('employee/courses') }}"> <img class="img-fluid" src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
                 </div>
             </div>
         </div>
