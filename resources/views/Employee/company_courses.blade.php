@@ -4,13 +4,11 @@
     <section class="bg-light">
         <div class="container" id="largeimg1">
             <div> 
-                <img class="img-fluid" class="image" id="largeimg"
-                    src="{{asset('storage/'.$user->profile_pic)}}" class="img-fluid" alt="...">
                     @if( $user->profile_pic)
                     <img class="img-fluid" class="image" id="largeimg"
                     src="{{asset('storage/'.$user->profile_pic)}}" class="img-fluid" alt="...">    
                                                     @else
-                              <img class="img-fluid" src="{{ asset('assets/slicing_web/profile.png') }}" class="image" id="largeimg" alt="..." >
+                              <img class="img-fluid" src="{{ asset('assets/slicing_web/placeholder.jpeg') }}" class="image" id="largeimg" alt="..." >
                               @endif 
                 <h4 id="heading41">{{$user->company_name}}</h4>
             </div>
