@@ -134,7 +134,7 @@ $user = Auth::user();
                     </div>
                 </div>
             </div>
-
+    </div>
         </div>
 </section>
 <section class="bg-light header_border "></section>
