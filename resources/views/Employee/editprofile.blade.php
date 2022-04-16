@@ -6,7 +6,12 @@
     <!-- Third div start -->
     <section class="bg-light home">
         <div class="container text-center ">
-            <form method="POST" action="" enctype="multipart/form-data">
+            @if (Session::get('success'))
+            <small class="alert alert-danger form-control alert-block" role="alert">
+                <strong>{{ Session::get('success') }}</strong>
+            </small>
+            @endif
+            <form method="POST" action="{{route('employee.update.profile')}}" enctype="multipart/form-data">
             @csrf
                 <center>
                     <div class="centers">
@@ -40,11 +45,11 @@
                                 <label for="floatingInput">Email address</label>
                             </div>
 
-                            <div class="form-floating mb-3 mt-3">
+                            {{-- <div class="form-floating mb-3 mt-3">
                                 <input type="textarea" class="form-control" name="bio" id="floatingInput"
                                     value="{{ $user->training_voucher }}" rows="3"></input>
                                 <label for="floatingInput">Training Voucher</label>
-                            </div>
+                            </div> --}}
                             <button class="btn btn w-100 pb-3 pt-3 " type="submit" id="checkout2">Save</button>
                         </div>
                     </div>

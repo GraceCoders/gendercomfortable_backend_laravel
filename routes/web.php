@@ -157,6 +157,9 @@ Route::get('cancel-transaction{id}', [PayPalController::class, 'cancelTransactio
     Route::get('/courses',[EmployeeCoursesController::class, 'Courses'])->name('employee.home');
     Route::get('/company/details/{id}',[Company_detailsController ::class, 'CompanyDetails'])->name('employee.coursedetails');
     Route::get('/edit/profile',[EmployeeEditProfileController::class, 'editprofile'])->name('employee.edit.profile');
+    Route::post('/update/profile',[EmployeeEditProfileController::class, 'updateProfile'])->name('employee.update.profile');
+
+
     Route::get('/company/{id}',[Company_detailsController ::class, 'rating'])->name('employee.company');
     Route::post('/rating',[Company_detailsController ::class, 'addrating'])->name('employee.addrating');
     Route::get('/company_courses',[Company_coursesController ::class, 'Companycourses']);
