@@ -73,8 +73,9 @@
                         <p class="donec">
                             <a href="{{ asset('storage/' . $value->media) }}" target="_blank"> <img class="img-fluid"
                                     class="image" src="{{ asset('assets/slicing_web/video.svg') }}"
-                                    alt="...">{{ $value->lession_name }}
-                            </a>
+                                    alt="..."></a>
+                                    {{ $value->lession_name }}
+                            
                         </p>
                     @endforeach
                 @endif
