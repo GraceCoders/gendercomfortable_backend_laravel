@@ -114,7 +114,6 @@ $user = Auth::user();
                                                             ->count();
                                                         $sold = DB::table('courses')
                                                             ->join('purchase_course', 'courses.id', '=', 'purchase_course.course_id')
-                                                            ->where('courses.status', 1)
                                                             ->where('courses.user_id', $user)
                                                             ->count();
                                                         
