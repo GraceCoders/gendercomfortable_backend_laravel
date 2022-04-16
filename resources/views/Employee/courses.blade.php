@@ -48,7 +48,7 @@ $user = Auth::user();
                 <a href="{{route('employee.home')}}"> <img class="img-fluid" src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="..."></a>
             </div>
             <div class=" col-lg-7 col-12" id="second">
-                    <center><a href="{{url('/employee/search')}}"><h3 class="back-link">Sreach GenderComfortable</h3></a></center>
+                    <center><a href="{{url('/employee/search')}}"><h3 class="back-link">Search GenderComfortable</h3></a></center>
 
 </div>
             <div class="col-lg-3 col-12" id="second">
@@ -186,8 +186,13 @@ $user = Auth::user();
             <div class="row " id="second12">
               @foreach($data as $value)
                 <div class=" col-lg-4 col-12" id="second11">
+                    @if($value->profile_pic)
                     <img class="img-fluid" class="image" id="course_cover"
                         src="{{asset('storage/'.$value->profile_pic)}}" class="img-fluid" alt="...">
+                        @else 
+                        <img class="img-fluid" class="image" id="course_cover"
+                        src="{{asset('assets/slicing_web/placeholder.jpeg')}}" class="img-fluid" alt="...">
+                        @endif
                     <h3 class="image_covers">{{$value->company_name}}</h3>
                     <p class="image_coversp"><a href="{{ route('employee.coursedetails',$value->id) }}">View courses</a></p>
                 </div>

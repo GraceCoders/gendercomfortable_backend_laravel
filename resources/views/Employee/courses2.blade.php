@@ -1,4 +1,4 @@
-@extends('employee.layouts.main')
+@extends('Employee.layouts.main')
 @section('main-container')
 <!-- Third div start -->
 

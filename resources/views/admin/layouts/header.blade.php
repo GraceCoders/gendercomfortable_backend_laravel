@@ -112,11 +112,11 @@ $user = Auth::user();
                                                             ->where('status', 1)
                                                             ->where('user_id', $user)
                                                             ->count();
-                                                        // $sold = DB::table('courses')
-                                                        //     ->join('purchase_course', 'course.id', '=', 'purchase_course.course_id')
-                                                        //     ->where('courses.status', 1)
-                                                        //     ->where('courses.user_id', $user)
-                                                        //     ->count();
+                                                        $sold = DB::table('courses')
+                                                            ->join('purchase_course', 'courses.id', '=', 'purchase_course.course_id')
+                                                            ->where('courses.status', 1)
+                                                            ->where('courses.user_id', $user)
+                                                            ->count();
                                                         
                                                     @endphp
                                                     <center>
@@ -134,7 +134,7 @@ $user = Auth::user();
                                                 </div>
                                                 <div class="col-lg-4 col-12 ">
                                                     <center>
-                                                        <h1>10</h1>
+                                                        <h1>{{$sold}}</h1>
                                                     </center>
                                                     <h5 class="dreafts">sold</h5>
                                                 </div>

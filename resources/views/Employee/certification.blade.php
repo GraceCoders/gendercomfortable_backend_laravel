@@ -1,5 +1,5 @@
 
-    @extends('employee.layouts.main')
+    @extends('Employee.layouts.main')
     @section('main-container')
     <section class="third-sec bg-light">
         <div class="container ">

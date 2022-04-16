@@ -138,13 +138,13 @@ $data = DB::table('categories')
                                     <p>Admin</p>
                                 </div>
                                 <div class=" col-lg-4 col-12 bg-light text-center " id="account_image">
-                                    <a href="{{ url('login') }}"><img class="image"
+                                    <a href="{{ url('company/login') }}"><img class="image"
                                             src="{{ asset('assets/slicing_web/company.svg') }}"
                                             class="img-fluid" alt="..." /></a>
                                     <p>Company</p>
                                 </div>
                                 <div class="col-lg-4 col-12 bg-light text-center" id="account_image">
-                                    <a href="{{ url('login') }}"><img class="image"
+                                    <a href="{{ url('employee/log') }}"><img class="image"
                                             src="{{ asset('assets/slicing_web/employee.svg') }}"
                                             class="img-fluid" alt="..." /></a>
                                     <p>Employee</p>

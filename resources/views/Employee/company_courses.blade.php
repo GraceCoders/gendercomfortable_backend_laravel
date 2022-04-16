@@ -1,4 +1,4 @@
-@extends('employee.layouts.main')
+@extends('Employee.layouts.main')
 @section('main-container')
     <!-- third  -->
     <section class="bg-light">
