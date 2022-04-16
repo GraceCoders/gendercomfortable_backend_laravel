@@ -16,7 +16,7 @@ class CourseDetailsController extends Controller
     public function coursedetail($id){
 
         $data = Course::with(['lessons','question'])->where('status','!=',2)->where('courses.id',$id)->first();
-        $purchaseCourse = PurchaseCourse::with('users')->where('purchase_course.id',$id)
+        $purchaseCourse = PurchaseCourse::with('users')->where('purchase_course.course_id',$id)
         ->where('status','COMPLETED')
         ->get();
         return view('admin.course_details',compact('data','purchaseCourse'));
