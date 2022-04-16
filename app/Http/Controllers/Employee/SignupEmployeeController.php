@@ -40,7 +40,7 @@ class SignupEmployeeController extends Controller
         $license->license_key  = $request->license_key;
         $license->save();
       }
-      return redirect('/employee/log')->with('success', 'Company Register Successfully!');
+      return redirect('/employee/log')->with('success', 'Employee Register Successfully!');
     }
   }
  

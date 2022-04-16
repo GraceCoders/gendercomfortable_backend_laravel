@@ -7,16 +7,11 @@
         background-color: lightskyblue;
         border-radius: 22px;
     }
-
 </style>
-
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Gender Comfortable</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/slicing_web/logo.svg') }}">
-
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -50,10 +45,8 @@
 $data = DB::table('categories')
     ->where('status', 1)
     ->get();
-    dd(phpinfo());
 @endphp
-
-<body >
+<body>
     <section class="purple top-bar">
         <div class="container">
             <div class="clearfix">
@@ -164,15 +157,14 @@ $data = DB::table('categories')
         </div>
         <!-- <hr class="line "></hr> -->
     </section>
-
-
     <section class="bg-light header_border "></section>
     <section class="one">
         <div class="container">
             <center> <a class="oneheading" href="{{ route('company.index2') }}">
-                    <h4 class="oneheading mb-3"><a class="oneheading" href="{{ route('login.employee') }}">Employee</a>/<a
-                            class="oneheading" href="{{ url('/company/login') }}">Business Login</a> <a
-                            class="oneheading" href="{{ url('/login') }}">/admin</a></h4>
+                    <h4 class="oneheading mb-3"><a class="oneheading"
+                            href="{{ route('login.employee') }}">Employee</a>/<a class="oneheading"
+                            href="{{ url('/company/login') }}">Business Login</a> <a class="oneheading"
+                            href="{{ url('/login') }}">/admin</a></h4>
                 </a></center>
         </div>
     </section>
@@ -194,8 +186,8 @@ $data = DB::table('categories')
                             <option id="cat_id" value="{{ $value->id }}">{{ $value->name }}</option>
                         @endforeach
                         </select> --}}
-                        <select class="selectpicker form-control btn-border bg-light " id="dropdownMenuButton15" multiple="multiple"
-                            name="category_id[]" data-live-search="true">
+                        <select class="selectpicker form-control btn-border bg-light " id="dropdownMenuButton15"
+                            multiple="multiple" name="category_id[]" data-live-search="true">
                             <option value="0"> Business Type/Category</option>
 
                             @foreach ($data as $value)
@@ -225,7 +217,6 @@ $data = DB::table('categories')
         </section>
     </section>
 </body>
-
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
@@ -293,8 +284,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxrWlbuESbKOX8ZEtiflupNNc
             }
         });
     });
-
-
     $(document).ready(function() {
         var result = <?php echo $user; ?>;
 
@@ -310,20 +299,20 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxrWlbuESbKOX8ZEtiflupNNc
         var y = 115.1398;
         var locations = locate;
         var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: new google.maps.LatLng(x, y),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(x, y),
-                map: map
-            });
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    infowindow.setContent(contentString);
-                    infowindow.open(map, marker);
-                }
-            })(marker));
+            zoom: 13,
+            center: new google.maps.LatLng(x, y),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(x, y),
+            map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent(contentString);
+                infowindow.open(map, marker);
+            }
+        })(marker));
     });
 
     function InitMap() {
@@ -333,7 +322,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxrWlbuESbKOX8ZEtiflupNNc
             alert("Geolocation is not supported by this browser.");
         }
     }
-
     function showPosition(position) {
         var x = position.coords.latitude;
         var y = position.coords.longitude;

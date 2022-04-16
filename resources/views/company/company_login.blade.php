@@ -63,6 +63,11 @@
     </section>
     <section class="bg-light header_border "></section>
     <!-- second div end -->
+    @if (Session::get('success'))
+    <small class="alert alert-success alert-block" role="alert">
+        <strong>{{ Session::get('success') }}</strong>
+    </small>
+    @endif
     <!-- Third div start -->
     <section class="third-sec bg-light">
         <div class="container">

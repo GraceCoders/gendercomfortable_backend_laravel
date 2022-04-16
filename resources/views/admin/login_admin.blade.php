@@ -70,7 +70,11 @@
             <div class="row">
                 <div class="  col-lg-6 col-12 " id="regis_sec">
                     <div class="formdiv text-center">
-
+                        @if (Session::get('success'))
+                        <small class="alert alert-success alert-block" role="alert">
+                            <strong>{{ Session::get('success') }}</strong>
+                        </small>
+                        @endif
                         <img class="img-fluid text-center" id="gcimg" src="{{ asset('assets/slicing_web/gc_icon.svg') }}"
                             alt="...">
                         <h1 class="loginh">Login</h1>
