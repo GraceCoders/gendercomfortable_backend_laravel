@@ -171,7 +171,7 @@ $data = DB::table('categories')
         var autocomplete = new google.maps.places.Autocomplete(input);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
             var place = autocomplete.getPlace();
-            document.getElementById('address').value = place.name;
+            document.getElementById('address').value = place.formatted_address;
             document.getElementById('lat').value = place.geometry.location.lat();
             document.getElementById('long').value = place.geometry.location.lng();
         });

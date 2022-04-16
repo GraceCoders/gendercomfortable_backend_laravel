@@ -16,7 +16,12 @@
                     <form method="POST" action="{{ route('company.update.profile',$profile->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="plusesimg">
+                            @if($profile->profile_pic)
                                 <label for="myfile" id="upload_label"><img class="fa fa-upload" src="{{ asset('storage/' . $profile->profile_pic) }}" alt="..." id="imgss">
+                                 @else
+                                 <label for="myfile" id="upload_label"><img class="fa fa-upload" src="{{ asset('assets/slicing_web/photo.jpg') }}" alt="..." id="imgss">
+ 
+                                 @endif
                                     <span> <input type="file" accept="image/*" id="myfile" name="filename" onchange="loadFile(event)" value="upload thumbnail">
                                         <img class="img-fluid uploadimg" src=""></span>
                                 </label>

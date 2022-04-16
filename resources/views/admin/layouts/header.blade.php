@@ -61,8 +61,8 @@ $user = Auth::user();
         <div class="container">
             <div class="row ">
                 <div class=" col-lg-2 col-12" id="second">
-                    <a href="{{ route('admin.home') }}"> <img class="img-fluid"
-                            src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="..."></a>
+                   <img class="img-fluid"
+                            src="{{ asset('assets/slicing_web/logo.svg') }}" class="img-fluid" alt="...">
                 </div>
                 <div class="col-lg-10 col-12" id="second">
                     <div class="buttons1" style="display:inline-flex">

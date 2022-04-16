@@ -50,6 +50,7 @@
 $data = DB::table('categories')
     ->where('status', 1)
     ->get();
+    dd(phpinfo());
 @endphp
 
 <body >
