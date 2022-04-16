@@ -89,8 +89,6 @@ $i = 1;
                             </div>
                         </div>
                         @endif
-
-
                     </div>
                 </div>
             </section>
