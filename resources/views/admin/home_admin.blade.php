@@ -34,7 +34,13 @@
         <div class="row publish" id="second12">
             @foreach ($course as $value)
             <div class=" col-lg-4 col-12" id="second11">
-                <a href="{{ route('admin.publish.course',$value->id) }}"><img class="img-fluid" class="image" id="course_cover" src="{{asset('storage/'.$value->thumbnail)}}" class="img-fluid" alt="..."></a>
+                <a href="{{ route('admin.publish.course',$value->id) }}">
+                    @if($value->thumbnail)
+                    <img class="img-fluid" class="image" id="course_cover" src="{{asset('storage/'.$value->thumbnail)}}" class="img-fluid" alt="...">
+                @else
+                <img class="img-fluid" class="image" id="course_cover" src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="...">
+                @endif
+                </a>
                 <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
             </div>
             @endforeach
@@ -43,7 +49,13 @@
         <div class="row draft" id="second12">
             @foreach ($draft as $value)
             <div class=" col-lg-4 col-12" id="second11">
-                <a href="{{ route('admin.publish.course',$value->id) }}"><img class="img-fluid" class="image" id="course_cover" src="{{asset('storage/'.$value->thumbnail)}}" class="img-fluid" alt="..."></a>
+                <a href="{{ route('admin.publish.course',$value->id) }}">
+                @if($value->thumbnail)
+                <img class="img-fluid" class="image" id="course_cover" src="{{asset('storage/'.$value->thumbnail)}}" class="img-fluid" alt="...">
+                @else
+                <img class="img-fluid" class="image" id="course_cover" src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="...">
+                @endif                
+                </a>
                 <p class="image_cover"> {{$value->name}} <br>{{$value->description}}</p>
             </div>
             @endforeach

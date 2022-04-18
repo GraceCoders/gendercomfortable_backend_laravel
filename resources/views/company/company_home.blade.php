@@ -9,11 +9,14 @@
             <div class="row" id="second12">
                 @foreach ($data as $value)
                     <div class=" col-lg-4 col-12" id="second11">
-                        <a href="{{ route('course.detail', Crypt::encrypt($value->id)) }}"><img class="img-fluid"
-                                class="image" id="course_cover"
-                                src="{{asset('storage/'.$value->thumbnail)}}" class="img-fluid"
-                                alt="..."></a>
-                        <p class="image_cover">{{ $value->name }} <br>{{ $value->description }}</p>
+                        <a href="{{ route('course.detail', Crypt::encrypt($value->id)) }}">
+                            @if($value->thumbnail)
+                            <img class="img-fluid" class="image" id="course_cover"  src="{{asset('storage/'.$value->thumbnail)}}" class="img-fluid" alt="..."></a>
+                            @else
+                            <img class="img-fluid" class="image" id="course_cover"  src="{{asset('assets/slicing_web/logo.svg')}}" class="img-fluid" alt="..."></a>
+
+                            @endif
+                            <p class="image_cover">{{ $value->name }} <br>{{ $value->description }}</p>
                     </div>
                 @endforeach
             </div>

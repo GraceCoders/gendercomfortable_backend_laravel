@@ -15,7 +15,7 @@ $i=1;
             <div class="  col-lg-8 col-12 " id="regis_sec">
                 <div class="formdiv2">
                     <center>
-                        <h1 class="">Edit Question</h1>
+                        <h1 class="">Edit Course</h1>
                     </center>
                     <form method="POST" action="{{ route('admin.question.update') }}" id="savetodraft">
                         @csrf
@@ -68,9 +68,9 @@ $i=1;
                             </div>
                             @endforeach
                         </div>
-                        <!-- <small class="divide_marks pt-3" class="form-text"> <img class="img-fluid " src="{{ asset('assets/slicing_web/add_more.svg') }}" onclick="addCode()" alt="...">
+                         <small class="divide_marks pt-3" class="form-text"> <img class="img-fluid " src="{{ asset('assets/slicing_web/add_more.svg') }}" onclick="addCode()" alt="...">
                             add
-                            more</small> -->
+                            more</small>
                         <center><button type=" submit" class="btn btn-primary btn-lg  " onclick="showPage()" value="0" name="draft" id="buttonlarge">Publish</button>
                         </center>
                     </form>
@@ -101,7 +101,7 @@ $i=1;
 
 @endsection
 <script>
-    var count = 2;
+    var count = <?php echo count($data); ?>;
 
     function addCode() {
         count++;

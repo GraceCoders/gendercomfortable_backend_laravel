@@ -25,7 +25,7 @@ $i = 1;
                     <h4>Course Stats</h4>
                 </button>
             </li>
-            @if(Auth::id() == $data->user_id)
+            {{-- @if(Auth::id() == $data->user_id) --}}
             <li class="nav-item" role="presentation">
                 <a href="{{route('admin.course.edit',$data->id)}}"> <button class="nav-link bg-light" id="profile-tab" type="button" role="tab">
                         <h4>Edit</h4>
@@ -37,7 +37,7 @@ $i = 1;
                     <h4>Delete</h4>
                 </button>
             </li>
-            @endif
+            {{-- @endif --}}
         </ul>
     </div>
 </nav>
@@ -57,7 +57,14 @@ $i = 1;
             <p>Lesson {{ $i++ }}</p>
             <p class="donec">
                 <a href="{{ asset('storage/' . $value->media) }}" target="_blank">
-                    <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/video.svg') }}" alt="..."></a>
+                    @if($value->media_type == "application/pdf")
+                    <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/pdf.svg') }}" height="26px" width="26px" alt="...">
+                    @elseif($value->media_type == "image/jpeg" || $value->media_type == "image/png")
+                    <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/home.svg') }}" height="26px" width="26px" alt="...">
+                    @else
+                    <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/video.svg') }}" alt="...">
+                    @endif
+                </a>
                 {{ $value->lession_name }}
             </p>
             @endforeach
