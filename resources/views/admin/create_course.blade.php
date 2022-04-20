@@ -26,7 +26,7 @@
                             </center>
                             <div class="form-floating ">
                                 <input type="text"  minlength="0" maxlength="64" required name="name"
-                                    class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    class="form-control" id="textarea" placeholder="name@example.com">
                                 <label for="floatingInput">Course name</label>
                             </div>
                             <small id="divide_marks" class=" divide_marks form-text"></small>

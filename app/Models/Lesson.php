@@ -18,7 +18,8 @@ class Lesson extends Model
         'name',
         'media',
         'course_id',
-        'media_type'
+        'media_type',
+        'original_name'
     ];
 
     public function lessons()

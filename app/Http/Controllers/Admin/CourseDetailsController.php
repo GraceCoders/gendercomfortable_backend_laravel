@@ -60,6 +60,8 @@ class CourseDetailsController extends Controller
                     $file = upload_file($request->media[$i], 'lession');
                     $lesson->media = $file;
                     $lesson->media_type = $request->media[$i]->getClientMimeType();
+                    $lesson->original_name = $request->media[$i]->getClientOriginalName();
+
                 }
                 $lesson->course_id = $request->course_id;
                 $lesson->lession_name = $request->lession_name[$i];
@@ -70,6 +72,8 @@ class CourseDetailsController extends Controller
                     $file = upload_file($request->media[$i], 'lession');
                     $data->media = $file;
                     $data->media_type = $request->media[$i]->getClientMimeType();
+                    $data->original_name = $request->media[$i]->getClientOriginalName();
+
                 }
                 $data->course_id = $request->course_id;
                 $data->lession_name = $request->lession_name[$i];

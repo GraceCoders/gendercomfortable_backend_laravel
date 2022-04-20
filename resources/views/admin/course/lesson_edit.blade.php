@@ -23,7 +23,7 @@
         <div class="container text-center ">
             <div class="row">
                 <div class="col-lg-2 col-12 "><span>
-                        <p class="backsp pt-3"><a href="{{ url('admin/create/course') }}"><img class="img-fluid"
+                        <p class="backsp pt-3"><a href="{{ url('admin/edit/course',$id) }}"><img class="img-fluid"
                                     src="{{ asset('assets/slicing_web/back.svg') }}"></p> </a>
                     </span>
                 </div>
@@ -54,7 +54,8 @@
                                                 <div class="form-floating  ">
                                                     <div class="input-group custom-file-button">
                                                         <input type="file" name="media[]" class="form-control custom-file"
-                                                            id="floatingPassword" placeholder="Password">
+                                                            id="floatingPassword">
+                                                            {{-- <span>{{$value->original_name}}</span> --}}
                                                     </div>
                                                 </div>
                                                 <div class="form-floating  ">
@@ -87,21 +88,28 @@
         </div>
     </section>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     var count = <?php echo count($data); ?>;
-    console.log(count);
-
-    function addCode() {
-        count++;
-        document.getElementById("add_more").innerHTML +=
-            '<div class="lession2"><small class="uploads" class="form-text"><h1 class="lession">Lesson' + count +
-            '</h1></small><div class="form-floating mb-3 "><input type="text" name="lession_name[]" required class="form-control" id="floatingInput"placeholder="name@example.com"><label or="floatingInput" id="lesssonName1">Lesson name</label></div> <div class="form-floating "><div class="input-group custom-file-button"><input type="file" name="media[]" class="form-control custom-file" id="floatingPassword" placeholder="Password"></div></div><div class="form-floating  "><div class="input-group custom-file-button"><small id="lession_pera" class="form-text"><p>*You need to upload atleast two lesson for publishing this course</p></small></div></div></div>';
-    }
-
+    $(document).ready(function() {
+        $("#add_more_div").click(function() {
+            count++;
+            var newTextBoxDiv = $(document.createElement('div'))
+         .attr("id", 'TextBoxDiv' + count);
+            newTextBoxDiv.after().html(
+                '<div class="lession2"><small class="uploads" class="form-text"><h1 class="lession">Lesson' +
+                count +
+                '</h1></small><div class="form-floating mb-3 "><input type="text" name="lession_name[]" required class="form-control" id="floatingInput"placeholder="name@example.com"><label or="floatingInput" id="lesssonName1">Lesson name</label></div> <div class="form-floating "><div class="input-group custom-file-button"><input type="file" name="media[]" class="form-control custom-file" id="floatingPassword" placeholder="Password"></div></div><div class="form-floating  "><div class="input-group custom-file-button"><small id="lession_pera" class="form-text"><p>*You need to upload atleast two lesson for publishing this course</p></small></div></div></div>'
+                );
+            newTextBoxDiv.appendTo("#add_more");
+        });
+    });
     function showPage() {
         HoldOn.open({
             theme: 'sk-dot',
             message: "<h4 style='color:#fff;'>Please Wait Processing.......</h4>"
         });
     }
+    
 </script>
