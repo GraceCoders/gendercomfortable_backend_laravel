@@ -69,7 +69,7 @@
             <div class="container">
                 @if ($data['lessons'])
                     @foreach ($data['lessons'] as $value)
-                        <p>Lesson {{ $i++ }}</p>
+                        <p></p>
                         <p class="donec">
                             <a href="{{ asset('storage/' . $value->media) }}" target="_blank"> <img class="img-fluid"
                                     class="image" src="{{ asset('assets/slicing_web/video.svg') }}"

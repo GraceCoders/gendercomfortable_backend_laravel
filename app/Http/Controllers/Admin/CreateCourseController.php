@@ -24,6 +24,8 @@ class CreateCourseController extends Controller
         if (!empty($request->filename)) {
             $file = upload_file($request->filename, 'course');
             $course->thumbnail = $file;
+        }else{
+            $course->thumbnail = "course/finallogo.svg";
         }
         $course->name = $request->name;
         $course->description = $request->description;

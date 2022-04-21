@@ -8,7 +8,9 @@ $i =1;
     <div class="container">
         <div class="row">
             <div class=" col-lg-8 col-12" id="largeimages">
+
                 <img class="img-fluid" class="image" src="{{asset('storage/'.$data->thumbnail)}}" id="details2img" alt="...">
+                
                 <h3 class="details2heading">{{$data->name}}</h3>
                 <h4 class="details2heading1">${{$data->price_per_seat}}/seat</h4>
             </div>
@@ -63,8 +65,16 @@ $i =1;
                 @foreach ($data['lessons'] as $value )
                 <p>Lesson {{$i++}}</p>
                 <p class="donec">
-                    <a href="{{ asset('storage/' . $value->media) }}" target="_blank">
-                        <img class="img-fluid" class="image" src="{{asset('assets/slicing_web/video.svg')}}" alt="..."></a>{{$value->lession_name}}
+                    <a href="{{ route('company.media.player',$value->id ) }}">
+                        @if($value->media_type == "application/pdf")
+                        <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/pdf.svg') }}" height="26px" width="26px" alt="...">
+                        @elseif($value->media_type == "image/jpeg" || $value->media_type == "image/png")
+                        <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/home.svg') }}" height="26px" width="26px" alt="...">
+                        @else
+                        <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/video.svg') }}" alt="...">
+                        @endif
+                    </a>
+                    {{ $value->lession_name }}
                 </p>
                 @endforeach
                 @endif

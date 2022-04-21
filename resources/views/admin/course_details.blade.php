@@ -60,7 +60,7 @@ $i = 1;
             @foreach ($data['lessons'] as $value)
             <p>Lesson {{ $i++ }}</p>
             <p class="donec">
-                <a href="{{ asset('storage/' . $value->media) }}" target="_blank">
+                <a href="{{ route('media.player',$value->id ) }}">
                     @if($value->media_type == "application/pdf")
                     <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/pdf.svg') }}" height="26px" width="26px" alt="...">
                     @elseif($value->media_type == "image/jpeg" || $value->media_type == "image/png")

@@ -82,6 +82,9 @@ Route::post('/add/question',[CreatetestController::class, 'addQuestion'])->name(
 Route::get('/edit/profile',[EditprofileController::class, 'edit'])->name('admin.edit.profile');
 Route::post('/update/profile',[EditprofileController::class, 'updateProfile'])->name('admin.update.profile');
 
+Route::get('/media/player/{id}',[AdminController::class, 'mediaPlayer'])->name('media.player');
+
+
 Route::get('/create/course',[CreateCourseController::class, 'createcourse'])->name('admin.coures.view');
 Route::post('/create_course',[CreateCourseController::class, 'addCourse'])->name('admin.add.course');
 Route::get('/publish/course/{id}',[CourseDetailsController::class, 'coursedetail'])->name('admin.publish.course');
@@ -117,6 +120,7 @@ Route::prefix('/company')->group(function () {
 Route::get('/signup_company',[ SignupcompanyController::class, 'Signupcompany'])->name('company.signup');
 Route::post('/company_register',[SignupcompanyController::class, 'register'])->name('company.register');
 Route::group(['middleware' => 'company'], function () {
+    Route::get('/company/media/player/{id}',[AdminController::class, 'mediaPlayer'])->name('company.media.player');
 
 Route::get('/home',[CompanyhomeController ::class, 'Companyhome'])->name('company.home');
 Route::get('/course/detail/{id}',[Coursedetails2Controller::class, 'Coursedetail2'])->name('course.detail');

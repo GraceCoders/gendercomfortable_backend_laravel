@@ -14,7 +14,11 @@
                         <h5>Order details</h5>
                         <div class="row">
                             <div class="  col-lg-4 col-12 " id="ckeck1">
-                <img class="img-fluid" class="image" src="{{asset('storage/'.$data['course']->thumbnail)}}" id="checkout_img" >
+                                @if($data['course']->thumbnail)
+                         <img class="img-fluid" class="image" src="{{asset('storage/'.$data['course']->thumbnail)}}" id="checkout_img" >
+                         @else
+                         <img class="img-fluid" class="image" src="{{asset('storage/'.$data['course']->thumbnail)}}" id="checkout_img" >
+                         @endif
                             </div>
                             <div class="  col-lg-8 col-12 " id="check1">
                                 <h5>{{ $data['course']->name }}</h5>

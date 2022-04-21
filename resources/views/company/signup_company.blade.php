@@ -181,12 +181,4 @@ $data = DB::table('categories')
     $(document).ready(function(){
     $(".alert").delay(5000).slideUp(300);
 });
-<<<<<<< HEAD
-$(document).ready(function() {
- $("#categorycategory").click(function() {
-alert('dfhgshfsd');
- });
-});
-=======
->>>>>>> 8181426556699f53b56e601e444bcb18dfc5bf4a
 </script>

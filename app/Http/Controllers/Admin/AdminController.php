@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,5 +76,9 @@ class AdminController extends Controller
         $data->status = 1;
         $data->save();
         return redirect('/admin/category/list')->with('success',"Category Updated successfully");
+    }
+    public function mediaPlayer(Request $request,$id){
+         $data = Lesson::where('id',$id)->first();
+         return view('admin.player',compact('data'));
     }
 }
