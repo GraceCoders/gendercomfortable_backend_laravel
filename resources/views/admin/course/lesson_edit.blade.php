@@ -51,12 +51,13 @@
                                                         value="{{ $value->lession_name }}" required class="form-control"
                                                         id="floatingInput" placeholder="name@example.com">
                                                 </div>
+
                                                 <div class="form-floating  ">
                                                     <div class="input-group custom-file-button">
                                                         <input type="file" name="media[]" class="form-control custom-file"
                                                             id="floatingPassword">
-                                                            {{-- <span>{{$value->original_name}}</span> --}}
                                                     </div>
+                                                    <span class="name" id="name">{{$value->original_name}}</span>
                                                 </div>
                                                 <div class="form-floating  ">
                                                     <div class="input-group custom-file-button">
@@ -70,9 +71,9 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                    <small class="divide_marks pt-3" id="addmore" class="form-text">
+                                    <small class="divide_marks pt-3" id="add_more_div" class="form-text">
                                         <img class="img-fluid " src="{{ asset('assets/slicing_web/add_more.svg') }}"
-                                            onclick="addCode()" alt="..."> add more</small>
+                                             alt="..."> add more</small>
                                     <small class="divide_marks1 pt-3" class="form-text"> You need to upload atleast two
                                         lesson for
                                         publishing this course</small>
@@ -111,5 +112,22 @@
             message: "<h4 style='color:#fff;'>Please Wait Processing.......</h4>"
         });
     }
+
+    var input = document.getElementById( 'file-upload' );
+var infoArea = document.getElementById( 'file-upload-filename' );
+
+input.addEventListener( 'change', showFileName );
+
+function showFileName( event ) {
+  
+  // the change event gives us the input it occurred in 
+  var input = event.srcElement;
+  
+  // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+  var fileName = input.files[0].name;
+  
+  // use fileName however fits your app best, i.e. add it into a div
+  infoArea.textContent = 'File name: ' + fileName;
+}
     
 </script>

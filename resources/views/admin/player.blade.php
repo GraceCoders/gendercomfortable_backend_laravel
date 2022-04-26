@@ -1,7 +1,8 @@
 @extends('admin.layouts.main')
 @section('main-container')
 <!-- Third div start -->
-<section class="third_sec bg-light" >
+<section class="third_sec bg-light"       oncontextmenu="return false" 
+>
   <center>
     <div class="container " id="media">
       @if($data->media_type == "application/pdf")
@@ -12,7 +13,6 @@
       scrolling="auto"
       height="100%"
       width="100%"
-      oncontextmenu="return false" 
   ></embed> 
 
   @elseif($data->media_type == "image/jpeg" || $data->media_type == "image/png")

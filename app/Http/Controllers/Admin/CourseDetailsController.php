@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\ConvertVideoForDownloading;
+use App\Jobs\ConvertVideoForStreaming;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\PurchaseCourse;
 use App\Models\Question;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -66,6 +69,17 @@ class CourseDetailsController extends Controller
                 $lesson->course_id = $request->course_id;
                 $lesson->lession_name = $request->lession_name[$i];
                 $lesson->save();
+
+
+                $video = Video::create([
+                    'disk'          => 'videos_disk',
+                    'original_name' =>$request->media[$i]->getClientOriginalName(),
+                    'path'          =>$request->media[$i]->store('videos', 'videos_disk'),
+                ]);
+        
+                $this->dispatch(new ConvertVideoForDownloading($video));
+                $this->dispatch(new ConvertVideoForStreaming($video));
+        
             } else {
                 $data = new Lesson();
                 if (!empty($request->media[$i])) {

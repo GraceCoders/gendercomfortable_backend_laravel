@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '8181426556699f53b56e601e444bcb18dfc5bf4a',
+        'reference' => 'e440ada3fe6f86cf9d47770e0358916e01edd40e',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -137,6 +137,15 @@
             'install_path' => __DIR__ . '/../egulias/email-validator',
             'aliases' => array(),
             'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
+            'dev_requirement' => false,
+        ),
+        'evenement/evenement' => array(
+            'pretty_version' => 'v3.0.1',
+            'version' => '3.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../evenement/evenement',
+            'aliases' => array(),
+            'reference' => '531bfb9d15f8aa57454f5f0285b18bec903b8fb7',
             'dev_requirement' => false,
         ),
         'facade/flare-client-php' => array(
@@ -454,7 +463,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '8181426556699f53b56e601e444bcb18dfc5bf4a',
+            'reference' => 'e440ada3fe6f86cf9d47770e0358916e01edd40e',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -637,6 +646,15 @@
             'reference' => '06837d290c4906578cfd92786412dff330a1429c',
             'dev_requirement' => false,
         ),
+        'pbmedia/laravel-ffmpeg' => array(
+            'pretty_version' => '7.8.1',
+            'version' => '7.8.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../pbmedia/laravel-ffmpeg',
+            'aliases' => array(),
+            'reference' => '8fd5667b8898b30531b335ef43c0938d92b60e87',
+            'dev_requirement' => false,
+        ),
         'phar-io/manifest' => array(
             'pretty_version' => '2.0.3',
             'version' => '2.0.3.0',
@@ -671,6 +689,15 @@
             'install_path' => __DIR__ . '/../phenx/php-svg-lib',
             'aliases' => array(),
             'reference' => '4498b5df7b08e8469f0f8279651ea5de9626ed02',
+            'dev_requirement' => false,
+        ),
+        'php-ffmpeg/php-ffmpeg' => array(
+            'pretty_version' => 'v1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-ffmpeg/php-ffmpeg',
+            'aliases' => array(),
+            'reference' => 'bda300b69acecf791d2934cd5ed43a8ba24febf6',
             'dev_requirement' => false,
         ),
         'phpdocumentor/reflection-common' => array(
@@ -781,6 +808,12 @@
             'reference' => 'aa5030cfa5405eccfdcb1083ce040c2cb8d253bf',
             'dev_requirement' => false,
         ),
+        'psr/cache-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '2.0|3.0',
+            ),
+        ),
         'psr/container' => array(
             'pretty_version' => '1.1.2',
             'version' => '1.1.2.0',
@@ -885,6 +918,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psy/psysh' => array(
@@ -1082,6 +1116,15 @@
             'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
             'dev_requirement' => true,
         ),
+        'spatie/temporary-directory' => array(
+            'pretty_version' => '2.1.0',
+            'version' => '2.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/temporary-directory',
+            'aliases' => array(),
+            'reference' => '79f138f2b81adae583d04d3727a4538dd394023f',
+            'dev_requirement' => false,
+        ),
         'srmklive/paypal' => array(
             'pretty_version' => '3.0.13',
             'version' => '3.0.13.0',
@@ -1099,6 +1142,30 @@
             'aliases' => array(),
             'reference' => '8a5d5072dca8f48460fce2f4131fcc495eec654c',
             'dev_requirement' => false,
+        ),
+        'symfony/cache' => array(
+            'pretty_version' => 'v6.0.6',
+            'version' => '6.0.6.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/cache',
+            'aliases' => array(),
+            'reference' => '57faad4e0d694f9961f517fdd5e6fbb1f6d0e04f',
+            'dev_requirement' => false,
+        ),
+        'symfony/cache-contracts' => array(
+            'pretty_version' => 'v3.0.1',
+            'version' => '3.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/cache-contracts',
+            'aliases' => array(),
+            'reference' => '1c0a181c9ee221afe4fa55b2d13fc63c5ae14348',
+            'dev_requirement' => false,
+        ),
+        'symfony/cache-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.1|2.0|3.0',
+            ),
         ),
         'symfony/console' => array(
             'pretty_version' => 'v5.4.3',
@@ -1353,6 +1420,15 @@
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),
             'reference' => '970a01f208bf895c5f327ba40b72288da43adec4',
+            'dev_requirement' => false,
+        ),
+        'symfony/var-exporter' => array(
+            'pretty_version' => 'v6.0.7',
+            'version' => '6.0.7.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/var-exporter',
+            'aliases' => array(),
+            'reference' => '5f1fddb1b3a8394dbfb234044e3ad620a26e1735',
             'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
