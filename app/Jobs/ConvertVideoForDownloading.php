@@ -12,8 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg as SupportFFMpeg;
-
+use FFMpeg;
 class ConvertVideoForDownloading implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -28,7 +27,7 @@ class ConvertVideoForDownloading implements ShouldQueue
     public function handle()
     {
         $lowBitrateFormat = (new X264)->setKiloBitrate(500);
-        SupportFFMpeg::fromDisk($this->video->disk)
+        FFMpeg::fromDisk($this->video->disk)
             ->open($this->video->path)
             ->addFilter(function ($filters) {
                 $filters->resize(new Dimension(960, 540));
