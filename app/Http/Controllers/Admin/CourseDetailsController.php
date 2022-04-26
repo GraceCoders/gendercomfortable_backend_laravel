@@ -71,15 +71,15 @@ class CourseDetailsController extends Controller
                 $lesson->save();
 
 
-                $video = Video::create([
-                    'disk'          => 'videos_disk',
-                    'original_name' =>$request->media[$i]->getClientOriginalName(),
-                    'path'          =>$request->media[$i]->store('videos', 'videos_disk'),
-                    'title'=>$request->media[$i]->getClientOriginalName()
-                ]);
+                // $video = Video::create([
+                //     'disk'          => 'videos_disk',
+                //     'original_name' =>$request->media[$i]->getClientOriginalName(),
+                //     'path'          =>$request->media[$i]->store('videos', 'videos_disk'),
+                //     'title'=>$request->media[$i]->getClientOriginalName()
+                // ]);
         
-                $this->dispatch(new ConvertVideoForDownloading($video));
-                $this->dispatch(new ConvertVideoForStreaming($video));
+                // $this->dispatch(new ConvertVideoForDownloading($video));
+                // $this->dispatch(new ConvertVideoForStreaming($video));
         
             } else {
                 $data = new Lesson();
