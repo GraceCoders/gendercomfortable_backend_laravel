@@ -35,7 +35,11 @@ return [
             'root'   => public_path() . '/storage',
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
-         ]
+        ],
+         'videos' => [
+            'driver' => 'local',
+            'root' => storage_path('videos'),
+        ]
 
     ],
 
