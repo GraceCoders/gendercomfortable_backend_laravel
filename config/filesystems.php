@@ -36,7 +36,7 @@ return [
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
-         'videos' => [
+         'videos_disk' => [
             'driver' => 'local',
             'root' => storage_path('videos'),
         ]
