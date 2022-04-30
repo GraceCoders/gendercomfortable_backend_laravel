@@ -71,6 +71,8 @@ Auth::routes();
 
 Route::group(['middleware' => 'admin'], function () {
 
+Route::get('/storage/course/{id}',[AdminController::class,'Authontication']);
+
 Route::prefix('/admin')->group(function () {
 Route::get('/index',[IndexController::class, 'index'])->name('admin.index');
 Route::get('/home',[AdminController::class, 'Admin'])->name('admin.home');

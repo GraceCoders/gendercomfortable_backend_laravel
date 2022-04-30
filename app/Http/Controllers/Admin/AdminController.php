@@ -81,4 +81,14 @@ class AdminController extends Controller
          $data = Lesson::where('id',$id)->first();
          return view('admin.player',compact('data'));
     }
+    public function Authontication(Request $request,$id){
+dd(Auth::user());
+        $profile_path = public_path('storage/course'. $id);
+
+        if (Auth::user()) {
+            return response()->file($profile_path);
+        } else {
+            abort(404);
+        }
+    }
 }

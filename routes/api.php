@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\Api\v1\CompanyController;
 use App\Http\Controllers\Api\v1\CoursesController;
 use App\Http\Controllers\Api\v1\EmployeeController;
