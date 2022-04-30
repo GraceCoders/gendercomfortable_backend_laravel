@@ -59,7 +59,15 @@ $i = 1;
             @if ($data['lessons'])
             @foreach ($data['lessons'] as $value)
             <p>Lesson {{ $i++ }}</p>
-            <p class="donec">
+            <p class="donec">@php
+             $open=   FFMpeg::fromDisk('public')
+        ->open($value->media)
+        ->getFrameFromSeconds(10)
+        ->export()
+        ->toDisk('thumnails')
+        ->save('FrameAt10sec.png');
+             dd($open);
+@endphp
                 <a href="{{ route('media.player',$value->id ) }}">
                     @if($value->media_type == "application/pdf")
 
