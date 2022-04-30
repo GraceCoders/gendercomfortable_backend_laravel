@@ -18,6 +18,6 @@ class FFMpeg extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'ffmpeg';
+        return 'FFMpeg';
     }
 }
