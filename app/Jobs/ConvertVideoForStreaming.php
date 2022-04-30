@@ -2,45 +2,75 @@
 
 namespace App\Jobs;
 
-use App\Models\Video;
+use FFMpeg\Coordinate\Dimension;
+use app\models\video;
 use Carbon\Carbon;
+use FFMpeg\Filters\Video\VideoFilters;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use FFMpeg;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg as SupportFFMpeg;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class ConvertVideoForStreaming implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+ use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $video;
 
+    /**
+     * Create a new job instance.
+     *
+     * @param Video $video
+     */
     public function __construct(Video $video)
     {
         $this->video = $video;
     }
 
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
     public function handle()
     {
-        $lowBitrateFormat  = (new X264)->setKiloBitrate(500);
-        $midBitrateFormat  = (new X264)->setKiloBitrate(1500);
-        $highBitrateFormat = (new X264)->setKiloBitrate(3000);
+        // create a video format...
+        $lowBitrateFormat = (new X264('aac'))->setKiloBitrate(500);
 
-        SupportFFMpeg::fromDisk($this->video->disk)
+        $converted_name = $this->getCleanFileName($this->video->path);
+
+        // open the uploaded video from the right disk...
+        FFMpeg::fromDisk($this->video->disk)
             ->open($this->video->path)
 
-            ->exportForHLS()
-            ->toDisk('streamable_videos')
-            ->addFormat($lowBitrateFormat)
-            ->addFormat($midBitrateFormat)
-            ->addFormat($highBitrateFormat)
-            ->save($this->video->id . '.m3u8');
+            // add the 'resize' filter...
+            ->addFilter(function (VideoFilters $filters) {
+                $filters->resize(new Dimension(640, 480));
+            })
+
+            // call the 'export' method...
+            ->export()
+
+            // tell the MediaExporter to which disk and in which format we want to export...
+            ->toDisk('public')
+            ->inFormat($lowBitrateFormat)
+
+            // call the 'save' method with a filename...
+            ->save($converted_name);
+
+        // update the database so we know the convertion is done!
         $this->video->update([
             'converted_for_streaming_at' => Carbon::now(),
+            'processed' => true,
+            'stream_path' => $converted_name
         ]);
+    }
+
+    private function getCleanFileName($filename){
+        return preg_replace('/\.[^.\s]{3,4}$/', '', $filename) . '.mp4';
     }
 }
