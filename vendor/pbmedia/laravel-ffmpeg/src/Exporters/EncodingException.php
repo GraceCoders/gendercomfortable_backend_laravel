@@ -9,6 +9,7 @@ class EncodingException extends RuntimeException
 {
     public static function decorate(RuntimeException $runtimeException): EncodingException
     {
+        dd('asasas');
         return tap(new static(
             $runtimeException->getMessage(),
             $runtimeException->getCode(),
