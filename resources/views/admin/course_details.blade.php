@@ -59,9 +59,18 @@ $i = 1;
             @if ($data['lessons'])
             @foreach ($data['lessons'] as $value)
             <p>Lesson {{ $i++ }}</p>
-            <p class="donec">
+            <p class="donec">@php
+             $open=   FFMpeg::fromDisk('public')
+        ->open($value->media)
+        ->getFrameFromSeconds(10)
+        ->export()
+        ->toDisk('thumnails')
+        ->save('FrameAt10sec.png');
+             dd($open);
+@endphp
                 <a href="{{ route('media.player',$value->id ) }}">
                     @if($value->media_type == "application/pdf")
+
                     <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/pdf.svg') }}" height="26px" width="26px" alt="...">
                     @elseif($value->media_type == "image/jpeg" || $value->media_type == "image/png")
                     <img class="img-fluid" class="image" src="{{ asset('assets/slicing_web/home.svg') }}" height="26px" width="26px" alt="...">

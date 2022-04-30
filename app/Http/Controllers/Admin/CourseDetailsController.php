@@ -78,7 +78,7 @@ class CourseDetailsController extends Controller
                     'title'=>$request->media[$i]->getClientOriginalName()
                 ]);
                 // $this->dispatch(new ConvertVideoForDownloading($video));
-                $this->dispatch(new ConvertVideoForStreaming($video));
+                // $this->dispatch(new ConvertVideoForStreaming($video));
         
             } else {
                 $data = new Lesson();

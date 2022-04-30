@@ -8,13 +8,11 @@ use Carbon\Carbon;
 use FFMpeg\Filters\Video\VideoFilters;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
-
 class ConvertVideoForStreaming implements ShouldQueue
 {
  use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -38,32 +36,22 @@ class ConvertVideoForStreaming implements ShouldQueue
      */
     public function handle()
     {
-        // create a video format...
         $lowBitrateFormat = (new X264('aac'))->setKiloBitrate(500);
 
         $converted_name = $this->getCleanFileName($this->video->path);
 
-        // open the uploaded video from the right disk...
         FFMpeg::fromDisk($this->video->disk)
             ->open($this->video->path)
-
-            // add the 'resize' filter...
             ->addFilter(function (VideoFilters $filters) {
                 $filters->resize(new Dimension(640, 480));
             })
-
-            // call the 'export' method...
             ->export()
-
-            // tell the MediaExporter to which disk and in which format we want to export...
             ->toDisk('public')
             ->inFormat($lowBitrateFormat)
-
-            // call the 'save' method with a filename...
             ->save($converted_name);
 
-        // update the database so we know the convertion is done!
-        $this->video->update([
+
+            $this->video->update([
             'converted_for_streaming_at' => Carbon::now(),
             'processed' => true,
             'stream_path' => $converted_name

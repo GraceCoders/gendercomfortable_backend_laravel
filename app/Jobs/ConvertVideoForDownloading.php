@@ -40,7 +40,7 @@ class ConvertVideoForDownloading implements ShouldQueue
             ->inFormat($lowBitrateFormat)
             ->save($this->video->id . '.mp4');
 
-            $this->video->update([
+        $this->video->update([
             'converted_for_downloading_at' => Carbon::now(),
         ]);
     }
