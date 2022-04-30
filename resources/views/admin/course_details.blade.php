@@ -60,7 +60,7 @@ $i = 1;
             @foreach ($data['lessons'] as $value)
             <p>Lesson {{ $i++ }}</p>
             <p class="donec">@php
-             $open=   FFMpeg::fromDisk('public')
+        $open=   ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::fromDisk('public')
         ->open($value->media)
         ->getFrameFromSeconds(10)
         ->export()
