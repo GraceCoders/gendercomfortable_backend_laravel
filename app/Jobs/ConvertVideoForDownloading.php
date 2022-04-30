@@ -29,7 +29,6 @@ class ConvertVideoForDownloading implements ShouldQueue
     {
         // create a video format...
         $lowBitrateFormat = (new X264)->setKiloBitrate(500);
-
         SupportFFMpeg::fromDisk($this->video->disk)
             ->open($this->video->path)
             ->addFilter(function ($filters) {
