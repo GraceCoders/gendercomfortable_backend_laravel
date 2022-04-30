@@ -77,7 +77,6 @@ class CourseDetailsController extends Controller
                     'path'          =>$request->media[$i]->store('videos', 'videos_disk'),
                     'title'=>$request->media[$i]->getClientOriginalName()
                 ]);
-        
                 $this->dispatch(new ConvertVideoForDownloading($video));
                 $this->dispatch(new ConvertVideoForStreaming($video));
         

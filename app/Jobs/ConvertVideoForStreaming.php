@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use FFMpeg;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg as SupportFFMpeg;
 
 class ConvertVideoForStreaming implements ShouldQueue
 {
@@ -29,7 +30,7 @@ class ConvertVideoForStreaming implements ShouldQueue
         $midBitrateFormat  = (new X264)->setKiloBitrate(1500);
         $highBitrateFormat = (new X264)->setKiloBitrate(3000);
 
-        FFMpeg::fromDisk($this->video->disk)
+        SupportFFMpeg::fromDisk($this->video->disk)
             ->open($this->video->path)
 
             ->exportForHLS()
