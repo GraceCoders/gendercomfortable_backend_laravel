@@ -18,6 +18,6 @@ class FFMpeg extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'FFMpeg';
+        return 'laravel-ffmpeg';
     }
 }
