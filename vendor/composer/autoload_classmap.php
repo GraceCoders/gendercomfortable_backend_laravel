@@ -25,6 +25,7 @@ return array(
     'Alchemy\\BinaryDriver\\ProcessRunner' => $vendorDir . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunner.php',
     'Alchemy\\BinaryDriver\\ProcessRunnerAwareInterface' => $vendorDir . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunnerAwareInterface.php',
     'Alchemy\\BinaryDriver\\ProcessRunnerInterface' => $vendorDir . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunnerInterface.php',
+    'App\\Console\\Commands\\ProcessVideoUpload' => $baseDir . '/app/Console/Commands/ProcessVideoUpload.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\SignupController' => $baseDir . '/app/Http/Controllers/Admin/SignupController.php',
