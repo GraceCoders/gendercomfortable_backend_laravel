@@ -62,10 +62,6 @@
                     @foreach ($data['lessons'] as $value)
                         <p>Lesson {{ $i++ }}</p>
                         <p class="donec">
-                            @php
-                                $open = ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::fromDisk('public')->open($value->media);
-                                dd($open);
-                            @endphp
                             <a href="{{ route('media.player', $value->id) }}">
                                 @if ($value->media_type == 'application/pdf')
                                     <img class="img-fluid" class="image"

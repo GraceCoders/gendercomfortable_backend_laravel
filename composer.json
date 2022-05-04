@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "paypal/rest-api-sdk-php": "*",
-        "pbmedia/laravel-ffmpeg": "^7.5.1",
+        "pbmedia/laravel-ffmpeg": "7.8.1",
         "php-ffmpeg/php-ffmpeg": "^1.0",
         "srmklive/paypal": "~3.0",
         "yajra/laravel-datatables-oracle": "~9.0"
